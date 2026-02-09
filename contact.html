@@ -17,24 +17,7 @@
     <link rel="stylesheet" href="styles/contact.css"/>
     <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
     <style>.skip-link{position:absolute;top:-40px;left:0;background:#2563eb;color:white;padding:8px;z-index:100}.skip-link:focus{top:0}</style>
-    <script type="text/javascript">
-        // Direct email submission - opens user's email client
-        document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('contactForm');
-            if (form) {
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    window.location.href = "mailto:info@thinkersgk.com" +
-                        "?subject=" + encodeURIComponent(document.getElementById('service').value) +
-                "&body=" + encodeURIComponent("Name: " + document.getElementById('firstName').value + " " + document.getElementById('lastName').value + "\n" +
-                                             "Email: " + document.getElementById('email').value + "\n" +
-                                             "Company: " + document.getElementById('company').value + "\n" +
-                                             "Phone: " + document.getElementById('phone').value + "\n" +
-                                             "Message: " + document.getElementById('message').value);
-                });
-            }
-        });
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body class="time-theme" data-time-theme="auto">
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -350,6 +333,7 @@
                         <li><a href="services.html#support">IT Support</a></li>
                         <li><a href="services.html#engineering">Field Engineering</a></li>
                         <li><a href="services.html#lifecycle">IT Asset Lifecycle</a></li>
+                        <li><a href="services.html#datadestruction">Data Destruction</a></li>
                         <li><a href="services.html#consulting">IT Consulting</a></li>
                     </ul>
                 </div>
@@ -388,4 +372,5 @@
 
     <script src="scripts/main.js"></script>
     <script src="scripts/time-theme.js"></script>
+    <script src="scripts/contact.js"></script>
 </body></html>

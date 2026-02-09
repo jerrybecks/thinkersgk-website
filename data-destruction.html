@@ -1,0 +1,517 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Secure Data Destruction | Thinkers GK - Certified Data Erasure</title>
+    <meta name="description" content="Certified secure data destruction services in Japan. NIST 800-88, DoD 5220.22-M compliant. On-site wiping, physical destruction, bilingual certificates."/>
+    <meta property="og:title" content="Secure Data Destruction | Thinkers GK"/>
+    <meta property="og:description" content="Certified secure data destruction services in Japan. NIST 800-88 compliant with bilingual certificates."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://jerrybecks.github.io/thinkersgk-website/data-destruction.html"/>
+    <meta property="og:image" content="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&amp;q=80"/>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <link rel="stylesheet" href="styles/animations.css"/>
+    <link rel="stylesheet" href="styles/time-theme.css"/>
+    <link rel="stylesheet" href="styles/services.css"/>
+    <style>
+    .skip-link{position:absolute;top:-40px;left:0;background:#2563eb;color:white;padding:8px;z-index:100}
+    .skip-link:focus{top:0}
+
+    /* Data Destruction Page Specific */
+    .dd-cert-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+    .dd-cert-badge {
+        padding: 0.5rem 1rem;
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.4);
+        border-radius: 50px;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: #f87171;
+    }
+    .dd-section {
+        padding: 5rem 0;
+    }
+    .dd-section:nth-child(even) {
+        background: var(--bg-secondary);
+    }
+    .dd-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+    }
+    .dd-services-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .dd-service-item {
+        display: flex;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        transition: var(--transition-base);
+    }
+    .dd-service-item:hover {
+        border-color: rgba(239, 68, 68, 0.3);
+        transform: translateY(-2px);
+    }
+    .dd-service-icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(239, 68, 68, 0.1);
+        border-radius: 12px;
+        color: #ef4444;
+        flex-shrink: 0;
+    }
+    .dd-service-item h3 {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.375rem;
+    }
+    .dd-service-item p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    .dd-tools-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    .dd-tool-card {
+        padding: 2rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        text-align: center;
+        transition: var(--transition-base);
+    }
+    .dd-tool-card:hover {
+        border-color: rgba(239, 68, 68, 0.3);
+        transform: translateY(-4px);
+    }
+    .dd-tool-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: #f87171;
+    }
+    .dd-tool-card p {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+    .dd-process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        position: relative;
+    }
+    .dd-step {
+        position: relative;
+        padding: 2rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        text-align: center;
+    }
+    .dd-step-num {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+        border-radius: 50%;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: white;
+        margin: 0 auto 1rem;
+    }
+    .dd-step h3 {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .dd-step p {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+    .dd-compliance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    .dd-compliance-card {
+        padding: 2rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+    }
+    .dd-compliance-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #f87171;
+    }
+    .dd-compliance-card p {
+        color: var(--text-secondary);
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+        .dd-grid { grid-template-columns: 1fr; gap: 2rem; }
+        .dd-tools-grid { grid-template-columns: 1fr; }
+        .dd-process-steps { grid-template-columns: 1fr; }
+    }
+    </style>
+</head>
+<body class="time-theme" data-time-theme="auto">
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <main id="main">
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay="" muted="" loop="" playsinline="" id="bgVideo" poster="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&amp;q=80">
+            <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+            <source src="https://cdn.coverr.co/videos/coverr-tokyo-city-at-night-3395/1080p.mp4" type="video/mp4"/>
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Time-based Gradient Overlay -->
+    <div class="time-gradient-overlay" id="timeOverlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">THINKERS</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="why-us.html">Why Us</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content">
+                <span class="section-tag">Secure &amp; Certified</span>
+                <h1>Data Destruction Services</h1>
+                <p>Certified, compliant data destruction ensuring your sensitive information is permanently and securely erased. Full documentation in English and Japanese.</p>
+                <div class="dd-cert-badges">
+                    <span class="dd-cert-badge">NIST 800-88</span>
+                    <span class="dd-cert-badge">DoD 5220.22-M</span>
+                    <span class="dd-cert-badge">APPI Compliant</span>
+                    <span class="dd-cert-badge">ISO 27001 Aligned</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="dd-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Offer</span>
+                <h2>Our Data Destruction Services</h2>
+                <p>Comprehensive data sanitization solutions for businesses of all sizes.</p>
+            </div>
+            <div class="dd-services-list">
+                <div class="dd-service-item">
+                    <div class="dd-service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>On-Site Data Wiping</h3>
+                        <p>Our certified technicians come to your location with professional-grade software to securely erase all data from your devices. Your data never leaves your premises.</p>
+                    </div>
+                </div>
+                <div class="dd-service-item">
+                    <div class="dd-service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Secure Pickup &amp; Transport</h3>
+                        <p>Documented chain-of-custody collection and transport of your devices to our secure processing facility. Full tracking from pickup to final destruction certificate.</p>
+                    </div>
+                </div>
+                <div class="dd-service-item">
+                    <div class="dd-service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M9 12l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Physical Destruction</h3>
+                        <p>For end-of-life media requiring physical destruction, we offer professional shredding and degaussing services with video documentation available.</p>
+                    </div>
+                </div>
+                <div class="dd-service-item">
+                    <div class="dd-service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Bilingual Certificates</h3>
+                        <p>Receive detailed destruction certificates in both English and Japanese, including serial numbers, methods used, and compliance standards met.</p>
+                    </div>
+                </div>
+                <div class="dd-service-item">
+                    <div class="dd-service-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 16 12 12 8 16"></polyline>
+                            <line x1="12" y1="12" x2="12" y2="21"></line>
+                            <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>IT Recycling &amp; Value Recovery</h3>
+                        <p>After secure data destruction, eligible equipment is refurbished and remarketed. We handle environmentally responsible disposal for everything else.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certified Tools -->
+    <section class="dd-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Industry Standard</span>
+                <h2>Certified Tools We Use</h2>
+                <p>We use only industry-leading, certified data erasure software.</p>
+            </div>
+            <div class="dd-tools-grid">
+                <div class="dd-tool-card">
+                    <h3>Blancco</h3>
+                    <p>Enterprise-grade data erasure with tamper-proof certification. The global standard for certified data sanitization.</p>
+                </div>
+                <div class="dd-tool-card">
+                    <h3>BitRaser</h3>
+                    <p>NIST 800-88 compliant erasure for drives, mobile devices, and servers. Generates detailed audit reports.</p>
+                </div>
+                <div class="dd-tool-card">
+                    <h3>KillDisk</h3>
+                    <p>Military-grade disk sanitization supporting 20+ international standards. Ideal for high-security environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="dd-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>Our Process</h2>
+                <p>A transparent, documented process from start to finish.</p>
+            </div>
+            <div class="dd-process-steps">
+                <div class="dd-step">
+                    <div class="dd-step-num">1</div>
+                    <h3>Assessment</h3>
+                    <p>We inventory your devices and determine the appropriate destruction method for each.</p>
+                </div>
+                <div class="dd-step">
+                    <div class="dd-step-num">2</div>
+                    <h3>Collection</h3>
+                    <p>Secure pickup with chain-of-custody documentation, or we come to your site.</p>
+                </div>
+                <div class="dd-step">
+                    <div class="dd-step-num">3</div>
+                    <h3>Destruction</h3>
+                    <p>Software erasure or physical destruction performed by certified technicians.</p>
+                </div>
+                <div class="dd-step">
+                    <div class="dd-step-num">4</div>
+                    <h3>Certification</h3>
+                    <p>Bilingual certificates issued with serial numbers, methods, and compliance details.</p>
+                </div>
+                <div class="dd-step">
+                    <div class="dd-step-num">5</div>
+                    <h3>Recycling</h3>
+                    <p>Environmentally responsible disposal or value recovery for eligible assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="dd-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Compliance</span>
+                <h2>Standards We Meet</h2>
+                <p>Full compliance with international and Japanese data protection regulations.</p>
+            </div>
+            <div class="dd-compliance-grid">
+                <div class="dd-compliance-card">
+                    <h3>NIST 800-88</h3>
+                    <p>Guidelines for Media Sanitization. Our processes follow Clear, Purge, and Destroy methods as defined by the National Institute of Standards and Technology.</p>
+                </div>
+                <div class="dd-compliance-card">
+                    <h3>DoD 5220.22-M</h3>
+                    <p>U.S. Department of Defense standard for data sanitization. Multiple-pass overwrite method ensuring complete data elimination.</p>
+                </div>
+                <div class="dd-compliance-card">
+                    <h3>APPI (Japan)</h3>
+                    <p>Act on the Protection of Personal Information. We ensure compliance with Japan's data protection requirements for proper disposal of personal data.</p>
+                </div>
+                <div class="dd-compliance-card">
+                    <h3>ISO 27001</h3>
+                    <p>Information security management aligned processes. Our data destruction procedures follow ISO 27001 Annex A controls for media handling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Need Secure Data Destruction?</h2>
+                <p>Get a free assessment and quote for your data destruction needs. We handle everything from a single laptop to enterprise-scale projects.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Get a Quote</a>
+                    <a href="services.html" class="btn btn-ghost btn-large">All Services</a>
+                </div>
+            </div>
+        </div>
+        <div class="cta-bg-pattern"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">THINKERS</span>
+                    </a>
+                    <p>Premium IT services for businesses in Japan and worldwide. Built with precision, delivered with care.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="why-us.html">Why Us</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#support">IT Support</a></li>
+                        <li><a href="services.html#engineering">Field Engineering</a></li>
+                        <li><a href="services.html#lifecycle">IT Asset Lifecycle</a></li>
+                        <li><a href="services.html#datadestruction">Data Destruction</a></li>
+                        <li><a href="services.html#consulting">IT Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Tokyo, Japan
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +81 3-XXXX-XXXX
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            info@thinkers.jp
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thinkers GK. All rights reserved.</p>
+                <p>合同会社 Thinkers | Tokyo, Japan</p>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/time-theme.js"></script>
+</body></html>
