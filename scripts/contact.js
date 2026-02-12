@@ -66,12 +66,8 @@
             newsletter: document.getElementById('newsletter').checked
         };
 
-        // Try EmailJS first, fall back to mailto
-        if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' && typeof emailjs !== 'undefined') {
-            sendViaEmailJS(formData);
-        } else {
-            sendViaMailto(formData);
-        }
+        // Use mailto directly (EmailJS not configured)
+        sendViaMailto(formData);
     });
 
     /**
@@ -142,8 +138,8 @@
             'Service: ' + data.service + '\n\n' +
             'Message:\n' + data.message
         );
-        window.location.href = 'mailto:info@thinkersgk.com?subject=' + subject + '&body=' + body;
-        showStatus('success', 'Opening your email client. If it doesn\'t open, email us at info@thinkersgk.com');
+        window.location.href = 'mailto:thiinkerstars@gmail.com?subject=' + subject + '&body=' + body;
+        showStatus('success', 'Opening your email client. If it doesn\'t open, email us at thiinkerstars@gmail.com');
         setLoading(false);
         trackEvent('contact_form_submitted', 'mailto');
     }
