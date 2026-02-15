@@ -14,13 +14,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js"></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Thinkers GK",
       "url": "https://jerrybecks.github.io/thinkersgk-website/",
-      "telephone": "+81312345678",
       "email": "thinkerstars@gmail.com",
       "address": {
         "@type": "PostalAddress",
@@ -39,27 +39,39 @@
                 <span class="brand-mark">T</span>
                 <span class="brand-text">Thinkers GK</span>
             </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" data-en="Home" data-ja="ホーム">Home</a>
+                <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+                <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+                <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
+            </div>
+            <div class="nav-utils">
+                <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+                <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
-            <div class="nav-menu" id="navMenu">
-                <a href="services.html">Services</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="btn btn-sm">Get in Touch</a>
-            </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
+        <!-- VIDEO: Replace src with your video URL. Recommended: host on your domain or use a CDN. -->
+        <!-- <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="assets/hero-video.mp4" type="video/mp4">
+        </video> -->
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">Based in Tokyo, serving globally</div>
-                <h1>IT services that<br><span class="text-accent">just work.</span></h1>
-                <p class="hero-sub">We handle your IT infrastructure so you can focus on your business. Support, security, field engineering, and asset lifecycle — all under one roof.</p>
+                <div class="hero-badge" data-en="Based in Tokyo, serving globally" data-ja="東京拠点、世界に展開">Based in Tokyo, serving globally</div>
+                <h1 data-en="IT services that just work." data-ja="確実に機能するITサービス。">IT services that<br><span class="text-accent" data-en="just work." data-ja="確実に機能する。">just work.</span></h1>
+                <p class="hero-sub" data-en="We handle your IT infrastructure so you can focus on your business. Support, security, field engineering, and asset lifecycle — all under one roof." data-ja="ITインフラの管理はお任せください。サポート、セキュリティ、フィールドエンジニアリング、資産管理 — すべてワンストップで提供します。">We handle your IT infrastructure so you can focus on your business. Support, security, field engineering, and asset lifecycle — all under one roof.</p>
                 <div class="hero-actions">
-                    <a href="contact.html" class="btn btn-primary">Talk to Us</a>
-                    <a href="services.html" class="btn btn-ghost">Our Services &rarr;</a>
+                    <a href="contact.html" class="btn btn-primary" data-en="Talk to Us" data-ja="ご相談はこちら">Talk to Us</a>
+                    <a href="services.html" class="btn btn-ghost" data-en="Our Services →" data-ja="サービス一覧 →">Our Services &rarr;</a>
                 </div>
             </div>
         </div>
@@ -68,50 +80,71 @@
     <!-- Services -->
     <section class="section" id="services">
         <div class="container">
-            <div class="section-label">What we do</div>
-            <h2 class="section-title">End-to-end IT, handled.</h2>
+            <div class="section-label" data-en="What we do" data-ja="事業内容">What we do</div>
+            <h2 class="section-title" data-en="End-to-end IT, handled." data-ja="ITのすべてを、ワンストップで。">End-to-end IT, handled.</h2>
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     </div>
-                    <h3>IT Support</h3>
-                    <p>24/7 helpdesk with bilingual support. Remote troubleshooting, on-site visits, and proactive monitoring to keep your systems running.</p>
+                    <h3 data-en="IT Support" data-ja="ITサポート">IT Support</h3>
+                    <p data-en="24/7 helpdesk with bilingual support. Remote troubleshooting, on-site visits, and proactive monitoring to keep your systems running." data-ja="24時間365日対応のバイリンガルヘルプデスク。リモートトラブルシューティング、オンサイト対応、プロアクティブ監視。">24/7 helpdesk with bilingual support. Remote troubleshooting, on-site visits, and proactive monitoring to keep your systems running.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M3 9h1M3 15h1M20 9h1M20 15h1M9 3v1M15 3v1M9 20v1M15 20v1"/></svg>
                     </div>
-                    <h3>Field Engineering</h3>
-                    <p>Expert technicians for hardware deployment, network installations, office relocations, and data center projects across Japan.</p>
+                    <h3 data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</h3>
+                    <p data-en="Expert technicians for hardware deployment, network installations, office relocations, and data center projects across Japan." data-ja="ハードウェア導入、ネットワーク構築、オフィス移転、データセンタープロジェクトに対応する専門技術者。">Expert technicians for hardware deployment, network installations, office relocations, and data center projects across Japan.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3>Cybersecurity</h3>
-                    <p>Security audits, vulnerability assessments, and incident response. ISO 27001-aligned processes to protect your business.</p>
+                    <h3 data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</h3>
+                    <p data-en="Security audits, vulnerability assessments, and incident response. ISO 27001-aligned processes to protect your business." data-ja="セキュリティ監査、脆弱性評価、インシデント対応。ISO 27001準拠のプロセスでビジネスを保護。">Security audits, vulnerability assessments, and incident response. ISO 27001-aligned processes to protect your business.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                     </div>
-                    <h3>IT Asset Lifecycle</h3>
-                    <p>From procurement to NIST 800-88 compliant data destruction. We manage every stage of your IT assets securely.</p>
+                    <h3 data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT Asset Lifecycle</h3>
+                    <p data-en="From procurement to NIST 800-88 compliant data destruction. We manage every stage of your IT assets securely." data-ja="調達からNIST 800-88準拠のデータ消去まで。IT資産のすべてのステージを安全に管理。">From procurement to NIST 800-88 compliant data destruction. We manage every stage of your IT assets securely.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3>Managed Services</h3>
-                    <p>Outsource your entire IT department to us. Predictable monthly costs, enterprise-grade reliability, bilingual team.</p>
+                    <h3 data-en="Managed Services" data-ja="マネージドサービス">Managed Services</h3>
+                    <p data-en="Outsource your entire IT department to us. Predictable monthly costs, enterprise-grade reliability, bilingual team." data-ja="IT部門をまるごとアウトソーシング。予測可能な月額費用、エンタープライズ品質、バイリンガルチーム。">Outsource your entire IT department to us. Predictable monthly costs, enterprise-grade reliability, bilingual team.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
-                    <h3>Cloud & Consulting</h3>
-                    <p>Cloud migration, infrastructure planning, and strategic IT consulting to modernize your technology stack.</p>
+                    <h3 data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">Cloud & Consulting</h3>
+                    <p data-en="Cloud migration, infrastructure planning, and strategic IT consulting to modernize your technology stack." data-ja="クラウド移行、インフラ設計、テクノロジースタックの最新化に向けた戦略的ITコンサルティング。">Cloud migration, infrastructure planning, and strategic IT consulting to modernize your technology stack.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h3 data-en="Onsite Dispatch" data-ja="オンサイトディスパッチ">Onsite Dispatch</h3>
+                    <p data-en="Rapid technician dispatch for break-fix, installations, and hands-on support anywhere in Japan." data-ja="修理、設置、現地サポートのための迅速な技術者派遣。日本全国対応。">Rapid technician dispatch for break-fix, installations, and hands-on support anywhere in Japan.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
+                    </div>
+                    <h3 data-en="Office Relocation" data-ja="オフィス移転">Office Relocation</h3>
+                    <p data-en="Complete IT relocation services — planning, packing, transport, setup, and testing with zero-downtime strategies." data-ja="ITの完全移転サービス — 計画、梱包、輸送、設置、テストをゼロダウンタイムで実現。">Complete IT relocation services — planning, packing, transport, setup, and testing with zero-downtime strategies.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3 data-en="IT Project Management" data-ja="ITプロジェクト管理">IT Project Management</h3>
+                    <p data-en="End-to-end project management for IT rollouts, migrations, and infrastructure builds. On time, on budget." data-ja="IT展開、移行、インフラ構築のエンドツーエンドプロジェクト管理。予算内・期限内で完了。">End-to-end project management for IT rollouts, migrations, and infrastructure builds. On time, on budget.</p>
                 </div>
             </div>
         </div>
@@ -120,35 +153,35 @@
     <!-- Why Us -->
     <section class="section section-alt">
         <div class="container">
-            <div class="section-label">Why Thinkers GK</div>
-            <h2 class="section-title">Built for businesses in Japan.</h2>
+            <div class="section-label" data-en="Why Thinkers GK" data-ja="選ばれる理由">Why Thinkers GK</div>
+            <h2 class="section-title" data-en="Built for businesses in Japan." data-ja="日本のビジネスのために。">Built for businesses in Japan.</h2>
             <div class="features">
                 <div class="feature">
                     <div class="feature-num">01</div>
                     <div>
-                        <h3>Bilingual by Default</h3>
-                        <p>Native English and Japanese support. No miscommunication, no lost-in-translation IT tickets.</p>
+                        <h3 data-en="Bilingual by Default" data-ja="バイリンガル対応">Bilingual by Default</h3>
+                        <p data-en="Native English and Japanese support. No miscommunication, no lost-in-translation IT tickets." data-ja="英語・日本語ネイティブ対応。コミュニケーションの齟齬なし。">Native English and Japanese support. No miscommunication, no lost-in-translation IT tickets.</p>
                     </div>
                 </div>
                 <div class="feature">
                     <div class="feature-num">02</div>
                     <div>
-                        <h3>Tokyo-Based, Global Reach</h3>
-                        <p>Local presence in Tokyo with the ability to support international offices and remote teams.</p>
+                        <h3 data-en="Tokyo-Based, Global Reach" data-ja="東京拠点、グローバル展開">Tokyo-Based, Global Reach</h3>
+                        <p data-en="Local presence in Tokyo with the ability to support international offices and remote teams." data-ja="東京のローカルプレゼンスを活かし、海外オフィスやリモートチームもサポート。">Local presence in Tokyo with the ability to support international offices and remote teams.</p>
                     </div>
                 </div>
                 <div class="feature">
                     <div class="feature-num">03</div>
                     <div>
-                        <h3>Compliance-Ready</h3>
-                        <p>ISO 27001-aligned processes, NIST 800-88 data destruction, and enterprise-grade security protocols.</p>
+                        <h3 data-en="Compliance-Ready" data-ja="コンプライアンス対応">Compliance-Ready</h3>
+                        <p data-en="ISO 27001-aligned processes, NIST 800-88 data destruction, and enterprise-grade security protocols." data-ja="ISO 27001準拠プロセス、NIST 800-88データ消去、エンタープライズグレードのセキュリティ。">ISO 27001-aligned processes, NIST 800-88 data destruction, and enterprise-grade security protocols.</p>
                     </div>
                 </div>
                 <div class="feature">
                     <div class="feature-num">04</div>
                     <div>
-                        <h3>One Partner, Everything IT</h3>
-                        <p>Stop juggling vendors. Support, security, infrastructure, and asset management — all from one team that knows your systems.</p>
+                        <h3 data-en="One Partner, Everything IT" data-ja="1社でIT全般を">One Partner, Everything IT</h3>
+                        <p data-en="Stop juggling vendors. Support, security, infrastructure, and asset management — all from one team that knows your systems." data-ja="ベンダーの使い分けは不要。サポート、セキュリティ、インフラ、資産管理 — すべて一つのチームで。">Stop juggling vendors. Support, security, infrastructure, and asset management — all from one team that knows your systems.</p>
                     </div>
                 </div>
             </div>
@@ -159,10 +192,10 @@
     <section class="section cta-section">
         <div class="container">
             <div class="cta-box">
-                <h2>Ready to simplify your IT?</h2>
-                <p>Let's talk about how Thinkers GK can support your business. No commitment, no sales pitch — just a conversation about your needs.</p>
+                <h2 data-en="Ready to simplify your IT?" data-ja="ITをシンプルにしませんか？">Ready to simplify your IT?</h2>
+                <p data-en="Let's talk about how Thinkers GK can support your business. No commitment, no sales pitch — just a conversation about your needs." data-ja="Thinkers GKがどのようにサポートできるかお話しましょう。お気軽にご相談ください。">Let's talk about how Thinkers GK can support your business. No commitment, no sales pitch — just a conversation about your needs.</p>
                 <div class="hero-actions">
-                    <a href="contact.html" class="btn btn-primary">Schedule a Call</a>
+                    <a href="contact.html" class="btn btn-primary" data-en="Schedule a Call" data-ja="お電話を予約">Schedule a Call</a>
                     <a href="mailto:thinkerstars@gmail.com" class="btn btn-ghost">thinkerstars@gmail.com</a>
                 </div>
             </div>
@@ -178,26 +211,26 @@
                         <span class="brand-mark">T</span>
                         <span class="brand-text">Thinkers GK</span>
                     </a>
-                    <p>Premium IT services for businesses in Tokyo and worldwide.</p>
+                    <p data-en="Premium IT services for businesses in Tokyo and worldwide." data-ja="東京と世界のビジネスのためのプレミアムITサービス。">Premium IT services for businesses in Tokyo and worldwide.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Company</h4>
-                    <a href="about.html">About</a>
-                    <a href="services.html">Services</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <h4 data-en="Company" data-ja="会社情報">Company</h4>
+                    <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+                    <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+                    <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+                    <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Services</h4>
-                    <a href="services.html">IT Support</a>
-                    <a href="services.html">Field Engineering</a>
-                    <a href="services.html">Cybersecurity</a>
-                    <a href="services.html">Asset Lifecycle</a>
+                    <h4 data-en="Services" data-ja="サービス">Services</h4>
+                    <a href="services.html#support" data-en="IT Support" data-ja="ITサポート">IT Support</a>
+                    <a href="services.html#engineering" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
+                    <a href="services.html#security" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a>
+                    <a href="services.html#lifecycle" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Contact</h4>
+                    <h4 data-en="Contact" data-ja="連絡先">Contact</h4>
                     <a href="mailto:thinkerstars@gmail.com">thinkerstars@gmail.com</a>
-                    <span>Tokyo, Japan</span>
+                    <span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -205,44 +238,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-    // Navbar scroll effect
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Mobile toggle
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('navMenu');
-    toggle.addEventListener('click', () => {
-        menu.classList.toggle('open');
-        toggle.classList.toggle('open');
-    });
-
-    // Close menu on link click
-    menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('open');
-            toggle.classList.remove('open');
-        });
-    });
-
-    // Simple fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.card, .feature, .cta-box').forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
-    </script>
 
 </body>
 </html>

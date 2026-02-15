@@ -3,33 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Thinkers GK</title>
+    <title>Contact | Thinkers GK — IT Services Tokyo</title>
     <meta name="description" content="Get in touch with Thinkers GK for IT support, consulting, and services in Tokyo, Japan.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js"></script>
 </head>
 <body>
 
     <nav class="nav" id="nav">
         <div class="container nav-inner">
             <a href="index.html" class="nav-brand"><span class="brand-mark">T</span><span class="brand-text">Thinkers GK</span></a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
             <div class="nav-menu" id="navMenu">
-                <a href="services.html">Services</a>
-                <a href="about.html">About</a>
-                <a href="contact.html" class="btn btn-sm">Get in Touch</a>
+                <a href="index.html" data-en="Home" data-ja="ホーム">Home</a>
+                <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+                <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+                <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
             </div>
+            <div class="nav-utils">
+                <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+                <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
     <section class="page-header">
         <div class="container">
-            <div class="section-label">Contact</div>
-            <h1>Let's talk.</h1>
-            <p>Whether you need IT support, have a question, or want to explore working together — we're here.</p>
+            <div class="section-label" data-en="Contact" data-ja="お問い合わせ">Contact</div>
+            <h1 data-en="Let's talk." data-ja="お話しましょう。">Let's talk.</h1>
+            <p data-en="Whether you need IT support, have a question, or want to explore working together — we're here." data-ja="ITサポートのご依頼、ご質問、協業のご相談 — お気軽にどうぞ。">Whether you need IT support, have a question, or want to explore working together — we're here.</p>
         </div>
     </section>
 
@@ -37,8 +45,8 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Reach out directly</h3>
-                    <p>We typically respond within a few hours during business hours (JST). For urgent support issues, mention "urgent" in your subject line.</p>
+                    <h3 data-en="Reach out directly" data-ja="直接ご連絡ください">Reach out directly</h3>
+                    <p data-en="We typically respond within a few hours during business hours (JST). For urgent support issues, mention \"urgent\" in your subject line." data-ja="営業時間内（JST）であれば、通常数時間以内に返信いたします。緊急の場合は件名に「urgent」とご記載ください。">We typically respond within a few hours during business hours (JST). For urgent support issues, mention "urgent" in your subject line.</p>
 
                     <div class="contact-detail">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -53,7 +61,7 @@
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                             <circle cx="12" cy="10" r="3"/>
                         </svg>
-                        <span>Tokyo, Japan</span>
+                        <span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span>
                     </div>
 
                     <div class="contact-detail">
@@ -61,47 +69,50 @@
                             <circle cx="12" cy="12" r="10"/>
                             <polyline points="12 6 12 12 16 14"/>
                         </svg>
-                        <span>Mon — Fri, 9:00 — 18:00 JST</span>
+                        <span data-en="Mon — Fri, 9:00 — 18:00 JST" data-ja="月〜金、9:00〜18:00 JST">Mon — Fri, 9:00 — 18:00 JST</span>
                     </div>
 
-                    <div style="margin-top: 32px; padding: 24px; background: var(--color-bg-alt); border-radius: 12px;">
-                        <h3 style="font-size: 1rem; margin-bottom: 8px;">For existing clients</h3>
-                        <p style="font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.6;">If you have an active support contract, please use your dedicated support channel for fastest response.</p>
+                    <div class="contact-info-box">
+                        <h3 data-en="For existing clients" data-ja="既存のお客様へ">For existing clients</h3>
+                        <p data-en="If you have an active support contract, please use your dedicated support channel for fastest response." data-ja="アクティブなサポート契約をお持ちの場合は、専用サポートチャネルをご利用ください。">If you have an active support contract, please use your dedicated support channel for fastest response.</p>
                     </div>
                 </div>
 
                 <div>
                     <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <label for="name" data-en="Name" data-ja="お名前">Name</label>
+                            <input type="text" id="name" name="name" data-en-placeholder="Your name" data-ja-placeholder="お名前" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                            <label for="email" data-en="Email" data-ja="メールアドレス">Email</label>
+                            <input type="email" id="email" name="email" data-en-placeholder="you@company.com" data-ja-placeholder="example@company.com" placeholder="you@company.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" placeholder="Your company name">
+                            <label for="company" data-en="Company" data-ja="会社名">Company</label>
+                            <input type="text" id="company" name="company" data-en-placeholder="Your company name" data-ja-placeholder="会社名" placeholder="Your company name">
                         </div>
                         <div class="form-group">
-                            <label for="service">What can we help with?</label>
+                            <label for="service" data-en="What can we help with?" data-ja="ご希望のサービス">What can we help with?</label>
                             <select id="service" name="service">
-                                <option value="">Select a service...</option>
+                                <option value="" data-en="Select a service..." data-ja="サービスを選択...">Select a service...</option>
                                 <option value="it-support">IT Support & Helpdesk</option>
                                 <option value="field-engineering">Field Engineering</option>
                                 <option value="cybersecurity">Cybersecurity</option>
                                 <option value="asset-lifecycle">IT Asset Lifecycle</option>
                                 <option value="cloud-consulting">Cloud & Consulting</option>
                                 <option value="managed-services">Managed Services</option>
+                                <option value="networking">IT Networking</option>
+                                <option value="av-solutions">Audio Visual Solutions</option>
+                                <option value="voip">VoIP Solutions</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your needs..." required></textarea>
+                            <label for="message" data-en="Message" data-ja="メッセージ">Message</label>
+                            <textarea id="message" name="message" data-en-placeholder="Tell us about your needs..." data-ja-placeholder="ご要望をお聞かせください..." placeholder="Tell us about your needs..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="Send Message" data-ja="メッセージを送信">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -113,23 +124,15 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="nav-brand"><span class="brand-mark">T</span><span class="brand-text">Thinkers GK</span></a>
-                    <p>Premium IT services for businesses in Tokyo and worldwide.</p>
+                    <p data-en="Premium IT services for businesses in Tokyo and worldwide." data-ja="東京と世界のビジネスのためのプレミアムITサービス。">Premium IT services for businesses in Tokyo and worldwide.</p>
                 </div>
-                <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a></div>
-                <div class="footer-col"><h4>Services</h4><a href="services.html#support">IT Support</a><a href="services.html#engineering">Field Engineering</a><a href="services.html#security">Cybersecurity</a><a href="services.html#lifecycle">Asset Lifecycle</a></div>
-                <div class="footer-col"><h4>Contact</h4><a href="mailto:thinkerstars@gmail.com">thinkerstars@gmail.com</a><span>Tokyo, Japan</span></div>
+                <div class="footer-col"><h4 data-en="Company" data-ja="会社情報">Company</h4><a href="about.html" data-en="About" data-ja="会社概要">About</a><a href="services.html" data-en="Services" data-ja="サービス">Services</a><a href="contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a><a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a></div>
+                <div class="footer-col"><h4 data-en="Services" data-ja="サービス">Services</h4><a href="services.html#support" data-en="IT Support" data-ja="ITサポート">IT Support</a><a href="services.html#engineering" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a><a href="services.html#security" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a><a href="services.html#lifecycle" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a></div>
+                <div class="footer-col"><h4 data-en="Contact" data-ja="連絡先">Contact</h4><a href="mailto:thinkerstars@gmail.com">thinkerstars@gmail.com</a><span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span></div>
             </div>
             <div class="footer-bottom"><p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p></div>
         </div>
     </footer>
 
-    <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
-    const toggle = document.getElementById('navToggle');
-    const menu = document.getElementById('navMenu');
-    toggle.addEventListener('click', () => { menu.classList.toggle('open'); toggle.classList.toggle('open'); });
-    menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { menu.classList.remove('open'); toggle.classList.remove('open'); }));
-    </script>
 </body>
 </html>
