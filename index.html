@@ -1,367 +1,172 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Thinkers GK | Premium IT Services Japan</title>
-    <meta name="description" content="Thinkers GK - Professional IT Solutions & Digital Transformation for businesses in Japan and worldwide. Managed Services, Cloud, Cybersecurity, and IT Asset Lifecycle."/>
-    <meta property="og:title" content="Thinkers GK | Premium IT Services Japan"/>
-    <meta property="og:description" content="Professional IT Support, Field Engineering &amp; IT Asset Lifecycle Services in Tokyo, Japan"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://jerrybecks.github.io/cyrona-website/"/>
-    <meta property="og:image" content="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1200&amp;q=80"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles/main.css"/>
-    <link rel="stylesheet" href="styles/time-theme.css"/>
-    <style>
-      .skip-link {
-        position: absolute;
-        top: -40px;
-        left: 0;
-        background: #2563eb;
-        color: white;
-        padding: 8px;
-        z-index: 100;
-      }
-      .skip-link:focus {
-        top: 0;
-      }
-    </style>
-    <!-- Favicon link commented out -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thinkers GK | Premium IT Services in Tokyo, Japan</title>
+    <meta name="description" content="Thinkers GK delivers professional IT support, field engineering, cybersecurity, and IT asset lifecycle management for businesses in Tokyo and across Japan.">
+    <meta property="og:title" content="Thinkers GK | Premium IT Services in Tokyo">
+    <meta property="og:description" content="Professional IT Support, Field Engineering & IT Asset Lifecycle Services for businesses in Japan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jerrybecks.github.io/thinkersgk-website/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Thinkers GK",
-      "image": "https://jerrybecks.github.io/cyrona-website/favicon.svg",
-      "@id": "",
-      "url": "https://jerrybecks.github.io/cyrona-website/",
+      "url": "https://jerrybecks.github.io/thinkersgk-website/",
       "telephone": "+81312345678",
+      "email": "thinkerstars@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "",
         "addressLocality": "Tokyo",
-        "addressRegion": "",
-        "postalCode": "",
         "addressCountry": "JP"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 35.6762,
-        "longitude": 139.6503
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
       }
     }
     </script>
-
-    <!-- Google Analytics placeholder -->
-    <!-- Replace with actual Google Analytics 4 (gtag.js) code once we have the Measurement ID -->
-    <!-- Example:
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-    -->
 </head>
-<body class="time-theme" data-time-theme="auto">
-    <a href="#main" class="skip-link">Skip to main content</a>
-    <main id="main">
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay="" muted="" loop="" playsinline="" id="bgVideo" poster="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1920&amp;q=80">
-            <!-- Primary: Pexels free Tokyo video -->
-            <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
-            <!-- Fallback: Coverr Tokyo video -->
-            <source src="https://cdn.coverr.co/videos/coverr-tokyo-city-at-night-3395/1080p.mp4" type="video/mp4"/>
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-
-    <!-- Time-based Gradient Overlay -->
-    <div class="time-gradient-overlay" id="timeOverlay"></div>
+<body>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/cyrona_logo.jpg" alt="Cyrona Logo" style="height: 40px;">
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-mark">T</span>
+                <span class="brand-text">Thinkers GK</span>
             </a>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="why-us.html">Why Us</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
-                <li><a href="privacy-policy.html" class="legal-link">Privacy</a></li>
-            </ul>
+            <div class="nav-menu" id="navMenu">
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="btn btn-sm">Get in Touch</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                <span id="timeGreeting">Welcome</span> to Tokyo&#39;s Premier IT Partner
-            </div>
-            <h1 class="hero-title">
-                <span class="title-line">Thinkers GK</span>
-                <span class="title-line accent">Premium IT Services</span>
-            </h1>
-            <p class="hero-subtitle">
-                Your strategic partner for IT transformation. We deliver proactive managed services, robust cybersecurity, seamless cloud solutions, and comprehensive IT asset lifecycle management to empower businesses in Japan and worldwide.
-            </p>
-            <div class="hero-cta">
-                <a href="contact.html" class="btn btn-primary">
-                    <span>Start Your Project</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                </a>
-                <a href="services.html" class="btn btn-secondary">Explore Services</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number" data-count="50">50</span>+
-                    <span class="stat-label">Clients Served</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="10">10</span>k+
-                    <span class="stat-label">Tickets Resolved</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="99">99</span>%
-                    <span class="stat-label">Uptime SLA</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="24">24</span>/7
-                    <span class="stat-label">Support Available</span>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Based in Tokyo, serving globally</div>
+                <h1>IT services that<br><span class="text-accent">just work.</span></h1>
+                <p class="hero-sub">We handle your IT infrastructure so you can focus on your business. Support, security, field engineering, and asset lifecycle — all under one roof.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary">Talk to Us</a>
+                    <a href="services.html" class="btn btn-ghost">Our Services &rarr;</a>
                 </div>
             </div>
-        </div>
-
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Scroll to explore</span>
-        </div>
-
-        <!-- Time Indicator -->
-        <div class="time-indicator" id="timeIndicator">
-            <span class="time-icon" id="timeIcon">☀️</span>
-            <span class="time-text" id="timeText">Afternoon in Tokyo</span>
         </div>
     </section>
 
-    <!-- Services Preview Section -->
-    <section class="services-preview">
+    <!-- Services -->
+    <section class="section" id="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Services</span>
-                <h2>Comprehensive IT Solutions</h2>
-                <p>From day-to-day support to complex infrastructure projects, we&#39;ve got you covered.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
+            <div class="section-label">What we do</div>
+            <h2 class="section-title">End-to-end IT, handled.</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                     </div>
                     <h3>IT Support</h3>
-                    <p>24/7 helpdesk, remote troubleshooting, on-site support, and proactive monitoring for your entire infrastructure.</p>
-                    <a href="services.html#support" class="service-link">
-                        Learn more 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+                    <p>24/7 helpdesk with bilingual support. Remote troubleshooting, on-site visits, and proactive monitoring to keep your systems running.</p>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                            <path d="M9 9h6v6H9z"></path>
-                            <path d="M3 9h1M3 15h1M20 9h1M20 15h1M9 3v1M15 3v1M9 20v1M15 20v1"></path>
-                        </svg>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M3 9h1M3 15h1M20 9h1M20 15h1M9 3v1M15 3v1M9 20v1M15 20v1"/></svg>
                     </div>
                     <h3>Field Engineering</h3>
-                    <p>Expert technicians for hardware deployment, network installations, office relocations, and data center projects.</p>
-                    <a href="services.html#engineering" class="service-link">
-                        Learn more
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+                    <p>Expert technicians for hardware deployment, network installations, office relocations, and data center projects across Japan.</p>
                 </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                        </svg>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Security audits, vulnerability assessments, and incident response. ISO 27001-aligned processes to protect your business.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                     </div>
                     <h3>IT Asset Lifecycle</h3>
-                    <p>Secure procurement, deployment, management, and environmentally responsible disposal of IT assets.</p>
-                    <a href="services.html#lifecycle" class="service-link">
-                        Learn more
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </a>
+                    <p>From procurement to NIST 800-88 compliant data destruction. We manage every stage of your IT assets securely.</p>
                 </div>
-            </div>
-            <div class="section-footer">
-                <a href="services.html" class="btn btn-outline">View All Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-us-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Why Thinkers GK</span>
-                <h2>Built Different, Built Better</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-number">01</div>
-                    <h3>Japan Expertise</h3>
-                    <p>Deep understanding of Japanese business culture, bilingual support, and local infrastructure knowledge.</p>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Managed Services</h3>
+                    <p>Outsource your entire IT department to us. Predictable monthly costs, enterprise-grade reliability, bilingual team.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-number">02</div>
-                    <h3>Global Reach</h3>
-                    <p>Partners and capabilities spanning APAC, Americas, and Europe for multinational deployments.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">03</div>
-                    <h3>Security First</h3>
-                    <p>ISO 27001-aligned processes, NIST 800-88 data destruction, and enterprise-grade security protocols.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-number">04</div>
-                    <h3>Lasting Partnership</h3>
-                    <p>We are committed to building enduring relationships, serving as your dedicated technology partner for long-term success.</p>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>Cloud & Consulting</h3>
+                    <p>Cloud migration, infrastructure planning, and strategic IT consulting to modernize your technology stack.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- Why Us -->
+    <section class="section section-alt">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Client Success</span>
-                <h2>What Our Clients Say</h2>
-                <p>Don't just take our word for it—hear from businesses we've helped transform.</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Thinkers GK transformed our IT infrastructure. Their bilingual support team resolved issues faster than any previous provider, and their proactive monitoring caught problems before they impacted our business.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Takashi Yamamoto</h4>
-                            <span class="author-role">CTO, FinTech Solutions Japan</span>
-                        </div>
-                        <div class="author-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
+            <div class="section-label">Why Thinkers GK</div>
+            <h2 class="section-title">Built for businesses in Japan.</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-num">01</div>
+                    <div>
+                        <h3>Bilingual by Default</h3>
+                        <p>Native English and Japanese support. No miscommunication, no lost-in-translation IT tickets.</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">The data destruction service gave us peace of mind. NIST 800-88 compliance with bilingual certificates made our audit process smooth. Professional, secure, and reliable.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Maria Chen</h4>
-                            <span class="author-role">Compliance Director, Global Manufacturing</span>
-                        </div>
-                        <div class="author-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
+                <div class="feature">
+                    <div class="feature-num">02</div>
+                    <div>
+                        <h3>Tokyo-Based, Global Reach</h3>
+                        <p>Local presence in Tokyo with the ability to support international offices and remote teams.</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <div class="quote-icon">"</div>
-                        <p class="testimonial-text">Their field engineering team handled our office relocation seamlessly. Zero downtime during business hours, and the network installation was flawless. Highly recommended for any complex IT project.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>Robert Johnson</h4>
-                            <span class="author-role">Operations Manager, International Law Firm</span>
-                        </div>
-                        <div class="author-rating">
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                            <span class="star">★</span>
-                        </div>
+                <div class="feature">
+                    <div class="feature-num">03</div>
+                    <div>
+                        <h3>Compliance-Ready</h3>
+                        <p>ISO 27001-aligned processes, NIST 800-88 data destruction, and enterprise-grade security protocols.</p>
                     </div>
                 </div>
-            </div>
-            <div class="testimonials-cta">
-                <a href="contact.html" class="btn btn-outline">Share Your Experience</a>
+                <div class="feature">
+                    <div class="feature-num">04</div>
+                    <div>
+                        <h3>One Partner, Everything IT</h3>
+                        <p>Stop juggling vendors. Support, security, infrastructure, and asset management — all from one team that knows your systems.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- CTA -->
+    <section class="section cta-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your IT?</h2>
-                <p>Let&#39;s discuss how Thinkers GK can help your business thrive with reliable, professional IT services.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary btn-large">Schedule Consultation</a>
-                    <a href="tel:+81312345678" class="btn btn-ghost btn-large">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        Call Us
-                    </a>
+            <div class="cta-box">
+                <h2>Ready to simplify your IT?</h2>
+                <p>Let's talk about how Thinkers GK can support your business. No commitment, no sales pitch — just a conversation about your needs.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary">Schedule a Call</a>
+                    <a href="mailto:thinkerstars@gmail.com" class="btn btn-ghost">thinkerstars@gmail.com</a>
                 </div>
             </div>
         </div>
-        <div class="cta-bg-pattern"></div>
     </section>
 
     <!-- Footer -->
@@ -369,86 +174,75 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="assets/cyrona_logo.jpg" alt="Cyrona Logo" style="height: 40px;">
+                    <a href="index.html" class="nav-brand">
+                        <span class="brand-mark">T</span>
+                        <span class="brand-text">Thinkers GK</span>
                     </a>
-                    <p>Premium IT services for businesses in Japan and worldwide. Built with precision, delivered with care.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Email">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </a>
-                    </div>
+                    <p>Premium IT services for businesses in Tokyo and worldwide.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="why-us.html">Why Us</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    </ul>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
                 </div>
-                <div class="footer-links">
+                <div class="footer-col">
                     <h4>Services</h4>
-                    <ul>
-                        <li><a href="services.html#support">IT Support</a></li>
-                        <li><a href="services.html#engineering">Field Engineering</a></li>
-                        <li><a href="services.html#lifecycle">IT Asset Lifecycle</a></li>
-                        <li><a href="services.html#datadestruction">Data Destruction</a></li>
-                        <li><a href="services.html#consulting">IT Consulting</a></li>
-                    </ul>
+                    <a href="services.html">IT Support</a>
+                    <a href="services.html">Field Engineering</a>
+                    <a href="services.html">Cybersecurity</a>
+                    <a href="services.html">Asset Lifecycle</a>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-col">
                     <h4>Contact</h4>
-                    <ul>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            Tokyo, Japan
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                            +81 3-XXXX-XXXX
-                        </li>
-                        <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            <a href="mailto:thinkerstars@gmail.com">thinkerstars@gmail.com</a>
-                        </li>
-                    </ul>
+                    <a href="mailto:thinkerstars@gmail.com">thinkerstars@gmail.com</a>
+                    <span>Tokyo, Japan</span>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Thinkers GK. All rights reserved.</p>
-                <p>合同会社 Thinkers GK | Tokyo, Japan</p>
+                <p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p>
             </div>
         </div>
     </footer>
-    </main>
 
-    <script src="scripts/main.js"></script>
-    <script src="scripts/time-theme.js"></script>
-</body></html>
+    <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile toggle
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        toggle.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('open');
+            toggle.classList.remove('open');
+        });
+    });
+
+    // Simple fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card, .feature, .cta-box').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+    </script>
+
+</body>
+</html>
