@@ -367,21 +367,27 @@ img { max-width: 100%; display: block; }
 
 .text-accent { color: var(--color-accent); }
 
-/* Hero character-by-character animation */
+/* Hero character-by-character animation */\
 .hero-title-animated {
     opacity: 0;
+    animation: textGlow 1.5s infinite alternate;
 }
 
 .hero-char {
     display: inline-block;
     opacity: 0;
-    transform: translateY(20px);
-    animation: charFadeIn 0.5s ease forwards;
+    transform: translateY(20px) rotate(5deg);
+    animation: charPopIn 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 }
 
-@keyframes charFadeIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.8); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes charPopIn {
+    from { opacity: 0; transform: translateY(20px) rotate(5deg) scale(0.8); }
+    to { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 4px var(--color-accent-light); }
+    to { text-shadow: 0 0 12px var(--color-accent), 0 0 20px var(--color-accent-hover); }
 }
 
 .hero-sub {
@@ -548,7 +554,7 @@ img { max-width: 100%; display: block; }
 .card:hover {
     border-color: var(--color-accent);
     box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+    transform: translateY(-4px) rotateZ(1deg) scale(1.01);
 }
 
 .card-icon {
@@ -769,7 +775,7 @@ img { max-width: 100%; display: block; }
 .globe-canvas-container {
     position: relative;
     width: 100%;
-    height: 450px;
+    height: 600px;
     cursor: grab;
 }
 
@@ -809,7 +815,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
     .globe-inner { grid-template-columns: 1fr; }
-    .globe-canvas-container { height: 350px; }
+    .globe-canvas-container { height: 450px; }
 }
 
 /* Coverage list inside map section */
@@ -1197,6 +1203,61 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) {
     .service-features { grid-template-columns: 1fr; }
     .testimonial-block { padding: 32px 24px; }
+}
+
+
+/* ========================================
+   ILLUSTRATION BANNER
+   ======================================== */
+.illustration-banner {
+    padding: 48px 0;
+    background: var(--color-bg);
+}
+
+.illustration-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.illustration-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    background: var(--color-card-bg);
+}
+
+.illustration-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.illustration-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.illustration-label {
+    padding: 16px 20px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: center;
+    background: var(--color-card-bg);
+}
+
+@media (max-width: 768px) {
+    .illustration-grid {
+        grid-template-columns: 1fr;
+    }
+    .illustration-card img {
+        height: 180px;
+    }
 }
 
 

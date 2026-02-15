@@ -177,14 +177,18 @@
         };
     }
 
-    // ── 3D Interactive Globe (Japan Focus) ───────────
+    // ── 3D Interactive Globe (Japan Focus, Full World) ───────────
     function initGlobe() {
         var canvas = document.getElementById('globeCanvas');
         if (!canvas) return;
         var ctx = canvas.getContext('2d');
         var W, H, cx, cy, radius;
-        var rotation = { x: -0.6, y: 2.4 }; // Start facing Japan (lat ~35N, lon ~138E)
-        var autoRotateSpeed = 0.002;
+        // Start facing Japan
+        var JAPAN_Y = 2.4; // Y rotation to center Japan
+        var rotation = { x: -0.6, y: JAPAN_Y };
+        var autoRotateDir = 1; // 1 = forward, -1 = backward
+        var autoRotateSpeed = 0.0012;
+        var rotateRange = 0.8; // Half-rotation range (radians) from center
         var isDragging = false;
         var lastMouse = { x: 0, y: 0 };
 
@@ -203,10 +207,56 @@
             return c;
         });
 
-        // Generate wireframe points on the globe
-        var gridPoints = [];
+        // Simplified world continent coastline data (lat, lon pairs)
+        // Each sub-array is a separate coastline polyline
+        var continents = [
+            // East Asia (Japan, Korea, China coast)
+            [[46,143],[44,145],[43,146],[42,145],[40,140],[38,139],[36,140],[35,140],[34,136],[33,131],[31,131],[30,130]],
+            [[51,141],[50,143],[48,143],[46,143],[44,144],[43,146]],
+            // Japan main islands (simplified)
+            [[45,142],[44,144],[43,145],[42,143],[41,141],[40,140],[39,140],[38,139],[37,137],[36,137],[35,136],[34,135],[33,133],[32,132],[31,131]],
+            [[34,129],[33,130],[32,131],[31,131]],
+            // China/SE Asia coast
+            [[40,120],[38,118],[36,121],[34,120],[30,122],[27,121],[25,119],[23,117],[21,110],[18,109],[15,109],[10,107],[8,105],[5,104],[2,104],[1,104]],
+            // Korean peninsula
+            [[43,130],[42,130],[39,128],[38,127],[37,126],[35,126],[34,127],[35,129],[37,129],[38,129],[40,129],[42,130]],
+            // India
+            [[24,69],[23,68],[21,70],[19,73],[17,74],[15,74],[12,75],[9,77],[8,77],[8,78],[10,80],[13,80],[15,80],[17,82],[19,85],[21,87],[22,89],[23,89],[24,89]],
+            // Africa East
+            [[30,32],[28,33],[25,35],[20,37],[15,40],[12,43],[10,45],[8,47],[5,45],[2,42],[-1,42],[-4,40],[-8,40],[-12,40],[-15,41],[-18,38],[-22,36],[-26,33],[-30,31],[-34,27],[-34,18]],
+            // Africa West
+            [[36,0],[34,-1],[33,-8],[30,-10],[26,-15],[22,-17],[18,-16],[15,-17],[12,-17],[8,-14],[5,-5],[5,0],[4,2],[5,5],[5,10],[3,10],[0,10],[-3,10],[-5,12]],
+            // Europe
+            [[36,0],[38,0],[40,-1],[42,-9],[44,-9],[44,-1],[46,-2],[47,-3],[49,-5],[51,-5],[52,-1],[53,1],[54,5],[55,8],[57,6],[58,10],[60,5],[62,5],[64,10],[66,14],[68,16],[70,20],[70,28],[68,30]],
+            [[45,14],[44,15],[42,17],[41,17],[40,20],[38,22],[38,24],[40,25],[42,29],[43,28],[44,29],[45,30]],
+            // North America East
+            [[60,-65],[55,-60],[48,-53],[46,-56],[44,-63],[42,-70],[40,-74],[37,-76],[35,-76],[32,-80],[30,-82],[28,-82],[25,-80],[25,-81]],
+            // North America West
+            [[60,-140],[58,-137],[55,-133],[50,-128],[48,-125],[45,-124],[42,-124],[38,-123],[35,-120],[32,-117],[30,-115],[28,-113],[25,-110],[22,-106],[20,-105]],
+            // South America East
+            [[10,-62],[8,-60],[5,-51],[0,-50],[-5,-35],[-10,-37],[-15,-39],[-20,-40],[-25,-48],[-30,-50],[-35,-57],[-40,-62],[-45,-65],[-50,-68],[-55,-68]],
+            // South America West
+            [[10,-75],[5,-77],[0,-80],[-5,-81],[-10,-78],[-15,-75],[-20,-70],[-25,-70],[-30,-72],[-35,-72],[-40,-72],[-45,-74],[-50,-75],[-55,-68]],
+            // Australia
+            [[-12,132],[-14,127],[-18,122],[-22,114],[-28,114],[-33,116],[-35,117],[-35,137],[-38,141],[-39,146],[-38,148],[-34,151],[-28,153],[-24,152],[-20,149],[-16,146],[-14,136],[-12,132]]
+        ].map(function(coast) {
+            return coast.map(function(p) {
+                return { latR: p[0] * Math.PI / 180, lonR: p[1] * Math.PI / 180 };
+            });
+        });
+
+        // Japan region highlight outline (more detailed)
+        var japanHighlight = [
+            [45,142],[44,144],[43,145],[42,143],[41,141],[40,140],[39,140],[38,139],
+            [37,137],[36,137],[35,136],[34,135],[33,133],[32,131],[31,131],
+            [33,130],[34,132],[35,135],[36,136],[37,137],[38,140],[39,140],
+            [40,140],[41,141],[42,143],[43,145],[44,145],[45,142]
+        ].map(function(p) {
+            return { latR: p[0] * Math.PI / 180, lonR: p[1] * Math.PI / 180 };
+        });
+
+        // Generate wireframe grid
         var gridLines = [];
-        // Latitude lines
         for (var lat = -80; lat <= 80; lat += 20) {
             var pts = [];
             for (var lon = 0; lon <= 360; lon += 10) {
@@ -214,7 +264,6 @@
             }
             gridLines.push(pts);
         }
-        // Longitude lines
         for (var lon = 0; lon < 360; lon += 20) {
             var pts = [];
             for (var lat = -80; lat <= 80; lat += 10) {
@@ -223,9 +272,9 @@
             gridLines.push(pts);
         }
 
-        // Random node points scattered across globe
+        // Random node points scattered across globe (more of them)
         var nodes = [];
-        for (var i = 0; i < 200; i++) {
+        for (var i = 0; i < 300; i++) {
             var theta = Math.random() * Math.PI * 2;
             var phi = Math.acos(2 * Math.random() - 1);
             nodes.push({
@@ -238,15 +287,18 @@
         function getColors() {
             var dark = document.documentElement.getAttribute('data-theme') === 'dark';
             return {
-                grid: dark ? 'rgba(59,130,246,0.08)' : 'rgba(37,99,235,0.06)',
-                node: dark ? 'rgba(59,130,246,0.4)' : 'rgba(37,99,235,0.25)',
+                grid: dark ? 'rgba(59,130,246,0.06)' : 'rgba(37,99,235,0.05)',
+                node: dark ? 'rgba(59,130,246,0.35)' : 'rgba(37,99,235,0.2)',
                 city: dark ? 'rgba(59,130,246,0.9)' : 'rgba(37,99,235,0.8)',
-                cityGlow: dark ? 'rgba(59,130,246,0.3)' : 'rgba(37,99,235,0.2)',
+                cityGlow: dark ? 'rgba(59,130,246,0.4)' : 'rgba(37,99,235,0.25)',
                 hq: '#f59e0b',
-                hqGlow: 'rgba(245,158,11,0.3)',
-                line: dark ? 'rgba(59,130,246,0.12)' : 'rgba(37,99,235,0.08)',
-                outline: dark ? 'rgba(59,130,246,0.15)' : 'rgba(37,99,235,0.12)',
-                label: dark ? 'rgba(229,231,235,0.8)' : 'rgba(17,24,39,0.7)'
+                hqGlow: 'rgba(245,158,11,0.4)',
+                line: dark ? 'rgba(59,130,246,0.1)' : 'rgba(37,99,235,0.06)',
+                outline: dark ? 'rgba(59,130,246,0.2)' : 'rgba(37,99,235,0.15)',
+                label: dark ? 'rgba(229,231,235,0.9)' : 'rgba(17,24,39,0.75)',
+                coast: dark ? 'rgba(59,130,246,0.2)' : 'rgba(37,99,235,0.15)',
+                japanGlow: dark ? 'rgba(59,130,246,0.35)' : 'rgba(37,99,235,0.25)',
+                japanCoast: dark ? 'rgba(59,130,246,0.6)' : 'rgba(37,99,235,0.5)'
             };
         }
 
@@ -260,22 +312,38 @@
             H = canvas.height;
             cx = W / 2;
             cy = H / 2;
-            radius = Math.min(W, H) * 0.38;
+            radius = Math.min(W, H) * 0.46;
         }
 
         function project(latR, lonR) {
             var x3 = Math.cos(latR) * Math.cos(lonR + rotation.y);
             var y3 = Math.sin(latR);
             var z3 = Math.cos(latR) * Math.sin(lonR + rotation.y);
-            // Rotate around X axis
             var y3r = y3 * Math.cos(rotation.x) - z3 * Math.sin(rotation.x);
             var z3r = y3 * Math.sin(rotation.x) + z3 * Math.cos(rotation.x);
             return {
                 x: cx + x3 * radius,
                 y: cy - y3r * radius,
-                z: z3r, // positive = facing viewer
+                z: z3r,
                 visible: z3r > -0.1
             };
+        }
+
+        function drawPolyline(points, color, width) {
+            ctx.beginPath();
+            var started = false;
+            for (var j = 0; j < points.length; j++) {
+                var p = project(points[j].latR, points[j].lonR);
+                if (p.visible) {
+                    if (!started) { ctx.moveTo(p.x, p.y); started = true; }
+                    else ctx.lineTo(p.x, p.y);
+                } else {
+                    started = false;
+                }
+            }
+            ctx.strokeStyle = color;
+            ctx.lineWidth = width;
+            ctx.stroke();
         }
 
         function draw() {
@@ -285,10 +353,10 @@
             ctx.beginPath();
             ctx.arc(cx, cy, radius, 0, Math.PI * 2);
             ctx.strokeStyle = colors.outline;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
 
-            // Subtle fill
+            // Subtle sphere fill
             var grd = ctx.createRadialGradient(cx - radius * 0.3, cy - radius * 0.3, 0, cx, cy, radius);
             grd.addColorStop(0, colors.grid);
             grd.addColorStop(1, 'transparent');
@@ -296,33 +364,40 @@
             ctx.fill();
 
             // Grid lines
-            ctx.lineWidth = 0.5;
+            ctx.lineWidth = 0.4;
             for (var i = 0; i < gridLines.length; i++) {
-                var line = gridLines[i];
+                drawPolyline(gridLines[i], colors.grid, 0.4);
+            }
+
+            // World continent coastlines
+            for (var i = 0; i < continents.length; i++) {
+                drawPolyline(continents[i], colors.coast, 1);
+            }
+
+            // Japan highlight — draw thicker, brighter coastline
+            drawPolyline(japanHighlight, colors.japanCoast, 2.5);
+
+            // Japan region glow effect
+            var japanCenter = project(36 * Math.PI / 180, 138 * Math.PI / 180);
+            if (japanCenter.visible && japanCenter.z > 0) {
+                var glowR = radius * 0.12;
+                var grd2 = ctx.createRadialGradient(japanCenter.x, japanCenter.y, 0, japanCenter.x, japanCenter.y, glowR);
+                grd2.addColorStop(0, colors.japanGlow);
+                grd2.addColorStop(1, 'transparent');
                 ctx.beginPath();
-                var started = false;
-                for (var j = 0; j < line.length; j++) {
-                    var p = project(line[j].latR, line[j].lonR);
-                    if (p.visible) {
-                        if (!started) { ctx.moveTo(p.x, p.y); started = true; }
-                        else ctx.lineTo(p.x, p.y);
-                    } else {
-                        started = false;
-                    }
-                }
-                ctx.strokeStyle = colors.grid;
-                ctx.stroke();
+                ctx.arc(japanCenter.x, japanCenter.y, glowR, 0, Math.PI * 2);
+                ctx.fillStyle = grd2;
+                ctx.fill();
             }
 
             // Scattered nodes
             for (var i = 0; i < nodes.length; i++) {
                 var p = project(nodes[i].latR, nodes[i].lonR);
                 if (p.visible && p.z > 0) {
-                    var alpha = p.z * 0.6;
                     ctx.beginPath();
                     ctx.arc(p.x, p.y, nodes[i].size, 0, Math.PI * 2);
                     ctx.fillStyle = colors.node;
-                    ctx.globalAlpha = alpha;
+                    ctx.globalAlpha = p.z * 0.5;
                     ctx.fill();
                     ctx.globalAlpha = 1;
                 }
@@ -338,19 +413,19 @@
                     if (!p2.visible || p2.z < 0.1) continue;
                     var dx = p1.x - p2.x, dy = p1.y - p2.y;
                     var dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < radius * 0.3) {
+                    if (dist < radius * 0.25) {
                         ctx.beginPath();
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
                         ctx.strokeStyle = colors.line;
-                        ctx.globalAlpha = (1 - dist / (radius * 0.3)) * Math.min(p1.z, p2.z);
+                        ctx.globalAlpha = (1 - dist / (radius * 0.25)) * Math.min(p1.z, p2.z);
                         ctx.stroke();
                         ctx.globalAlpha = 1;
                     }
                 }
             }
 
-            // City dots + labels
+            // City dots + labels (drawn last so they're on top)
             var time = Date.now() * 0.003;
             for (var i = 0; i < cities.length; i++) {
                 var c = cities[i];
@@ -362,23 +437,29 @@
 
                 // Glow pulse
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, pulseR * 3, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, pulseR * 3.5, 0, Math.PI * 2);
                 ctx.fillStyle = glowColor;
-                ctx.globalAlpha = 0.3 + Math.sin(time + i) * 0.2;
+                ctx.globalAlpha = 0.35 + Math.sin(time + i) * 0.2;
                 ctx.fill();
                 ctx.globalAlpha = 1;
 
                 // Inner dot
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, c.isHQ ? 5 : 3.5, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, c.isHQ ? 6 : 4, 0, Math.PI * 2);
                 ctx.fillStyle = dotColor;
                 ctx.fill();
 
+                // White center
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, c.isHQ ? 2.5 : 1.5, 0, Math.PI * 2);
+                ctx.fillStyle = '#fff';
+                ctx.fill();
+
                 // Label
-                ctx.font = (c.isHQ ? '600 11px' : '500 9px') + ' Inter, sans-serif';
+                ctx.font = (c.isHQ ? '700 12px' : '500 10px') + ' Inter, sans-serif';
                 ctx.fillStyle = c.isHQ ? colors.hq : colors.label;
                 ctx.textAlign = 'center';
-                ctx.fillText(c.name, p.x, p.y + (c.isHQ ? 18 : 15));
+                ctx.fillText(c.name, p.x, p.y + (c.isHQ ? 20 : 17));
             }
 
             // City connection lines (Tokyo to other cities)
@@ -389,13 +470,12 @@
                     if (!cp.visible || cp.z < 0) continue;
                     ctx.beginPath();
                     ctx.moveTo(tokyoP.x, tokyoP.y);
-                    // Curved line via midpoint
                     var mx = (tokyoP.x + cp.x) / 2;
-                    var my = (tokyoP.y + cp.y) / 2 - 20;
+                    var my = (tokyoP.y + cp.y) / 2 - 25;
                     ctx.quadraticCurveTo(mx, my, cp.x, cp.y);
                     ctx.strokeStyle = colors.hqGlow;
-                    ctx.lineWidth = 1;
-                    ctx.globalAlpha = 0.4;
+                    ctx.lineWidth = 1.2;
+                    ctx.globalAlpha = 0.5;
                     ctx.stroke();
                     ctx.globalAlpha = 1;
                 }
@@ -404,7 +484,10 @@
 
         function animate() {
             if (!isDragging) {
-                rotation.y += autoRotateSpeed;
+                rotation.y += autoRotateSpeed * autoRotateDir;
+                // Oscillate: reverse direction when too far from Japan center
+                if (rotation.y > JAPAN_Y + rotateRange) autoRotateDir = -1;
+                else if (rotation.y < JAPAN_Y - rotateRange) autoRotateDir = 1;
             }
             draw();
             requestAnimationFrame(animate);

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Backup & Recovery | Thinkers GK</title>
+    <meta name="description" content="Automated backup solutions, disaster recovery planning, and rapid data restoration for businesses in Tokyo and Japan.">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js"></script>
+</head>
+<body>
+
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="index.html" class="nav-brand"><img src="assets/logo.svg" alt="Thinkers GK" class="nav-logo"></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" data-en="Home" data-ja="ホーム">Home</a>
+                <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+                <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+                <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
+            </div>
+            <div class="nav-utils">
+                <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+                <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="section" style="padding-bottom: 0;">
+        <div class="container">
+            <a href="services.html" class="back-link" data-en="&larr; Back to All Services" data-ja="&larr; サービス一覧に戻る">&larr; Back to All Services</a>
+        </div>
+    </section>
+
+    <section class="service-page-hero">
+        <div class="color-pulse-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="section-label" data-en="Data Backup & Recovery" data-ja="データバックアップ＆リカバリ">Data Backup & Recovery</div>
+                <h1 data-en="Never Lose Critical Business Data" data-ja="重要なビジネスデータを失わない">Never Lose Critical Business Data</h1>
+                <p data-en="Data loss can happen to any business — hardware failure, ransomware, human error. Our automated backup and disaster recovery solutions ensure your data is always protected, recoverable, and compliant with your retention policies." data-ja="データ損失はどの企業にも起こり得ます。自動バックアップと災害復旧ソリューションで、データの保護、復旧可能性、保持ポリシーへの準拠を常に確保。">Data loss can happen to any business — hardware failure, ransomware, human error. Our automated backup and disaster recovery solutions ensure your data is always protected, recoverable, and compliant with your retention policies.</p>
+                <a href="contact.html" class="btn btn-primary" data-en="Protect Your Data" data-ja="データ保護を相談する">Protect Your Data</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-label" data-en="What We Offer" data-ja="サービス内容">What We Offer</div>
+            <h2 class="section-title" data-en="Comprehensive data protection." data-ja="包括的なデータ保護。">Comprehensive data protection.</h2>
+            <div class="service-features">
+                <div class="service-feature-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <span data-en="Automated Backups" data-ja="自動バックアップ">Automated Backups</span>
+                    </h3>
+                    <p data-en="Scheduled backups for servers, workstations, and cloud applications. Incremental and full backup strategies with encryption at rest and in transit." data-ja="サーバー、ワークステーション、クラウドアプリの定期バックアップ。暗号化された増分・フルバックアップ戦略。">Scheduled backups for servers, workstations, and cloud applications. Incremental and full backup strategies with encryption at rest and in transit.</p>
+                </div>
+                <div class="service-feature-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
+                        <span data-en="Disaster Recovery" data-ja="災害復旧">Disaster Recovery</span>
+                    </h3>
+                    <p data-en="Business continuity planning with RPO/RTO targets. Offsite replication, failover systems, and tested recovery procedures so you can bounce back fast." data-ja="RPO/RTO目標に基づくBCP。オフサイトレプリケーション、フェイルオーバーシステム、テスト済み復旧手順。">Business continuity planning with RPO/RTO targets. Offsite replication, failover systems, and tested recovery procedures so you can bounce back fast.</p>
+                </div>
+                <div class="service-feature-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        <span data-en="Cloud Backup" data-ja="クラウドバックアップ">Cloud Backup</span>
+                    </h3>
+                    <p data-en="Protect Microsoft 365, Google Workspace, and SaaS data with dedicated cloud backup solutions. Point-in-time recovery for emails, files, and databases." data-ja="Microsoft 365、Google Workspace、SaaSデータを専用クラウドバックアップで保護。メール、ファイル、データベースのポイントインタイムリカバリ。">Protect Microsoft 365, Google Workspace, and SaaS data with dedicated cloud backup solutions. Point-in-time recovery for emails, files, and databases.</p>
+                </div>
+                <div class="service-feature-card">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span data-en="Monitoring & Testing" data-ja="監視＆テスト">Monitoring & Testing</span>
+                    </h3>
+                    <p data-en="Daily backup verification, regular recovery tests, and compliance reporting. We ensure your backups actually work when you need them." data-ja="日次バックアップ検証、定期的な復旧テスト、コンプライアンスレポート。必要な時にバックアップが機能することを保証。">Daily backup verification, regular recovery tests, and compliance reporting. We ensure your backups actually work when you need them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-label" data-en="How It Works" data-ja="サービスの流れ">How It Works</div>
+            <h2 class="section-title" data-en="Protection that works." data-ja="確実に機能する保護。">Protection that works.</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-num">1</div>
+                    <h3 data-en="Assess" data-ja="評価">Assess</h3>
+                    <p data-en="Identify critical data, current backup gaps, and RPO/RTO requirements for your business." data-ja="重要データ、現在のバックアップギャップ、ビジネスのRPO/RTO要件を特定。">Identify critical data, current backup gaps, and RPO/RTO requirements for your business.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-num">2</div>
+                    <h3 data-en="Design" data-ja="設計">Design</h3>
+                    <p data-en="Create a backup strategy with the right mix of local, cloud, and offsite protection." data-ja="ローカル、クラウド、オフサイト保護の最適な組み合わせでバックアップ戦略を設計。">Create a backup strategy with the right mix of local, cloud, and offsite protection.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-num">3</div>
+                    <h3 data-en="Deploy" data-ja="展開">Deploy</h3>
+                    <p data-en="Set up backup agents, configure schedules, and establish monitoring with encryption." data-ja="バックアップエージェントの設定、スケジュール構成、暗号化付き監視を確立。">Set up backup agents, configure schedules, and establish monitoring with encryption.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-num">4</div>
+                    <h3 data-en="Test & Maintain" data-ja="テスト＆維持">Test & Maintain</h3>
+                    <p data-en="Regular recovery drills and backup health checks. Adjust as your data grows and needs change." data-ja="定期的な復旧訓練とバックアップ健全性チェック。データの成長とニーズの変化に応じて調整。">Regular recovery drills and backup health checks. Adjust as your data grows and needs change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="testimonial-block">
+                <p data-en="When ransomware hit one of our workstations, Thinkers GK had us restored from backup within 2 hours. Without their backup solution, we would have lost months of financial records. The automated daily backups give us complete peace of mind." data-ja="ランサムウェアがワークステーションを攻撃した際、Thinkers GKが2時間以内にバックアップから復旧。バックアップソリューションがなければ数ヶ月分の財務記録を失うところでした。日次自動バックアップで完全な安心を。">When ransomware hit one of our workstations, Thinkers GK had us restored from backup within 2 hours. Without their backup solution, we would have lost months of financial records. The automated daily backups give us complete peace of mind.</p>
+                <div class="author">
+                    <strong data-en="Hiroshi Nakamura" data-ja="中村 博">Hiroshi Nakamura</strong>
+                    <span data-en="CFO, Atlas Trading Co. (Tokyo)" data-ja="CFO、Atlas Trading Co.（東京）">CFO, Atlas Trading Co. (Tokyo)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-services">
+        <div class="container">
+            <div class="section-label" data-en="Related Services" data-ja="関連サービス">Related Services</div>
+            <h2 class="section-title" data-en="Explore more services." data-ja="その他のサービスを探る。">Explore more services.</h2>
+            <div class="related-grid">
+                <a href="service-cybersecurity.html" class="card-link"><div class="card">
+                    <h3 data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</h3>
+                    <p data-en="Protect against threats." data-ja="脅威からの保護。">Protect against threats.</p>
+                </div></a>
+                <a href="service-managed-services.html" class="card-link"><div class="card">
+                    <h3 data-en="Managed Services" data-ja="マネージドサービス">Managed Services</h3>
+                    <p data-en="Full IT management." data-ja="IT全体の管理。">Full IT management.</p>
+                </div></a>
+                <a href="service-cloud-consulting.html" class="card-link"><div class="card">
+                    <h3 data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">Cloud & Consulting</h3>
+                    <p data-en="Cloud strategy and migration." data-ja="クラウド戦略と移行。">Cloud strategy and migration.</p>
+                </div></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2 data-en="Ready to protect your data?" data-ja="データ保護の準備はできましたか？">Ready to protect your data?</h2>
+                <p data-en="Let's review your backup strategy and make sure your business can recover from anything." data-ja="バックアップ戦略を見直し、あらゆる事態から復旧できることを確認します。">Let's review your backup strategy and make sure your business can recover from anything.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary" data-en="Talk to Us" data-ja="ご相談はこちら">Talk to Us</a>
+                    <a href="mailto:thinkerstars@gmail.com" class="btn btn-ghost">thinkerstars@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-brand"><img src="assets/logo.svg" alt="Thinkers GK" class="nav-logo"></a>
+                    <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">Trusted IT partner for local and international businesses across Japan.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-en="Company" data-ja="会社情報">Company</h4>
+                    <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+                    <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+                    <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+                    <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-en="Services" data-ja="サービス">Services</h4>
+                    <a href="service-it-support.html" data-en="IT Support" data-ja="ITサポート">IT Support</a>
+                    <a href="service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
+                    <a href="service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a>
+                    <a href="service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a>
+                    <a href="service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a>
+                    <a href="service-cloud-consulting.html" data-en="Cloud &amp; Consulting" data-ja="クラウド＆コンサルティング">Cloud &amp; Consulting</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-en="Contact" data-ja="連絡先">Contact</h4>
+                    <a href="mailto:thinkerstars@gmail.com">thinkerstars@gmail.com</a>
+                    <span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p></div>
+        </div>
+    </footer>
+
+</body>
+</html>
