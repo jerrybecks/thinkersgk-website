@@ -119,13 +119,26 @@ img { max-width: 100%; display: block; }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: var(--color-accent);
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
     color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-mark::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
 }
 
 .nav-menu {
@@ -703,6 +716,381 @@ img { max-width: 100%; display: block; }
 .footer-bottom p {
     font-size: 0.8125rem;
     color: var(--color-text-muted);
+}
+
+
+/* ========================================
+   JAPAN MAP SECTION
+   ======================================== */
+.japan-map-section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.japan-map-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.japan-map-text .section-label { margin-bottom: 8px; }
+
+.japan-map-text h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.japan-map-text p {
+    font-size: 1.0625rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.japan-map-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.japan-map-svg {
+    width: 100%;
+    height: auto;
+}
+
+.japan-map-svg .japan-outline {
+    fill: var(--color-accent-light);
+    stroke: var(--color-accent);
+    stroke-width: 0.5;
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .japan-map-svg .japan-outline {
+    fill: rgba(59,130,246,0.08);
+    stroke: rgba(59,130,246,0.3);
+}
+
+/* City dots with glow pulse */
+.city-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.city-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: cityPulse 2.5s ease-out infinite;
+}
+
+.city-dot.tokyo::before { animation-delay: 0s; }
+.city-dot.osaka::before { animation-delay: 0.5s; }
+.city-dot.nagoya::before { animation-delay: 1s; }
+.city-dot.fukuoka::before { animation-delay: 1.5s; }
+.city-dot.sapporo::before { animation-delay: 2s; }
+.city-dot.sendai::before { animation-delay: 0.8s; }
+.city-dot.hiroshima::before { animation-delay: 1.3s; }
+
+@keyframes cityPulse {
+    0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.5); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(2.5); }
+}
+
+.city-label {
+    position: absolute;
+    transform: translate(-50%, 8px);
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+}
+
+.city-dot.tokyo { background: #f59e0b; }
+.city-dot.tokyo::before { background: #f59e0b; }
+.city-label.tokyo { color: #f59e0b; font-size: 0.6875rem; }
+
+/* Coverage list inside map section */
+.coverage-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.coverage-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+.coverage-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .japan-map-inner { grid-template-columns: 1fr; }
+    .japan-map-container { max-width: 280px; }
+}
+
+
+/* ========================================
+   SERVICE CARDS (clickable, link to pages)
+   ======================================== */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-link .card {
+    cursor: pointer;
+    position: relative;
+}
+
+.card-link .card::after {
+    content: '\2192';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-4px);
+}
+
+.card-link .card:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--color-accent);
+}
+
+
+/* ========================================
+   INDIVIDUAL SERVICE PAGE
+   ======================================== */
+.service-page-hero {
+    padding: 140px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-page-hero .hero-overlay {
+    background: linear-gradient(180deg, var(--color-bg) 0%, transparent 50%, var(--color-bg) 100%);
+}
+
+.service-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.service-hero-content .section-label { margin-bottom: 12px; }
+
+.service-hero-content h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.service-hero-content p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+/* Feature blocks on service pages */
+.service-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.service-feature-card {
+    padding: 28px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+}
+
+.service-feature-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+.service-feature-card h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-feature-card h3 svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+.service-feature-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+}
+
+/* Testimonial / quote block */
+.testimonial-block {
+    padding: 48px;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    margin: 64px 0;
+}
+
+.testimonial-block::before {
+    content: '\201C';
+    position: absolute;
+    top: -8px;
+    left: 32px;
+    font-size: 5rem;
+    color: var(--color-accent);
+    opacity: 0.15;
+    line-height: 1;
+}
+
+.testimonial-block p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto 16px;
+}
+
+.testimonial-block .author {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    font-style: normal;
+}
+
+/* Process steps */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin: 48px 0;
+}
+
+.process-step {
+    text-align: center;
+    padding: 24px;
+}
+
+.process-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.process-step h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.process-step p {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Back link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 24px;
+    transition: var(--transition);
+}
+
+.back-link:hover { opacity: 0.7; }
+
+/* Image placeholder (for service pages) */
+.service-img-placeholder {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, var(--color-accent-light), var(--color-bg-alt));
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.service-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-img-placeholder svg {
+    width: 64px;
+    height: 64px;
+    color: var(--color-accent);
+    opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+    .service-features { grid-template-columns: 1fr; }
+    .testimonial-block { padding: 32px 24px; }
 }
 
 
