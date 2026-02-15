@@ -218,6 +218,34 @@ img { max-width: 100%; display: block; }
 .hero-content {
     max-width: 680px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-badge,
+.hero h1,
+.hero-sub,
+.hero-actions {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-badge { animation-delay: 0.2s; }
+.hero h1 { animation-delay: 0.4s; }
+.hero-sub { animation-delay: 0.6s; }
+.hero-actions { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-badge {
@@ -481,27 +509,6 @@ img { max-width: 100%; display: block; }
 /* ========================================
    ANIMATIONS
    ======================================== */
-.fade-in {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger cards */
-.card.fade-in:nth-child(2) { transition-delay: 0.08s; }
-.card.fade-in:nth-child(3) { transition-delay: 0.16s; }
-.card.fade-in:nth-child(4) { transition-delay: 0.24s; }
-.card.fade-in:nth-child(5) { transition-delay: 0.32s; }
-.card.fade-in:nth-child(6) { transition-delay: 0.4s; }
-
-.feature.fade-in:nth-child(2) { transition-delay: 0.08s; }
-.feature.fade-in:nth-child(3) { transition-delay: 0.16s; }
-.feature.fade-in:nth-child(4) { transition-delay: 0.24s; }
 
 
 /* ========================================
@@ -632,7 +639,21 @@ img { max-width: 100%; display: block; }
     grid-template-columns: 1fr 1.2fr;
     gap: 48px;
     align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
 }
+
+.service-detail-inner.reverse {
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.service-detail-inner:nth-child(1) { animation-delay: 0.1s; }
+.service-detail-inner:nth-child(2) { animation-delay: 0.2s; }
+.service-detail-inner:nth-child(3) { animation-delay: 0.3s; }
+.service-detail-inner:nth-child(4) { animation-delay: 0.4s; }
+.service-detail-inner:nth-child(5) { animation-delay: 0.5s; }
+.service-detail-inner:nth-child(6) { animation-delay: 0.6s; }
 
 .service-detail-inner.reverse {
     grid-template-columns: 1.2fr 1fr;
