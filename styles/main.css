@@ -113,7 +113,21 @@ img { max-width: 100%; display: block; }
     font-weight: 700;
     font-size: 1.125rem;
     letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--color-text);
 }
+
+.nav-logo {
+    height: 36px;
+    width: auto;
+    display: block;
+}
+
+.footer-brand .nav-logo {
+    height: 32px;
+}
+
+/* Dark mode logo swap handled by JS */
 
 .brand-mark {
     display: flex;
@@ -720,112 +734,83 @@ img { max-width: 100%; display: block; }
 
 
 /* ========================================
-   JAPAN MAP SECTION
+   3D INTERACTIVE GLOBE SECTION
    ======================================== */
-.japan-map-section {
+.globe-section {
     padding: 80px 0;
     position: relative;
     overflow: hidden;
+    background: var(--color-bg-alt);
 }
 
-.japan-map-inner {
+.globe-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: center;
 }
 
-.japan-map-text .section-label { margin-bottom: 8px; }
+.globe-text .section-label { margin-bottom: 8px; }
 
-.japan-map-text h2 {
+.globe-text h2 {
     font-size: clamp(1.75rem, 3.5vw, 2.25rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
 }
 
-.japan-map-text p {
+.globe-text p {
     font-size: 1.0625rem;
     color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 24px;
 }
 
-.japan-map-container {
+.globe-canvas-container {
     position: relative;
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    height: 450px;
+    cursor: grab;
 }
 
-.japan-map-svg {
+.globe-canvas-container:active {
+    cursor: grabbing;
+}
+
+.globe-canvas-container canvas {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
-.japan-map-svg .japan-outline {
-    fill: var(--color-accent-light);
-    stroke: var(--color-accent);
-    stroke-width: 0.5;
-    opacity: 0.6;
-}
-
-[data-theme="dark"] .japan-map-svg .japan-outline {
-    fill: rgba(59,130,246,0.08);
-    stroke: rgba(59,130,246,0.3);
-}
-
-/* City dots with glow pulse */
-.city-dot {
+/* Color Pulse Background — animated gradient overlay */
+.color-pulse-bg {
     position: absolute;
-    width: 8px;
-    height: 8px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.04;
+    background: linear-gradient(135deg, #2563eb, #7c3aed, #2563eb, #06b6d4, #2563eb);
+    background-size: 400% 400%;
+    animation: colorPulse 12s ease infinite;
+    pointer-events: none;
 }
 
-.city-dot::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    opacity: 0;
-    animation: cityPulse 2.5s ease-out infinite;
+[data-theme="dark"] .color-pulse-bg {
+    opacity: 0.06;
 }
 
-.city-dot.tokyo::before { animation-delay: 0s; }
-.city-dot.osaka::before { animation-delay: 0.5s; }
-.city-dot.nagoya::before { animation-delay: 1s; }
-.city-dot.fukuoka::before { animation-delay: 1.5s; }
-.city-dot.sapporo::before { animation-delay: 2s; }
-.city-dot.sendai::before { animation-delay: 0.8s; }
-.city-dot.hiroshima::before { animation-delay: 1.3s; }
-
-@keyframes cityPulse {
-    0% { opacity: 0.6; transform: translate(-50%, -50%) scale(0.5); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(2.5); }
+@keyframes colorPulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.city-label {
-    position: absolute;
-    transform: translate(-50%, 8px);
-    font-size: 0.625rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    white-space: nowrap;
-    letter-spacing: 0.04em;
+@media (max-width: 768px) {
+    .globe-inner { grid-template-columns: 1fr; }
+    .globe-canvas-container { height: 350px; }
 }
-
-.city-dot.tokyo { background: #f59e0b; }
-.city-dot.tokyo::before { background: #f59e0b; }
-.city-label.tokyo { color: #f59e0b; font-size: 0.6875rem; }
 
 /* Coverage list inside map section */
 .coverage-list {
@@ -1298,6 +1283,34 @@ img { max-width: 100%; display: block; }
 .page-header {
     padding: 140px 0 60px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header .color-pulse-bg,
+.service-page-hero .color-pulse-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.04;
+    background: linear-gradient(135deg, #2563eb, #7c3aed, #2563eb, #06b6d4, #2563eb);
+    background-size: 400% 400%;
+    animation: colorPulse 12s ease infinite;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .page-header .color-pulse-bg,
+[data-theme="dark"] .service-page-hero .color-pulse-bg {
+    opacity: 0.06;
+}
+
+.page-header .container,
+.service-page-hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .page-header h1 {
