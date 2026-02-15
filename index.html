@@ -57,21 +57,88 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero with Particle Network -->
     <section class="hero">
-        <!-- VIDEO: Replace src with your video URL. Recommended: host on your domain or use a CDN. -->
-        <!-- <video class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="assets/hero-video.mp4" type="video/mp4">
-        </video> -->
+        <canvas id="particleCanvas"></canvas>
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge" data-en="Based in Tokyo, serving globally" data-ja="東京拠点、世界に展開">Based in Tokyo, serving globally</div>
-                <h1 data-en="IT services that just work." data-ja="確実に機能するITサービス。">IT services that<br><span class="text-accent" data-en="just work." data-ja="確実に機能する。">just work.</span></h1>
+                <h1>
+                    <span data-en="IT services that" data-ja="確実に機能する">IT services that</span><br>
+                    <span class="hero-title-animated text-accent" data-text="just work.">just work.</span>
+                </h1>
                 <p class="hero-sub" data-en="We handle your IT infrastructure so you can focus on your business. Support, security, field engineering, and asset lifecycle — all under one roof." data-ja="ITインフラの管理はお任せください。サポート、セキュリティ、フィールドエンジニアリング、資産管理 — すべてワンストップで提供します。">We handle your IT infrastructure so you can focus on your business. Support, security, field engineering, and asset lifecycle — all under one roof.</p>
                 <div class="hero-actions">
                     <a href="contact.html" class="btn btn-primary" data-en="Talk to Us" data-ja="ご相談はこちら">Talk to Us</a>
                     <a href="services.html" class="btn btn-ghost" data-en="Our Services →" data-ja="サービス一覧 →">Our Services &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Partners Logo Bar -->
+    <section class="logo-bar">
+        <div class="container">
+            <p class="logo-bar-label" data-en="Trusted technologies we work with" data-ja="信頼のテクノロジーパートナー">Trusted technologies we work with</p>
+        </div>
+        <div class="logo-track-wrapper">
+            <div class="logo-track">
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.243 18.083c-3.345 0-6.06-2.715-6.06-6.06s2.715-6.06 6.06-6.06c1.63 0 2.994.6 4.047 1.58l-1.64 1.576c-.449-.43-1.232-.93-2.407-.93-2.063 0-3.746 1.708-3.746 3.814 0 2.105 1.683 3.814 3.746 3.814 2.394 0 3.293-1.72 3.434-2.608h-3.434v-2.066h5.717c.053.296.096.593.096.981 0 3.38-2.26 5.78-5.813 5.78z"/></svg>
+                    <span>Google Cloud</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.379 23.343a1.62 1.62 0 0 1-1.082-.41l-4.836-4.3a.638.638 0 0 0-.88.045l-1.004 1.092c-.16.173-.377.27-.604.27a.773.773 0 0 1-.2-.026.797.797 0 0 1-.555-.479L8.5 7.736a.756.756 0 0 1 .106-.744.79.79 0 0 1 .7-.286L21.59 9.113a.786.786 0 0 1 .478.556.776.776 0 0 1-.157.679l-1.098 1.305a.638.638 0 0 0 .044.88l4.836 4.3a1.628 1.628 0 0 1 .146 2.296l-1.928 2.173a1.62 1.62 0 0 1-1.214.546l-.32-.005z"/><path d="M0 11.044h5.3v5.3H0zM6.93 11.044h5.3v5.3h-5.3zM0 4.113h5.3v5.3H0zM6.93 4.113h5.3v5.3h-5.3z"/></svg>
+                    <span>Microsoft</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.784 0A1.5 1.5 0 0 0 6.3 1.484l-.876 7.011a1.5 1.5 0 0 0 1.484 1.706h4.584a.47.47 0 0 1 .465.534l-.876 7.011a.47.47 0 0 0 .465.534h1.5a1.5 1.5 0 0 0 1.484-1.295l.876-7.011a1.5 1.5 0 0 0-1.484-1.706H9.338a.47.47 0 0 1-.465-.534l.876-7.011A.47.47 0 0 0 9.284 0z"/></svg>
+                    <span>Cisco</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 4l10-4 10 4v6c0 5.55-4.02 10.74-10 12-5.98-1.26-10-6.45-10-12V4zm10 0L4 7v5c0 4.25 3.08 8.24 8 9.6 4.92-1.36 8-5.35 8-9.6V7l-8-3z"/></svg>
+                    <span>VMware</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    <span>Dell EMC</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                    <span>Sophos</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 12.8c-.2-.2-.4-.3-.6-.3h-.2c-.3 0-.6.2-.8.4l-2.4 3.3c-.3.4-.3.9 0 1.3l2.4 3.3c.2.3.5.4.8.4h.2c.2 0 .4-.1.6-.3.3-.3.3-.8 0-1.1l-2.1-2.8 2.1-2.8c.4-.4.4-1.1 0-1.4zM12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+                    <span>Oracle</span>
+                </div>
+                <div class="logo-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                    <span>Citrix</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="14" data-suffix="+">0+</div>
+                    <div class="stat-label" data-en="IT Services" data-ja="ITサービス">IT Services</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="100" data-suffix="%">0%</div>
+                    <div class="stat-label" data-en="Bilingual Support" data-ja="バイリンガル対応">Bilingual Support</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="24" data-suffix="/7">0/7</div>
+                    <div class="stat-label" data-en="Helpdesk Availability" data-ja="ヘルプデスク対応">Helpdesk Availability</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="47" data-suffix="">0</div>
+                    <div class="stat-label" data-en="Prefectures Covered" data-ja="対応都道府県">Prefectures Covered</div>
                 </div>
             </div>
         </div>

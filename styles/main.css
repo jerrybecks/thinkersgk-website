@@ -251,7 +251,7 @@ img { max-width: 100%; display: block; }
 
 
 /* ========================================
-   HERO (with video background support)
+   HERO (with particle network background)
    ======================================== */
 .hero {
     position: relative;
@@ -260,7 +260,16 @@ img { max-width: 100%; display: block; }
     overflow: hidden;
 }
 
-/* Video background — add <video class="hero-video-bg"> inside .hero */
+/* Canvas-based particle network */
+#particleCanvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: auto;
+}
+
+/* Video background — fallback if video is used instead */
 .hero-video-bg {
     position: absolute;
     top: 0; left: 0;
@@ -276,17 +285,19 @@ img { max-width: 100%; display: block; }
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: linear-gradient(180deg, var(--color-bg) 0%, transparent 40%, transparent 60%, var(--color-bg) 100%);
+    background: linear-gradient(180deg, var(--color-bg) 0%, transparent 30%, transparent 70%, var(--color-bg) 100%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
 }
 
+/* Hero staggered animations */
 .hero-badge,
 .hero h1,
 .hero-sub,
@@ -329,6 +340,23 @@ img { max-width: 100%; display: block; }
 
 .text-accent { color: var(--color-accent); }
 
+/* Hero character-by-character animation */
+.hero-title-animated {
+    opacity: 0;
+}
+
+.hero-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: charFadeIn 0.5s ease forwards;
+}
+
+@keyframes charFadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.8); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .hero-sub {
     font-size: clamp(1rem, 1.8vw, 1.1875rem);
     color: var(--color-text-secondary);
@@ -344,6 +372,108 @@ img { max-width: 100%; display: block; }
     gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+
+/* ========================================
+   LOGO BAR (Technology Partners)
+   ======================================== */
+.logo-bar {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--color-border-light);
+    overflow: hidden;
+}
+
+.logo-bar-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+}
+
+.logo-track-wrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.logo-track {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    animation: logoScroll 30s linear infinite;
+    width: max-content;
+}
+
+.logo-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes logoScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.logo-item:hover { opacity: 1; }
+
+.logo-item svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   STATS SECTION
+   ======================================== */
+.stats-section {
+    padding: 64px 0;
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 64px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 140px;
+}
+
+.stat-number {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
 }
 
 
@@ -385,13 +515,13 @@ img { max-width: 100%; display: block; }
     background: var(--color-card-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .card:hover {
     border-color: var(--color-accent);
     box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
 
 .card-icon {
@@ -403,6 +533,13 @@ img { max-width: 100%; display: block; }
     color: var(--color-accent);
     border-radius: 10px;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.card:hover .card-icon {
+    background: var(--color-accent);
+    color: #fff;
+    transform: scale(1.05);
 }
 
 .card h3 {
@@ -435,12 +572,13 @@ img { max-width: 100%; display: block; }
     background: var(--color-card-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .feature:hover {
     border-color: var(--color-accent);
     box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
 }
 
 .feature-num {
@@ -451,7 +589,10 @@ img { max-width: 100%; display: block; }
     line-height: 1;
     min-width: 36px;
     padding-top: 2px;
+    transition: opacity 0.3s ease;
 }
+
+.feature:hover .feature-num { opacity: 1; }
 
 .feature h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
 
@@ -473,6 +614,23 @@ img { max-width: 100%; display: block; }
     background: var(--color-bg-alt);
     border: 1px solid var(--color-border);
     border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-hover), var(--color-accent));
+    background-size: 200% 100%;
+    animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .cta-box h2 {
@@ -569,6 +727,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 1024px) {
     .cards-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .stats-grid { gap: 40px; }
 }
 
 @media (max-width: 768px) {
@@ -610,6 +769,11 @@ img { max-width: 100%; display: block; }
     .btn { width: 100%; max-width: 280px; }
     .footer-grid { grid-template-columns: 1fr; gap: 24px; }
     .cta-box { padding: 40px 24px; }
+
+    .stats-grid { gap: 24px; }
+    .stat-number { font-size: 2rem; }
+
+    .logo-track { gap: 32px; }
 }
 
 @media (max-width: 480px) {
