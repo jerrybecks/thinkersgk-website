@@ -283,13 +283,13 @@
         function getColors() {
             var dark = document.documentElement.getAttribute('data-theme') === 'dark';
             return {
-                oceanDot: dark ? 'rgba(59,130,246,0.15)' : 'rgba(37,99,235,0.12)',
-                landDot: dark ? 'rgba(59,130,246,0.5)' : 'rgba(37,99,235,0.4)',
-                japanDot: dark ? '#60a5fa' : '#2563eb',
-                japanGlow: dark ? 'rgba(96,165,250,0.6)' : 'rgba(37,99,235,0.45)',
-                outline: dark ? 'rgba(59,130,246,0.25)' : 'rgba(37,99,235,0.2)',
+                oceanDot: dark ? 'rgba(59,130,246,0.25)' : 'rgba(37,99,235,0.3)',
+                landDot: dark ? 'rgba(59,130,246,0.7)' : 'rgba(37,99,235,0.7)',
+                japanDot: dark ? '#60a5fa' : '#1d4ed8',
+                japanGlow: dark ? 'rgba(96,165,250,0.7)' : 'rgba(37,99,235,0.6)',
+                outline: dark ? 'rgba(59,130,246,0.35)' : 'rgba(37,99,235,0.4)',
                 label: dark ? '#e5e7eb' : '#1e293b',
-                connector: dark ? 'rgba(59,130,246,0.35)' : 'rgba(37,99,235,0.25)'
+                connector: dark ? 'rgba(59,130,246,0.45)' : 'rgba(37,99,235,0.4)'
             };
         }
 
@@ -324,7 +324,7 @@
             ctx.beginPath();
             ctx.arc(cx, cy, radius, 0, Math.PI * 2);
             ctx.strokeStyle = colors.outline;
-            ctx.lineWidth = 1.5;
+            ctx.lineWidth = 2;
             ctx.stroke();
 
             // Subtle sphere shading
@@ -344,17 +344,17 @@
 
                 var dotSize, dotColor, dotAlpha;
                 if (d.japan) {
-                    dotSize = 3.2;
+                    dotSize = 4;
                     dotColor = colors.japanDot;
                     dotAlpha = 1;
                 } else if (d.land) {
-                    dotSize = 1.6;
+                    dotSize = 2.2;
                     dotColor = colors.landDot;
-                    dotAlpha = 0.6 + p.z * 0.4;
+                    dotAlpha = 0.7 + p.z * 0.3;
                 } else {
-                    dotSize = 0.8;
+                    dotSize = 1.2;
                     dotColor = colors.oceanDot;
-                    dotAlpha = 0.4 + p.z * 0.4;
+                    dotAlpha = 0.5 + p.z * 0.5;
                 }
 
                 ctx.globalAlpha = dotAlpha;
@@ -368,10 +368,10 @@
             // Japan ambient glow — bright pulsing halo
             var jCenter = project(36 * Math.PI / 180, 138 * Math.PI / 180);
             if (jCenter.z > 0) {
-                var glowR = radius * 0.28;
+                var glowR = radius * 0.32;
                 var grd2 = ctx.createRadialGradient(jCenter.x, jCenter.y, 0, jCenter.x, jCenter.y, glowR);
                 grd2.addColorStop(0, colors.japanGlow);
-                grd2.addColorStop(0.5, colors.japanGlow);
+                grd2.addColorStop(0.45, colors.japanGlow);
                 grd2.addColorStop(1, 'transparent');
                 ctx.beginPath();
                 ctx.arc(jCenter.x, jCenter.y, glowR, 0, Math.PI * 2);
