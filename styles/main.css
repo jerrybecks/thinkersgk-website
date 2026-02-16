@@ -315,6 +315,7 @@ img { max-width: 100%; display: block; }
     background: linear-gradient(180deg, var(--color-bg) 0%, transparent 30%, transparent 70%, var(--color-bg) 100%);
     z-index: 1;
     pointer-events: none;
+    animation: subtleFloat 8s ease-in-out infinite alternate;
 }
 
 .hero-content {
@@ -400,6 +401,18 @@ img { max-width: 100%; display: block; }
     from { text-shadow: 0 0 4px var(--color-accent-light); }
     to { text-shadow: 0 0 12px var(--color-accent), 0 0 20px var(--color-accent-hover); }
 }
+
+@keyframes subtleFloat {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-5px) scale(1.01); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+@keyframes subtleShine {
+    0% { background-position: 200% 0%; }
+    100% { background-position: -200% 0%; }
+}
+
 
 .hero-sub {
     font-size: clamp(1rem, 1.8vw, 1.1875rem);
@@ -564,8 +577,8 @@ img { max-width: 100%; display: block; }
 
 .card:hover {
     border-color: var(--color-accent);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px) rotateZ(1deg) scale(1.01);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px) scale(1.015);
 }
 
 .card-icon {
