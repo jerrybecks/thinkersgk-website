@@ -1,7 +1,7 @@
 /* ========================================
    THINKERS GK — Main JavaScript
    Theme, language, nav, animations,
-   particles, 3D globe, color pulse
+   particles, dot-matrix globe, color pulse
    ======================================== */
 
 (function() {
@@ -177,73 +177,101 @@
         };
     }
 
-    // ── Japan Map — Stationary Canvas with Cities & Glow ──────────
+    // ── Dot-Matrix Globe — Japan Highlighted with Glowing Cities ──────────
     function initGlobe() {
         var canvas = document.getElementById('globeCanvas');
         if (!canvas) return;
         var ctx = canvas.getContext('2d');
-        var W, H;
+        var W, H, cx, cy, radius;
 
-        // Japan cities — pixel positions mapped to a normalized Japan outline
-        // Coordinates are % of canvas (0-1 range), mapped from real geography
+        // Slow auto-rotation centered on Japan
+        var rotY = 2.42;
+        var rotX = -0.55;
+        var autoSpeed = 0.0004;
+
+        // Japan cities — each gets a UNIQUE color
         var cities = [
-            { name: 'Sapporo',   nx: 0.72, ny: 0.13, isHQ: false },
-            { name: 'Sendai',    nx: 0.70, ny: 0.36, isHQ: false },
-            { name: 'Tokyo',     nx: 0.64, ny: 0.50, isHQ: true },
-            { name: 'Nagoya',    nx: 0.52, ny: 0.53, isHQ: false },
-            { name: 'Osaka',     nx: 0.44, ny: 0.57, isHQ: false },
-            { name: 'Hiroshima', nx: 0.30, ny: 0.58, isHQ: false },
-            { name: 'Fukuoka',   nx: 0.18, ny: 0.57, isHQ: false }
+            { name: 'Tokyo',     lat: 35.68, lon: 139.69, isHQ: true,  color: '#f59e0b', glow: 'rgba(245,158,11,0.6)' },
+            { name: 'Osaka',     lat: 34.69, lon: 135.50, isHQ: false, color: '#06b6d4', glow: 'rgba(6,182,212,0.5)' },
+            { name: 'Nagoya',    lat: 35.18, lon: 136.91, isHQ: false, color: '#8b5cf6', glow: 'rgba(139,92,246,0.5)' },
+            { name: 'Fukuoka',   lat: 33.59, lon: 130.40, isHQ: false, color: '#10b981', glow: 'rgba(16,185,129,0.5)' },
+            { name: 'Sapporo',   lat: 43.06, lon: 141.35, isHQ: false, color: '#f43f5e', glow: 'rgba(244,63,94,0.5)' },
+            { name: 'Sendai',    lat: 38.27, lon: 140.87, isHQ: false, color: '#3b82f6', glow: 'rgba(59,130,246,0.5)' },
+            { name: 'Hiroshima', lat: 34.39, lon: 132.46, isHQ: false, color: '#ec4899', glow: 'rgba(236,72,153,0.5)' }
+        ].map(function(c) {
+            c.latR = c.lat * Math.PI / 180;
+            c.lonR = c.lon * Math.PI / 180;
+            return c;
+        });
+
+        // Japan land bounding boxes for dot classification
+        var japanRegions = [
+            { minLat: 41, maxLat: 45.5, minLon: 139, maxLon: 146 },
+            { minLat: 36, maxLat: 41, minLon: 138, maxLon: 142 },
+            { minLat: 34, maxLat: 36, minLon: 134, maxLon: 141 },
+            { minLat: 33.5, maxLat: 35.5, minLon: 130, maxLon: 135 },
+            { minLat: 32.5, maxLat: 34.5, minLon: 132, maxLon: 135 },
+            { minLat: 31, maxLat: 34, minLon: 129, maxLon: 132 },
+            { minLat: 24, maxLat: 27, minLon: 126, maxLon: 129 }
         ];
 
-        // Simplified Japan coastline outlines (normalized 0-1 coords)
-        // Hokkaido
-        var hokkaido = [
-            [0.60,0.18],[0.62,0.14],[0.65,0.10],[0.68,0.07],[0.72,0.05],[0.76,0.04],
-            [0.80,0.05],[0.83,0.07],[0.85,0.10],[0.86,0.14],[0.85,0.18],[0.83,0.21],
-            [0.80,0.23],[0.76,0.24],[0.72,0.23],[0.68,0.21],[0.65,0.20],[0.62,0.20],
-            [0.60,0.18]
-        ];
-        // Honshu (main island)
-        var honshu = [
-            [0.62,0.26],[0.65,0.25],[0.68,0.27],[0.72,0.30],[0.74,0.33],[0.75,0.36],
-            [0.74,0.39],[0.72,0.42],[0.70,0.44],[0.68,0.47],[0.66,0.50],[0.64,0.52],
-            [0.61,0.53],[0.58,0.54],[0.55,0.55],[0.52,0.56],[0.48,0.57],[0.44,0.58],
-            [0.40,0.58],[0.37,0.56],[0.35,0.54],[0.34,0.52],[0.35,0.50],[0.37,0.48],
-            [0.39,0.46],[0.42,0.44],[0.44,0.42],[0.46,0.40],[0.48,0.38],[0.50,0.36],
-            [0.52,0.34],[0.54,0.32],[0.56,0.30],[0.58,0.28],[0.60,0.27],[0.62,0.26]
-        ];
-        // Shikoku
-        var shikoku = [
-            [0.38,0.60],[0.41,0.59],[0.44,0.60],[0.46,0.62],[0.45,0.64],[0.42,0.65],
-            [0.39,0.64],[0.37,0.62],[0.38,0.60]
-        ];
-        // Kyushu
-        var kyushu = [
-            [0.22,0.52],[0.25,0.50],[0.28,0.51],[0.30,0.53],[0.31,0.56],[0.30,0.59],
-            [0.28,0.62],[0.25,0.64],[0.22,0.65],[0.19,0.64],[0.17,0.62],[0.15,0.59],
-            [0.14,0.56],[0.15,0.53],[0.17,0.51],[0.19,0.50],[0.22,0.52]
-        ];
-        // Okinawa chain (small)
-        var okinawa = [
-            [0.12,0.78],[0.14,0.80],[0.16,0.82],[0.18,0.85],[0.20,0.88]
+        function isInJapan(latD, lonD) {
+            for (var i = 0; i < japanRegions.length; i++) {
+                var r = japanRegions[i];
+                if (latD >= r.minLat && latD <= r.maxLat && lonD >= r.minLon && lonD <= r.maxLon) return true;
+            }
+            return false;
+        }
+
+        // World land bounding boxes (simplified)
+        var landRegions = [
+            { minLat: 10, maxLat: 55, minLon: 60, maxLon: 130 },
+            { minLat: -10, maxLat: 20, minLon: 95, maxLon: 140 },
+            { minLat: 35, maxLat: 70, minLon: -10, maxLon: 60 },
+            { minLat: -35, maxLat: 35, minLon: -20, maxLon: 52 },
+            { minLat: 15, maxLat: 70, minLon: -170, maxLon: -50 },
+            { minLat: -55, maxLat: 15, minLon: -82, maxLon: -35 },
+            { minLat: -45, maxLat: -10, minLon: 110, maxLon: 155 },
+            { minLat: 33, maxLat: 43, minLon: 124, maxLon: 132 },
+            { minLat: 43, maxLat: 65, minLon: 130, maxLon: 170 }
         ];
 
-        var islands = [hokkaido, honshu, shikoku, kyushu];
+        function isLand(latD, lonD) {
+            for (var i = 0; i < landRegions.length; i++) {
+                var r = landRegions[i];
+                if (latD >= r.minLat && latD <= r.maxLat && lonD >= r.minLon && lonD <= r.maxLon) return true;
+            }
+            return false;
+        }
+
+        // Pre-generate dot-matrix grid on sphere
+        var dots = [];
+        var dotSpacing = 3.5;
+        for (var lat = -80; lat <= 80; lat += dotSpacing) {
+            var lonStep = dotSpacing / Math.cos(lat * Math.PI / 180);
+            if (lonStep > 40) lonStep = 40;
+            for (var lon = -180; lon < 180; lon += lonStep) {
+                var inJP = isInJapan(lat, lon);
+                var land = inJP || isLand(lat, lon);
+                dots.push({
+                    latR: lat * Math.PI / 180,
+                    lonR: lon * Math.PI / 180,
+                    japan: inJP,
+                    land: land
+                });
+            }
+        }
 
         function getColors() {
             var dark = document.documentElement.getAttribute('data-theme') === 'dark';
             return {
-                landFill: dark ? 'rgba(59,130,246,0.08)' : 'rgba(37,99,235,0.06)',
-                landStroke: dark ? 'rgba(59,130,246,0.5)' : 'rgba(37,99,235,0.35)',
-                city: dark ? '#60a5fa' : '#2563eb',
-                cityGlow: dark ? 'rgba(96,165,250,0.5)' : 'rgba(37,99,235,0.35)',
-                hq: '#f59e0b',
-                hqGlow: 'rgba(245,158,11,0.5)',
-                line: dark ? 'rgba(59,130,246,0.2)' : 'rgba(37,99,235,0.12)',
+                oceanDot: dark ? 'rgba(59,130,246,0.07)' : 'rgba(37,99,235,0.05)',
+                landDot: dark ? 'rgba(59,130,246,0.2)' : 'rgba(37,99,235,0.15)',
+                japanDot: dark ? 'rgba(96,165,250,0.85)' : 'rgba(37,99,235,0.7)',
+                japanGlow: dark ? 'rgba(96,165,250,0.35)' : 'rgba(37,99,235,0.2)',
+                outline: dark ? 'rgba(59,130,246,0.12)' : 'rgba(37,99,235,0.08)',
                 label: dark ? '#e5e7eb' : '#1e293b',
-                grid: dark ? 'rgba(59,130,246,0.04)' : 'rgba(37,99,235,0.03)',
-                okinawa: dark ? 'rgba(59,130,246,0.3)' : 'rgba(37,99,235,0.2)'
+                connector: dark ? 'rgba(59,130,246,0.18)' : 'rgba(37,99,235,0.1)'
             };
         }
 
@@ -255,165 +283,168 @@
             canvas.height = rect.height;
             W = canvas.width;
             H = canvas.height;
+            cx = W / 2;
+            cy = H / 2;
+            radius = Math.min(W, H) * 0.44;
         }
 
-        function toPixel(nx, ny) {
-            // Add padding and scale to fill canvas
-            var pad = 20;
-            return {
-                x: pad + nx * (W - pad * 2),
-                y: pad + ny * (H - pad * 2)
-            };
-        }
-
-        function drawIsland(pts, fill, stroke, lineW) {
-            ctx.beginPath();
-            for (var i = 0; i < pts.length; i++) {
-                var p = toPixel(pts[i][0], pts[i][1]);
-                if (i === 0) ctx.moveTo(p.x, p.y);
-                else ctx.lineTo(p.x, p.y);
-            }
-            ctx.closePath();
-            if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-            if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lineW || 2; ctx.stroke(); }
-        }
-
-        function drawPolyline(pts, color, lineW) {
-            ctx.beginPath();
-            for (var i = 0; i < pts.length; i++) {
-                var p = toPixel(pts[i][0], pts[i][1]);
-                if (i === 0) ctx.moveTo(p.x, p.y);
-                else ctx.lineTo(p.x, p.y);
-            }
-            ctx.strokeStyle = color;
-            ctx.lineWidth = lineW || 1.5;
-            ctx.stroke();
+        function project(latR, lonR) {
+            var cosLat = Math.cos(latR);
+            var x3 = cosLat * Math.cos(lonR + rotY);
+            var y3 = Math.sin(latR);
+            var z3 = cosLat * Math.sin(lonR + rotY);
+            var y3r = y3 * Math.cos(rotX) - z3 * Math.sin(rotX);
+            var z3r = y3 * Math.sin(rotX) + z3 * Math.cos(rotX);
+            return { x: cx + x3 * radius, y: cy - y3r * radius, z: z3r };
         }
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
             var time = Date.now() * 0.002;
 
-            // Subtle grid dots
-            var gridSpacing = 40;
-            for (var gx = 0; gx < W; gx += gridSpacing) {
-                for (var gy = 0; gy < H; gy += gridSpacing) {
+            // Globe outline
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+            ctx.strokeStyle = colors.outline;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+
+            // Subtle sphere shading
+            var grd = ctx.createRadialGradient(cx - radius * 0.3, cy - radius * 0.3, 0, cx, cy, radius);
+            grd.addColorStop(0, colors.outline);
+            grd.addColorStop(1, 'transparent');
+            ctx.fillStyle = grd;
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw dot-matrix
+            for (var i = 0; i < dots.length; i++) {
+                var d = dots[i];
+                var p = project(d.latR, d.lonR);
+                if (p.z < 0.05) continue;
+
+                var dotSize, dotColor, dotAlpha;
+                if (d.japan) {
+                    dotSize = 2.2;
+                    dotColor = colors.japanDot;
+                    dotAlpha = 0.7 + p.z * 0.3;
+                } else if (d.land) {
+                    dotSize = 1.2;
+                    dotColor = colors.landDot;
+                    dotAlpha = 0.4 + p.z * 0.4;
+                } else {
+                    dotSize = 0.7;
+                    dotColor = colors.oceanDot;
+                    dotAlpha = 0.3 + p.z * 0.3;
+                }
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, dotSize, 0, Math.PI * 2);
+                ctx.fillStyle = dotColor;
+                ctx.globalAlpha = dotAlpha;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+
+            // Japan ambient glow
+            var jCenter = project(36 * Math.PI / 180, 138 * Math.PI / 180);
+            if (jCenter.z > 0) {
+                var glowR = radius * 0.22;
+                var grd2 = ctx.createRadialGradient(jCenter.x, jCenter.y, 0, jCenter.x, jCenter.y, glowR);
+                grd2.addColorStop(0, colors.japanGlow);
+                grd2.addColorStop(1, 'transparent');
+                ctx.beginPath();
+                ctx.arc(jCenter.x, jCenter.y, glowR, 0, Math.PI * 2);
+                ctx.fillStyle = grd2;
+                ctx.globalAlpha = 0.6 + Math.sin(time * 0.5) * 0.2;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+
+            // Connection arcs from Tokyo
+            var tokyoP = project(cities[0].latR, cities[0].lonR);
+            if (tokyoP.z > 0) {
+                for (var i = 1; i < cities.length; i++) {
+                    var cp = project(cities[i].latR, cities[i].lonR);
+                    if (cp.z < 0) continue;
                     ctx.beginPath();
-                    ctx.arc(gx, gy, 0.8, 0, Math.PI * 2);
-                    ctx.fillStyle = colors.grid;
+                    ctx.moveTo(tokyoP.x, tokyoP.y);
+                    var mx = (tokyoP.x + cp.x) / 2;
+                    var my = (tokyoP.y + cp.y) / 2 - 20;
+                    ctx.quadraticCurveTo(mx, my, cp.x, cp.y);
+                    ctx.strokeStyle = colors.connector;
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([3, 3]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+
+                    // Animated traveling dot
+                    var t = (Math.sin(time * 0.8 + i * 1.5) + 1) / 2;
+                    var ax = (1-t)*(1-t)*tokyoP.x + 2*(1-t)*t*mx + t*t*cp.x;
+                    var ay = (1-t)*(1-t)*tokyoP.y + 2*(1-t)*t*my + t*t*cp.y;
+                    ctx.beginPath();
+                    ctx.arc(ax, ay, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = cities[i].color;
+                    ctx.globalAlpha = 0.8;
                     ctx.fill();
+                    ctx.globalAlpha = 1;
                 }
             }
 
-            // Draw islands with fill and stroke
-            for (var i = 0; i < islands.length; i++) {
-                // Glow effect behind each island
-                ctx.save();
-                ctx.shadowColor = colors.cityGlow;
-                ctx.shadowBlur = 20;
-                drawIsland(islands[i], colors.landFill, null, 0);
-                ctx.restore();
-                // Crisp outline
-                drawIsland(islands[i], colors.landFill, colors.landStroke, 2);
-            }
-
-            // Okinawa chain (dots and line)
-            drawPolyline(okinawa, colors.okinawa, 1.5);
-            for (var i = 0; i < okinawa.length; i++) {
-                var op = toPixel(okinawa[i][0], okinawa[i][1]);
-                ctx.beginPath();
-                ctx.arc(op.x, op.y, 2.5, 0, Math.PI * 2);
-                ctx.fillStyle = colors.okinawa;
-                ctx.fill();
-            }
-
-            // Connection lines from Tokyo to each city (curved arcs)
-            var tokyoCity = cities[2]; // Tokyo
-            var tkP = toPixel(tokyoCity.nx, tokyoCity.ny);
-            for (var i = 0; i < cities.length; i++) {
-                if (cities[i].isHQ) continue;
-                var cp = toPixel(cities[i].nx, cities[i].ny);
-                ctx.beginPath();
-                ctx.moveTo(tkP.x, tkP.y);
-                var mx = (tkP.x + cp.x) / 2;
-                var my = (tkP.y + cp.y) / 2 - 30;
-                ctx.quadraticCurveTo(mx, my, cp.x, cp.y);
-                ctx.strokeStyle = colors.line;
-                ctx.lineWidth = 1.2;
-                ctx.setLineDash([4, 4]);
-                ctx.stroke();
-                ctx.setLineDash([]);
-
-                // Animated dot traveling along the line
-                var t = (Math.sin(time + i * 1.2) + 1) / 2;
-                var dotX = (1 - t) * (1 - t) * tkP.x + 2 * (1 - t) * t * mx + t * t * cp.x;
-                var dotY = (1 - t) * (1 - t) * tkP.y + 2 * (1 - t) * t * my + t * t * cp.y;
-                ctx.beginPath();
-                ctx.arc(dotX, dotY, 2.5, 0, Math.PI * 2);
-                ctx.fillStyle = colors.city;
-                ctx.globalAlpha = 0.7;
-                ctx.fill();
-                ctx.globalAlpha = 1;
-            }
-
-            // Draw city markers
+            // City markers — each with unique color
             for (var i = 0; i < cities.length; i++) {
                 var c = cities[i];
-                var p = toPixel(c.nx, c.ny);
-                var dotColor = c.isHQ ? colors.hq : colors.city;
-                var glowColor = c.isHQ ? colors.hqGlow : colors.cityGlow;
-                var pulseR = 6 + Math.sin(time + i * 0.8) * 3;
+                var p = project(c.latR, c.lonR);
+                if (p.z < 0) continue;
 
-                // Outer glow pulse
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, pulseR * (c.isHQ ? 4.5 : 3), 0, Math.PI * 2);
-                var grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, pulseR * (c.isHQ ? 4.5 : 3));
-                grd.addColorStop(0, glowColor);
-                grd.addColorStop(1, 'transparent');
-                ctx.fillStyle = grd;
-                ctx.globalAlpha = 0.6 + Math.sin(time + i) * 0.3;
-                ctx.fill();
-                ctx.globalAlpha = 1;
+                var pulseR = 5 + Math.sin(time + i * 0.9) * 2.5;
+                var outerR = pulseR * (c.isHQ ? 5 : 3.5);
 
-                // Mid ring
+                // Glow pulse
+                var grdC = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, outerR);
+                grdC.addColorStop(0, c.glow);
+                grdC.addColorStop(1, 'transparent');
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, c.isHQ ? 12 : 8, 0, Math.PI * 2);
-                ctx.fillStyle = dotColor;
-                ctx.globalAlpha = 0.2;
+                ctx.arc(p.x, p.y, outerR, 0, Math.PI * 2);
+                ctx.fillStyle = grdC;
+                ctx.globalAlpha = 0.5 + Math.sin(time + i) * 0.3;
                 ctx.fill();
                 ctx.globalAlpha = 1;
 
                 // Inner dot
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, c.isHQ ? 7 : 5, 0, Math.PI * 2);
-                ctx.fillStyle = dotColor;
+                ctx.fillStyle = c.color;
                 ctx.fill();
 
                 // White center
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, c.isHQ ? 3 : 2, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, c.isHQ ? 3 : 1.8, 0, Math.PI * 2);
                 ctx.fillStyle = '#fff';
                 ctx.fill();
 
                 // Label
-                ctx.font = (c.isHQ ? '700 14px' : '600 12px') + ' Inter, -apple-system, sans-serif';
-                ctx.fillStyle = c.isHQ ? colors.hq : colors.label;
+                ctx.font = (c.isHQ ? '700 13px' : '600 11px') + ' Inter, -apple-system, sans-serif';
+                ctx.fillStyle = c.isHQ ? c.color : colors.label;
                 ctx.textAlign = 'center';
-                var labelY = p.y + (c.isHQ ? 24 : 20);
-                ctx.fillText(c.name, p.x, labelY);
+                var ly = p.y + (c.isHQ ? 22 : 18);
+                ctx.fillText(c.name, p.x, ly);
 
-                // HQ badge
                 if (c.isHQ) {
                     ctx.font = '600 9px Inter, sans-serif';
-                    ctx.fillStyle = colors.hq;
-                    ctx.globalAlpha = 0.8;
-                    ctx.fillText('★ HQ', p.x, labelY + 14);
+                    ctx.fillStyle = c.color;
+                    ctx.globalAlpha = 0.85;
+                    ctx.fillText('\u2605 HQ', p.x, ly + 13);
                     ctx.globalAlpha = 1;
                 }
             }
         }
 
         function animate() {
+            rotY += autoSpeed;
+            if (rotY > 2.42 + 0.3) autoSpeed = -Math.abs(autoSpeed);
+            else if (rotY < 2.42 - 0.3) autoSpeed = Math.abs(autoSpeed);
             draw();
             requestAnimationFrame(animate);
         }
@@ -485,12 +516,9 @@
     }
 
     // ── Color Pulse Animation ───────────────────────
-    // Subtle animated gradient that shifts through brand colors
     function initColorPulse() {
         var el = document.querySelector('.color-pulse-bg');
         if (!el) return;
-        // Color pulse is handled purely by CSS @keyframes
-        // This function adds the class to page-headers too
         document.querySelectorAll('.page-header, .service-page-hero').forEach(function(header) {
             if (!header.querySelector('.color-pulse-bg')) {
                 var div = document.createElement('div');
