@@ -184,19 +184,12 @@
         };
     }
 
-    // ── Wireframe Mesh Globe — Japan Focus with Neon Glow ──────────
+    // ── Japan Wireframe Map on Globe Background ──────────
     function initGlobe() {
         var canvas = document.getElementById('globeCanvas');
         if (!canvas) return;
         var ctx = canvas.getContext('2d');
-        var W, H, cx, cy, radius;
-
-        // Rotate globe so Japan faces camera: lonR + rotY ≈ π/2 → sin ≈ 1 → max z
-        // Japan lon ≈ 138° = 2.41 rad, so rotY = π/2 - 2.41 ≈ -0.84
-        var baseRotY = -0.84;
-        var baseRotX = 0.15;
-        var rotY = baseRotY;
-        var rotX = baseRotX;
+        var W, H;
 
         // Japan cities with unique colors
         var cities = [
@@ -208,43 +201,34 @@
             { name: 'Sendai',    lat: 38.27, lon: 140.87, isHQ: false, color: '#3b82f6', glow: 'rgba(59,130,246,0.5)' },
             { name: 'Hiroshima', lat: 34.39, lon: 132.46, isHQ: false, color: '#ec4899', glow: 'rgba(236,72,153,0.5)' },
             { name: 'Naha',      lat: 26.33, lon: 127.80, isHQ: false, color: '#14b8a6', glow: 'rgba(20,184,166,0.5)' }
-        ].map(function(c) {
-            c.latR = c.lat * Math.PI / 180;
-            c.lonR = c.lon * Math.PI / 180;
-            return c;
-        });
+        ];
 
-        // Simplified Japan coastline points for wireframe mesh
-        // Hokkaido, Honshu, Shikoku, Kyushu, Okinawa - ~120 points
+        // Japan coastline points [lat, lon] — ~120 points across all islands
         var japanCoast = [
             // Hokkaido
             [45.5,141.9],[45.3,141.0],[44.0,144.4],[43.4,145.5],[43.3,145.6],[42.9,144.8],
             [42.0,143.2],[42.3,140.3],[42.8,140.1],[43.1,140.9],[43.3,141.4],[43.4,141.6],
             [43.7,142.4],[44.4,143.2],[44.9,142.5],[45.1,141.7],
-            // Hokkaido interior
             [43.1,141.3],[43.8,143.4],[44.0,142.0],[42.9,141.3],[43.5,141.9],
-            // Northern Honshu (Tohoku)
+            // Tohoku
             [41.8,140.7],[41.4,140.3],[40.9,140.0],[40.5,139.9],[40.0,139.8],
             [39.7,139.9],[39.4,140.0],[39.0,139.8],[38.9,139.8],[38.3,138.8],
             [38.7,140.9],[39.6,140.5],[40.2,140.1],[40.5,140.7],[41.0,141.4],
             [41.5,141.0],[41.8,140.7],
-            // Honshu interior points (for mesh density)
             [39.5,140.2],[38.5,140.3],[37.5,140.0],[37.9,139.5],[38.2,140.0],
             [40.8,140.5],[39.8,140.1],[37.0,140.5],
-            // Central Honshu (Kanto, Chubu)
+            // Kanto/Chubu
             [37.9,138.2],[37.5,138.8],[37.0,138.5],[36.8,137.0],[36.6,136.7],
             [36.2,136.1],[35.7,135.8],[35.5,136.2],[35.2,136.7],[35.0,137.0],
             [35.7,139.8],[35.3,139.6],[35.1,139.8],[34.7,139.4],
-            // Kanto interior
             [36.3,139.5],[36.0,140.0],[35.8,139.3],[36.5,139.8],[36.1,139.0],
             [36.8,139.4],[37.1,139.2],
-            // Kii Peninsula / Osaka region
+            // Kansai
             [34.6,138.9],[34.3,137.7],[34.0,136.8],[33.5,135.8],[33.4,135.5],
             [34.2,135.2],[34.7,135.4],[34.8,134.2],[34.2,134.0],[33.8,133.5],
-            // Western Honshu (Chugoku)
+            // Chugoku
             [35.5,134.2],[35.3,133.0],[35.4,132.8],[35.0,132.0],[34.8,131.4],
             [34.4,131.0],[34.0,130.9],[33.9,131.0],
-            // Chugoku interior
             [35.1,133.4],[34.8,132.5],[34.5,132.0],[35.3,133.5],[34.2,131.8],
             // Shikoku
             [34.3,134.0],[33.9,133.0],[33.5,132.5],[33.0,132.8],[33.3,133.5],
@@ -253,83 +237,61 @@
             [33.9,130.9],[33.5,130.5],[33.2,131.0],[33.0,131.4],[32.7,131.7],
             [32.1,131.3],[31.4,131.0],[31.0,130.6],[31.3,131.4],[31.9,131.8],
             [32.7,130.8],[33.1,129.7],[33.6,130.2],
-            // Kyushu interior
             [33.2,130.7],[32.8,131.0],[32.3,130.9],[31.7,131.1],[33.3,130.3],
             // Okinawa chain
             [26.3,127.8],[26.5,128.0],[26.1,127.6],[26.8,128.3],[27.4,128.6],
             [28.4,129.5],[29.5,129.9],[30.4,130.5]
         ];
 
-        // Convert to radians
-        var jpPoints = japanCoast.map(function(p) {
-            return { latR: p[0] * Math.PI / 180, lonR: p[1] * Math.PI / 180, lat: p[0], lon: p[1] };
-        });
-
-        // Build mesh edges using proximity (Delaunay-like)
+        // Build mesh edges using proximity
         var jpEdges = [];
-        var maxEdgeDist = 2.5; // degrees — controls mesh density
-        for (var i = 0; i < jpPoints.length; i++) {
-            for (var j = i + 1; j < jpPoints.length; j++) {
+        var maxEdgeDist = 2.5;
+        for (var i = 0; i < japanCoast.length; i++) {
+            for (var j = i + 1; j < japanCoast.length; j++) {
                 var dlat = japanCoast[i][0] - japanCoast[j][0];
                 var dlon = japanCoast[i][1] - japanCoast[j][1];
-                var dist = Math.sqrt(dlat * dlat + dlon * dlon);
-                if (dist < maxEdgeDist) {
+                if (Math.sqrt(dlat * dlat + dlon * dlon) < maxEdgeDist) {
                     jpEdges.push([i, j]);
                 }
             }
         }
 
-        // World grid dots (sparse)
-        var worldDots = [];
-        for (var lat = -70; lat <= 70; lat += 6) {
-            var lonStep = 6 / Math.cos(lat * Math.PI / 180);
-            if (lonStep > 45) lonStep = 45;
-            for (var lon = -180; lon < 180; lon += lonStep) {
-                // Skip Japan region — Japan uses mesh instead
-                if (lat >= 24 && lat <= 46 && lon >= 126 && lon <= 146) continue;
-                worldDots.push({
-                    latR: lat * Math.PI / 180,
-                    lonR: lon * Math.PI / 180
-                });
-            }
-        }
-
-        // Floating particles around globe
-        var floatingParticles = [];
-        for (var i = 0; i < 50; i++) {
-            var pLat = (Math.random() - 0.5) * Math.PI;
-            var pLon = Math.random() * Math.PI * 2;
-            floatingParticles.push({
-                latR: pLat,
-                lonR: pLon,
-                speed: 0.001 + Math.random() * 0.002,
+        // Floating ambient particles
+        var particles = [];
+        for (var i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random(), y: Math.random(),
+                vx: (Math.random() - 0.5) * 0.0003,
+                vy: (Math.random() - 0.5) * 0.0003,
                 size: 0.5 + Math.random() * 2,
-                alpha: 0.2 + Math.random() * 0.5
+                alpha: 0.1 + Math.random() * 0.3
             });
         }
 
         function getColors() {
             var dark = document.documentElement.getAttribute('data-theme') === 'dark';
             return {
-                // Globe structure
-                outline: dark ? 'rgba(96,165,250,0.4)' : 'rgba(79,70,229,0.35)',
-                globeFill: dark ? 'rgba(15,17,23,0.5)' : 'rgba(238,242,255,0.5)',
-                worldDot: dark ? 'rgba(96,165,250,0.3)' : 'rgba(79,70,229,0.35)',
-                // Japan mesh — BRIGHT
-                meshLine: dark ? 'rgba(96,165,250,0.7)' : 'rgba(79,70,229,0.6)',
-                meshDot: dark ? '#93c5fd' : '#4f46e5',
-                meshGlow: dark ? 'rgba(96,165,250,0.9)' : 'rgba(79,70,229,0.8)',
-                japanGlow: dark ? 'rgba(56,189,248,0.4)' : 'rgba(79,70,229,0.25)',
-                // Cities
-                labelBg: dark ? 'rgba(15,17,23,0.85)' : 'rgba(255,255,255,0.9)',
+                globeOutline: dark ? 'rgba(96,165,250,0.25)' : 'rgba(79,70,229,0.2)',
+                globeFill: dark ? 'rgba(15,17,23,0.4)' : 'rgba(238,242,255,0.4)',
+                gridLine: dark ? 'rgba(96,165,250,0.08)' : 'rgba(79,70,229,0.06)',
+                meshLine: dark ? 'rgba(96,165,250,0.65)' : 'rgba(79,70,229,0.55)',
+                meshDot: dark ? '#93c5fd' : '#6366f1',
+                meshGlow: dark ? 'rgba(96,165,250,0.8)' : 'rgba(79,70,229,0.7)',
+                japanGlow: dark ? 'rgba(56,189,248,0.25)' : 'rgba(99,102,241,0.15)',
+                labelBg: dark ? 'rgba(15,17,23,0.88)' : 'rgba(255,255,255,0.92)',
                 labelText: dark ? '#e5e7eb' : '#1e293b',
-                labelBorder: dark ? 'rgba(96,165,250,0.4)' : 'rgba(79,70,229,0.3)',
-                // Particles
-                particle: dark ? 'rgba(96,165,250,0.5)' : 'rgba(79,70,229,0.35)'
+                labelBorder: dark ? 'rgba(96,165,250,0.3)' : 'rgba(79,70,229,0.25)',
+                particle: dark ? 'rgba(96,165,250,0.4)' : 'rgba(79,70,229,0.25)',
+                arcLine: dark ? 'rgba(96,165,250,0.3)' : 'rgba(79,70,229,0.2)'
             };
         }
 
         var colors = getColors();
+
+        // Map projection: lat/lon → screen x/y (flat Mercator, scaled to fill right side)
+        // Japan spans lat 26-46, lon 127-146
+        var mapBounds = { latMin: 24, latMax: 47, lonMin: 126, lonMax: 147 };
+        var mapRegion = {}; // computed in resize
 
         function resize() {
             var rect = canvas.parentElement.getBoundingClientRect();
@@ -341,190 +303,189 @@
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             W = rect.width;
             H = rect.height;
-            cx = W * 0.55;
-            cy = H * 0.48;
-            radius = Math.min(W, H) * 0.55;
+
+            // Japan map fills the right ~60% of canvas, with padding
+            var mapW = W * 0.5;
+            var mapH = H * 0.85;
+            var latRange = mapBounds.latMax - mapBounds.latMin;
+            var lonRange = mapBounds.lonMax - mapBounds.lonMin;
+            var scaleX = mapW / lonRange;
+            var scaleY = mapH / latRange;
+            var scale = Math.min(scaleX, scaleY);
+            var actualW = lonRange * scale;
+            var actualH = latRange * scale;
+            // Center the map in the right portion of canvas
+            mapRegion.ox = W * 0.5 + (W * 0.5 - actualW) / 2;
+            mapRegion.oy = (H - actualH) / 2;
+            mapRegion.scale = scale;
         }
 
-        function project(latR, lonR) {
-            var cosLat = Math.cos(latR);
-            var x3 = cosLat * Math.cos(lonR + rotY);
-            var y3 = Math.sin(latR);
-            var z3 = cosLat * Math.sin(lonR + rotY);
-            var y3r = y3 * Math.cos(rotX) - z3 * Math.sin(rotX);
-            var z3r = y3 * Math.sin(rotX) + z3 * Math.cos(rotX);
-            return { x: cx + x3 * radius, y: cy - y3r * radius, z: z3r };
+        function projectMap(lat, lon) {
+            var x = mapRegion.ox + (lon - mapBounds.lonMin) * mapRegion.scale;
+            var y = mapRegion.oy + (mapBounds.latMax - lat) * mapRegion.scale;  // flip Y
+            return { x: x, y: y };
+        }
+
+        function drawRoundedRect(x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.arcTo(x + w, y, x + w, y + r, r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+            ctx.lineTo(x + r, y + h);
+            ctx.arcTo(x, y + h, x, y + h - r, r);
+            ctx.lineTo(x, y + r);
+            ctx.arcTo(x, y, x + r, y, r);
+            ctx.closePath();
         }
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
             var time = Date.now() * 0.001;
 
-            // Gentle oscillation — Japan always stays visible
-            rotY = baseRotY + Math.sin(time * 0.08) * 0.15;
-            rotX = baseRotX + Math.sin(time * 0.05) * 0.05;
+            // ── Background globe (decorative, bottom-right) ──
+            var globeR = Math.min(W, H) * 0.6;
+            var globeCx = W * 0.65;
+            var globeCy = H * 0.55;
 
-            // ── Globe body ──
-            // Outer glow
-            var outerGlow = ctx.createRadialGradient(cx, cy, radius * 0.85, cx, cy, radius * 1.15);
+            // Globe outer glow
+            var outerGlow = ctx.createRadialGradient(globeCx, globeCy, globeR * 0.7, globeCx, globeCy, globeR * 1.2);
             outerGlow.addColorStop(0, 'transparent');
-            outerGlow.addColorStop(0.5, colors.outline);
+            outerGlow.addColorStop(0.6, colors.globeOutline);
             outerGlow.addColorStop(1, 'transparent');
             ctx.fillStyle = outerGlow;
             ctx.beginPath();
-            ctx.arc(cx, cy, radius * 1.15, 0, Math.PI * 2);
+            ctx.arc(globeCx, globeCy, globeR * 1.2, 0, Math.PI * 2);
             ctx.fill();
 
-            // Globe fill
+            // Globe body
             ctx.beginPath();
-            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+            ctx.arc(globeCx, globeCy, globeR, 0, Math.PI * 2);
             ctx.fillStyle = colors.globeFill;
             ctx.fill();
-
-            // Globe outline
-            ctx.beginPath();
-            ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-            ctx.strokeStyle = colors.outline;
+            ctx.strokeStyle = colors.globeOutline;
             ctx.lineWidth = 1.5;
             ctx.stroke();
 
-            // ── World dots ──
-            for (var i = 0; i < worldDots.length; i++) {
-                var p = project(worldDots[i].latR, worldDots[i].lonR);
-                if (p.z < 0.05) continue;
-                ctx.globalAlpha = (0.3 + p.z * 0.7) * 0.8;
+            // Globe grid lines (latitude)
+            ctx.strokeStyle = colors.gridLine;
+            ctx.lineWidth = 0.5;
+            for (var i = -2; i <= 2; i++) {
+                var gy = globeCy + i * globeR * 0.33;
+                var halfW = Math.sqrt(Math.max(0, globeR * globeR - (gy - globeCy) * (gy - globeCy)));
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 1.3, 0, Math.PI * 2);
-                ctx.fillStyle = colors.worldDot;
-                ctx.fill();
+                ctx.ellipse(globeCx, gy, halfW, halfW * 0.03, 0, 0, Math.PI * 2);
+                ctx.stroke();
             }
-            ctx.globalAlpha = 1;
+            // Globe grid lines (longitude) — slow rotation
+            var lonRot = time * 0.03;
+            for (var i = 0; i < 6; i++) {
+                var angle = lonRot + i * Math.PI / 6;
+                var cosA = Math.cos(angle);
+                ctx.beginPath();
+                ctx.ellipse(globeCx, globeCy, Math.abs(cosA) * globeR, globeR, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
 
             // ── Japan ambient glow ──
-            var jCenter = project(36 * Math.PI / 180, 138 * Math.PI / 180);
-            if (jCenter.z > 0) {
-                var glowR = radius * 0.4;
-                var jGlow = ctx.createRadialGradient(jCenter.x, jCenter.y, 0, jCenter.x, jCenter.y, glowR);
-                jGlow.addColorStop(0, colors.japanGlow);
-                jGlow.addColorStop(0.5, colors.japanGlow);
-                jGlow.addColorStop(1, 'transparent');
-                ctx.globalAlpha = 0.6 + Math.sin(time * 0.5) * 0.15;
-                ctx.fillStyle = jGlow;
-                ctx.beginPath();
-                ctx.arc(jCenter.x, jCenter.y, glowR, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.globalAlpha = 1;
-            }
+            var jCenter = projectMap(36, 137);
+            var japanGlowR = Math.min(W, H) * 0.35;
+            var jGlow = ctx.createRadialGradient(jCenter.x, jCenter.y, 0, jCenter.x, jCenter.y, japanGlowR);
+            jGlow.addColorStop(0, colors.japanGlow);
+            jGlow.addColorStop(0.5, colors.japanGlow);
+            jGlow.addColorStop(1, 'transparent');
+            ctx.globalAlpha = 0.7 + Math.sin(time * 0.5) * 0.15;
+            ctx.fillStyle = jGlow;
+            ctx.beginPath();
+            ctx.arc(jCenter.x, jCenter.y, japanGlowR, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
 
             // ── Japan wireframe mesh ──
-            // Project all Japan points
-            var jpProj = [];
-            for (var i = 0; i < jpPoints.length; i++) {
-                jpProj.push(project(jpPoints[i].latR, jpPoints[i].lonR));
-            }
+            var jpProj = japanCoast.map(function(p) { return projectMap(p[0], p[1]); });
 
-            // Draw mesh edges (lines between connected points)
+            // Draw mesh edges
             ctx.lineCap = 'round';
             for (var i = 0; i < jpEdges.length; i++) {
                 var a = jpProj[jpEdges[i][0]];
                 var b = jpProj[jpEdges[i][1]];
-                if (a.z < 0.05 || b.z < 0.05) continue;
-                var avgZ = (a.z + b.z) / 2;
-                ctx.globalAlpha = avgZ * 0.7;
+                ctx.globalAlpha = 0.6;
                 ctx.beginPath();
                 ctx.moveTo(a.x, a.y);
                 ctx.lineTo(b.x, b.y);
                 ctx.strokeStyle = colors.meshLine;
-                ctx.lineWidth = 1.2;
+                ctx.lineWidth = 1.0;
                 ctx.stroke();
             }
             ctx.globalAlpha = 1;
 
-            // Draw mesh nodes (dots at coastline points)
+            // Draw mesh nodes with glow
             for (var i = 0; i < jpProj.length; i++) {
                 var p = jpProj[i];
-                if (p.z < 0.05) continue;
-
-                // Glow around each node
-                ctx.globalAlpha = p.z * 0.6;
-                var nodeGlow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 8);
+                // Node glow
+                ctx.globalAlpha = 0.5;
+                var nodeGlow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 6);
                 nodeGlow.addColorStop(0, colors.meshGlow);
                 nodeGlow.addColorStop(1, 'transparent');
                 ctx.fillStyle = nodeGlow;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
                 ctx.fill();
-
                 // Dot
-                ctx.globalAlpha = 0.8 + p.z * 0.2;
+                ctx.globalAlpha = 0.9;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
                 ctx.fillStyle = colors.meshDot;
                 ctx.fill();
             }
             ctx.globalAlpha = 1;
 
-            // ── Floating particles ──
-            for (var i = 0; i < floatingParticles.length; i++) {
-                var fp = floatingParticles[i];
-                fp.lonR += fp.speed;
-                var p = project(fp.latR, fp.lonR);
-                if (p.z < 0) continue;
-                ctx.globalAlpha = fp.alpha * p.z;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, fp.size, 0, Math.PI * 2);
-                ctx.fillStyle = colors.particle;
-                ctx.fill();
-            }
-            ctx.globalAlpha = 1;
-
             // ── Connection arcs from Tokyo ──
-            var tokyoP = project(cities[0].latR, cities[0].lonR);
-            if (tokyoP.z > 0) {
-                for (var i = 1; i < cities.length; i++) {
-                    var cp = project(cities[i].latR, cities[i].lonR);
-                    if (cp.z < 0) continue;
-                    var mx = (tokyoP.x + cp.x) / 2;
-                    var my = (tokyoP.y + cp.y) / 2 - 15;
-                    ctx.beginPath();
-                    ctx.moveTo(tokyoP.x, tokyoP.y);
-                    ctx.quadraticCurveTo(mx, my, cp.x, cp.y);
-                    ctx.strokeStyle = colors.meshLine;
-                    ctx.lineWidth = 0.7;
-                    ctx.globalAlpha = 0.4;
-                    ctx.setLineDash([3, 4]);
-                    ctx.stroke();
-                    ctx.setLineDash([]);
-                    ctx.globalAlpha = 1;
+            var tokyoP = projectMap(cities[0].lat, cities[0].lon);
+            for (var i = 1; i < cities.length; i++) {
+                var cp = projectMap(cities[i].lat, cities[i].lon);
+                var dx = cp.x - tokyoP.x;
+                var dy = cp.y - tokyoP.y;
+                var dist = Math.sqrt(dx * dx + dy * dy);
+                var mx = (tokyoP.x + cp.x) / 2 - dy * 0.15;
+                var my = (tokyoP.y + cp.y) / 2 + dx * 0.15;
+                ctx.beginPath();
+                ctx.moveTo(tokyoP.x, tokyoP.y);
+                ctx.quadraticCurveTo(mx, my, cp.x, cp.y);
+                ctx.strokeStyle = colors.arcLine;
+                ctx.lineWidth = 0.8;
+                ctx.setLineDash([4, 5]);
+                ctx.stroke();
+                ctx.setLineDash([]);
 
-                    // Traveling dot
-                    var t = (Math.sin(time * 0.8 + i * 1.5) + 1) / 2;
-                    var ax = (1-t)*(1-t)*tokyoP.x + 2*(1-t)*t*mx + t*t*cp.x;
-                    var ay = (1-t)*(1-t)*tokyoP.y + 2*(1-t)*t*my + t*t*cp.y;
-                    ctx.beginPath();
-                    ctx.arc(ax, ay, 2, 0, Math.PI * 2);
-                    ctx.fillStyle = cities[i].color;
-                    ctx.globalAlpha = 0.9;
-                    ctx.fill();
-                    ctx.globalAlpha = 1;
-                }
+                // Traveling dot
+                var t = (Math.sin(time * 0.7 + i * 1.3) + 1) / 2;
+                var ax = (1-t)*(1-t)*tokyoP.x + 2*(1-t)*t*mx + t*t*cp.x;
+                var ay = (1-t)*(1-t)*tokyoP.y + 2*(1-t)*t*my + t*t*cp.y;
+                ctx.beginPath();
+                ctx.arc(ax, ay, 2.5, 0, Math.PI * 2);
+                ctx.fillStyle = cities[i].color;
+                ctx.globalAlpha = 0.85;
+                ctx.fill();
+                ctx.globalAlpha = 1;
             }
 
             // ── City markers with badge labels ──
+            // Collect label positions for collision avoidance
+            var labelPositions = [];
             for (var i = 0; i < cities.length; i++) {
                 var c = cities[i];
-                var p = project(c.latR, c.lonR);
-                if (p.z < 0) continue;
-
+                var p = projectMap(c.lat, c.lon);
                 var pulse = Math.sin(time + i * 0.9);
 
                 // Glow pulse
-                var glowSize = c.isHQ ? 35 + pulse * 8 : 20 + pulse * 5;
+                var glowSize = c.isHQ ? 30 + pulse * 6 : 16 + pulse * 4;
                 var grdC = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowSize);
                 grdC.addColorStop(0, c.color);
                 grdC.addColorStop(0.3, c.glow);
                 grdC.addColorStop(1, 'transparent');
-                ctx.globalAlpha = 0.5 + pulse * 0.2;
+                ctx.globalAlpha = 0.45 + pulse * 0.15;
                 ctx.fillStyle = grdC;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, glowSize, 0, Math.PI * 2);
@@ -532,7 +493,7 @@
                 ctx.globalAlpha = 1;
 
                 // Inner dot
-                var dotR = c.isHQ ? 6 : 4;
+                var dotR = c.isHQ ? 5 : 3.5;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, dotR, 0, Math.PI * 2);
                 ctx.fillStyle = c.color;
@@ -540,36 +501,48 @@
 
                 // White center
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, c.isHQ ? 3 : 1.8, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, c.isHQ ? 2.5 : 1.5, 0, Math.PI * 2);
                 ctx.fillStyle = '#fff';
                 ctx.fill();
 
-                // Badge label
-                ctx.font = (c.isHQ ? '700 12px' : '500 10px') + ' Inter, -apple-system, sans-serif';
-                var labelText = c.isHQ ? c.name : c.name;
+                // Badge label with collision avoidance
+                ctx.font = (c.isHQ ? '700 11px' : '500 9px') + ' Inter, -apple-system, sans-serif';
+                var labelText = c.name;
                 var textW = ctx.measureText(labelText).width;
-                var badgeW = textW + (c.isHQ ? 20 : 14);
-                var badgeH = c.isHQ ? 24 : 20;
-                var badgeX = p.x - badgeW / 2;
-                var badgeY = p.y + dotR + 6;
+                var badgeW = textW + (c.isHQ ? 18 : 12);
+                var badgeH = c.isHQ ? 22 : 18;
 
-                // Badge background
-                ctx.globalAlpha = 0.9;
+                // Try positions: below, above, right, left
+                var positions = [
+                    { x: p.x - badgeW / 2, y: p.y + dotR + 5 },
+                    { x: p.x - badgeW / 2, y: p.y - dotR - badgeH - 5 },
+                    { x: p.x + dotR + 5,   y: p.y - badgeH / 2 },
+                    { x: p.x - dotR - badgeW - 5, y: p.y - badgeH / 2 }
+                ];
+
+                var bestPos = positions[0];
+                for (var pi = 0; pi < positions.length; pi++) {
+                    var candidate = positions[pi];
+                    var overlaps = false;
+                    for (var li = 0; li < labelPositions.length; li++) {
+                        var lp = labelPositions[li];
+                        if (candidate.x < lp.x + lp.w + 4 && candidate.x + badgeW + 4 > lp.x &&
+                            candidate.y < lp.y + lp.h + 4 && candidate.y + badgeH + 4 > lp.y) {
+                            overlaps = true;
+                            break;
+                        }
+                    }
+                    if (!overlaps) { bestPos = candidate; break; }
+                }
+
+                labelPositions.push({ x: bestPos.x, y: bestPos.y, w: badgeW, h: badgeH });
+
+                // Draw badge
+                ctx.globalAlpha = 0.92;
                 ctx.fillStyle = colors.labelBg;
                 ctx.strokeStyle = colors.labelBorder;
                 ctx.lineWidth = 1;
-                ctx.beginPath();
-                var r = 4;
-                ctx.moveTo(badgeX + r, badgeY);
-                ctx.lineTo(badgeX + badgeW - r, badgeY);
-                ctx.arcTo(badgeX + badgeW, badgeY, badgeX + badgeW, badgeY + r, r);
-                ctx.lineTo(badgeX + badgeW, badgeY + badgeH - r);
-                ctx.arcTo(badgeX + badgeW, badgeY + badgeH, badgeX + badgeW - r, badgeY + badgeH, r);
-                ctx.lineTo(badgeX + r, badgeY + badgeH);
-                ctx.arcTo(badgeX, badgeY + badgeH, badgeX, badgeY + badgeH - r, r);
-                ctx.lineTo(badgeX, badgeY + r);
-                ctx.arcTo(badgeX, badgeY, badgeX + r, badgeY, r);
-                ctx.closePath();
+                drawRoundedRect(bestPos.x, bestPos.y, badgeW, badgeH, 4);
                 ctx.fill();
                 ctx.stroke();
                 ctx.globalAlpha = 1;
@@ -578,15 +551,29 @@
                 ctx.fillStyle = c.isHQ ? c.color : colors.labelText;
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(labelText, p.x, badgeY + badgeH / 2);
+                ctx.fillText(labelText, bestPos.x + badgeW / 2, bestPos.y + badgeH / 2);
 
                 if (c.isHQ) {
-                    ctx.font = '600 8px Inter, sans-serif';
+                    ctx.font = '600 7px Inter, sans-serif';
                     ctx.fillStyle = c.color;
-                    ctx.fillText('\u2605 HQ', p.x, badgeY + badgeH + 10);
+                    ctx.fillText('\u2605 HQ', bestPos.x + badgeW / 2, bestPos.y + badgeH + 9);
                 }
             }
             ctx.textBaseline = 'alphabetic';
+
+            // ── Floating particles ──
+            for (var i = 0; i < particles.length; i++) {
+                var fp = particles[i];
+                fp.x += fp.vx; fp.y += fp.vy;
+                if (fp.x < 0 || fp.x > 1) fp.vx *= -1;
+                if (fp.y < 0 || fp.y > 1) fp.vy *= -1;
+                ctx.globalAlpha = fp.alpha;
+                ctx.beginPath();
+                ctx.arc(fp.x * W, fp.y * H, fp.size, 0, Math.PI * 2);
+                ctx.fillStyle = colors.particle;
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1;
         }
 
         function animate() {
