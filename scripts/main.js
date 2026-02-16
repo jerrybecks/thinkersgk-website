@@ -191,10 +191,11 @@
         var ctx = canvas.getContext('2d');
         var W, H, cx, cy, radius;
 
-        // Slow rotation centered on Japan
-        var rotY = 2.42;
-        var rotX = -0.55;
-        var rotSpeed = 0.0003; // very slow auto-rotation
+        // Gentle oscillation centered on Japan
+        var baseRotY = 2.42;
+        var baseRotX = -0.55;
+        var rotY = baseRotY;
+        var rotX = baseRotX;
 
         // Japan cities with unique colors
         var cities = [
@@ -310,20 +311,20 @@
             var dark = document.documentElement.getAttribute('data-theme') === 'dark';
             return {
                 // Globe structure
-                outline: dark ? 'rgba(96,165,250,0.3)' : 'rgba(37,99,235,0.25)',
-                globeFill: dark ? 'rgba(15,17,23,0.4)' : 'rgba(248,249,251,0.3)',
-                worldDot: dark ? 'rgba(96,165,250,0.2)' : 'rgba(37,99,235,0.18)',
-                // Japan mesh
-                meshLine: dark ? 'rgba(96,165,250,0.5)' : 'rgba(99,102,241,0.4)',
-                meshDot: dark ? '#93c5fd' : '#6366f1',
-                meshGlow: dark ? 'rgba(96,165,250,0.8)' : 'rgba(99,102,241,0.6)',
-                japanGlow: dark ? 'rgba(56,189,248,0.35)' : 'rgba(99,102,241,0.2)',
+                outline: dark ? 'rgba(96,165,250,0.4)' : 'rgba(79,70,229,0.35)',
+                globeFill: dark ? 'rgba(15,17,23,0.5)' : 'rgba(238,242,255,0.5)',
+                worldDot: dark ? 'rgba(96,165,250,0.3)' : 'rgba(79,70,229,0.35)',
+                // Japan mesh — BRIGHT
+                meshLine: dark ? 'rgba(96,165,250,0.7)' : 'rgba(79,70,229,0.6)',
+                meshDot: dark ? '#93c5fd' : '#4f46e5',
+                meshGlow: dark ? 'rgba(96,165,250,0.9)' : 'rgba(79,70,229,0.8)',
+                japanGlow: dark ? 'rgba(56,189,248,0.4)' : 'rgba(79,70,229,0.25)',
                 // Cities
-                labelBg: dark ? 'rgba(15,17,23,0.8)' : 'rgba(255,255,255,0.85)',
+                labelBg: dark ? 'rgba(15,17,23,0.85)' : 'rgba(255,255,255,0.9)',
                 labelText: dark ? '#e5e7eb' : '#1e293b',
-                labelBorder: dark ? 'rgba(96,165,250,0.3)' : 'rgba(99,102,241,0.25)',
+                labelBorder: dark ? 'rgba(96,165,250,0.4)' : 'rgba(79,70,229,0.3)',
                 // Particles
-                particle: dark ? 'rgba(96,165,250,0.4)' : 'rgba(99,102,241,0.25)'
+                particle: dark ? 'rgba(96,165,250,0.5)' : 'rgba(79,70,229,0.35)'
             };
         }
 
@@ -341,7 +342,7 @@
             H = rect.height;
             cx = W / 2;
             cy = H / 2;
-            radius = Math.min(W, H) * 0.52;
+            radius = Math.min(W, H) * 0.58;
         }
 
         function project(latR, lonR) {
@@ -358,8 +359,9 @@
             ctx.clearRect(0, 0, W, H);
             var time = Date.now() * 0.001;
 
-            // Slow rotation
-            rotY += rotSpeed;
+            // Gentle oscillation — Japan always stays visible
+            rotY = baseRotY + Math.sin(time * 0.08) * 0.15;
+            rotX = baseRotX + Math.sin(time * 0.05) * 0.05;
 
             // ── Globe body ──
             // Outer glow
@@ -389,9 +391,9 @@
             for (var i = 0; i < worldDots.length; i++) {
                 var p = project(worldDots[i].latR, worldDots[i].lonR);
                 if (p.z < 0.05) continue;
-                ctx.globalAlpha = (0.3 + p.z * 0.7) * 0.6;
+                ctx.globalAlpha = (0.3 + p.z * 0.7) * 0.8;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, 1.3, 0, Math.PI * 2);
                 ctx.fillStyle = colors.worldDot;
                 ctx.fill();
             }
@@ -427,12 +429,12 @@
                 var b = jpProj[jpEdges[i][1]];
                 if (a.z < 0.05 || b.z < 0.05) continue;
                 var avgZ = (a.z + b.z) / 2;
-                ctx.globalAlpha = avgZ * 0.5;
+                ctx.globalAlpha = avgZ * 0.7;
                 ctx.beginPath();
                 ctx.moveTo(a.x, a.y);
                 ctx.lineTo(b.x, b.y);
                 ctx.strokeStyle = colors.meshLine;
-                ctx.lineWidth = 0.8;
+                ctx.lineWidth = 1.2;
                 ctx.stroke();
             }
             ctx.globalAlpha = 1;
@@ -443,19 +445,19 @@
                 if (p.z < 0.05) continue;
 
                 // Glow around each node
-                ctx.globalAlpha = p.z * 0.4;
-                var nodeGlow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 6);
+                ctx.globalAlpha = p.z * 0.6;
+                var nodeGlow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 8);
                 nodeGlow.addColorStop(0, colors.meshGlow);
                 nodeGlow.addColorStop(1, 'transparent');
                 ctx.fillStyle = nodeGlow;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
                 ctx.fill();
 
                 // Dot
-                ctx.globalAlpha = 0.7 + p.z * 0.3;
+                ctx.globalAlpha = 0.8 + p.z * 0.2;
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
                 ctx.fillStyle = colors.meshDot;
                 ctx.fill();
             }
