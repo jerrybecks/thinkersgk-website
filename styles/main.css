@@ -331,8 +331,7 @@ img { max-width: 100%; display: block; }
 .hero-actions {
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-    animation-fill-mode: backwards; /* Ensures initial state is applied */
+    animation: fadeInUp 0.8s ease both;
 }
 
 .hero-content {
