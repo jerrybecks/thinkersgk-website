@@ -340,9 +340,9 @@
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             W = rect.width;
             H = rect.height;
-            cx = W / 2;
-            cy = H / 2;
-            radius = Math.min(W, H) * 0.58;
+            cx = W * 0.55;
+            cy = H * 0.48;
+            radius = Math.min(W, H) * 0.55;
         }
 
         function project(latR, lonR) {
