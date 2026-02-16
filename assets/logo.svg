@@ -1,20 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56">
   <defs>
-    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    <linearGradient id="sunGrad" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a6e"/>
+      <stop offset="100%" style="stop-color:#3b6cb5"/>
     </linearGradient>
   </defs>
-  <!-- Icon mark -->
-  <rect width="40" height="40" rx="10" y="4" fill="url(#logoGrad)"/>
-  <!-- Circuit traces -->
-  <path d="M6 14h4l2 2v6" stroke="#93c5fd" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round"/>
-  <path d="M34 34h-4l-2-2v-6" stroke="#93c5fd" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round"/>
-  <circle cx="6" cy="14" r="1.5" fill="#93c5fd" opacity="0.4"/>
-  <circle cx="34" cy="34" r="1.5" fill="#93c5fd" opacity="0.4"/>
-  <!-- T letter -->
-  <text x="20" y="33" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="white" text-anchor="middle">T</text>
-  <!-- Wordmark — dark text for light backgrounds -->
-  <text x="52" y="22" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#111827" letter-spacing="-0.5">Thinkers</text>
-  <text x="52" y="38" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#111827" letter-spacing="2" opacity="0.6">GK</text>
+  <!-- THIN text -->
+  <text x="0" y="44" font-family="Inter, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#1e3a6e" letter-spacing="3">THIN</text>
+  <!-- Thinker figure (sitting, thinking pose) replacing K -->
+  <g transform="translate(97, 18)">
+    <!-- Head -->
+    <circle cx="10" cy="4" r="4.5" fill="#1e3a6e"/>
+    <!-- Body hunched forward -->
+    <path d="M10 8.5 C10 8.5 8 14 6 18 L4 24" stroke="#1e3a6e" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+    <!-- Arm to chin (thinking pose) -->
+    <path d="M8 13 L10 8" stroke="#1e3a6e" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <!-- Back arm -->
+    <path d="M8 14 L3 18" stroke="#1e3a6e" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <!-- Legs bent -->
+    <path d="M4 24 L-1 28" stroke="#1e3a6e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M4 24 L10 28" stroke="#1e3a6e" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Sun/sunrise behind thinker -->
+  <g transform="translate(105, 8)">
+    <!-- Horizon line -->
+    <line x1="-24" y1="10" x2="24" y2="10" stroke="#1e3a6e" stroke-width="1" opacity="0.4"/>
+    <!-- Sun dome -->
+    <path d="M-12 10 A12 12 0 0 1 12 10" fill="url(#sunGrad)" opacity="0.7"/>
+    <!-- Rays -->
+    <line x1="0" y1="10" x2="0" y2="-6" stroke="#1e3a6e" stroke-width="0.8" opacity="0.35"/>
+    <line x1="0" y1="10" x2="-8" y2="-4" stroke="#1e3a6e" stroke-width="0.7" opacity="0.3"/>
+    <line x1="0" y1="10" x2="8" y2="-4" stroke="#1e3a6e" stroke-width="0.7" opacity="0.3"/>
+    <line x1="0" y1="10" x2="-14" y2="0" stroke="#1e3a6e" stroke-width="0.7" opacity="0.25"/>
+    <line x1="0" y1="10" x2="14" y2="0" stroke="#1e3a6e" stroke-width="0.7" opacity="0.25"/>
+    <line x1="0" y1="10" x2="-18" y2="4" stroke="#1e3a6e" stroke-width="0.6" opacity="0.2"/>
+    <line x1="0" y1="10" x2="18" y2="4" stroke="#1e3a6e" stroke-width="0.6" opacity="0.2"/>
+    <line x1="0" y1="10" x2="-22" y2="8" stroke="#1e3a6e" stroke-width="0.5" opacity="0.15"/>
+    <line x1="0" y1="10" x2="22" y2="8" stroke="#1e3a6e" stroke-width="0.5" opacity="0.15"/>
+    <line x1="0" y1="10" x2="-4" y2="-5" stroke="#1e3a6e" stroke-width="0.7" opacity="0.3"/>
+    <line x1="0" y1="10" x2="4" y2="-5" stroke="#1e3a6e" stroke-width="0.7" opacity="0.3"/>
+    <line x1="0" y1="10" x2="-11" y2="-2" stroke="#1e3a6e" stroke-width="0.65" opacity="0.25"/>
+    <line x1="0" y1="10" x2="11" y2="-2" stroke="#1e3a6e" stroke-width="0.65" opacity="0.25"/>
+  </g>
+  <!-- ERS text -->
+  <text x="120" y="44" font-family="Inter, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#1e3a6e" letter-spacing="3">ERS</text>
+  <!-- GK subtitle -->
+  <text x="178" y="44" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e3a6e" letter-spacing="1" opacity="0.5">GK</text>
 </svg>
