@@ -332,6 +332,15 @@ img { max-width: 100%; display: block; }
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
+    animation-fill-mode: backwards; /* Ensures initial state is applied */
+}
+
+.hero-content {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+    animation: heroContentFadeIn 1s ease forwards;
+    animation-delay: 0.1s; /* Slight delay after particle canvas loads */
+    animation-fill-mode: backwards;
 }
 
 .hero-badge { animation-delay: 0.2s; }
@@ -342,6 +351,11 @@ img { max-width: 100%; display: block; }
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heroContentFadeIn {
+    from { opacity: 0; transform: scale(0.98) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .hero-badge {
@@ -746,7 +760,12 @@ img { max-width: 100%; display: block; }
     position: relative;
     overflow: hidden;
     height: 700px;
-    background: var(--color-bg-alt);
+    background: #0a1628;
+}
+
+[data-theme="light"] .globe-section,
+:root:not([data-theme="dark"]) .globe-section {
+    background: #eef2ff;
 }
 
 .globe-canvas-container {
