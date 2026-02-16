@@ -283,13 +283,13 @@
         function getColors() {
             var dark = document.documentElement.getAttribute('data-theme') === 'dark';
             return {
-                oceanDot: dark ? 'rgba(59,130,246,0.07)' : 'rgba(37,99,235,0.05)',
-                landDot: dark ? 'rgba(59,130,246,0.2)' : 'rgba(37,99,235,0.15)',
-                japanDot: dark ? 'rgba(96,165,250,0.85)' : 'rgba(37,99,235,0.7)',
-                japanGlow: dark ? 'rgba(96,165,250,0.35)' : 'rgba(37,99,235,0.2)',
-                outline: dark ? 'rgba(59,130,246,0.12)' : 'rgba(37,99,235,0.08)',
+                oceanDot: dark ? 'rgba(59,130,246,0.15)' : 'rgba(37,99,235,0.12)',
+                landDot: dark ? 'rgba(59,130,246,0.5)' : 'rgba(37,99,235,0.4)',
+                japanDot: dark ? '#60a5fa' : '#2563eb',
+                japanGlow: dark ? 'rgba(96,165,250,0.6)' : 'rgba(37,99,235,0.45)',
+                outline: dark ? 'rgba(59,130,246,0.25)' : 'rgba(37,99,235,0.2)',
                 label: dark ? '#e5e7eb' : '#1e293b',
-                connector: dark ? 'rgba(59,130,246,0.18)' : 'rgba(37,99,235,0.1)'
+                connector: dark ? 'rgba(59,130,246,0.35)' : 'rgba(37,99,235,0.25)'
             };
         }
 
@@ -324,7 +324,7 @@
             ctx.beginPath();
             ctx.arc(cx, cy, radius, 0, Math.PI * 2);
             ctx.strokeStyle = colors.outline;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
 
             // Subtle sphere shading
@@ -344,38 +344,39 @@
 
                 var dotSize, dotColor, dotAlpha;
                 if (d.japan) {
-                    dotSize = 2.8;
+                    dotSize = 3.2;
                     dotColor = colors.japanDot;
-                    dotAlpha = 0.8 + p.z * 0.2;
+                    dotAlpha = 1;
                 } else if (d.land) {
-                    dotSize = 1.4;
+                    dotSize = 1.6;
                     dotColor = colors.landDot;
-                    dotAlpha = 0.4 + p.z * 0.4;
+                    dotAlpha = 0.6 + p.z * 0.4;
                 } else {
-                    dotSize = 0.7;
+                    dotSize = 0.8;
                     dotColor = colors.oceanDot;
-                    dotAlpha = 0.2 + p.z * 0.3;
+                    dotAlpha = 0.4 + p.z * 0.4;
                 }
 
+                ctx.globalAlpha = dotAlpha;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, dotSize, 0, Math.PI * 2);
                 ctx.fillStyle = dotColor;
-                ctx.globalAlpha = dotAlpha;
                 ctx.fill();
                 ctx.globalAlpha = 1;
             }
 
-            // Japan ambient glow
+            // Japan ambient glow — bright pulsing halo
             var jCenter = project(36 * Math.PI / 180, 138 * Math.PI / 180);
             if (jCenter.z > 0) {
-                var glowR = radius * 0.22;
+                var glowR = radius * 0.28;
                 var grd2 = ctx.createRadialGradient(jCenter.x, jCenter.y, 0, jCenter.x, jCenter.y, glowR);
                 grd2.addColorStop(0, colors.japanGlow);
+                grd2.addColorStop(0.5, colors.japanGlow);
                 grd2.addColorStop(1, 'transparent');
                 ctx.beginPath();
                 ctx.arc(jCenter.x, jCenter.y, glowR, 0, Math.PI * 2);
                 ctx.fillStyle = grd2;
-                ctx.globalAlpha = 0.6 + Math.sin(time * 0.5) * 0.2;
+                ctx.globalAlpha = 0.8 + Math.sin(time * 0.5) * 0.2;
                 ctx.fill();
                 ctx.globalAlpha = 1;
             }
@@ -392,8 +393,8 @@
                     var my = (tokyoP.y + cp.y) / 2 - 20;
                     ctx.quadraticCurveTo(mx, my, cp.x, cp.y);
                     ctx.strokeStyle = colors.connector;
-                    ctx.lineWidth = 1;
-                    ctx.setLineDash([3, 3]);
+                    ctx.lineWidth = 1.5;
+                    ctx.setLineDash([4, 3]);
                     ctx.stroke();
                     ctx.setLineDash([]);
 
@@ -402,7 +403,7 @@
                     var ax = (1-t)*(1-t)*tokyoP.x + 2*(1-t)*t*mx + t*t*cp.x;
                     var ay = (1-t)*(1-t)*tokyoP.y + 2*(1-t)*t*my + t*t*cp.y;
                     ctx.beginPath();
-                    ctx.arc(ax, ay, 2, 0, Math.PI * 2);
+                    ctx.arc(ax, ay, 3, 0, Math.PI * 2);
                     ctx.fillStyle = cities[i].color;
                     ctx.globalAlpha = 0.8;
                     ctx.fill();
@@ -416,34 +417,35 @@
                 var p = project(c.latR, c.lonR);
                 if (p.z < 0) continue;
 
-                var pulseR = 5 + Math.sin(time + i * 0.9) * 2.5;
-                var outerR = pulseR * (c.isHQ ? 5 : 3.5);
+                var pulseR = 6 + Math.sin(time + i * 0.9) * 3;
+                var outerR = pulseR * (c.isHQ ? 6 : 4);
 
                 // Glow pulse
                 var grdC = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, outerR);
-                grdC.addColorStop(0, c.glow);
+                grdC.addColorStop(0, c.color);
+                grdC.addColorStop(0.3, c.glow);
                 grdC.addColorStop(1, 'transparent');
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, outerR, 0, Math.PI * 2);
                 ctx.fillStyle = grdC;
-                ctx.globalAlpha = 0.5 + Math.sin(time + i) * 0.3;
+                ctx.globalAlpha = 0.7 + Math.sin(time + i) * 0.3;
                 ctx.fill();
                 ctx.globalAlpha = 1;
 
                 // Inner dot
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, c.isHQ ? 7 : 5, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, c.isHQ ? 9 : 6, 0, Math.PI * 2);
                 ctx.fillStyle = c.color;
                 ctx.fill();
 
                 // White center
                 ctx.beginPath();
-                ctx.arc(p.x, p.y, c.isHQ ? 3 : 1.8, 0, Math.PI * 2);
+                ctx.arc(p.x, p.y, c.isHQ ? 4 : 2.5, 0, Math.PI * 2);
                 ctx.fillStyle = '#fff';
                 ctx.fill();
 
                 // Label
-                ctx.font = (c.isHQ ? '700 13px' : '600 11px') + ' Inter, -apple-system, sans-serif';
+                ctx.font = (c.isHQ ? '700 14px' : '600 12px') + ' Inter, -apple-system, sans-serif';
                 ctx.fillStyle = c.isHQ ? c.color : colors.label;
                 ctx.textAlign = 'center';
                 var ly = p.y + (c.isHQ ? 22 : 18);
