@@ -26,7 +26,7 @@
 ```
 thinkersgk-website/
 ├── index.html                      # Homepage (hero, stats, services, Japan map, illustrations, CTA)
-├── services.html                   # Services overview (9 core + 9 specialized service cards)
+├── services.html                   # Services overview (9 core + 9 additional service cards)
 ├── about.html                      # About page
 ├── contact.html                    # Contact form (Formspree AJAX)
 ├── privacy-policy.html             # Privacy policy
@@ -44,8 +44,8 @@ thinkersgk-website/
 │
 ├── service-wireless-survey.html     # ─┐
 ├── service-av-solutions.html        #  │
-├── service-voip.html                #  │  9 Specialized Service Pages
-├── service-networking.html          #  │  (generated from template)
+├── service-voip.html                #  │  9 Additional Service Pages
+├── service-networking.html          #  │  (same format as core pages)
 ├── service-access-control.html      #  │
 ├── service-data-backup.html         #  │
 ├── service-cybersecurity-training.html│
@@ -94,15 +94,16 @@ thinkersgk-website/
 - **Nav height**: 38px, Footer height: 34px
 - JS swaps `img.src` in `setTheme()` — do NOT use CSS filters for dark mode (colors get distorted)
 
-### Japan Map (replaced the old 3D globe)
-- Canvas-based, stationary (no rotation/dragging)
-- Uses normalized 0-1 coordinates mapped to canvas dimensions
-- 4 main islands: Hokkaido, Honshu, Shikoku, Kyushu + Okinawa chain
-- 7 cities with pulsing radial gradient glow effects
-- Tokyo gets gold `#f59e0b` color and "★ HQ" badge; others get blue
+### Dot-Matrix Globe
+- Canvas-based 3D sphere made of dots, centered on Japan, slow oscillating rotation
+- `initGlobe()` in main.js — uses lat/lon → 3D projection with `project(latR, lonR)`
+- Japan dots: larger (2.2px) and brighter; other land: 1.2px; ocean: 0.7px
+- Bounding-box region test (`isInJapan()`, `isLand()`) classifies each dot
+- **Each city has a unique color**: Tokyo gold `#f59e0b`, Osaka cyan `#06b6d4`, Nagoya purple `#8b5cf6`, Fukuoka green `#10b981`, Sapporo red `#f43f5e`, Sendai blue `#3b82f6`, Hiroshima pink `#ec4899`
+- Tokyo gets "★ HQ" badge; all cities have pulsing radial gradient glow
 - Dashed connection arcs from Tokyo to each city with animated traveling dots
-- Subtle grid dot pattern in background
-- Function is still named `initGlobe()` for backward compatibility
+- Oscillates ±0.3 radians around Japan center (rotY = 2.42)
+- `getColors()` returns full theme-aware palette; `window._globeInstance.updateColors()` for live theme switch
 
 ### Particle Network (Hero Background)
 - Canvas element in hero section with floating particles + connection lines
@@ -127,14 +128,10 @@ thinkersgk-website/
 - CTA section
 - Full footer
 
-**Specialized service pages** (generated from template) have:
-- Same nav/footer as core pages
-- Hero section
-- 4 feature cards
-- 4 process steps
+**Additional service pages** have the same structure as core pages plus:
 - Testimonial block
-- 3 related services
-- CTA section
+- 3 related service links
+- All 18 service pages are treated equally (no "Specialized" distinction on services.html)
 
 ### Contact Form
 - Formspree AJAX submission (currently placeholder ID `your-form-id`)
@@ -204,12 +201,12 @@ thinkersgk-website/
 - Current EN: "Trusted IT partner for local and international businesses across Japan."
 - Current JA: "日本国内企業と在日外資系企業の信頼できるITパートナー。"
 
-### Modifying the Japan map
+### Modifying the dot-matrix globe
 - Edit `initGlobe()` in `scripts/main.js`
-- Island outlines are normalized `[x, y]` arrays (0-1 range)
-- City positions: `{ name, nx, ny, isHQ }` where nx/ny are 0-1 normalized
-- `toPixel(nx, ny)` converts normalized coords to canvas pixels with 20px padding
-- `getColors()` returns theme-aware color palette
+- City data: `{ name, lat, lon, isHQ, color, glow }` — real lat/lon degrees, auto-converted to radians
+- Add Japan regions to `japanRegions[]` array (bounding boxes) to classify dots
+- `project(latR, lonR)` does 3D→2D projection; `p.z > 0` = front of globe
+- To add a city: add to `cities[]` array with unique `color` and `glow` rgba
 
 ### Changing the logo
 - Edit `assets/logo.svg` (light) and `assets/logo-dark.svg` (dark)
@@ -234,6 +231,18 @@ git commit -m "Description of changes"
 git push origin main
 ```
 GitHub Pages auto-deploys from `main` branch. Changes appear at `https://jerrybecks.github.io/thinkersgk-website/` within 1-2 minutes.
+
+---
+
+## Gotchas & Session Learnings
+- **Always `cd /Users/mac/Documents/thinkersgk-website` before git commands** — cwd may drift
+- **Read files before editing** — Edit tool will error with "File has not been read yet" if you skip this
+- **Linter may modify files between reads** — always re-read if an Edit fails with "String not found"
+- **Batch updates across 24+ HTML files** — use Python script, not manual sed (complex HTML breaks sed)
+- **Logo in `<img>` tags** — cannot use `currentColor` or CSS `filter` for theming; must use separate SVG/PNG files
+- **The globe function is named `initGlobe()`** even though it's evolved from globe → flat map → dot-matrix globe
+- **services.html has NO "Specialized" distinction** — all 18 services are equal; don't re-add that label
+- **Color pulse opacity** was originally 0.04/0.06 (invisible); now 0.12/0.18 — user wants it visible
 
 ---
 
