@@ -29,7 +29,7 @@
         if (window._globeInstance) window._globeInstance.updateColors();
         // Swap logo for dark/light mode
         document.querySelectorAll('.nav-logo').forEach(function(img) {
-            img.src = theme === 'dark' ? 'assets/logo-dark.svg' : 'assets/logo.svg';
+            img.src = theme === 'dark' ? 'assets/logo-dark.png' : 'assets/logo.png';
         });
     }
 
@@ -177,17 +177,16 @@
         };
     }
 
-    // ── Dot-Matrix Globe — Japan Highlighted with Glowing Cities ──────────
+    // ── Dot-Matrix Globe — Static, Zoomed on Japan/Asia ──────────
     function initGlobe() {
         var canvas = document.getElementById('globeCanvas');
         if (!canvas) return;
         var ctx = canvas.getContext('2d');
         var W, H, cx, cy, radius;
 
-        // Slow auto-rotation centered on Japan
+        // STATIC view centered on Japan — no rotation
         var rotY = 2.42;
         var rotX = -0.55;
-        var autoSpeed = 0.0004;
 
         // Japan cities — each gets a UNIQUE color
         var cities = [
@@ -245,20 +244,39 @@
         }
 
         // Pre-generate dot-matrix grid on sphere
+        // Japan gets denser dots (2°) for more detail; rest of world uses 4°
         var dots = [];
-        var dotSpacing = 3.5;
+        var dotSpacing = 4;
+        var jpDotSpacing = 2;
+
+        // World dots
         for (var lat = -80; lat <= 80; lat += dotSpacing) {
             var lonStep = dotSpacing / Math.cos(lat * Math.PI / 180);
             if (lonStep > 40) lonStep = 40;
             for (var lon = -180; lon < 180; lon += lonStep) {
-                var inJP = isInJapan(lat, lon);
-                var land = inJP || isLand(lat, lon);
+                if (isInJapan(lat, lon)) continue; // Japan gets separate denser pass
+                var land = isLand(lat, lon);
                 dots.push({
                     latR: lat * Math.PI / 180,
                     lonR: lon * Math.PI / 180,
-                    japan: inJP,
+                    japan: false,
                     land: land
                 });
+            }
+        }
+
+        // Dense Japan dots
+        for (var lat = 24; lat <= 46; lat += jpDotSpacing) {
+            var lonStep = jpDotSpacing / Math.cos(lat * Math.PI / 180);
+            for (var lon = 126; lon < 146; lon += lonStep) {
+                if (isInJapan(lat, lon)) {
+                    dots.push({
+                        latR: lat * Math.PI / 180,
+                        lonR: lon * Math.PI / 180,
+                        japan: true,
+                        land: true
+                    });
+                }
             }
         }
 
@@ -285,7 +303,7 @@
             H = canvas.height;
             cx = W / 2;
             cy = H / 2;
-            radius = Math.min(W, H) * 0.44;
+            radius = Math.min(W, H) * 0.58;
         }
 
         function project(latR, lonR) {
@@ -326,17 +344,17 @@
 
                 var dotSize, dotColor, dotAlpha;
                 if (d.japan) {
-                    dotSize = 2.2;
+                    dotSize = 2.8;
                     dotColor = colors.japanDot;
-                    dotAlpha = 0.7 + p.z * 0.3;
+                    dotAlpha = 0.8 + p.z * 0.2;
                 } else if (d.land) {
-                    dotSize = 1.2;
+                    dotSize = 1.4;
                     dotColor = colors.landDot;
                     dotAlpha = 0.4 + p.z * 0.4;
                 } else {
                     dotSize = 0.7;
                     dotColor = colors.oceanDot;
-                    dotAlpha = 0.3 + p.z * 0.3;
+                    dotAlpha = 0.2 + p.z * 0.3;
                 }
 
                 ctx.beginPath();
@@ -442,9 +460,7 @@
         }
 
         function animate() {
-            rotY += autoSpeed;
-            if (rotY > 2.42 + 0.3) autoSpeed = -Math.abs(autoSpeed);
-            else if (rotY < 2.42 - 0.3) autoSpeed = Math.abs(autoSpeed);
+            // Static globe — no rotation, only redraw for city pulse animations
             draw();
             requestAnimationFrame(animate);
         }
