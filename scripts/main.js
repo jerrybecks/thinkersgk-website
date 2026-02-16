@@ -76,15 +76,22 @@
         }
 
         var colors = getColors();
+        var pW, pH;
 
         function resize() {
-            canvas.width = canvas.parentElement.offsetWidth;
-            canvas.height = canvas.parentElement.offsetHeight;
+            var dpr = window.devicePixelRatio || 1;
+            pW = canvas.parentElement.offsetWidth;
+            pH = canvas.parentElement.offsetHeight;
+            canvas.width = pW * dpr;
+            canvas.height = pH * dpr;
+            canvas.style.width = pW + 'px';
+            canvas.style.height = pH + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         }
 
         function Particle() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
+            this.x = Math.random() * pW;
+            this.y = Math.random() * pH;
             this.vx = (Math.random() - 0.5) * 0.5;
             this.vy = (Math.random() - 0.5) * 0.5;
             this.r = Math.random() * 2 + 1;
@@ -93,8 +100,8 @@
         Particle.prototype.update = function() {
             this.x += this.vx;
             this.y += this.vy;
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            if (this.x < 0 || this.x > pW) this.vx *= -1;
+            if (this.y < 0 || this.y > pH) this.vy *= -1;
             if (mouse.x !== null) {
                 var dx = mouse.x - this.x, dy = mouse.y - this.y;
                 var dist = Math.sqrt(dx * dx + dy * dy);
@@ -149,7 +156,7 @@
         }
 
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, pW, pH);
             for (var i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
@@ -297,10 +304,14 @@
 
         function resize() {
             var rect = canvas.parentElement.getBoundingClientRect();
-            canvas.width = rect.width;
-            canvas.height = rect.height;
-            W = canvas.width;
-            H = canvas.height;
+            var dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            W = rect.width;
+            H = rect.height;
             cx = W / 2;
             cy = H / 2;
             radius = Math.min(W, H) * 0.58;
