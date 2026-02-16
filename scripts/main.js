@@ -191,9 +191,10 @@
         var ctx = canvas.getContext('2d');
         var W, H, cx, cy, radius;
 
-        // Gentle oscillation centered on Japan (lon 138° = 2.41 rad)
-        var baseRotY = -2.41;
-        var baseRotX = 0.35;
+        // Rotate globe so Japan faces camera: lonR + rotY ≈ π/2 → sin ≈ 1 → max z
+        // Japan lon ≈ 138° = 2.41 rad, so rotY = π/2 - 2.41 ≈ -0.84
+        var baseRotY = -0.84;
+        var baseRotX = 0.15;
         var rotY = baseRotY;
         var rotX = baseRotX;
 

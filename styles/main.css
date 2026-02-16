@@ -795,6 +795,7 @@ img { max-width: 100%; display: block; }
     list-style: none;
     padding: 0;
     margin: 0;
+    counter-reset: coverage-num;
 }
 
 .coverage-overlay-list li {
@@ -802,10 +803,6 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
     padding: 4px 0;
     line-height: 1.6;
-}
-
-.coverage-overlay-list {
-    counter-reset: coverage-num;
 }
 
 .coverage-overlay-list li::before {
