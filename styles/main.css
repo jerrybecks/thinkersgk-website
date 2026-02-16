@@ -338,9 +338,7 @@ img { max-width: 100%; display: block; }
 .hero-content {
     opacity: 0;
     transform: scale(0.98) translateY(10px);
-    animation: heroContentFadeIn 1s ease forwards;
-    animation-delay: 0.1s; /* Slight delay after particle canvas loads */
-    animation-fill-mode: backwards;
+    animation: heroContentFadeIn 1s ease 0.1s both;
 }
 
 .hero-badge { animation-delay: 0.2s; }
