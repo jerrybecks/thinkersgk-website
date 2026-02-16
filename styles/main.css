@@ -804,15 +804,15 @@ img { max-width: 100%; display: block; }
     line-height: 1.6;
 }
 
-.coverage-overlay-list li::before {
-    content: counter(list-item) ". ";
-    counter-increment: list-item;
-    font-weight: 400;
-    opacity: 0.6;
+.coverage-overlay-list {
+    counter-reset: coverage-num;
 }
 
-.coverage-overlay-list {
-    counter-reset: list-item;
+.coverage-overlay-list li::before {
+    counter-increment: coverage-num;
+    content: counter(coverage-num) ". ";
+    font-weight: 400;
+    opacity: 0.6;
 }
 
 /* Color Pulse Background — animated gradient overlay */

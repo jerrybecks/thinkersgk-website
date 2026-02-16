@@ -191,9 +191,9 @@
         var ctx = canvas.getContext('2d');
         var W, H, cx, cy, radius;
 
-        // Gentle oscillation centered on Japan
-        var baseRotY = 2.42;
-        var baseRotX = -0.55;
+        // Gentle oscillation centered on Japan (lon 138° = 2.41 rad)
+        var baseRotY = -2.41;
+        var baseRotX = 0.35;
         var rotY = baseRotY;
         var rotX = baseRotX;
 
