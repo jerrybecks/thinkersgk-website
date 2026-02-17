@@ -472,12 +472,15 @@
         'service-desk':         ['headset', 'monitor', 'network'],
         // Main services page + homepage get logo
         'services-main':        ['logo', 'network', 'shield', 'cloud'],
-        'homepage':             ['data_destruction', 'logo', 'network', 'cloud', 'shield']
+        'homepage':             ['data_destruction', 'logo', 'network', 'cloud', 'shield'],
+        // Split canvases — left and right get different shape sequences
+        'services-left':        ['shield', 'cloud', 'logo', 'gear'],
+        'services-right':       ['network', 'server', 'monitor', 'lock'],
+        'homepage-left':        ['logo', 'shield', 'cloud', 'network'],
+        'homepage-right':       ['gear', 'monitor', 'server', 'lock']
     };
 
-    function initParticleNetwork() {
-        var canvas = document.getElementById('particleCanvas');
-        if (!canvas) return;
+    function createParticleSystem(canvas) {
         var ctx = canvas.getContext('2d');
         var particles = [];
         var mouse = { x: null, y: null };
@@ -546,9 +549,10 @@
         function assignTargets() {
             if (!pW || !pH) return;
             var shape = PARTICLE_SHAPES[shapeCycle[currentShapeIdx]] || PARTICLE_SHAPES.logo;
-            // Scale shape to fit canvas center-right area
-            var shapeW = Math.min(pW * 0.4, pH * 0.7);
-            var shapeCx = pW * 0.55;
+            // For side canvases, center shape within canvas; for full-width, offset right
+            var isSide = canvas.classList.contains('particle-side');
+            var shapeW = isSide ? Math.min(pW * 0.7, pH * 0.6) : Math.min(pW * 0.4, pH * 0.7);
+            var shapeCx = isSide ? pW * 0.5 : pW * 0.55;
             var shapeCy = pH * 0.5;
 
             for (var i = 0; i < particles.length; i++) {
@@ -701,9 +705,28 @@
 
         resize(); init(); animate();
 
-        window._particleNet = {
-            updateColors: function() { colors = getColors(); }
-        };
+        return { updateColors: function() { colors = getColors(); } };
+    }
+
+    function initParticleNetwork() {
+        var systems = [];
+
+        // Support dual canvases (left + right) or single canvas
+        var canvasLeft = document.getElementById('particleCanvasLeft');
+        var canvasRight = document.getElementById('particleCanvasRight');
+        var canvasSingle = document.getElementById('particleCanvas');
+
+        if (canvasLeft) systems.push(createParticleSystem(canvasLeft));
+        if (canvasRight) systems.push(createParticleSystem(canvasRight));
+        if (canvasSingle) systems.push(createParticleSystem(canvasSingle));
+
+        if (systems.length) {
+            window._particleNet = {
+                updateColors: function() {
+                    for (var i = 0; i < systems.length; i++) systems[i].updateColors();
+                }
+            };
+        }
     }
 
     // ── Stats Counter Animation ─────────────────────

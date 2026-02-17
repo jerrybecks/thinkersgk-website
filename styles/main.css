@@ -286,13 +286,35 @@ img { max-width: 100%; display: block; }
     overflow: hidden;
 }
 
-/* Canvas-based particle network */
+/* Canvas-based particle network — single canvas (service pages) */
 #particleCanvas {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 0;
     pointer-events: auto;
+}
+
+/* Dual particle canvases — left & right flanking text */
+.particle-side {
+    position: absolute;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: auto;
+}
+.particle-left {
+    left: 0;
+}
+.particle-right {
+    right: 0;
+}
+@media (max-width: 768px) {
+    .particle-side {
+        width: 50%;
+        opacity: 0.25;
+    }
 }
 
 /* Video background — fallback if video is used instead */
