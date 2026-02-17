@@ -490,9 +490,9 @@
         var particles = [];
         var mouse = { x: null, y: null };
         var count = window.innerWidth < 768 ? 50 : 100;
-        var connectDist = 150;
-        var mouseRadius = 120;
-        var mouseScatterForce = 4;
+        var connectDist = 180; /* Increased connection distance */
+        var mouseRadius = 150; /* Increased mouse interaction radius */
+        var mouseScatterForce = 6; /* Increased mouse scatter force */
 
         // Determine which shapes to cycle through
         var shapeAttr = canvas.getAttribute('data-particle-shapes');

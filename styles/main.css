@@ -425,13 +425,13 @@ img { max-width: 100%; display: block; }
 }
 
 @keyframes textGlow {
-    0% { text-shadow: 0 0 8px var(--color-accent-light), 0 0 12px var(--color-accent); }
-    100% { text-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent-hover), 0 0 40px rgba(var(--color-accent), 0.2); }
+    0% { text-shadow: 0 0 10px var(--color-accent-light), 0 0 15px var(--color-accent); } /* Increased initial glow */
+    100% { text-shadow: 0 0 25px var(--color-accent), 0 0 35px var(--color-accent-hover), 0 0 45px rgba(var(--color-accent), 0.3); } /* Increased peak glow and opacity */
 }
 
 @keyframes subtleFloat {
     0% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-5px) scale(1.01); }
+    50% { transform: translateY(-8px) scale(1.01) rotateZ(0.2deg); } /* More translateY and subtle rotation */
     100% { transform: translateY(0px) scale(1); }
 }
 
@@ -442,7 +442,7 @@ img { max-width: 100%; display: block; }
 
 @keyframes heroBackgroundPulse {
     0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.02); opacity: 0.95; }
+    50% { transform: scale(1.03); opacity: 0.95; } /* Slightly larger scale */
     100% { transform: scale(1); opacity: 1; }
 }
 
@@ -609,11 +609,11 @@ img { max-width: 100%; display: block; }
     transition: all 0.3s ease;
 }
 
-.card:hover {
-    border-color: var(--color-accent);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-5px) scale(1.015) rotateZ(0.5deg);
-}
+    .card:hover {
+        border-color: var(--color-accent);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.12); /* Enhanced shadow */
+        transform: translateY(-8px) scale(1.02) rotateZ(0.75deg); /* More pronounced lift and rotation */
+    }
 
 .card-icon {
     display: flex;
@@ -627,11 +627,11 @@ img { max-width: 100%; display: block; }
     transition: all 0.3s ease;
 }
 
-.card:hover .card-icon {
-    background: var(--color-accent);
-    color: #fff;
-    transform: scale(1.05);
-}
+    .card:hover .card-icon {
+        background: var(--color-accent);
+        color: #fff;
+        transform: scale(1.1); /* More noticeable scale */
+    }
 
 .card h3 {
     font-size: 1.0625rem;
@@ -972,11 +972,11 @@ img { max-width: 100%; display: block; }
     transform: translateX(-4px);
 }
 
-.card-link .card:hover::after {
-    opacity: 1;
-    transform: translateX(0);
-    color: var(--color-accent);
-}
+    .card-link .card:hover::after {
+        opacity: 1;
+        transform: translateX(4px); /* Arrow slides further */
+        color: var(--color-accent);
+    }
 
 
 /* ========================================
