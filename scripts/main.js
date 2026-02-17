@@ -30,6 +30,11 @@
         document.querySelectorAll('.nav-logo').forEach(function(img) {
             img.src = theme === 'dark' ? 'assets/logo-dark.png' : 'assets/logo.png';
         });
+        // Swap globe image for dark/light mode
+        var globeImg = document.querySelector('.globe-image');
+        if (globeImg) {
+            globeImg.src = theme === 'dark' ? 'assets/globe-japan-dark.png' : 'assets/globe-japan-light.png';
+        }
     }
 
     setTheme(getPreferredTheme());
