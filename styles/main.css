@@ -299,7 +299,7 @@ img { max-width: 100%; display: block; }
 .particle-side {
     position: absolute;
     top: 0;
-    width: 30%;
+    width: 22%;
     height: 100%;
     z-index: 0;
     pointer-events: auto;
@@ -312,8 +312,7 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 768px) {
     .particle-side {
-        width: 50%;
-        opacity: 0.25;
+        display: none;
     }
 }
 
