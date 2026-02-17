@@ -299,22 +299,24 @@ img { max-width: 100%; display: block; }
 .particle-side {
     position: absolute;
     top: 0;
-    width: 18%;
     height: 100%;
     z-index: 0;
     pointer-events: auto;
+    /* calc: half the viewport minus half the text container (720/2=360) minus gap (40px) */
+    width: calc(50% - 400px);
+    min-width: 120px;
 }
 .particle-left {
     left: 0;
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
-    mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 90%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 90%);
 }
 .particle-right {
     right: 0;
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
-    mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 90%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 90%);
 }
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
     .particle-side {
         display: none;
     }
