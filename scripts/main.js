@@ -395,21 +395,57 @@
             return pts;
         })(),
 
-        // Thinkers GK logo text approximation (T-shaped)
+        // Thinkers GK logo — sunrise dome + rays + thinker silhouette
         logo: (function() {
             var pts = [];
-            // "T" shape — dominant letter
-            for (var x = 0.15; x <= 0.85; x += 0.02) pts.push([x, 0.3]);  // top bar
-            for (var x = 0.15; x <= 0.85; x += 0.02) pts.push([x, 0.33]); // top bar thickness
-            for (var y = 0.33; y <= 0.7; y += 0.02) { pts.push([0.48, y]); pts.push([0.52, y]); } // stem
-            // Sunrise/rays above (logo icon approximation)
-            for (var a = 0.2; a <= Math.PI - 0.2; a += 0.15) {
-                var r = 0.15;
-                pts.push([0.5 + Math.cos(a) * r, 0.2 - Math.sin(a) * r]);
-                pts.push([0.5 + Math.cos(a) * (r + 0.04), 0.2 - Math.sin(a) * (r + 0.04)]);
+            var cx = 0.5, sunY = 0.48; // center of sun dome
+
+            // ── Half-dome (sunrise) ──
+            for (var a = 0; a <= Math.PI; a += 0.12) {
+                var r = 0.16;
+                pts.push([cx + Math.cos(a) * r, sunY - Math.sin(a) * r]);
             }
-            // Underline
-            for (var x = 0.25; x <= 0.75; x += 0.02) pts.push([x, 0.74]);
+            // Fill dome interior slightly
+            for (var a = 0.2; a <= Math.PI - 0.2; a += 0.2) {
+                var r = 0.11;
+                pts.push([cx + Math.cos(a) * r, sunY - Math.sin(a) * r]);
+            }
+
+            // ── Radiating rays (fan above dome) ──
+            var rayCount = 13;
+            for (var i = 0; i < rayCount; i++) {
+                var a = (Math.PI / (rayCount - 1)) * i; // 0 to PI
+                var rInner = 0.19;
+                var rOuter = (i % 2 === 0) ? 0.34 : 0.28; // alternating long/short
+                // 2-3 points per ray
+                for (var t = 0; t <= 1; t += 0.4) {
+                    var rr = rInner + (rOuter - rInner) * t;
+                    pts.push([cx + Math.cos(a) * rr, sunY - Math.sin(a) * rr]);
+                }
+            }
+
+            // ── Horizon line ──
+            for (var x = 0.12; x <= 0.88; x += 0.04) {
+                pts.push([x, sunY]);
+            }
+
+            // ── Thinker silhouette (seated figure, chin on hand) ──
+            // Positioned center-right, sitting at horizon
+            var tx = 0.56, ty = sunY; // thinker anchor point
+            // Head (small circle)
+            for (var a = 0; a < Math.PI * 2; a += 0.5) {
+                pts.push([tx + 0.01 + Math.cos(a) * 0.03, ty + 0.02 + Math.sin(a) * 0.03]);
+            }
+            // Bent back (curved line from head down-left)
+            var back = [[tx + 0.01, ty + 0.05], [tx - 0.01, ty + 0.09], [tx - 0.03, ty + 0.13], [tx - 0.04, ty + 0.17], [tx - 0.04, ty + 0.21]];
+            for (var i = 0; i < back.length; i++) pts.push(back[i]);
+            // Arm from shoulder to chin (thinking pose)
+            var arm = [[tx - 0.01, ty + 0.08], [tx + 0.01, ty + 0.1], [tx + 0.03, ty + 0.08], [tx + 0.03, ty + 0.06]];
+            for (var i = 0; i < arm.length; i++) pts.push(arm[i]);
+            // Legs (bent, seated)
+            var legs = [[tx - 0.04, ty + 0.21], [tx - 0.02, ty + 0.24], [tx + 0.01, ty + 0.22], [tx + 0.03, ty + 0.24], [tx + 0.01, ty + 0.27], [tx - 0.02, ty + 0.27]];
+            for (var i = 0; i < legs.length; i++) pts.push(legs[i]);
+
             return pts;
         })()
     };
