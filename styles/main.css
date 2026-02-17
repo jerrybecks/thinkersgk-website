@@ -120,14 +120,18 @@ img { max-width: 100%; display: block; }
 .nav-logo {
     height: 38px;
     width: auto;
-    display: block;
 }
 
 .footer-brand .nav-logo {
     height: 34px;
 }
 
-/* Dark mode logo swap handled by JS */
+/* Logo theme swap — light logo shown by default, dark logo hidden */
+.nav-logo-light { display: block; }
+.nav-logo-dark { display: none; }
+
+[data-theme="dark"] .nav-logo-light { display: none; }
+[data-theme="dark"] .nav-logo-dark { display: block; }
 
 .brand-mark {
     display: flex;
@@ -954,8 +958,22 @@ img { max-width: 100%; display: block; }
     overflow: hidden;
 }
 
+/* Particle canvas — right side only on service pages */
+.service-page-hero #particleCanvas {
+    left: auto;
+    right: 0;
+    width: 55%;
+}
+
 .service-page-hero .hero-overlay {
     background: linear-gradient(180deg, var(--color-bg) 0%, transparent 50%, var(--color-bg) 100%);
+}
+
+/* Text content — left side */
+.service-page-hero .container {
+    max-width: 50%;
+    margin-left: 5%;
+    margin-right: auto;
 }
 
 .service-hero-content {
@@ -978,6 +996,18 @@ img { max-width: 100%; display: block; }
     color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+    .service-page-hero #particleCanvas {
+        width: 100%;
+        left: 0;
+        opacity: 0.3;
+    }
+    .service-page-hero .container {
+        max-width: 100%;
+        margin-left: auto;
+    }
 }
 
 /* Feature blocks on service pages */
