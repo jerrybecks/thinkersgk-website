@@ -956,8 +956,8 @@ img { max-width: 100%; display: block; }
 /* Particle canvas — right side only on service pages */
 .service-page-hero #particleCanvas {
     left: auto;
-    right: 0;
-    width: 55%;
+    right: -5%;
+    width: 45%;
 }
 
 .service-page-hero .hero-overlay {
