@@ -1374,6 +1374,107 @@ img { max-width: 100%; display: block; }
 
 
 /* ========================================
+   HERO BACKGROUND PHOTOS
+   ======================================== */
+.hero-bg-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+[data-theme="dark"] .hero-bg-photo {
+    opacity: 0.12;
+}
+
+.has-hero-bg .container {
+    position: relative;
+    z-index: 2;
+}
+
+.has-hero-bg .color-pulse-bg,
+.has-hero-bg .hero-overlay {
+    z-index: 1;
+}
+
+.has-hero-bg canvas {
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .hero-bg-photo {
+        opacity: 0.1;
+    }
+}
+
+
+/* ========================================
+   ABOUT PAGE TEAM PHOTO
+   ======================================== */
+.about-team-photo {
+    margin: 32px 0 40px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.about-team-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ========================================
+   CONTACT PAGE PHOTO
+   ======================================== */
+.contact-photo {
+    margin-top: 24px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+
+/* ========================================
+   SERVICE DETAIL PHOTO (services listing)
+   ======================================== */
+.service-detail-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.service-detail-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    .service-detail-photo {
+        height: 160px;
+    }
+}
+
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 .fade-in {
