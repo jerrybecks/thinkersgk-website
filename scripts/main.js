@@ -558,8 +558,8 @@
             var isRight = canvas.classList.contains('particle-right');
             var isSide = isLeft || isRight;
             // Side canvases: push shape to outer edge (away from text)
-            var shapeW = isSide ? Math.min(pW * 0.7, pH * 0.45) : Math.min(pW * 0.4, pH * 0.7);
-            var shapeCx = isLeft ? pW * 0.3 : isRight ? pW * 0.7 : pW * 0.55;
+            var shapeW = isSide ? Math.min(pW * 0.6, pH * 0.4) : Math.min(pW * 0.4, pH * 0.7);
+            var shapeCx = isLeft ? pW * 0.35 : isRight ? pW * 0.65 : pW * 0.55;
             var shapeCy = pH * 0.5;
 
             for (var i = 0; i < particles.length; i++) {

@@ -299,22 +299,22 @@ img { max-width: 100%; display: block; }
 .particle-side {
     position: absolute;
     top: 0;
-    width: 20%;
+    width: 18%;
     height: 100%;
     z-index: 0;
     pointer-events: auto;
 }
 .particle-left {
     left: 0;
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 85%);
-    mask-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 85%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
 }
 .particle-right {
     right: 0;
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 85%);
-    mask-image: linear-gradient(to left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 85%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 70%);
 }
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .particle-side {
         display: none;
     }
