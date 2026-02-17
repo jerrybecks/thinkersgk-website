@@ -33,7 +33,7 @@
         // Swap globe image for dark/light mode
         var globeImg = document.querySelector('.globe-image');
         if (globeImg) {
-            globeImg.src = theme === 'dark' ? 'assets/globe-japan-dark.png' : 'assets/globe-japan-light.png';
+            globeImg.src = theme === 'dark' ? 'assets/globe-japan-dark-v3.png' : 'assets/globe-japan-light-v3.png';
         }
     }
 
