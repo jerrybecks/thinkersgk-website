@@ -398,8 +398,8 @@ img { max-width: 100%; display: block; }
 }
 
 @keyframes textGlow {
-    from { text-shadow: 0 0 4px var(--color-accent-light); }
-    to { text-shadow: 0 0 12px var(--color-accent), 0 0 20px var(--color-accent-hover); }
+    0% { text-shadow: 0 0 8px var(--color-accent-light), 0 0 12px var(--color-accent); }
+    100% { text-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent-hover), 0 0 40px rgba(var(--color-accent), 0.2); }
 }
 
 @keyframes subtleFloat {
@@ -578,7 +578,7 @@ img { max-width: 100%; display: block; }
 .card:hover {
     border-color: var(--color-accent);
     box-shadow: var(--shadow-lg);
-    transform: translateY(-5px) scale(1.015);
+    transform: translateY(-5px) scale(1.015) rotateZ(0.5deg);
 }
 
 .card-icon {
@@ -778,7 +778,7 @@ img { max-width: 100%; display: block; }
     background: #eef2ff;
 }
 
-/* Image container — pushed to the right */
+/* Image container — flush to the extreme right */
 .globe-image-container {
     position: absolute;
     top: 0;
@@ -787,16 +787,14 @@ img { max-width: 100%; display: block; }
     width: 65%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 20px 0;
+    justify-content: flex-end;
 }
 
 .globe-image {
     display: block;
-    max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    object-position: center right;
+    object-position: right center;
 }
 
 /* Fade edges so the image blends into the section background.
@@ -1391,6 +1389,50 @@ img { max-width: 100%; display: block; }
     .stat-number { font-size: 2rem; }
 
     .logo-track { gap: 32px; }
+}
+
+.card.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.illustration-card.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.illustration-card.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-item.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stat-item.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 480px) {

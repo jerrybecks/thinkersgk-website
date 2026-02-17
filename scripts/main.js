@@ -227,6 +227,20 @@
             return pts;
         })(),
 
+        // Data Destruction — Hard Drive with X
+        data_destruction: (function() {
+            var pts = [];
+            // Drive body (simple rectangle)
+            for (var x = 0.3; x <= 0.7; x += 0.04) { pts.push([x, 0.3]); pts.push([x, 0.7]); }
+            for (var y = 0.3; y <= 0.7; y += 0.04) { pts.push([0.3, y]); pts.push([0.7, y]); }
+            // X over the drive
+            for (var t = 0; t <= 1; t += 0.05) {
+                pts.push([0.3 + t * 0.4, 0.3 + t * 0.4]); // Diagonal \
+                pts.push([0.7 - t * 0.4, 0.3 + t * 0.4]); // Diagonal /
+            }
+            return pts;
+        })(),
+
         // Box with arrow — Asset Lifecycle / Relocation
         box: (function() {
             var pts = [];
@@ -422,7 +436,7 @@
         'service-desk':         ['headset', 'monitor', 'network'],
         // Main services page + homepage get logo
         'services-main':        ['logo', 'network', 'shield', 'cloud'],
-        'homepage':             ['logo', 'network', 'cloud', 'shield']
+        'homepage':             ['data_destruction', 'logo', 'network', 'cloud', 'shield']
     };
 
     function initParticleNetwork() {
@@ -764,13 +778,13 @@
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('is-visible');
                 }
             });
         }, { threshold: 0.08 });
 
-        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block').forEach(function(el, i) {
-            el.classList.add('fade-in');
+        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block, .illustration-card').forEach(function(el, i) {
+            el.classList.add('fade-in-up');
             el.style.transitionDelay = (i % 6) * 0.1 + 's';
             observer.observe(el);
         });
