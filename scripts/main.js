@@ -554,10 +554,12 @@
         function assignTargets() {
             if (!pW || !pH) return;
             var shape = PARTICLE_SHAPES[shapeCycle[currentShapeIdx]] || PARTICLE_SHAPES.logo;
-            // For side canvases, center shape within canvas; for full-width, offset right
-            var isSide = canvas.classList.contains('particle-side');
-            var shapeW = isSide ? Math.min(pW * 0.7, pH * 0.6) : Math.min(pW * 0.4, pH * 0.7);
-            var shapeCx = isSide ? pW * 0.5 : pW * 0.55;
+            var isLeft = canvas.classList.contains('particle-left');
+            var isRight = canvas.classList.contains('particle-right');
+            var isSide = isLeft || isRight;
+            // Side canvases: push shape to outer edge (away from text)
+            var shapeW = isSide ? Math.min(pW * 0.8, pH * 0.5) : Math.min(pW * 0.4, pH * 0.7);
+            var shapeCx = isLeft ? pW * 0.35 : isRight ? pW * 0.65 : pW * 0.55;
             var shapeCy = pH * 0.5;
 
             for (var i = 0; i < particles.length; i++) {
