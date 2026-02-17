@@ -126,12 +126,7 @@ img { max-width: 100%; display: block; }
     height: 34px;
 }
 
-/* Logo theme swap — light logo shown by default, dark logo hidden */
-.nav-logo-light { display: block; }
-.nav-logo-dark { display: none; }
-
-[data-theme="dark"] .nav-logo-light { display: none; }
-[data-theme="dark"] .nav-logo-dark { display: block; }
+/* Logo theme swap handled by JS in setTheme() */
 
 .brand-mark {
     display: flex;
