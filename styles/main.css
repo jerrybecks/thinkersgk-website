@@ -299,16 +299,20 @@ img { max-width: 100%; display: block; }
 .particle-side {
     position: absolute;
     top: 0;
-    width: 22%;
+    width: 28%;
     height: 100%;
     z-index: 0;
     pointer-events: auto;
 }
 .particle-left {
     left: 0;
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
 }
 .particle-right {
     right: 0;
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
 }
 @media (max-width: 768px) {
     .particle-side {
