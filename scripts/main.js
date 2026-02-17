@@ -525,12 +525,20 @@
 
         function resize() {
             var dpr = window.devicePixelRatio || 1;
-            pW = canvas.parentElement.offsetWidth;
-            pH = canvas.parentElement.offsetHeight;
+            var isSideCanvas = canvas.classList.contains('particle-side');
+            if (isSideCanvas) {
+                // Side canvases: use own CSS-constrained dimensions, don't override style
+                pW = canvas.offsetWidth;
+                pH = canvas.offsetHeight;
+            } else {
+                // Single/full canvas: use parent dimensions (original behavior)
+                pW = canvas.parentElement.offsetWidth;
+                pH = canvas.parentElement.offsetHeight;
+                canvas.style.width = pW + 'px';
+                canvas.style.height = pH + 'px';
+            }
             canvas.width = pW * dpr;
             canvas.height = pH * dpr;
-            canvas.style.width = pW + 'px';
-            canvas.style.height = pH + 'px';
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             assignTargets();
         }
@@ -557,9 +565,9 @@
             var isLeft = canvas.classList.contains('particle-left');
             var isRight = canvas.classList.contains('particle-right');
             var isSide = isLeft || isRight;
-            // Side canvases: push shape to outer edge (away from text)
-            var shapeW = isSide ? Math.min(pW * 0.6, pH * 0.4) : Math.min(pW * 0.4, pH * 0.7);
-            var shapeCx = isLeft ? pW * 0.35 : isRight ? pW * 0.65 : pW * 0.55;
+            // Side canvases: center shape within the canvas itself
+            var shapeW = isSide ? Math.min(pW * 0.7, pH * 0.4) : Math.min(pW * 0.4, pH * 0.7);
+            var shapeCx = isSide ? pW * 0.5 : pW * 0.55;
             var shapeCy = pH * 0.5;
 
             for (var i = 0; i < particles.length; i++) {
