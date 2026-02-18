@@ -399,7 +399,7 @@ img { max-width: 100%; display: block; }
 .hero-actions { animation-delay: 0.8s; }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); } /* Increased movement */
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -456,7 +456,7 @@ img { max-width: 100%; display: block; }
 
 @keyframes subtleFloat {
     0% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-8px) scale(1.01) rotateZ(0.2deg); } /* More translateY and subtle rotation */
+    50% { transform: translateY(-10px) scale(1.005) rotateZ(0.2deg); } /* More translateY and subtle rotation, and scale */
     100% { transform: translateY(0px) scale(1); }
 }
 
@@ -473,7 +473,7 @@ img { max-width: 100%; display: block; }
 
 @keyframes heroContentMovement {
     0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.008); } /* Increased translateY and scale */
+    50% { transform: translateY(-10px) scale(1.01); } /* Increased translateY and subtle scale */
     100% { transform: translateY(0) scale(1); }
 }
 
