@@ -448,14 +448,14 @@ img { max-width: 100%; display: block; }
 
 @keyframes heroContentMovement {
     0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.005); }
+    50% { transform: translateY(-8px) scale(1.008); } /* Increased translateY and scale */
     100% { transform: translateY(0) scale(1); }
 }
 
 @keyframes cardBreathing {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-    100% { transform: translateY(0); }
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.005); } /* Added subtle scale */
+    100% { transform: translateY(0) scale(1); }
 }
 
 .hero-sub {
@@ -640,7 +640,8 @@ img { max-width: 100%; display: block; }
     .card:hover .card-icon {
         background: var(--color-accent);
         color: #fff;
-        transform: scale(1.1); /* More noticeable scale */
+        transform: scale(1.15); /* Slightly more scale */
+        box-shadow: 0 0 0 8px rgba(var(--color-accent), 0.2); /* Subtle pulse shadow */
     }
 
 .card h3 {
