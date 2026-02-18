@@ -142,14 +142,16 @@ img { max-width: 100%; display: block; }
     font-size: 1.4rem; /* Even smaller for footer */
 }
 
-/* Original nav-logo styles are now superseded by logo-text, can be removed if no other elements use it */
 .nav-logo {
-    height: auto; /* Allow height to be determined by font-size */
+    height: 40px;
     width: auto;
+    object-fit: contain;
 }
 
 .footer-brand .nav-logo {
-    height: auto;
+    height: 36px;
+    width: auto;
+    object-fit: contain;
 }
 
 
