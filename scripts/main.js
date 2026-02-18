@@ -32,6 +32,17 @@
         if (globeImg) {
             globeImg.src = theme === 'dark' ? 'assets/globe-japan-dark-beacons.gif' : 'assets/globe-japan-light-beacons.gif';
         }
+
+        // Swap logo for dark/light mode
+        var logos = document.querySelectorAll('.nav-logo');
+        logos.forEach(function(logo) {
+            var src = logo.getAttribute('src') || '';
+            if (theme === 'dark') {
+                logo.src = src.replace('logo.png', 'logo-dark.png');
+            } else {
+                logo.src = src.replace('logo-dark.png', 'logo.png');
+            }
+        });
     }
 
     setTheme(getPreferredTheme());
