@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://jerrybecks.github.io/thinkersgk-website/sitemap.xml
