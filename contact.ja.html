@@ -85,11 +85,14 @@
                 </div>
 
                 <div>
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/your-form-id" method="POST">
-                        <!-- Formspree auto-reply: sender gets a confirmation email -->
-                        <input type="hidden" name="_autoresponse" value="Thinkers GKへお問い合わせいただきありがとうございます。お問い合わせを受け付けました。1営業日以内にご返信いたします。これは自動確認メールです。返信は不要です。よろしくお願いいたします。 Thinkers GKチーム | info@thinkersgk.com | 東京、日本">
-                        <input type="hidden" name="_subject" value="Thinkers GKウェブサイトから新しいお問い合わせ">
-                        <input type="hidden" name="_replyto">
+                    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms: free 250 submissions/month, no signup needed -->
+                        <input type="hidden" name="access_key" value="72456515-7c1b-44d8-93e1-cebfac6894df">
+                        <input type="hidden" name="subject" value="Thinkers GKウェブサイトから新しいお問い合わせ">
+                        <input type="hidden" name="from_name" value="Thinkers GK Website">
+                        <input type="hidden" name="redirect" value="https://www.thinkersgk.com/contact.ja.html?sent=true">
+                        <!-- Honeypot spam protection -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
                         <div class="form-group">
                             <label for="name" data-en="Name" data-ja="お名前">Name</label>
                             <input type="text" id="name" name="name" data-en-placeholder="Your name" data-ja-placeholder="お名前" placeholder="Your name" required>
@@ -132,41 +135,39 @@
                     (function() {
                         var form = document.getElementById('contactForm');
                         if (!form) return;
-                        // Copy email to _replyto for Formspree auto-reply
-                        var emailInput = form.querySelector('#email');
-                        var replyTo = form.querySelector('[name="_replyto"]');
-                        if (emailInput && replyTo) {
-                            emailInput.addEventListener('input', function() {
-                                replyTo.value = emailInput.value;
-                            });
-                        }
                         form.addEventListener('submit', function(e) {
                             e.preventDefault();
                             var btn = form.querySelector('button[type="submit"]');
                             var status = document.getElementById('formStatus');
+                            var isJa = document.documentElement.lang === 'ja' || btn.textContent.indexOf('送信') !== -1;
                             btn.disabled = true;
-                            btn.textContent = 'Sending...';
+                            btn.textContent = isJa ? '送信中...' : 'Sending...';
+                            var formData = new FormData(form);
+                            var json = {};
+                            formData.forEach(function(value, key) { json[key] = value; });
                             fetch(form.action, {
                                 method: 'POST',
-                                body: new FormData(form),
-                                headers: { 'Accept': 'application/json' }
+                                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                                body: JSON.stringify(json)
                             }).then(function(res) {
-                                if (res.ok) {
+                                return res.json();
+                            }).then(function(data) {
+                                if (data.success) {
                                     form.reset();
                                     status.style.display = 'block';
                                     status.style.color = '#10b981';
-                                    status.textContent = 'メッセージが送信されました！近いうちにご連絡いたします。';
-                                    btn.textContent = '送信済み！';
-                                    setTimeout(function() { btn.disabled = false; btn.textContent = 'メッセージを送信'; }, 3000);
+                                    status.textContent = isJa ? 'メッセージを送信しました！近日中にご連絡いたします。' : 'Message sent! We\'ll get back to you soon.';
+                                    btn.textContent = isJa ? '送信完了！' : 'Sent!';
+                                    setTimeout(function() { btn.disabled = false; btn.textContent = isJa ? 'メッセージを送信' : 'Send Message'; }, 4000);
                                 } else {
-                                    throw new Error('フォームの送信に失敗しました');
+                                    throw new Error(data.message || 'Form submission failed');
                                 }
                             }).catch(function() {
                                 status.style.display = 'block';
                                 status.style.color = '#ef4444';
-                                status.textContent = '問題が発生しました。直接メールでお問い合わせください。';
+                                status.textContent = isJa ? 'エラーが発生しました。直接メールでお問い合わせください。' : 'Something went wrong. Please email us directly.';
                                 btn.disabled = false;
-                                btn.textContent = 'メッセージを送信';
+                                btn.textContent = isJa ? 'メッセージを送信' : 'Send Message';
                             });
                         });
                     })();
