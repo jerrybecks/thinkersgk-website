@@ -1,7 +1,7 @@
 # CLAUDE.md — Thinkers GK Website
 
 ## Business Context
-**Thinkers GK** (合同会社 Thinkers) is an IT services company headquartered in Tokyo, Japan. They serve both local Japanese businesses and foreign companies with branches in Japan. The website is bilingual (English/Japanese) and deployed to GitHub Pages at `https://jerrybecks.github.io/thinkersgk-website/`.
+**Thinkers GK** (合同会社 Thinkers) is an IT services company headquartered in Tokyo, Japan. They serve both local Japanese businesses and foreign companies with branches in Japan. The website is bilingual (English/Japanese) and deployed to GitHub Pages at `https://www.thinkersgk.com/`.
 
 **Key business facts:**
 - Bilingual IT services (English + Japanese)
@@ -230,7 +230,7 @@ git add <files>
 git commit -m "Description of changes"
 git push origin main
 ```
-GitHub Pages auto-deploys from `main` branch. Changes appear at `https://jerrybecks.github.io/thinkersgk-website/` within 1-2 minutes.
+GitHub Pages auto-deploys from `main` branch. Changes appear at `https://www.thinkersgk.com/` within 1-2 minutes.
 
 ---
 
