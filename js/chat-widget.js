@@ -22,11 +22,17 @@
   } catch { /* ignore */ }
 
   // ─── Detect language ─────────────────────────────────────────────
+  // Sync with the site's language system (localStorage key: 'thinkers-lang')
   function getLang() {
-    const html = document.documentElement;
-    const theme = html.getAttribute('data-lang') || html.getAttribute('lang') || 'en';
-    return theme.startsWith('ja') ? 'ja' : 'en';
+    // Primary: read from same localStorage key as main site (scripts/main.js)
+    const stored = localStorage.getItem('thinkers-lang');
+    if (stored === 'ja' || stored === 'en') return stored;
+    // Fallback: check <html lang="...">
+    const htmlLang = document.documentElement.getAttribute('lang') || 'en';
+    return htmlLang.startsWith('ja') ? 'ja' : 'en';
   }
+
+  let currentLang = getLang();
 
   const i18n = {
     en: {
@@ -109,6 +115,67 @@
       messageHistory.forEach(m => renderMessage(m.role, m.content, false));
     } else {
       renderMessage('assistant', t('greeting'), false);
+    }
+
+    // Watch for language changes — when user clicks the EN/JP toggle,
+    // main.js sets <html lang="...">, so we observe that attribute.
+    const langObserver = new MutationObserver(() => {
+      const newLang = getLang();
+      if (newLang !== currentLang) {
+        currentLang = newLang;
+        updateLanguage();
+      }
+    });
+    langObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+  }
+
+  /**
+   * Re-render all translatable UI strings when language changes.
+   * Chat messages stay as-is (they were in whatever language the conversation used).
+   */
+  function updateLanguage() {
+    // Header
+    const title = document.querySelector('.tgk-chat-title');
+    const subtitle = document.querySelector('.tgk-chat-subtitle');
+    if (title) title.textContent = t('title');
+    if (subtitle) subtitle.textContent = t('subtitle');
+
+    // Footer
+    const engineerBtn = document.querySelector('.tgk-chat-engineer-btn');
+    if (engineerBtn) engineerBtn.textContent = t('engineer');
+
+    const input = document.querySelector('.tgk-chat-input');
+    if (input) input.placeholder = t('placeholder');
+
+    const powered = document.querySelector('.tgk-chat-powered');
+    if (powered) powered.textContent = t('poweredBy');
+
+    // Escalation form
+    const escTitle = document.querySelector('.tgk-escalate-title');
+    if (escTitle) escTitle.textContent = t('escalateTitle');
+
+    const escName = document.querySelector('.tgk-escalate-name');
+    if (escName) escName.placeholder = t('escalateName');
+
+    const escEmail = document.querySelector('.tgk-escalate-email');
+    if (escEmail) escEmail.placeholder = t('escalateEmail');
+
+    const escCancel = document.querySelector('.tgk-escalate-cancel');
+    if (escCancel) escCancel.textContent = t('escalateCancel');
+
+    const escSubmit = document.querySelector('.tgk-escalate-submit');
+    if (escSubmit && !escSubmit.disabled) escSubmit.textContent = t('escalateSubmit');
+
+    // If the only message is the greeting (no real conversation yet), update it too
+    if (messageHistory.length === 0) {
+      const msgs = document.querySelector('.tgk-chat-messages');
+      if (msgs && msgs.children.length === 1) {
+        const greetingEl = msgs.children[0].querySelector('.tgk-msg-text');
+        if (greetingEl) greetingEl.textContent = t('greeting');
+      }
     }
   }
 
