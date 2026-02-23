@@ -1,5 +1,5 @@
 /**
- * Thinkers GK AI Chat Widget
+ * Thinkers AI Chat Widget
  * Self-contained chat bubble + panel that works on any page
  * Streams responses via SSE from /api/chat
  */
@@ -41,14 +41,17 @@
       placeholder: 'Type your message...',
       send: 'Send',
       engineer: '👨‍💻 Talk to an Engineer',
-      greeting: 'Hi there! 👋 I\'m the Thinkers GK assistant. How can I help you today? Whether you need IT support, cybersecurity, cloud consulting, or any other IT services — I\'m here to help!',
-      escalateTitle: 'Connect with an Engineer',
-      escalateName: 'Your name',
-      escalateEmail: 'Your email',
-      escalateSubmit: 'Request Callback',
-      escalateSuccess: 'Our engineering team has been notified! Someone will reach out to you shortly.',
+      greeting: 'Hi there! 👋 I\'m the Thinkers assistant. How can I help you today? Whether you need IT support, cybersecurity, cloud consulting, or any other IT services — I\'m here to help!',
+      escalateSearching: 'Let me get an engineer for you...',
+      escalateTitle: 'No engineer available at the moment. Please fill in your details and someone will get back to you shortly.',
+      escalateCompany: 'Company name',
+      escalateEmail: 'Email address',
+      escalateAddress: 'Address',
+      escalatePhone: 'Contact number',
+      escalateSubmit: 'Submit',
+      escalateSuccess: 'Thank you! Our engineering team has been notified and someone will get back to you shortly.',
       escalateCancel: 'Back to chat',
-      poweredBy: 'Powered by Thinkers GK AI',
+      poweredBy: 'Powered by Thinkers AI',
       thinking: 'Thinking...',
     },
     ja: {
@@ -57,14 +60,17 @@
       placeholder: 'メッセージを入力...',
       send: '送信',
       engineer: '👨‍💻 エンジニアに相談',
-      greeting: 'こんにちは！👋 Thinkers GK のAIアシスタントです。ITサポート、サイバーセキュリティ、クラウドコンサルティングなど、どんなことでもお気軽にご相談ください！',
-      escalateTitle: 'エンジニアに繋ぐ',
-      escalateName: 'お名前',
+      greeting: 'こんにちは！👋 Thinkers のAIアシスタントです。ITサポート、サイバーセキュリティ、クラウドコンサルティングなど、どんなことでもお気軽にご相談ください！',
+      escalateSearching: 'エンジニアをお探ししています...',
+      escalateTitle: '現在エンジニアが対応できません。以下の情報をご記入いただければ、折り返しご連絡いたします。',
+      escalateCompany: '会社名',
       escalateEmail: 'メールアドレス',
-      escalateSubmit: 'コールバックを依頼',
-      escalateSuccess: 'エンジニアチームに通知しました！まもなくご連絡いたします。',
+      escalateAddress: '住所',
+      escalatePhone: '電話番号',
+      escalateSubmit: '送信',
+      escalateSuccess: 'ありがとうございます！エンジニアチームに通知しました。まもなくご連絡いたします。',
       escalateCancel: 'チャットに戻る',
-      poweredBy: 'Thinkers GK AI',
+      poweredBy: 'Thinkers AI',
       thinking: '考え中...',
     }
   };
@@ -157,11 +163,17 @@
     const escTitle = document.querySelector('.tgk-escalate-title');
     if (escTitle) escTitle.textContent = t('escalateTitle');
 
-    const escName = document.querySelector('.tgk-escalate-name');
-    if (escName) escName.placeholder = t('escalateName');
+    const escCompany = document.querySelector('.tgk-escalate-company');
+    if (escCompany) escCompany.placeholder = t('escalateCompany');
 
     const escEmail = document.querySelector('.tgk-escalate-email');
     if (escEmail) escEmail.placeholder = t('escalateEmail');
+
+    const escAddress = document.querySelector('.tgk-escalate-address');
+    if (escAddress) escAddress.placeholder = t('escalateAddress');
+
+    const escPhone = document.querySelector('.tgk-escalate-phone');
+    if (escPhone) escPhone.placeholder = t('escalatePhone');
 
     const escCancel = document.querySelector('.tgk-escalate-cancel');
     if (escCancel) escCancel.textContent = t('escalateCancel');
@@ -219,8 +231,10 @@
         <!-- Escalation form (hidden by default) -->
         <div class="tgk-escalate-form" style="display:none">
           <div class="tgk-escalate-title">${t('escalateTitle')}</div>
-          <input type="text" class="tgk-escalate-name" placeholder="${t('escalateName')}">
+          <input type="text" class="tgk-escalate-company" placeholder="${t('escalateCompany')}">
           <input type="email" class="tgk-escalate-email" placeholder="${t('escalateEmail')}">
+          <input type="text" class="tgk-escalate-address" placeholder="${t('escalateAddress')}">
+          <input type="tel" class="tgk-escalate-phone" placeholder="${t('escalatePhone')}">
           <div class="tgk-escalate-actions">
             <button class="tgk-escalate-cancel">${t('escalateCancel')}</button>
             <button class="tgk-escalate-submit">${t('escalateSubmit')}</button>
@@ -389,22 +403,44 @@
     }
   }
 
+  let escalateTimer = null;
+
   function showEscalateForm() {
-    document.querySelector('.tgk-escalate-form').style.display = 'block';
-    document.querySelector('.tgk-chat-footer .tgk-chat-input-row').style.display = 'none';
+    // Hide the engineer button and input row immediately
     document.querySelector('.tgk-chat-engineer-btn').style.display = 'none';
-    document.querySelector('.tgk-escalate-name').focus();
+    document.querySelector('.tgk-chat-footer .tgk-chat-input-row').style.display = 'none';
+
+    // Step 1: Show "Let me get an engineer..." message in chat
+    renderMessage('assistant', t('escalateSearching'));
+
+    // Step 2: After 2 minutes, show the contact form
+    escalateTimer = setTimeout(() => {
+      // Show "no engineer available" message in chat
+      renderMessage('assistant', t('escalateTitle'));
+
+      // Show the form
+      document.querySelector('.tgk-escalate-form').style.display = 'block';
+      document.querySelector('.tgk-escalate-company').focus();
+      scrollToBottom();
+    }, 120000); // 2 minutes = 120,000ms
   }
 
   function hideEscalateForm() {
+    // Clear the timer if user cancels before 2 min
+    if (escalateTimer) {
+      clearTimeout(escalateTimer);
+      escalateTimer = null;
+    }
     document.querySelector('.tgk-escalate-form').style.display = 'none';
     document.querySelector('.tgk-chat-footer .tgk-chat-input-row').style.display = 'flex';
     document.querySelector('.tgk-chat-engineer-btn').style.display = 'block';
   }
 
   async function submitEscalation() {
-    const name = document.querySelector('.tgk-escalate-name').value.trim();
+    const company = document.querySelector('.tgk-escalate-company').value.trim();
     const email = document.querySelector('.tgk-escalate-email').value.trim();
+    const address = document.querySelector('.tgk-escalate-address').value.trim();
+    const phone = document.querySelector('.tgk-escalate-phone').value.trim();
 
     if (!email) {
       document.querySelector('.tgk-escalate-email').focus();
@@ -421,9 +457,11 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           session_id: sessionId,
-          name,
+          company,
           email,
-          preferred_contact: 'email'
+          address,
+          phone,
+          preferred_contact: phone ? 'phone' : 'email'
         })
       });
 
