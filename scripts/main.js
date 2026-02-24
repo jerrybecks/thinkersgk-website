@@ -58,7 +58,7 @@
         document.documentElement.setAttribute('lang', lang);
         localStorage.setItem(LANG_KEY, lang);
         document.querySelectorAll('[data-en]').forEach(function(el) {
-            el.textContent = lang === 'ja' ? el.getAttribute('data-ja') : el.getAttribute('data-en');
+            el.innerHTML = lang === 'ja' ? el.getAttribute('data-ja') : el.getAttribute('data-en');
         });
         document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
             el.placeholder = lang === 'ja' ? el.getAttribute('data-ja-placeholder') : el.getAttribute('data-en-placeholder');
