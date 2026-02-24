@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4c1d95"/>
+      <stop offset="100%" style="stop-color:#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Gear/cog icon -->
+  <circle cx="260" cy="120" r="30" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+  <circle cx="260" cy="120" r="15" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <!-- Gear teeth -->
+  <rect x="255" y="85" width="10" height="10" rx="2" fill="rgba(255,255,255,0.5)"/>
+  <rect x="255" y="145" width="10" height="10" rx="2" fill="rgba(255,255,255,0.5)"/>
+  <rect x="225" y="115" width="10" height="10" rx="2" fill="rgba(255,255,255,0.5)"/>
+  <rect x="285" y="115" width="10" height="10" rx="2" fill="rgba(255,255,255,0.5)"/>
+  <!-- AI brain -->
+  <circle cx="340" cy="120" r="25" fill="none" stroke="rgba(96,165,250,0.8)" stroke-width="2"/>
+  <!-- Neural dots inside -->
+  <circle cx="330" cy="112" r="3" fill="rgba(96,165,250,0.7)"/>
+  <circle cx="350" cy="112" r="3" fill="rgba(96,165,250,0.7)"/>
+  <circle cx="340" cy="128" r="3" fill="rgba(96,165,250,0.7)"/>
+  <line x1="330" y1="112" x2="350" y2="112" stroke="rgba(96,165,250,0.4)" stroke-width="1"/>
+  <line x1="330" y1="112" x2="340" y2="128" stroke="rgba(96,165,250,0.4)" stroke-width="1"/>
+  <line x1="350" y1="112" x2="340" y2="128" stroke="rgba(96,165,250,0.4)" stroke-width="1"/>
+  <!-- Connection between gear and brain -->
+  <line x1="290" y1="120" x2="315" y2="120" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <polygon points="312,116 318,120 312,124" fill="rgba(255,255,255,0.4)"/>
+  <!-- Circular arrows (revolution) -->
+  <path d="M300 170 Q330 180 340 165" fill="none" stroke="rgba(167,139,250,0.5)" stroke-width="1.5"/>
+  <polygon points="338,168 344,163 340,158" fill="rgba(167,139,250,0.5)"/>
+  <!-- Category label -->
+  <rect x="195" y="210" width="210" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="229" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">AI &amp; MANAGED SERVICES</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#134e4a"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Lock icon -->
+  <rect x="270" y="130" width="60" height="50" rx="6" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.5"/>
+  <!-- Shackle -->
+  <path d="M280 130 L280 110 Q280 85 300 85 Q320 85 320 110 L320 130" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.5"/>
+  <!-- Keyhole -->
+  <circle cx="300" cy="150" r="6" fill="rgba(52,211,153,0.8)"/>
+  <rect x="298" y="153" width="4" height="12" rx="2" fill="rgba(52,211,153,0.8)"/>
+  <!-- Checklist items -->
+  <rect x="200" y="200" width="12" height="12" rx="2" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <path d="M203 206 L206 209 L210 203" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="1.5"/>
+  <line x1="220" y1="206" x2="280" y2="206" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <rect x="300" y="200" width="12" height="12" rx="2" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <path d="M303 206 L306 209 L310 203" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="1.5"/>
+  <line x1="320" y1="206" x2="380" y2="206" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- Category label -->
+  <rect x="218" y="240" width="164" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">CYBERSECURITY</text>
+</svg>
