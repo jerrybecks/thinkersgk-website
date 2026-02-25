@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#312e81"/>
+      <stop offset="100%" style="stop-color:#1e40af"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes dotPulse { 0%,100%{r:5;opacity:.8} 50%{r:8;opacity:1} }
+    @keyframes curveDraw { 0%{stroke-dashoffset:300} 100%{stroke-dashoffset:0} }
+    @keyframes labelFade { 0%,80%{opacity:0} 100%{opacity:.5} }
+    @keyframes glowPulse { 0%,100%{opacity:.6} 50%{opacity:1} }
+    .dot1{animation:dotPulse 2s ease-in-out infinite}
+    .dot2{animation:dotPulse 2s ease-in-out infinite;animation-delay:.5s}
+    .dot3{animation:dotPulse 2s ease-in-out infinite;animation-delay:1s}
+    .dot4{animation:dotPulse 2s ease-in-out infinite;animation-delay:1.5s}
+    .curve{animation:curveDraw 3s ease-out forwards;stroke-dasharray:300;stroke-dashoffset:300}
+    .lbl1{animation:labelFade 3s ease-out forwards;animation-delay:.5s;opacity:0}
+    .lbl2{animation:labelFade 3s ease-out forwards;animation-delay:1s;opacity:0}
+    .lbl3{animation:labelFade 3s ease-out forwards;animation-delay:1.5s;opacity:0}
+    .lbl4{animation:labelFade 3s ease-out forwards;animation-delay:2s;opacity:0}
+    .glow{animation:glowPulse 2.5s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;stroke-dashoffset:0!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Axis lines -->
+  <line x1="170" y1="210" x2="430" y2="210" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <line x1="170" y1="210" x2="170" y2="70" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <!-- Maturity curve (S-curve) with draw animation -->
+  <path class="curve" d="M180 200 Q220 200 250 190 Q280 175 300 145 Q320 110 350 95 Q380 85 420 82" fill="none" stroke="rgba(96,165,250,0.9)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Subtle glow trail on curve -->
+  <path class="glow" d="M180 200 Q220 200 250 190 Q280 175 300 145 Q320 110 350 95 Q380 85 420 82" fill="none" stroke="rgba(96,165,250,0.3)" stroke-width="6" stroke-linecap="round"/>
+  <!-- Stage markers with pulsing -->
+  <circle class="dot1" cx="200" cy="198" r="5" fill="rgba(248,113,113,0.8)"/>
+  <circle class="dot2" cx="270" cy="180" r="5" fill="rgba(251,191,36,0.8)"/>
+  <circle class="dot3" cx="330" cy="120" r="5" fill="rgba(52,211,153,0.8)"/>
+  <circle class="dot4" cx="400" cy="83" r="5" fill="rgba(96,165,250,0.9)"/>
+  <!-- Stage labels with staggered fade-in -->
+  <text class="lbl1" x="200" y="225" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter,system-ui,sans-serif" font-size="9">Explore</text>
+  <text class="lbl2" x="270" y="225" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter,system-ui,sans-serif" font-size="9">Pilot</text>
+  <text class="lbl3" x="330" y="225" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter,system-ui,sans-serif" font-size="9">Scale</text>
+  <text class="lbl4" x="400" y="225" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter,system-ui,sans-serif" font-size="9">Optimize</text>
+  <!-- Category label -->
+  <rect x="210" y="250" width="180" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="269" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">AI &amp; TECH TRENDS</text>
+</svg>

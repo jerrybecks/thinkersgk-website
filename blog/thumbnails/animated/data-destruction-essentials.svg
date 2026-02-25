@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c2d12"/>
+      <stop offset="100%" style="stop-color:#991b1b"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes platSpin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    @keyframes xSlash1 { 0%{stroke-dashoffset:100} 100%{stroke-dashoffset:0} }
+    @keyframes xSlash2 { 0%{stroke-dashoffset:100} 100%{stroke-dashoffset:0} }
+    @keyframes shredFall { 0%{transform:translateY(0);opacity:.3} 50%{opacity:.4} 100%{transform:translateY(20px);opacity:0} }
+    @keyframes shredFall2 { 0%{transform:translateY(0);opacity:.25} 50%{opacity:.35} 100%{transform:translateY(25px);opacity:0} }
+    .plat{transform-origin:300px 125px;animation:platSpin 6s linear infinite}
+    .x1{stroke-dasharray:100;animation:xSlash1 1.5s ease-out forwards}
+    .x2{stroke-dasharray:100;animation:xSlash2 1.5s ease-out forwards;animation-delay:.3s;stroke-dashoffset:100}
+    .sh1{animation:shredFall 2s ease-in infinite}
+    .sh2{animation:shredFall2 2s ease-in infinite;animation-delay:.5s}
+    .sh3{animation:shredFall 2s ease-in infinite;animation-delay:1s}
+    .sh4{animation:shredFall2 2s ease-in infinite;animation-delay:1.5s}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Hard drive shape -->
+  <rect x="250" y="90" width="100" height="80" rx="8" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+  <!-- Platter circles (spinning) -->
+  <g class="plat">
+    <circle cx="300" cy="125" r="25" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <circle cx="300" cy="125" r="12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <circle cx="300" cy="125" r="3" fill="rgba(255,255,255,0.5)"/>
+    <!-- Spoke lines for visible rotation -->
+    <line x1="300" y1="100" x2="300" y2="108" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <line x1="325" y1="125" x2="317" y2="125" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  </g>
+  <!-- X mark with slash-in animation -->
+  <line class="x1" x1="265" y1="100" x2="335" y2="160" stroke="rgba(248,113,113,0.9)" stroke-width="3" stroke-linecap="round"/>
+  <line class="x2" x1="335" y1="100" x2="265" y2="160" stroke="rgba(248,113,113,0.9)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Shred particles falling -->
+  <rect class="sh1" x="270" y="185" width="8" height="12" rx="1" fill="rgba(255,255,255,0.3)" transform="rotate(15 274 191)"/>
+  <rect class="sh2" x="290" y="190" width="8" height="12" rx="1" fill="rgba(255,255,255,0.25)" transform="rotate(-10 294 196)"/>
+  <rect class="sh3" x="310" y="187" width="8" height="12" rx="1" fill="rgba(255,255,255,0.3)" transform="rotate(8 314 193)"/>
+  <rect class="sh4" x="325" y="192" width="8" height="12" rx="1" fill="rgba(255,255,255,0.2)" transform="rotate(-15 329 198)"/>
+  <!-- Category label -->
+  <rect x="205" y="235" width="190" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="254" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">DATA MANAGEMENT</text>
+</svg>

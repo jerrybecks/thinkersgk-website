@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#134e4a"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes lockShake { 0%,100%{transform:translate(0,0)} 10%{transform:translate(-2px,0)} 20%{transform:translate(2px,0)} 30%{transform:translate(-1px,0)} 40%{transform:translate(1px,0)} 50%{transform:translate(0,0)} }
+    @keyframes keyholePulse { 0%,100%{opacity:.8;filter:drop-shadow(0 0 2px rgba(52,211,153,0.3))} 50%{opacity:1;filter:drop-shadow(0 0 6px rgba(52,211,153,0.7))} }
+    @keyframes checkDraw { 0%{stroke-dashoffset:20} 100%{stroke-dashoffset:0} }
+    @keyframes checkFade { 0%,70%{opacity:0} 100%{opacity:.7} }
+    .lock{animation:lockShake 4s ease-in-out infinite}
+    .keyhole{animation:keyholePulse 2s ease-in-out infinite}
+    .check1{stroke-dasharray:20;animation:checkDraw 1s ease-out forwards,checkFade 1s ease-out forwards;animation-delay:.5s,.5s;opacity:0}
+    .check2{stroke-dasharray:20;animation:checkDraw 1s ease-out forwards,checkFade 1s ease-out forwards;animation-delay:1.2s,1.2s;opacity:0}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;filter:none!important;transform:none!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Lock icon with shake -->
+  <g class="lock">
+    <rect x="270" y="130" width="60" height="50" rx="6" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.5"/>
+    <!-- Shackle -->
+    <path d="M280 130 L280 110 Q280 85 300 85 Q320 85 320 110 L320 130" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2.5"/>
+  </g>
+  <!-- Keyhole with glow pulse -->
+  <g class="keyhole">
+    <circle cx="300" cy="150" r="6" fill="rgba(52,211,153,0.8)"/>
+    <rect x="298" y="153" width="4" height="12" rx="2" fill="rgba(52,211,153,0.8)"/>
+  </g>
+  <!-- Checklist 1 with draw-in checkmark -->
+  <rect x="200" y="200" width="12" height="12" rx="2" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <path class="check1" d="M203 206 L206 209 L210 203" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="1.5"/>
+  <line x1="220" y1="206" x2="280" y2="206" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- Checklist 2 with draw-in checkmark -->
+  <rect x="300" y="200" width="12" height="12" rx="2" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+  <path class="check2" d="M303 206 L306 209 L310 203" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="1.5"/>
+  <line x1="320" y1="206" x2="380" y2="206" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+  <!-- Category label -->
+  <rect x="218" y="240" width="164" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">CYBERSECURITY</text>
+</svg>

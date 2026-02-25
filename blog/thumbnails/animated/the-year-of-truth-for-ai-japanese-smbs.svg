@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes pulse { 0%,100%{opacity:.9;r:4} 50%{opacity:.4;r:6} }
+    @keyframes orbit { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    @keyframes sparkle { 0%,100%{opacity:.2} 50%{opacity:.8} }
+    @keyframes ringPulse { 0%,100%{stroke-opacity:.5;r:35} 50%{stroke-opacity:.2;r:38} }
+    .node{animation:pulse 2s ease-in-out infinite}
+    .n1{animation-delay:0s}.n2{animation-delay:.3s}.n3{animation-delay:.6s}
+    .n4{animation-delay:.9s}.n5{animation-delay:1.2s}.n6{animation-delay:1.5s}
+    .orbit-group{animation:orbit 20s linear infinite;transform-origin:300px 140px}
+    .inner-ring{animation:ringPulse 3s ease-in-out infinite}
+    .spark{animation:sparkle 2.5s ease-in-out infinite}
+    .s1{animation-delay:0s}.s2{animation-delay:.8s}.s3{animation-delay:1.6s}.s4{animation-delay:2s}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <circle cx="300" cy="140" r="50" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2.5"/>
+  <circle class="inner-ring" cx="300" cy="140" r="35" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+  <circle class="node n1" cx="280" cy="125" r="4" fill="rgba(255,255,255,0.9)"/>
+  <circle class="node n2" cx="320" cy="125" r="4" fill="rgba(255,255,255,0.9)"/>
+  <circle class="node n3" cx="300" cy="110" r="4" fill="rgba(255,255,255,0.9)"/>
+  <circle class="node n4" cx="285" cy="150" r="4" fill="rgba(255,255,255,0.9)"/>
+  <circle class="node n5" cx="315" cy="150" r="4" fill="rgba(255,255,255,0.9)"/>
+  <circle class="node n6" cx="300" cy="165" r="4" fill="rgba(255,255,255,0.9)"/>
+  <line x1="280" y1="125" x2="320" y2="125" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <line x1="300" y1="110" x2="280" y2="125" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <line x1="300" y1="110" x2="320" y2="125" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <line x1="280" y1="125" x2="285" y2="150" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <line x1="320" y1="125" x2="315" y2="150" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <line x1="285" y1="150" x2="300" y2="165" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <line x1="315" y1="150" x2="300" y2="165" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+  <g class="orbit-group">
+    <circle cx="240" cy="100" r="2" fill="rgba(255,255,255,0.6)"/>
+    <circle cx="360" cy="180" r="2" fill="rgba(255,255,255,0.6)"/>
+  </g>
+  <circle class="spark s1" cx="240" cy="100" r="2" fill="rgba(255,255,255,0.6)"/>
+  <circle class="spark s2" cx="360" cy="100" r="2" fill="rgba(255,255,255,0.6)"/>
+  <circle class="spark s3" cx="250" cy="180" r="1.5" fill="rgba(255,255,255,0.4)"/>
+  <circle class="spark s4" cx="350" cy="180" r="1.5" fill="rgba(255,255,255,0.4)"/>
+  <rect x="220" y="220" width="160" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="239" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">AI &amp; BUSINESS</text>
+</svg>
