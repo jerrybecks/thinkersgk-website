@@ -7,7 +7,7 @@
 - Bilingual IT services (English + Japanese)
 - Based in Tokyo, covers all 47 prefectures
 - 7 major city hubs: Tokyo (HQ), Osaka, Nagoya, Fukuoka, Sapporo, Sendai, Hiroshima
-- Contact email: thinkerstars@gmail.com
+- Contact email: info@thinkersgk.com
 
 ---
 
@@ -235,7 +235,7 @@ GitHub Pages auto-deploys from `main` branch. Changes appear at `https://www.thi
 ---
 
 ## Gotchas & Session Learnings
-- **Always `cd /Users/mac/Documents/thinkersgk-website` before git commands** — cwd may drift
+- **Always `cd /Users/mac/.openclaw/workspace-jeff/thinkersgk-website` before git commands** — cwd may drift
 - **Read files before editing** — Edit tool will error with "File has not been read yet" if you skip this
 - **Linter may modify files between reads** — always re-read if an Edit fails with "String not found"
 - **Batch updates across 24+ HTML files** — use Python script, not manual sed (complex HTML breaks sed)
