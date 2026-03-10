@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#134e4a"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes shieldPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+    @keyframes fadeFloat{0%,100%{opacity:0.7;transform:translateY(0)}50%{opacity:1;transform:translateY(-6px)}}
+    .shield{animation:shieldPulse 3s ease-in-out infinite;transform-origin:260px 130px}
+    .building{animation:fadeFloat 4s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Shield icon -->
+  <g class="shield">
+    <path d="M260 80 L260 160 Q260 195 300 210 Q340 195 340 160 L340 80 L300 65 Z" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linejoin="round"/>
+    <polyline points="282,135 296,150 318,118" fill="none" stroke="rgba(52,211,153,0.9)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Building icon -->
+  <g class="building" opacity="0.7">
+    <rect x="180" y="110" width="40" height="60" rx="3" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <rect x="188" y="120" width="8" height="8" rx="1" fill="rgba(255,255,255,0.35)"/>
+    <rect x="204" y="120" width="8" height="8" rx="1" fill="rgba(255,255,255,0.35)"/>
+    <rect x="188" y="136" width="8" height="8" rx="1" fill="rgba(255,255,255,0.35)"/>
+    <rect x="204" y="136" width="8" height="8" rx="1" fill="rgba(255,255,255,0.35)"/>
+    <rect x="195" y="155" width="10" height="15" rx="1" fill="rgba(255,255,255,0.4)"/>
+  </g>
+  <!-- Second building -->
+  <g class="building" opacity="0.5" style="animation-delay:0.5s">
+    <rect x="380" y="100" width="35" height="70" rx="3" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+    <rect x="387" y="108" width="7" height="7" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="400" y="108" width="7" height="7" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="387" y="122" width="7" height="7" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="400" y="122" width="7" height="7" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="387" y="136" width="7" height="7" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="400" y="136" width="7" height="7" rx="1" fill="rgba(255,255,255,0.25)"/>
+  </g>
+  <!-- Category pill -->
+  <rect x="218" y="240" width="164" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">CYBERSECURITY</text>
+</svg>
