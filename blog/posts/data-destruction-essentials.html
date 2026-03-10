@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-en="The Essentials of Secure Data Destruction - Thinkers GK Blog" data-ja="安全なデータ消去の基本 - Thinkers GKブログ">The Essentials of Secure Data Destruction - Thinkers GK Blog</title>
     <meta data-en-description="Understanding the critical importance of secure data destruction for businesses and how to comply with industry standards." data-ja-description="ビジネスにおける安全なデータ消去の重要性と、業界標準に準拠する方法について。">
-    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/main.css?v=51">
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
     <!-- Google Fonts Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,42 +20,40 @@
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
     </script>
+    <script src="../../scripts/enhancements.js?v=1" defer></script>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-                <a href="../../index.html" class="logo-link">
-                    <img src="../../assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
-                </a>
-            <nav class="nav-menu">
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <ul class="nav-list">
-                    <li><a href="../../index.html" data-en="Home" data-ja="ホーム">Home</a></li>
-                    <li><a href="../../services.html" data-en="Services" data-ja="サービス">Services</a></li>
-                    <li><a href="../../about.html" data-en="About Us" data-ja="会社概要">About Us</a></li>
-                    <li><a href="../blog.html" data-en="Blog" data-ja="ブログ">Blog</a></li>
-                    <li><a href="../../contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a></li>
-                </ul>
-                <div class="lang-theme-switcher">
-                    <button id="lang-switcher" class="switcher-btn" data-en="JP" data-ja="EN">JP</button>
-                    <button id="theme-switcher" class="switcher-btn" aria-label="Toggle theme"></button>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="section page-header">
-            <div class="container text-center">
-                <h1 data-en="The Essentials of Secure Data Destruction" data-ja="安全なデータ消去の基本">The Essentials of Secure Data Destruction</h1>
-                <p class="subtitle" data-en="February 17, 2026 | By Thinkers GK Team" data-ja="2026年2月17日 | Thinkers GKチーム"></p>
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="../../index.html" class="nav-brand">
+                <img src="../../assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" data-en="Home" data-ja="ホーム">Home</a>
+                <a href="../../services.html" data-en="Services" data-ja="サービス">Services</a>
+                <a href="../../about.html" data-en="About" data-ja="会社概要">About</a>
+                <a href="../index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+                <a href="../../contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
             </div>
-            <div class="color-pulse-bg"></div>
-        </section>
+            <div class="nav-utils">
+                <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+                <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label" data-en="Blog Post" data-ja="ブログ記事">Blog Post</div>
+            <h1 data-en="The Essentials of Secure Data Destruction" data-ja="安全なデータ消去の基本">The Essentials of Secure Data Destruction</h1>
+            <p data-en="By Thinkers GK Team on February 17, 2026" data-ja="Thinkers GKチーム 2026年2月17日">By Thinkers GK Team on February 17, 2026</p>
+        </div>
+    </section>
 
         <!-- Hero Thumbnail -->
         <div class="blog-post-hero">
@@ -86,60 +84,45 @@
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container grid-2-col">
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="../../assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
-                    <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。"></p>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn"><img src="../../assets/icon-linkedin.svg" alt="LinkedIn"></a>
-                    <a href="#" aria-label="Twitter"><img src="../../assets/icon-twitter.svg" alt="Twitter"></a>
+                    <a href="../../index.html" class="nav-brand">
+                        <img src="../../assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+                    </a>
+                    <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">Trusted IT partner for local and international businesses across Japan.</p>
                 </div>
-            </div>
-            <div class="footer-links grid-4-col">
                 <div class="footer-col">
-                    <h4 data-en="Company" data-ja="会社">Company</h4>
-                    <ul>
-                        <li><a href="../../about.html" data-en="About Us" data-ja="会社概要">About Us</a></li>
-                        <li><a href="../../contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a></li>
-                        <li><a href="../blog.html" data-en="Blog" data-ja="ブログ">Blog</a></li>
-                        <li><a href="../../privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a></li>
-                    </ul>
+                    <h4 data-en="Company" data-ja="会社情報">Company</h4>
+                    <a href="../../about.html" data-en="About" data-ja="会社概要">About</a>
+                    <a href="../../services.html" data-en="Services" data-ja="サービス">Services</a>
+                    <a href="../index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+                    <a href="../../contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+                    <a href="../../privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
                 </div>
                 <div class="footer-col">
                     <h4 data-en="Services" data-ja="サービス">Services</h4>
-                    <ul>
-                        <li><a href="../../service-it-support.html" data-en="IT Support" data-ja="ITサポート">IT Support</a></li>
-                        <li><a href="../../service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a></li>
-                        <li><a href="../../service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a></li>
-                        <li><a href="../../service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a></li>
-                        <li><a href="../../services.html" data-en="View All" data-ja="すべて表示">View All</a></li>
-                    </ul>
+                    <a href="../../service-it-support.html" data-en="IT Support" data-ja="ITサポート">IT Support</a>
+                    <a href="../../service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
+                    <a href="../../service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a>
+                    <a href="../../service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a>
+                    <a href="../../service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a>
+                    <a href="../../service-cloud-consulting.html" data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">Cloud & Consulting</a>
                 </div>
                 <div class="footer-col">
-                    <h4 data-en="Support" data-ja="サポート">Support</h4>
-                    <ul>
-                        <li><a href="../../contact.html" data-en="FAQs" data-ja="よくある質問">FAQs</a></li>
-                        <li><a href="../../contact.html" data-en="Help Center" data-ja="ヘルプセンター">Help Center</a></li>
-                        <li><a href="../../contact.html" data-en="Submit a Ticket" data-ja="チケットを提出">Submit a Ticket</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 data-en="Legal" data-ja="法務">Legal</h4>
-                    <ul>
-                        <li><a href="../../privacy-policy.html" data-en="Terms of Service" data-ja="利用規約">Terms of Service</a></li>
-                        <li><a href="../../privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a></li>
-                        <li><a href="../../privacy-policy.html" data-en="Cookie Policy" data-ja="クッキーポリシー">Cookie Policy</a></li>
-                    </ul>
+                    <h4 data-en="Contact" data-ja="連絡先">Contact</h4>
+                    <a href="mailto:info@thinkersgk.com">info@thinkersgk.com</a>
+                    <span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p data-en="&copy; 2023 Thinkers GK. All rights reserved." data-ja="&copy; 2023 合同会社Thinkers. 全著作権所有。">&copy; 2023 Thinkers GK. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="../../scripts/main.js"></script>
+    <script src="../../scripts/main.js?v=29"></script>
 <script src="../../js/chat-widget.js?v=3a" defer></script>
 </body>
 </html>
