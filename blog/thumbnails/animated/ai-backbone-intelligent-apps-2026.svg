@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#312e81"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes cloudFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+    @keyframes nodePulse { 0%,100%{opacity:.5;r:3} 50%{opacity:1;r:4} }
+    .cloud{animation:cloudFloat 3s ease-in-out infinite}
+    .node{animation:nodePulse 2s ease-in-out infinite}
+    .node-delay{animation:nodePulse 2s ease-in-out 0.5s infinite}
+    .node-delay2{animation:nodePulse 2s ease-in-out 1s infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Cloud icon -->
+  <g class="cloud">
+    <path d="M238 150 C238 150 238 128 258 125 C265 112 280 105 295 110 C305 100 325 100 333 112 C345 112 355 122 355 135 C365 138 368 150 360 158 L238 158 C230 155 230 145 238 150Z" fill="none" stroke="rgba(165,148,249,0.7)" stroke-width="2.5"/>
+  </g>
+  <!-- Connected nodes network -->
+  <g>
+    <!-- Central node -->
+    <circle cx="300" cy="155" r="4" fill="rgba(165,148,249,0.7)" class="node"/>
+    <!-- Surrounding nodes -->
+    <circle cx="260" cy="180" r="3" fill="rgba(196,181,253,0.6)" class="node-delay"/>
+    <circle cx="340" cy="180" r="3" fill="rgba(196,181,253,0.6)" class="node-delay"/>
+    <circle cx="300" cy="200" r="3" fill="rgba(196,181,253,0.6)" class="node-delay2"/>
+    <circle cx="235" cy="200" r="2.5" fill="rgba(196,181,253,0.4)" class="node-delay2"/>
+    <circle cx="365" cy="200" r="2.5" fill="rgba(196,181,253,0.4)" class="node-delay2"/>
+    <!-- Connection lines -->
+    <line x1="300" y1="158" x2="260" y2="178" stroke="rgba(165,148,249,0.3)" stroke-width="1"/>
+    <line x1="300" y1="158" x2="340" y2="178" stroke="rgba(165,148,249,0.3)" stroke-width="1"/>
+    <line x1="300" y1="158" x2="300" y2="197" stroke="rgba(165,148,249,0.3)" stroke-width="1"/>
+    <line x1="260" y1="182" x2="235" y2="198" stroke="rgba(165,148,249,0.2)" stroke-width="1"/>
+    <line x1="340" y1="182" x2="365" y2="198" stroke="rgba(165,148,249,0.2)" stroke-width="1"/>
+    <line x1="260" y1="182" x2="300" y2="197" stroke="rgba(165,148,249,0.2)" stroke-width="1"/>
+    <line x1="340" y1="182" x2="300" y2="197" stroke="rgba(165,148,249,0.2)" stroke-width="1"/>
+  </g>
+  <!-- Decorative dots -->
+  <circle cx="175" cy="100" r="1.5" fill="rgba(165,148,249,0.15)"/>
+  <circle cx="425" cy="90" r="2" fill="rgba(165,148,249,0.1)"/>
+  <circle cx="160" cy="190" r="1" fill="rgba(165,148,249,0.15)"/>
+  <circle cx="440" cy="180" r="1.5" fill="rgba(165,148,249,0.1)"/>
+  <!-- Category pill -->
+  <rect x="222" y="240" width="156" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">TECH TRENDS</text>
+</svg>
