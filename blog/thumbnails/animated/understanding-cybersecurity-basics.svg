@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#064e3b"/>
+      <stop offset="100%" style="stop-color:#022c22"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes shieldPulse { 0%,100%{filter:drop-shadow(0 0 2px rgba(52,211,153,0.2))} 50%{filter:drop-shadow(0 0 8px rgba(52,211,153,0.6))} }
+    @keyframes lockShake { 0%,100%{transform:translate(0,0)} 10%{transform:translate(-2px,0)} 20%{transform:translate(2px,0)} 30%{transform:translate(-1px,0)} 40%{transform:translate(0,0)} }
+    .shield{animation:shieldPulse 3s ease-in-out infinite}
+    .lock{animation:lockShake 4s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Shield icon -->
+  <g class="shield">
+    <path d="M255 100 L255 158 C255 180 280 195 280 195 C280 195 305 180 305 158 L305 100 L280 88 L255 100Z" fill="none" stroke="rgba(52,211,153,0.8)" stroke-width="2.5"/>
+    <path d="M268 145 L278 155 L296 133" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Lock icon -->
+  <g class="lock">
+    <rect x="325" y="140" width="40" height="32" rx="4" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="2"/>
+    <path d="M333 140 L333 128 C333 118 338 112 345 112 C352 112 357 118 357 128 L357 140" fill="none" stroke="rgba(52,211,153,0.6)" stroke-width="2"/>
+    <circle cx="345" cy="153" r="4" fill="rgba(52,211,153,0.6)"/>
+    <line x1="345" y1="157" x2="345" y2="163" stroke="rgba(52,211,153,0.5)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Decorative dots -->
+  <circle cx="175" cy="90" r="1.5" fill="rgba(52,211,153,0.15)"/>
+  <circle cx="425" cy="95" r="2" fill="rgba(52,211,153,0.1)"/>
+  <circle cx="185" cy="200" r="1" fill="rgba(52,211,153,0.15)"/>
+  <circle cx="415" cy="195" r="1.5" fill="rgba(52,211,153,0.1)"/>
+  <!-- Category pill -->
+  <rect x="218" y="240" width="164" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">CYBERSECURITY</text>
+</svg>

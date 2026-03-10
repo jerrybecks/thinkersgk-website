@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#134e4a"/>
+      <stop offset="100%" style="stop-color:#0f3d3a"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes gearSpin { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+    @keyframes arrowRise { 0%,100%{transform:translateY(0);opacity:.7} 50%{transform:translateY(-5px);opacity:1} }
+    .gear{animation:gearSpin 8s linear infinite;transform-origin:260px 140px}
+    .arrow{animation:arrowRise 2.5s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Gear icon -->
+  <g class="gear">
+    <circle cx="260" cy="140" r="20" fill="none" stroke="rgba(94,234,212,0.7)" stroke-width="2.5"/>
+    <circle cx="260" cy="140" r="8" fill="none" stroke="rgba(94,234,212,0.5)" stroke-width="2"/>
+    <!-- Gear teeth -->
+    <rect x="256" y="115" width="8" height="10" rx="2" fill="rgba(94,234,212,0.6)"/>
+    <rect x="256" y="155" width="8" height="10" rx="2" fill="rgba(94,234,212,0.6)"/>
+    <rect x="235" y="136" width="10" height="8" rx="2" fill="rgba(94,234,212,0.6)"/>
+    <rect x="275" y="136" width="10" height="8" rx="2" fill="rgba(94,234,212,0.6)"/>
+    <!-- Diagonal teeth -->
+    <rect x="240" y="119" width="8" height="8" rx="2" fill="rgba(94,234,212,0.5)" transform="rotate(45 244 123)"/>
+    <rect x="272" y="119" width="8" height="8" rx="2" fill="rgba(94,234,212,0.5)" transform="rotate(45 276 123)"/>
+    <rect x="240" y="153" width="8" height="8" rx="2" fill="rgba(94,234,212,0.5)" transform="rotate(45 244 157)"/>
+    <rect x="272" y="153" width="8" height="8" rx="2" fill="rgba(94,234,212,0.5)" transform="rotate(45 276 157)"/>
+  </g>
+  <!-- Upward arrow icon -->
+  <g class="arrow">
+    <line x1="340" y1="170" x2="340" y2="115" stroke="rgba(94,234,212,0.7)" stroke-width="2.5" stroke-linecap="round"/>
+    <polyline points="325,130 340,115 355,130" fill="none" stroke="rgba(94,234,212,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Arrow base lines -->
+    <line x1="330" y1="150" x2="350" y2="150" stroke="rgba(94,234,212,0.3)" stroke-width="1.5"/>
+    <line x1="325" y1="160" x2="355" y2="160" stroke="rgba(94,234,212,0.25)" stroke-width="1.5"/>
+    <line x1="320" y1="170" x2="360" y2="170" stroke="rgba(94,234,212,0.2)" stroke-width="1.5"/>
+  </g>
+  <!-- Decorative dots -->
+  <circle cx="175" cy="95" r="1.5" fill="rgba(94,234,212,0.15)"/>
+  <circle cx="425" cy="100" r="2" fill="rgba(94,234,212,0.1)"/>
+  <circle cx="185" cy="195" r="1" fill="rgba(94,234,212,0.15)"/>
+  <circle cx="415" cy="190" r="1.5" fill="rgba(94,234,212,0.1)"/>
+  <!-- Category pill -->
+  <rect x="228" y="240" width="144" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">IT SERVICES</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes leafSway { 0%,100%{transform:rotate(0deg) translateY(0)} 25%{transform:rotate(3deg) translateY(-2px)} 75%{transform:rotate(-3deg) translateY(1px)} }
+    @keyframes serverPulse { 0%,100%{opacity:.7} 50%{opacity:1;filter:drop-shadow(0 0 6px rgba(74,222,128,0.5))} }
+    .leaf{animation:leafSway 3.5s ease-in-out infinite;transform-origin:280px 130px}
+    .server{animation:serverPulse 2.5s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Leaf icon -->
+  <g class="leaf">
+    <path d="M270 100 C270 100 240 130 240 155 C240 172 253 185 270 185 C287 185 300 172 300 155 C300 130 270 100 270 100Z" fill="none" stroke="rgba(74,222,128,0.8)" stroke-width="2.5"/>
+    <line x1="270" y1="185" x2="270" y2="145" stroke="rgba(74,222,128,0.6)" stroke-width="2"/>
+    <path d="M270 165 C260 155 250 155 245 158" fill="none" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+    <path d="M270 155 C278 148 285 148 290 150" fill="none" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+  </g>
+  <!-- Server rack icon -->
+  <g class="server">
+    <rect x="320" y="110" width="60" height="70" rx="4" fill="none" stroke="rgba(74,222,128,0.7)" stroke-width="2"/>
+    <line x1="320" y1="133" x2="380" y2="133" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+    <line x1="320" y1="156" x2="380" y2="156" stroke="rgba(74,222,128,0.5)" stroke-width="1.5"/>
+    <circle cx="370" cy="122" r="3" fill="rgba(74,222,128,0.8)"/>
+    <circle cx="370" cy="144" r="3" fill="rgba(74,222,128,0.6)"/>
+    <circle cx="370" cy="167" r="3" fill="rgba(74,222,128,0.8)"/>
+    <rect x="330" y="118" width="20" height="4" rx="1" fill="rgba(74,222,128,0.4)"/>
+    <rect x="330" y="140" width="20" height="4" rx="1" fill="rgba(74,222,128,0.4)"/>
+    <rect x="330" y="163" width="20" height="4" rx="1" fill="rgba(74,222,128,0.4)"/>
+  </g>
+  <!-- Decorative dots -->
+  <circle cx="180" cy="90" r="2" fill="rgba(74,222,128,0.2)"/>
+  <circle cx="420" cy="100" r="1.5" fill="rgba(74,222,128,0.15)"/>
+  <circle cx="200" cy="200" r="1.5" fill="rgba(74,222,128,0.2)"/>
+  <circle cx="400" cy="195" r="2" fill="rgba(74,222,128,0.15)"/>
+  <!-- Category pill -->
+  <rect x="240" y="240" width="120" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">GREEN IT</text>
+</svg>
