@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#115e59"/>
+      <stop offset="100%" style="stop-color:#0f766e"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes docSlide{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes bulbGlow{0%,100%{opacity:0.6}50%{opacity:1}}
+    .doc{animation:docSlide 3.5s ease-in-out infinite}
+    .bulb{animation:bulbGlow 2.5s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <!-- Document icon -->
+  <g class="doc" opacity="0.85">
+    <rect x="230" y="80" width="55" height="70" rx="4" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2.5"/>
+    <path d="M268 80 L268 95 L285 95" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <line x1="242" y1="108" x2="273" y2="108" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="242" y1="118" x2="268" y2="118" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="242" y1="128" x2="265" y2="128" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="242" y1="138" x2="260" y2="138" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Lightbulb icon -->
+  <g class="bulb" opacity="0.7">
+    <circle cx="355" cy="110" r="25" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2.5"/>
+    <path d="M345 135 L345 148 Q345 152 350 152 L360 152 Q365 152 365 148 L365 135" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <line x1="348" y1="141" x2="362" y2="141" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+    <line x1="348" y1="146" x2="362" y2="146" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+    <!-- Rays -->
+    <line x1="355" y1="75" x2="355" y2="68" stroke="rgba(250,204,21,0.6)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="378" y1="87" x2="383" y2="82" stroke="rgba(250,204,21,0.5)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="332" y1="87" x2="327" y2="82" stroke="rgba(250,204,21,0.5)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="385" y1="110" x2="392" y2="110" stroke="rgba(250,204,21,0.4)" stroke-width="2" stroke-linecap="round"/>
+    <line x1="325" y1="110" x2="318" y2="110" stroke="rgba(250,204,21,0.4)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- Category pill -->
+  <rect x="228" y="240" width="144" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">IT INSIGHTS</text>
+</svg>
