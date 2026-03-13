@@ -2664,22 +2664,35 @@ html { scroll-behavior: smooth; }
     gap: 28px;
 }
 
-.blog-post-card {
+.card.blog-post-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0;
+    padding: 28px 24px 24px;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-link:hover .blog-post-card {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .card-link:hover .blog-post-card {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
 }
 
 .blog-post-meta {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
 }
 
 .blog-tag {
     display: inline-block;
-    padding: 3px 10px;
+    padding: 4px 10px;
     background: var(--color-accent-light);
     color: var(--color-accent);
     font-size: 0.6875rem;
@@ -2687,11 +2700,13 @@ html { scroll-behavior: smooth; }
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .blog-date {
     font-size: 0.75rem;
     color: var(--color-text-muted);
+    white-space: nowrap;
 }
 
 .blog-post-card h3 {
@@ -2699,18 +2714,59 @@ html { scroll-behavior: smooth; }
     font-weight: 600;
     line-height: 1.4;
     color: var(--color-text);
+    margin-bottom: 10px;
 }
 
 .blog-post-card p {
     font-size: 0.875rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
+    flex: 1;
+}
+
+.blog-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    transition: gap 0.2s ease;
+}
+
+.card-link:hover .blog-read-more {
+    gap: 10px;
+}
+
+.blog-read-more svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* Featured (first) blog card spans 2 columns */
+.blog-grid .card-link:first-child {
+    grid-column: span 2;
+}
+
+.blog-grid .card-link:first-child .blog-post-card h3 {
+    font-size: 1.375rem;
+}
+
+.blog-grid .card-link:first-child .blog-post-card p {
+    font-size: 0.9375rem;
 }
 
 @media (max-width: 1024px) {
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .blog-grid .card-link:first-child { grid-column: span 2; }
 }
 
 @media (max-width: 768px) {
     .blog-grid { grid-template-columns: 1fr; }
+    .blog-grid .card-link:first-child { grid-column: span 1; }
+    .blog-post-card { padding: 22px 20px 20px; }
 }
