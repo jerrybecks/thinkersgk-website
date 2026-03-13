@@ -865,7 +865,7 @@
             });
         }, { threshold: 0.08 });
 
-        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block, .illustration-card').forEach(function(el, i) {
+        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block, .testimonial-card, .sla-card, .illustration-card').forEach(function(el, i) {
             el.classList.add('fade-in-up');
             el.style.transitionDelay = (i % 6) * 0.1 + 's';
             observer.observe(el);
