@@ -809,6 +809,67 @@
         track.innerHTML = clone + clone;
     }
 
+    function initBlogCards() {
+        var grid = document.querySelector('.blog-grid');
+        if (!grid) return;
+
+        var cards = grid.querySelectorAll('.card-link');
+        cards.forEach(function(link, index) {
+            var card = link.querySelector('.blog-post-card');
+            if (!card) return;
+
+            if (!card.querySelector('.blog-post-body')) {
+                var children = Array.prototype.slice.call(card.children);
+                var body = document.createElement('div');
+                body.className = 'blog-post-body';
+                children.forEach(function(child) {
+                    body.appendChild(child);
+                });
+                card.appendChild(body);
+            }
+
+            if (!card.querySelector('.blog-read-more')) {
+                var readMore = document.createElement('span');
+                readMore.className = 'blog-read-more';
+                readMore.innerHTML = 'Read article <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+                card.querySelector('.blog-post-body').appendChild(readMore);
+            }
+
+            if (!card.querySelector('.blog-post-thumb')) {
+                var href = link.getAttribute('href') || '';
+                var fileName = href.split('/').pop() || '';
+                var slug = fileName.replace(/\.html$/i, '');
+                var candidates = [
+                    'thumbnails/animated/' + slug + '.svg',
+                    'thumbnails/' + slug + '.svg'
+                ];
+
+                var thumb = document.createElement('div');
+                thumb.className = 'blog-post-thumb';
+                var img = document.createElement('img');
+                img.alt = '';
+                img.loading = 'lazy';
+
+                function trySource(i) {
+                    if (i >= candidates.length) {
+                        thumb.remove();
+                        return;
+                    }
+                    img.onerror = function() { trySource(i + 1); };
+                    img.src = candidates[i];
+                }
+
+                thumb.appendChild(img);
+                card.insertBefore(thumb, card.firstChild);
+                trySource(0);
+            }
+
+            if (index === 0) {
+                link.classList.add('blog-featured');
+            }
+        });
+    }
+
     // ── DOM Ready ──────────────────────────────────
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -865,7 +926,7 @@
             });
         }, { threshold: 0.08 });
 
-        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block, .testimonial-card, .sla-card, .illustration-card').forEach(function(el, i) {
+        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block, .testimonial-card, .sla-card, .illustration-card, .media-feature-card, .media-side-card, .featured-blog-header').forEach(function(el, i) {
             el.classList.add('fade-in-up');
             el.style.transitionDelay = (i % 6) * 0.1 + 's';
             observer.observe(el);
@@ -876,6 +937,7 @@
         initCounters();
         initHeroTextAnim();
         initLogoScroll();
+        initBlogCards();
     });
 
 })();
