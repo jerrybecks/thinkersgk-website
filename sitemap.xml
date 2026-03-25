@@ -1,54 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main pages (English) -->
-  <url><loc>https://www.thinkersgk.com/</loc></url>
-  <url><loc>https://www.thinkersgk.com/about.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/services.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/contact.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/get-started.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/privacy-policy.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.thinkersgk.com/about.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/services.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thinkersgk.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/get-started.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/privacy-policy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- Main pages (Japanese) -->
-  <url><loc>https://www.thinkersgk.com/index.ja.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/about.ja.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/services.ja.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/contact.ja.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/privacy-policy.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/index.ja.html</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.thinkersgk.com/about.ja.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/services.ja.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thinkersgk.com/contact.ja.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/privacy-policy.ja.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- Service pages -->
-  <url><loc>https://www.thinkersgk.com/service-it-support.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-field-engineering.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-asset-lifecycle.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-cybersecurity.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-cybersecurity-training.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-cloud-consulting.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-managed-services.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-networking.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-data-backup.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-hardware-maintenance.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-onsite-dispatch.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-service-desk.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-ai-solutions.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-av-solutions.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-access-control.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-voip.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-wireless-survey.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-office-relocation.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/service-project-management.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-it-support.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-field-engineering.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-asset-lifecycle.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cybersecurity.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cybersecurity-training.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-consulting.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-managed-services.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-networking.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-data-backup.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-hardware-maintenance.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-onsite-dispatch.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-service-desk.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-ai-solutions.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-av-solutions.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-access-control.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-voip.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-wireless-survey.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-office-relocation.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-project-management.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-ai-integration.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-m365-saas.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-dx-consulting.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-zero-trust.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-staff-augmentation.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-migration.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog -->
-  <url><loc>https://www.thinkersgk.com/blog/</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/cybersecurity-best-practices.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/understanding-managed-services.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/data-destruction-essentials.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-practical-applications-cloud-integration.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-maturity-curve-japanese-businesses.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-security-explained.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/evolving-cyber-threats-japanese-smbs.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-revolution-managed-it-services-japan.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/the-year-of-truth-for-ai-japanese-smbs.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/the-power-of-bilingual-it-support.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/the-power-of-bilingual-it-support.ja.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/cybersecurity-for-small-businesses.html</loc></url>
-  <url><loc>https://www.thinkersgk.com/blog/understanding-cybersecurity-basics.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/cybersecurity-best-practices.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/understanding-managed-services.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/data-destruction-essentials.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-practical-applications-cloud-integration.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-maturity-curve-japanese-businesses.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-security-explained.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/evolving-cyber-threats-japanese-smbs.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-revolution-managed-it-services-japan.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/the-year-of-truth-for-ai-japanese-smbs.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/agentic-ai-workplace-security-governance.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-backbone-intelligent-apps-2026.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/green-it-sustainable-data-centers-japan.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/the-power-of-bilingual-it-support.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/the-power-of-bilingual-it-support.ja.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/cybersecurity-for-small-businesses.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/understanding-cybersecurity-basics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

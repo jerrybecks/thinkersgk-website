@@ -51,7 +51,12 @@
     const LANG_KEY = 'thinkers-lang';
 
     function getLang() {
-        return localStorage.getItem(LANG_KEY) || 'en';
+        var path = window.location.pathname || '';
+        var stored = localStorage.getItem(LANG_KEY);
+        var pathForcesJapanese = /\.ja\.html$|\.jp\.html$|\/blog\/blog\.html$/i.test(path);
+        if (pathForcesJapanese) return 'ja';
+        if (stored === 'en' || stored === 'ja') return stored;
+        return 'en';
     }
 
     function setLang(lang) {
@@ -65,6 +70,125 @@
         });
         var langBtn = document.getElementById('langToggle');
         if (langBtn) langBtn.textContent = lang === 'ja' ? 'EN' : 'JP';
+    }
+
+    function initNavDropdowns() {
+        var menu = document.getElementById('navMenu');
+        if (!menu) return;
+
+        var servicesLink = menu.querySelector('a[href$="services.html"]:not(.nav-dropdown__overview):not(.nav-dropdown__link)');
+        if (!servicesLink) return;
+
+        var servicesHref = servicesLink.getAttribute('href') || 'services.html';
+        var prefix = servicesHref.replace(/services\.html$/, '');
+
+        var dropdown = document.createElement('div');
+        dropdown.className = 'nav-dropdown';
+        dropdown.innerHTML =
+            '<div class="nav-dropdown__bar">' +
+                '<a href="' + prefix + 'services.html" class="nav-dropdown__rootlink" data-en="Services" data-ja="サービス">Services</a>' +
+                '<button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Open services menu">' +
+                    '<span class="nav-dropdown__caret" aria-hidden="true"></span>' +
+                '</button>' +
+            '</div>' +
+            '<div class="nav-dropdown__panel" aria-label="Services menu">' +
+                '<div class="nav-dropdown__intro">' +
+                    '<div class="nav-dropdown__eyebrow" data-en="Explore" data-ja="サービス一覧">Explore</div>' +
+                    '<a href="' + prefix + 'services.html" class="nav-dropdown__overview" data-en="View all services" data-ja="すべてのサービスを見る">View all services</a>' +
+                    '<p data-en="Practical IT delivery in Japan, from user support to field execution and lifecycle work." data-ja="ユーザー支援から現地対応、資産ライフサイクルまで、日本国内の実務的なIT支援。">Practical IT delivery in Japan, from user support to field execution and lifecycle work.</p>' +
+                '</div>' +
+                '<div class="nav-dropdown__links">' +
+                    '<a href="' + prefix + 'service-it-support.html" class="nav-dropdown__link">' +
+                        '<strong data-en="IT Support" data-ja="ITサポート">IT Support</strong>' +
+                        '<span data-en="Bilingual user support and day-to-day IT operations." data-ja="バイリンガルのユーザー支援と日常IT運用。">Bilingual user support and day-to-day IT operations.</span>' +
+                    '</a>' +
+                    '<a href="' + prefix + 'service-managed-services.html" class="nav-dropdown__link">' +
+                        '<strong data-en="Managed Services" data-ja="マネージドサービス">Managed Services</strong>' +
+                        '<span data-en="Reporting, vendor coordination, and accountable ongoing support." data-ja="報告、ベンダー調整、継続的な運用支援。">Reporting, vendor coordination, and accountable ongoing support.</span>' +
+                    '</a>' +
+                    '<a href="' + prefix + 'service-cybersecurity.html" class="nav-dropdown__link">' +
+                        '<strong data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</strong>' +
+                        '<span data-en="Assessments, risk reduction, and practical security work." data-ja="評価、リスク低減、実務的なセキュリティ支援。">Assessments, risk reduction, and practical security work.</span>' +
+                    '</a>' +
+                    '<a href="' + prefix + 'service-asset-lifecycle.html" class="nav-dropdown__link">' +
+                        '<strong data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT Asset Lifecycle</strong>' +
+                        '<span data-en="Deployment, recovery, and controlled end-of-life handling." data-ja="導入、回収、適切な廃棄・更改対応。">Deployment, recovery, and controlled end-of-life handling.</span>' +
+                    '</a>' +
+                '</div>' +
+            '</div>';
+
+        servicesLink.replaceWith(dropdown);
+
+        var trigger = dropdown.querySelector('.nav-dropdown__trigger');
+        var closeTimer = null;
+
+        function clearCloseTimer() {
+            if (!closeTimer) return;
+            clearTimeout(closeTimer);
+            closeTimer = null;
+        }
+
+        function closeDropdown() {
+            clearCloseTimer();
+            dropdown.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+        }
+
+        function openDropdown() {
+            clearCloseTimer();
+            dropdown.classList.add('open');
+            trigger.setAttribute('aria-expanded', 'true');
+        }
+
+        function scheduleCloseDropdown() {
+            clearCloseTimer();
+            closeTimer = setTimeout(function() {
+                closeDropdown();
+            }, 180);
+        }
+
+        trigger.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (dropdown.classList.contains('open')) closeDropdown();
+            else openDropdown();
+        });
+
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 900) openDropdown();
+        });
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 900) scheduleCloseDropdown();
+        });
+        trigger.addEventListener('focus', function() {
+            if (window.innerWidth > 900) openDropdown();
+        });
+        document.addEventListener('click', function(event) {
+            if (!dropdown.contains(event.target)) closeDropdown();
+        });
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeDropdown();
+        });
+    }
+
+    function initWhyUsNavLink() {
+        var menu = document.getElementById('navMenu');
+        if (!menu || menu.querySelector('a[href$="why-us.html"]')) return;
+
+        var anchorRef = menu.querySelector('a[href$="about.html"], a[href$="services.html"]');
+        if (!anchorRef) return;
+
+        var href = anchorRef.getAttribute('href') || '';
+        var prefix = href.replace(/(?:about|services)\.html$/, '');
+        var link = document.createElement('a');
+        link.href = prefix + 'why-us.html';
+        link.setAttribute('data-en', 'Why Us');
+        link.setAttribute('data-ja', '選ばれる理由');
+        link.textContent = 'Why Us';
+
+        var aboutLink = menu.querySelector('a[href$="about.html"]');
+        if (aboutLink) aboutLink.before(link);
+        else menu.appendChild(link);
     }
 
     // ── Morphing Particle Network ──────────────────
@@ -821,6 +945,9 @@
             });
         }
         setTheme(getPreferredTheme());
+
+        initNavDropdowns();
+        initWhyUsNavLink();
 
         // Language toggle button
         var langBtn = document.getElementById('langToggle');
