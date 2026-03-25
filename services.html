@@ -1,284 +1,435 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <link rel="canonical" href="https://www.thinkersgk.com/services.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Thinkers GK — IT Services in Tokyo</title>
-    <meta name="description" content="Comprehensive IT services: Support, Field Engineering, Cybersecurity, Asset Lifecycle, Cloud, Networking, AV Solutions, VoIP, and more. Thinkers GK, Tokyo.">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css?v=51">
-    <script src="scripts/main.js?v=29"></script>
-    <script src="scripts/enhancements.js?v=1" defer></script>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://www.thinkersgk.com/services.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Services | Thinkers GK — IT Services in Japan</title>
+  <meta name="description" content="Explore Thinkers GK service lines for IT support, field engineering, security, cloud migration, AI integration, and IT asset lifecycle work for businesses operating in Japan.">
+  <meta property="og:title" content="Services | Thinkers GK — IT Services in Japan">
+  <meta property="og:description" content="Explore Thinkers GK service lines for IT support, field engineering, security, cloud migration, AI integration, and IT asset lifecycle work for businesses operating in Japan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.thinkersgk.com/services.html">
+  <meta property="og:site_name" content="Thinkers GK">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services | Thinkers GK — IT Services in Japan">
+  <meta name="twitter:description" content="Explore Thinkers GK service lines for IT support, field engineering, security, cloud migration, AI integration, and IT asset lifecycle work for businesses operating in Japan.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css?v=61">
+  <link rel="stylesheet" href="styles/redesign.css?v=7">
+  <link rel="stylesheet" href="styles/services-launch.css?v=5">
+  <script src="scripts/main.js?v=37"></script>
+  <script src="scripts/enhancements.js?v=9" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
-<body>
+<body class="service-shell">
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+      </a>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" data-en="Home" data-ja="ホーム">ホーム</a>
+        <a href="services.html" data-en="Services" data-ja="サービス">サービス</a>
+        <a href="about.html" data-en="About" data-ja="会社概要">会社概要</a>
+        <a href="blog/index.html" data-en="Blog" data-ja="ブログ">ブログ</a>
+        <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">お問い合わせ</a>
+      </div>
+      <div class="nav-utils">
+        <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+        <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="container nav-inner">
-            <a href="index.html" class="nav-brand">
-                <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+  <section class="services-overview-hero">
+    <div class="container services-overview-hero__grid">
+      <div class="services-overview-hero__copy">
+        <div class="section-label" data-en="Services" data-ja="サービス">Services</div>
+        <h1 data-en="Services built around how work actually gets done in Japan." data-ja="日本で仕事が実際に進む流れに合わせたサービス設計。">Services built around how work actually gets done in Japan.</h1>
+        <p data-en="Thinkers GK supports companies that need clear IT execution in Japan: user support, site work, infrastructure change, security handling, lifecycle work, and strategic modernization. Some clients need one service line. Others need an operating partner that can connect the dots." data-ja="Thinkers GKは、日本国内で明確なIT実行が必要な企業を支援します。ユーザー支援、現地対応、インフラ変更、セキュリティ対応、資産ライフサイクル、そして戦略的な刷新まで。単独のサービスだけが必要な場合もあれば、全体をつなげる運用パートナーが必要な場合もあります。">Thinkers GK supports companies that need clear IT execution in Japan: user support, site work, infrastructure change, security handling, lifecycle work, and strategic modernization. Some clients need one service line. Others need an operating partner that can connect the dots.</p>
+        <div class="services-overview-hero__actions">
+          <a href="contact.html" class="btn btn-primary btn-lg" data-en="Discuss Your Requirements" data-ja="要件を相談する">Discuss Your Requirements</a>
+          <a href="#service-categories" class="btn btn-ghost btn-lg" data-en="Browse Service Lines" data-ja="サービス一覧を見る">Browse Service Lines</a>
+        </div>
+      </div>
+      <aside class="services-overview-hero__panel">
+        <div class="services-overview-hero__panel-head">
+          <span data-en="Operating model" data-ja="進め方">Operating model</span>
+          <span data-en="Japan-wide" data-ja="全国対応">Japan-wide</span>
+        </div>
+        <div class="services-overview-hero__panel-body">
+          <div class="services-overview-hero__metric">
+            <span data-en="Best fit" data-ja="主な支援先">Best fit</span>
+            <strong data-en="Japan offices, regional sites, international teams, and vendors that need one clear counterpart." data-ja="日本拠点、地方拠点、海外チーム、そして明確な窓口を必要とするベンダー対応。">Japan offices, regional sites, international teams, and vendors that need one clear counterpart.</strong>
+          </div>
+          <div class="services-overview-hero__metric">
+            <span data-en="Typical needs" data-ja="主な相談内容">Typical needs</span>
+            <strong data-en="Support operations, onsite delivery, security improvements, relocation, cloud change, lifecycle coordination." data-ja="サポート運用、現地対応、セキュリティ改善、移転、クラウド変更、資産ライフサイクル対応。">Support operations, onsite delivery, security improvements, relocation, cloud change, lifecycle coordination.</strong>
+          </div>
+          <div class="services-overview-hero__metric">
+            <span data-en="Delivery style" data-ja="提供スタイル">Delivery style</span>
+            <strong data-en="Assess, coordinate, execute, document, and follow through in English and Japanese." data-ja="英語と日本語で整理し、調整し、実行し、記録し、最後までやり切る進め方。">Assess, coordinate, execute, document, and follow through in English and Japanese.</strong>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-overview-nav fade-target">
+        <a href="#operations" class="services-overview-nav__card">
+          <strong data-en="Operations & Support" data-ja="運用・サポート">Operations & Support</strong>
+          <span data-en="Helpdesk, managed services, service desk, and staff extension." data-ja="ヘルプデスク、マネージドサービス、サービスデスク、体制強化支援。">Helpdesk, managed services, service desk, and staff extension.</span>
+        </a>
+        <a href="#delivery" class="services-overview-nav__card">
+          <strong data-en="Infrastructure & Delivery" data-ja="インフラ・現地対応">Infrastructure & Delivery</strong>
+          <span data-en="Field engineering, network work, relocation, AV, and migration delivery." data-ja="フィールド対応、ネットワーク、移転、AV、移行の実行支援。">Field engineering, network work, relocation, AV, and migration delivery.</span>
+        </a>
+        <a href="#security" class="services-overview-nav__card">
+          <strong data-en="Security & Risk" data-ja="セキュリティ・リスク">Security & Risk</strong>
+          <span data-en="Assessment, backup, access control, training, and Zero Trust programs." data-ja="評価、バックアップ、入退室管理、研修、Zero Trust導入。">Assessment, backup, access control, training, and Zero Trust programs.</span>
+        </a>
+        <a href="#transformation" class="services-overview-nav__card">
+          <strong data-en="Transformation & Advisory" data-ja="変革・アドバイザリー">Transformation & Advisory</strong>
+          <span data-en="Cloud, DX, AI integration, project leadership, and lifecycle change." data-ja="クラウド、DX、AI統合、プロジェクト推進、資産刷新。">Cloud, DX, AI integration, project leadership, and lifecycle change.</span>
+        </a>
+      </div>
+
+      <div class="services-overview-spotlight fade-target">
+        <div class="services-overview-spotlight__grid">
+          <div>
+            <div class="section-label" data-en="New strategic lanes" data-ja="新しい戦略サービス">New strategic lanes</div>
+            <h2 data-en="The next layer of support: modernization, security posture, and execution capacity." data-ja="次の支援領域は、モダナイゼーション、セキュリティ態勢、実行力の強化。">The next layer of support: modernization, security posture, and execution capacity.</h2>
+            <p data-en="Beyond day-to-day support, we are building out a stronger advisory and execution layer for companies that need to modernize responsibly in Japan. These pages are designed for buyers thinking about transformation, not just tickets." data-ja="日々の運用支援に加え、日本で責任あるモダナイゼーションを進めたい企業向けに、より強いアドバイザリーと実行支援のレイヤーを用意しています。ここでは、単なるチケット対応ではなく、変革を検討している意思決定者向けの支援を示します。">Beyond day-to-day support, we are building out a stronger advisory and execution layer for companies that need to modernize responsibly in Japan. These pages are designed for buyers thinking about transformation, not just tickets.</p>
+            <div class="services-overview-spotlight__chips">
+              <span data-en="AI Integration" data-ja="AI統合">AI Integration</span>
+              <span data-en="Microsoft 365 & SaaS" data-ja="Microsoft 365・SaaS">Microsoft 365 & SaaS</span>
+              <span data-en="DX Consulting" data-ja="DXコンサルティング">DX Consulting</span>
+              <span data-en="Zero Trust" data-ja="Zero Trust">Zero Trust</span>
+              <span data-en="Staff Augmentation" data-ja="体制強化支援">Staff Augmentation</span>
+              <span data-en="Cloud Migration" data-ja="クラウド移行">Cloud Migration</span>
+            </div>
+          </div>
+          <div class="services-overview-spotlight__media">
+            <img src="assets/service-managed-services-800x500.jpg" alt="IT operations planning and support">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="service-categories">
+    <div class="container">
+      <div class="service-category-grid">
+        <section class="service-category fade-target" id="operations">
+          <div class="service-category__head">
+            <div>
+              <div class="section-label" data-en="Category 01" data-ja="カテゴリ 01">Category 01</div>
+              <h2 data-en="Operations & Support" data-ja="運用・サポート">Operations & Support</h2>
+              <p data-en="For teams that need a reliable day-to-day operating layer in Japan: end-user support, accountable service ownership, and extra delivery capacity when internal teams are stretched." data-ja="日本国内で日々の運用レイヤーを安定させたい企業向け。エンドユーザー支援、責任あるサービス運用、そして社内体制が足りない時の実行力を補います。">For teams that need a reliable day-to-day operating layer in Japan: end-user support, accountable service ownership, and extra delivery capacity when internal teams are stretched.</p>
+            </div>
+            <span class="service-category__tag" data-en="Daily operations" data-ja="日常運用">Daily operations</span>
+          </div>
+          <div class="service-category__items">
+            <a href="service-it-support.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Core service" data-ja="中核サービス">Core service</div>
+              <h3 data-en="IT Support" data-ja="ITサポート">IT Support</h3>
+              <p data-en="Bilingual user support, remote troubleshooting, onsite follow-through, and issue ownership." data-ja="バイリンガルのユーザー支援、リモート対応、現地フォロー、課題の持ち切り対応。">Bilingual user support, remote troubleshooting, onsite follow-through, and issue ownership.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
             </a>
-            <div class="nav-menu" id="navMenu">
-                <a href="index.html" data-en="Home" data-ja="ホーム">ホーム</a>
-                <a href="services.html" data-en="Services" data-ja="サービス">サービス</a>
-                <a href="about.html" data-en="About" data-ja="会社概要">会社概要</a>
-                <a href="blog/index.html" data-en="Blog" data-ja="ブログ">ブログ</a>
-                <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">お問い合わせ</a>
+            <a href="service-managed-services.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Operating partner" data-ja="運用パートナー">Operating partner</div>
+              <h3 data-en="Managed Services" data-ja="マネージドサービス">Managed Services</h3>
+              <p data-en="Reporting, vendor coordination, planning, and a steadier operating cadence for growing teams." data-ja="報告、ベンダー調整、計画、そして成長中のチームに必要な運用リズムづくり。">Reporting, vendor coordination, planning, and a steadier operating cadence for growing teams.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-m365-saas.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Workplace cloud" data-ja="業務クラウド">Workplace cloud</div>
+              <h3 data-en="Microsoft 365 & SaaS Support" data-ja="Microsoft 365・SaaSサポート">Microsoft 365 & SaaS Support</h3>
+              <p data-en="Support tenant administration, SharePoint and OneDrive issues, workflow failures, and connected SaaS escalations with clearer ownership." data-ja="テナント運用、SharePoint・OneDrive障害、業務フロー停止、周辺SaaSのエスカレーションを、責任範囲を明確にしながら支援します。">Support tenant administration, SharePoint and OneDrive issues, workflow failures, and connected SaaS escalations with clearer ownership.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-service-desk.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="User-facing" data-ja="利用者対応">User-facing</div>
+              <h3 data-en="Service Desk" data-ja="サービスデスク">Service Desk</h3>
+              <p data-en="A more structured inbound support lane for recurring user requests, tickets, and standard operating procedures." data-ja="継続的なユーザー依頼、チケット、標準対応手順に向いた、より整った窓口運用。">A more structured inbound support lane for recurring user requests, tickets, and standard operating procedures.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-staff-augmentation.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="New" data-ja="新規">New</div>
+              <h3 data-en="Staff Augmentation" data-ja="スタッフ増強支援">Staff Augmentation</h3>
+              <p data-en="Add delivery capacity for support, rollout work, PMO coordination, or specialist project tasks in Japan." data-ja="日本国内でのサポート、展開、PMO、専門タスクに対して実行体制を追加。">Add delivery capacity for support, rollout work, PMO coordination, or specialist project tasks in Japan.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-project-management.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Coordination" data-ja="進行管理">Coordination</div>
+              <h3 data-en="Project Management" data-ja="プロジェクト管理">Project Management</h3>
+              <p data-en="Keep multi-vendor and multi-site IT work on track with clearer checkpoints and accountability." data-ja="複数ベンダー・複数拠点のIT案件を、より明確な確認点と責任範囲で進めます。">Keep multi-vendor and multi-site IT work on track with clearer checkpoints and accountability.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-onsite-dispatch.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="On the ground" data-ja="現地対応">On the ground</div>
+              <h3 data-en="Onsite Dispatch" data-ja="オンサイトディスパッチ">Onsite Dispatch</h3>
+              <p data-en="Rapid local hands for installations, break-fix, surveys, and issue resolution when remote is not enough." data-ja="設置、障害対応、調査、復旧など、リモートでは足りない場面での迅速な現地対応。">Rapid local hands for installations, break-fix, surveys, and issue resolution when remote is not enough.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="service-category fade-target" id="delivery">
+          <div class="service-category__head">
+            <div>
+              <div class="section-label" data-en="Category 02" data-ja="カテゴリ 02">Category 02</div>
+              <h2 data-en="Infrastructure & Delivery" data-ja="インフラ・現地対応">Infrastructure & Delivery</h2>
+              <p data-en="For organizations changing physical environments, deploying equipment, or moving core infrastructure without losing control of the project." data-ja="物理環境の変更、機器導入、インフラ移行を進める際に、案件全体の見通しを失いたくない企業向け。">For organizations changing physical environments, deploying equipment, or moving core infrastructure without losing control of the project.</p>
             </div>
-            <div class="nav-utils">
-                <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
-                <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
-                    <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                </button>
+            <span class="service-category__tag" data-en="Execution" data-ja="実行支援">Execution</span>
+          </div>
+          <div class="service-category__items">
+            <a href="service-field-engineering.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Field work" data-ja="現地作業">Field work</div>
+              <h3 data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</h3>
+              <p data-en="Hands-on implementation across Japan for infrastructure projects, installs, swaps, and site readiness work." data-ja="日本全国のインフラ案件、設置、交換、現場準備に対するハンズオン実行。">Hands-on implementation across Japan for infrastructure projects, installs, swaps, and site readiness work.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-networking.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Connectivity" data-ja="接続基盤">Connectivity</div>
+              <h3 data-en="IT Networking" data-ja="ITネットワーキング">IT Networking</h3>
+              <p data-en="LAN/WAN, firewall, VPN, and network optimization work for offices and sites in Japan." data-ja="日本国内のオフィス・拠点向けLAN/WAN、ファイアウォール、VPN、最適化対応。">LAN/WAN, firewall, VPN, and network optimization work for offices and sites in Japan.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-cloud-migration.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="New" data-ja="新規">New</div>
+              <h3 data-en="Cloud Migration" data-ja="クラウド移行">Cloud Migration</h3>
+              <p data-en="Move workloads and operating patterns into the cloud with clearer sequencing, governance, and user impact control." data-ja="ワークロードと運用をクラウドへ移す際に、順序、統制、利用者影響を整理して進めます。">Move workloads and operating patterns into the cloud with clearer sequencing, governance, and user impact control.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-wireless-survey.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Site readiness" data-ja="現場準備">Site readiness</div>
+              <h3 data-en="Wireless Survey" data-ja="無線サーベイ">Wireless Survey</h3>
+              <p data-en="Assess coverage, reduce dead zones, and plan reliable Wi-Fi environments before rollout or relocation." data-ja="展開や移転前に、カバレッジ確認、死角の把握、安定したWi-Fi設計を進めます。">Assess coverage, reduce dead zones, and plan reliable Wi-Fi environments before rollout or relocation.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-office-relocation.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Move planning" data-ja="移転計画">Move planning</div>
+              <h3 data-en="Office Relocation" data-ja="オフィス移転">Office Relocation</h3>
+              <p data-en="Coordinate move sequences, cutover windows, equipment handling, and readiness checks for office changes." data-ja="オフィス移転に伴う順序設計、切替時間、機器対応、準備確認を整理して進めます。">Coordinate move sequences, cutover windows, equipment handling, and readiness checks for office changes.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-av-solutions.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Meeting rooms" data-ja="会議室整備">Meeting rooms</div>
+              <h3 data-en="AV Solutions" data-ja="AVソリューション">AV Solutions</h3>
+              <p data-en="Conference room, signage, and presentation environments designed to work reliably for real teams." data-ja="会議室、サイネージ、プレゼン環境を、実務で使いやすく整えます。">Conference room, signage, and presentation environments designed to work reliably for real teams.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="service-category fade-target" id="security">
+          <div class="service-category__head">
+            <div>
+              <div class="section-label" data-en="Category 03" data-ja="カテゴリ 03">Category 03</div>
+              <h2 data-en="Security & Risk" data-ja="セキュリティ・リスク">Security & Risk</h2>
+              <p data-en="For teams that need to improve security posture, reduce operational risk, and create more defensible access and recovery models in Japan." data-ja="日本国内でセキュリティ態勢を改善し、運用リスクを減らし、より防御力のあるアクセス・復旧モデルを作りたい企業向け。">For teams that need to improve security posture, reduce operational risk, and create more defensible access and recovery models in Japan.</p>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+            <span class="service-category__tag" data-en="Risk reduction" data-ja="リスク低減">Risk reduction</span>
+          </div>
+          <div class="service-category__items">
+            <a href="service-cybersecurity.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Core service" data-ja="中核サービス">Core service</div>
+              <h3 data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</h3>
+              <p data-en="Assessments, vulnerability handling, remediation guidance, and practical security operations." data-ja="評価、脆弱性対応、改善 guidance、実務に落ちるセキュリティ運用。">Assessments, vulnerability handling, remediation guidance, and practical security operations.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-zero-trust.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="New" data-ja="新規">New</div>
+              <h3 data-en="Zero Trust Programs" data-ja="Zero Trust導入支援">Zero Trust Programs</h3>
+              <p data-en="Move from broad implicit access to a cleaner model built around identity, device trust, and policy enforcement." data-ja="広い暗黙アクセスから、ID、端末信頼、ポリシー実行を軸にした設計へ移行します。">Move from broad implicit access to a cleaner model built around identity, device trust, and policy enforcement.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-access-control.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Physical security" data-ja="物理セキュリティ">Physical security</div>
+              <h3 data-en="Access Control & Surveillance" data-ja="入退室管理・監視">Access Control & Surveillance</h3>
+              <p data-en="Control who can enter, when, and how, with cleaner physical security integration." data-ja="誰が、いつ、どのように入れるかを整理し、物理セキュリティを統合します。">Control who can enter, when, and how, with cleaner physical security integration.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-data-backup.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Recovery readiness" data-ja="復旧体制">Recovery readiness</div>
+              <h3 data-en="Data Backup & Recovery" data-ja="データバックアップ・復旧">Data Backup & Recovery</h3>
+              <p data-en="Reduce recovery risk with backup design, restoration planning, and realistic recovery expectations." data-ja="バックアップ設計、復旧計画、現実的な復旧期待値の整理で回復力を高めます。">Reduce recovery risk with backup design, restoration planning, and realistic recovery expectations.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-cybersecurity-training.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="People layer" data-ja="人の対策">People layer</div>
+              <h3 data-en="Cybersecurity Training" data-ja="セキュリティ研修">Cybersecurity Training</h3>
+              <p data-en="Support awareness-building, phishing readiness, and more resilient user behavior in mixed-language environments." data-ja="多言語環境でも機能する意識向上、フィッシング耐性、利用者行動の改善を支援します。">Support awareness-building, phishing readiness, and more resilient user behavior in mixed-language environments.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="service-category fade-target" id="transformation">
+          <div class="service-category__head">
+            <div>
+              <div class="section-label" data-en="Category 04" data-ja="カテゴリ 04">Category 04</div>
+              <h2 data-en="Transformation & Advisory" data-ja="変革・アドバイザリー">Transformation & Advisory</h2>
+              <p data-en="For leadership teams planning modernization, cloud change, AI adoption, or broader operating-model upgrades without losing sight of delivery reality." data-ja="モダナイゼーション、クラウド変革、AI導入、運用モデル刷新を検討する経営・部門責任者向け。机上論ではなく実行現実まで含めて整理します。">For leadership teams planning modernization, cloud change, AI adoption, or broader operating-model upgrades without losing sight of delivery reality.</p>
+            </div>
+            <span class="service-category__tag" data-en="Advisory" data-ja="アドバイザリー">Advisory</span>
+          </div>
+          <div class="service-category__items">
+            <a href="service-cloud-consulting.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Planning" data-ja="計画策定">Planning</div>
+              <h3 data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">Cloud & Consulting</h3>
+              <p data-en="Evaluate platforms, architecture options, and the right next step before committing to large changes." data-ja="大きな変更に踏み切る前に、プラットフォーム、構成案、次の一手を整理します。">Evaluate platforms, architecture options, and the right next step before committing to large changes.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-dx-consulting.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="New" data-ja="新規">New</div>
+              <h3 data-en="DX Consulting" data-ja="DXコンサルティング">DX Consulting</h3>
+              <p data-en="Turn digital transformation from a slogan into an operating roadmap with practical milestones and ownership." data-ja="DXを掛け声で終わらせず、実行可能なロードマップと責任体制に落とし込みます。">Turn digital transformation from a slogan into an operating roadmap with practical milestones and ownership.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-ai-integration.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="New" data-ja="新規">New</div>
+              <h3 data-en="AI Integration" data-ja="AI統合">AI Integration</h3>
+              <p data-en="Bring AI into real workflows with governance, system fit, and operational accountability built in." data-ja="AIを実業務へ組み込む際に、ガバナンス、既存システム適合、運用責任まで含めて設計します。">Bring AI into real workflows with governance, system fit, and operational accountability built in.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-asset-lifecycle.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Lifecycle" data-ja="ライフサイクル">Lifecycle</div>
+              <h3 data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT Asset Lifecycle</h3>
+              <p data-en="Support procurement, refresh, recovery, and end-of-life handling with stronger control and documentation." data-ja="調達、更改、回収、廃棄までを、より強い管理と記録で支援します。">Support procurement, refresh, recovery, and end-of-life handling with stronger control and documentation.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+            <a href="service-hardware-maintenance.html" class="service-link-card">
+              <div class="service-link-card__meta" data-en="Reliability" data-ja="安定運用">Reliability</div>
+              <h3 data-en="Hardware Maintenance" data-ja="ハードウェアメンテナンス">Hardware Maintenance</h3>
+              <p data-en="Protect uptime and asset health with preventive maintenance and more disciplined break-fix handling." data-ja="予防保守と整理された障害対応で、稼働率と資産健全性を守ります。">Protect uptime and asset health with preventive maintenance and more disciplined break-fix handling.</p>
+              <span class="service-link-card__arrow" data-en="Explore →" data-ja="詳しく見る →">Explore →</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-overview-spotlight fade-target">
+        <div class="services-overview-spotlight__grid">
+          <div>
+            <div class="section-label" data-en="How clients usually engage" data-ja="主なご相談パターン">How clients usually engage</div>
+            <h2><a href="why-us.html" class="services-overview-spotlight__headline-link" data-en="Different entry points, one operating picture." data-ja="入口は違っても、運用全体は一つの絵として整理。">Different entry points, one operating picture.</a></h2>
+            <p data-en="Some companies come to us for a single urgent issue. Others start with one service line and then expand into a broader operating relationship. The important part is that the work does not stay fragmented between users, vendors, sites, and leadership reporting." data-ja="緊急課題から始まる企業もあれば、一つのサービスラインから広い運用関係へ広がる企業もあります。重要なのは、ユーザー、ベンダー、拠点、経営報告の間で仕事が分断されたままにならないことです。">Some companies come to us for a single urgent issue. Others start with one service line and then expand into a broader operating relationship. The important part is that the work does not stay fragmented between users, vendors, sites, and leadership reporting.</p>
+            <div class="services-overview-spotlight__chips">
+              <a href="why-us.html#single-project" data-en="Single project" data-ja="単発案件">Single project</a>
+              <a href="why-us.html#managed-layer" data-en="Managed operating layer" data-ja="継続運用">Managed operating layer</a>
+              <a href="why-us.html#regional-execution" data-en="Regional field execution" data-ja="地方拠点対応">Regional field execution</a>
+              <a href="why-us.html#transformation-program" data-en="Transformation program" data-ja="変革プログラム">Transformation program</a>
+            </div>
+            <div class="services-overview-spotlight__actions">
+              <a href="why-us.html" class="btn btn-primary" data-en="Open Why Us" data-ja="選ばれる理由を見る">Open Why Us</a>
+            </div>
+          </div>
+          <div class="services-overview-hero__panel">
+            <div class="services-overview-hero__panel-head">
+              <span data-en="Common buying triggers" data-ja="よくあるきっかけ">Common buying triggers</span>
+              <span data-en="What we hear first" data-ja="最初に聞くこと">What we hear first</span>
+            </div>
+            <div class="services-overview-hero__panel-body">
+              <a href="why-us.html#support-pressure" class="services-overview-hero__metric services-overview-hero__metric--link">
+                <span data-en="Support pressure" data-ja="サポート負荷">Support pressure</span>
+                <strong data-en="The local office is growing, but user support and vendor handling are too fragmented." data-ja="拠点が拡大したが、利用者支援とベンダー対応が分断されている。">The local office is growing, but user support and vendor handling are too fragmented.</strong>
+              </a>
+              <a href="why-us.html#change-pressure" class="services-overview-hero__metric services-overview-hero__metric--link">
+                <span data-en="Change pressure" data-ja="変化対応">Change pressure</span>
+                <strong data-en="We need to relocate, modernize, migrate, or tighten security without losing control of the project." data-ja="移転、刷新、移行、セキュリティ強化を進めたいが、案件の見通しは失いたくない。">We need to relocate, modernize, migrate, or tighten security without losing control of the project.</strong>
+              </a>
+              <a href="why-us.html#leadership-pressure" class="services-overview-hero__metric services-overview-hero__metric--link">
+                <span data-en="Leadership pressure" data-ja="経営視点">Leadership pressure</span>
+                <strong data-en="Headquarters wants better visibility, cleaner reporting, and stronger accountability for what is happening in Japan." data-ja="本社が、日本側の可視性、報告品質、責任の所在をもっと明確にしたい。">Headquarters wants better visibility, cleaner reporting, and stronger accountability for what is happening in Japan.</strong>
+              </a>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <div class="section-label" data-en="Our Services" data-ja="サービス一覧">サービス一覧</div>
-            <h1 data-en="Everything your IT needs, under one roof." data-ja="ITに必要なすべてを、ワンストップで。">ITに必要なすべてを、ワンストップで。</h1>
-            <p data-en="From daily helpdesk support to enterprise cybersecurity — we cover the full IT lifecycle for businesses across Japan." data-ja="日常のヘルプデスクサポートからエンタープライズサイバーセキュリティまで — 日本全国の企業向けにITライフサイクル全体をカバーします。">日常のヘルプデスクサポートからエンタープライズサイバーセキュリティまで — 日本全国の企業向けにITライフサイクル全体をカバーします。</p>
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-box fade-target">
+        <div class="section-label" data-en="Next step" data-ja="次の一歩">Next step</div>
+        <h2 data-en="Tell us what is changing, blocked, or overdue." data-ja="変化していること、止まっていること、遅れていることを教えてください。">Tell us what is changing, blocked, or overdue.</h2>
+        <p data-en="If you are not sure which service line applies yet, that is fine. Start with the problem. We will help you scope the right combination of support, delivery, and advisory work for Japan." data-ja="どのサービスに当てはまるかまだ分からなくても問題ありません。まずは課題からご相談ください。日本で必要な支援・実行・アドバイザリーの組み合わせを一緒に整理します。">If you are not sure which service line applies yet, that is fine. Start with the problem. We will help you scope the right combination of support, delivery, and advisory work for Japan.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg" data-en="Start a Conversation" data-ja="相談を始める">Start a Conversation</a>
+          <a href="mailto:info@thinkersgk.com" class="btn btn-ghost btn-lg">info@thinkersgk.com</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Core Services -->
-    <section class="section">
-        <div class="container">
-            <div class="section-label" data-en="Core Services" data-ja="コアサービス">コアサービス</div>
-            <h2 class="section-title" data-en="The foundation of reliable IT." data-ja="信頼できるITの基盤。">信頼できるITの基盤。</h2>
-            <div class="cards-grid">
-
-                <!-- 1. IT Support -->
-                <a href="service-it-support.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                    <h3 data-en="IT Support" data-ja="ITサポート">ITサポート</h3>
-                    <p data-en="24/7 helpdesk with bilingual support. Remote troubleshooting, on-site visits, and proactive monitoring." data-ja="24時間365日対応のバイリンガルヘルプデスク。リモートトラブルシューティング、オンサイト対応。">24時間365日対応のバイリンガルヘルプデスク。リモートトラブルシューティング、オンサイト対応。</p>
-                </div></a>
-
-                <!-- 2. Field Engineering -->
-                <a href="service-field-engineering.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M3 9h1M3 15h1M20 9h1M20 15h1M9 3v1M15 3v1M9 20v1M15 20v1"/></svg></div>
-                    <h3 data-en="Field Engineering" data-ja="フィールドエンジニアリング">フィールドエンジニアリング</h3>
-                    <p data-en="Expert technicians for hardware deployment, network installations, and data center projects across Japan." data-ja="ハードウェア導入、ネットワーク構築、データセンタープロジェクトに対応する専門技術者。">ハードウェア導入、ネットワーク構築、データセンタープロジェクトに対応する専門技術者。</p>
-                </div></a>
-
-                <!-- 3. Cybersecurity -->
-                <a href="service-cybersecurity.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                    <h3 data-en="Cybersecurity" data-ja="サイバーセキュリティ">サイバーセキュリティ</h3>
-                    <p data-en="Security audits, vulnerability assessments, and incident response. ISO 27001-aligned processes." data-ja="セキュリティ監査、脆弱性評価、インシデント対応。ISO 27001準拠のプロセス。">セキュリティ監査、脆弱性評価、インシデント対応。ISO 27001準拠のプロセス。</p>
-                </div></a>
-
-                <!-- 4. IT Asset Lifecycle -->
-                <a href="service-asset-lifecycle.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-                    <h3 data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT資産ライフサイクル</h3>
-                    <p data-en="From procurement to NIST 800-88 compliant data destruction. Secure asset management." data-ja="調達からNIST 800-88準拠のデータ消去まで。安全な資産管理。">調達からNIST 800-88準拠のデータ消去まで。安全な資産管理。</p>
-                </div></a>
-
-                <!-- 5. Managed Services -->
-                <a href="service-managed-services.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                    <h3 data-en="Managed Services" data-ja="マネージドサービス">マネージドサービス</h3>
-                    <p data-en="Outsource your entire IT department. Predictable monthly costs, enterprise-grade reliability." data-ja="IT部門をまるごとアウトソーシング。予測可能な月額費用、エンタープライズ品質。">IT部門をまるごとアウトソーシング。予測可能な月額費用、エンタープライズ品質。</p>
-                </div></a>
-
-                <!-- 6. Cloud & Consulting -->
-                <a href="service-cloud-consulting.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                    <h3 data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">クラウド＆コンサルティング</h3>
-                    <p data-en="Cloud migration, infrastructure planning, and strategic IT consulting." data-ja="クラウド移行、インフラ設計、戦略的ITコンサルティング。">クラウド移行、インフラ設計、戦略的ITコンサルティング。</p>
-                </div></a>
-
-                <!-- 7. Onsite Dispatch -->
-                <a href="service-onsite-dispatch.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                    <h3 data-en="Onsite Dispatch" data-ja="オンサイトディスパッチ">オンサイトディスパッチ</h3>
-                    <p data-en="Same-day technician dispatch for break-fix, installations, and hands-on support anywhere in Japan." data-ja="修理、設置、現地サポートに対応する当日技術者派遣。日本全国対応。">修理、設置、現地サポートに対応する当日技術者派遣。日本全国対応。</p>
-                </div></a>
-
-                <!-- 8. Office Relocation -->
-                <a href="service-office-relocation.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
-                    <h3 data-en="Office Relocation" data-ja="オフィス移転">オフィス移転</h3>
-                    <p data-en="Zero-downtime office IT moves. We plan, pack, transport, set up, and test your entire infrastructure." data-ja="ゼロダウンタイムのオフィスIT移転。計画、梱包、輸送、設置、テストまで一貫対応。">ゼロダウンタイムのオフィスIT移転。計画、梱包、輸送、設置、テストまで一貫対応。</p>
-                </div></a>
-
-                <!-- 9. Project Management -->
-                <a href="service-project-management.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                    <h3 data-en="Project Management" data-ja="プロジェクト管理">プロジェクト管理</h3>
-                    <p data-en="Keep IT initiatives on track, on time, and on budget. From small rollouts to enterprise transformations." data-ja="IT施策を軌道に乗せ、予算内・期限内で完了。小規模展開からエンタープライズ変革まで。">IT施策を軌道に乗せ、予算内・期限内で完了。小規模展開からエンタープライズ変革まで。</p>
-                </div></a>
-
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand">
+            <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+          </a>
+          <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">Trusted IT partner for local and international businesses across Japan.</p>
         </div>
-    </section>
-
-    <!-- Additional Services -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-label" data-en="Additional Services" data-ja="追加サービス">追加サービス</div>
-            <h2 class="section-title" data-en="Specialized IT solutions." data-ja="専門的なITソリューション。">専門的なITソリューション。</h2>
-            <div class="cards-grid">
-
-                <!-- 10. Wireless Survey -->
-                <a href="service-wireless-survey.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
-                    <h3 data-en="Wireless Survey" data-ja="無線サーベイ">無線サーベイ</h3>
-                    <p data-en="Professional wireless site surveys to optimize Wi-Fi coverage, eliminate dead zones, and ensure reliable connectivity." data-ja="Wi-Fiカバレッジ最適化、デッドゾーン解消、安定した接続を確保するプロフェッショナルな無線サイトサーベイ。">Wi-Fiカバレッジ最適化、デッドゾーン解消、安定した接続を確保するプロフェッショナルな無線サイトサーベイ。</p>
-                </div></a>
-
-                <!-- 11. AV Solutions -->
-                <a href="service-av-solutions.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                    <h3 data-en="AV Solutions" data-ja="AV（映像・音響）ソリューション">AV（映像・音響）ソリューション</h3>
-                    <p data-en="Meeting room AV setup, video conferencing systems, digital signage, and presentation technology." data-ja="会議室AV設備、ビデオ会議システム、デジタルサイネージ、プレゼンテーション技術。">会議室AV設備、ビデオ会議システム、デジタルサイネージ、プレゼンテーション技術。</p>
-                </div></a>
-
-                <!-- 12. VoIP -->
-                <a href="service-voip.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                    <h3 data-en="VoIP Solutions" data-ja="VoIPソリューション">VoIPソリューション</h3>
-                    <p data-en="Cloud phone systems, SIP trunking, and unified communications for cost-effective business telephony." data-ja="クラウド電話、SIPトランキング、ユニファイドコミュニケーション。コスト効率の良いビジネス通話。">クラウド電話、SIPトランキング、ユニファイドコミュニケーション。コスト効率の良いビジネス通話。</p>
-                </div></a>
-
-                <!-- 13. Networking -->
-                <a href="service-networking.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="6" y1="14" x2="6.01" y2="14"/><line x1="10" y1="14" x2="10.01" y2="14"/></svg></div>
-                    <h3 data-en="IT Networking" data-ja="ITネットワーキング">ITネットワーキング</h3>
-                    <p data-en="LAN/WAN design, firewall configuration, VPN setup, and network performance optimization." data-ja="LAN/WAN設計、ファイアウォール設定、VPN構築、ネットワーク性能最適化。">LAN/WAN設計、ファイアウォール設定、VPN構築、ネットワーク性能最適化。</p>
-                </div></a>
-
-                <!-- 14. Access Control -->
-                <a href="service-access-control.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
-                    <h3 data-en="Access Control & Surveillance" data-ja="入退室管理＆監視">入退室管理＆監視</h3>
-                    <p data-en="CCTV, access control systems, biometric readers, and physical security integration." data-ja="CCTV、入退室管理、生体認証リーダー、物理セキュリティ統合。">CCTV、入退室管理、生体認証リーダー、物理セキュリティ統合。</p>
-                </div></a>
-
-                <!-- 15. Data Backup -->
-                <a href="service-data-backup.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg></div>
-                    <h3 data-en="Data Backup & Recovery" data-ja="データバックアップ＆リカバリ">データバックアップ＆リカバリ</h3>
-                    <p data-en="Automated backup solutions, disaster recovery planning, and rapid data restoration." data-ja="自動バックアップ、災害復旧計画、迅速なデータ復旧。">自動バックアップ、災害復旧計画、迅速なデータ復旧。</p>
-                </div></a>
-
-                <!-- 16. Cybersecurity Training -->
-                <a href="service-cybersecurity-training.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M12 14l-2-2m2 2l2-2"/></svg></div>
-                    <h3 data-en="Cybersecurity Training" data-ja="サイバーセキュリティ研修">サイバーセキュリティ研修</h3>
-                    <p data-en="Security awareness programs, phishing simulations, and compliance training for your team." data-ja="セキュリティ意識向上プログラム、フィッシング訓練、コンプライアンス研修。">セキュリティ意識向上プログラム、フィッシング訓練、コンプライアンス研修。</p>
-                </div></a>
-
-                <!-- 17. Hardware Maintenance -->
-                <a href="service-hardware-maintenance.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-                    <h3 data-en="Hardware Maintenance" data-ja="ハードウェアメンテナンス">ハードウェアメンテナンス</h3>
-                    <p data-en="Preventive maintenance, break-fix repair, and spare parts management to minimize downtime." data-ja="予防保守、修理、スペアパーツ管理でダウンタイムを最小化。">予防保守、修理、スペアパーツ管理でダウンタイムを最小化。</p>
-                </div></a>
-
-                <!-- 18. Service Desk -->
-                <a href="service-service-desk.html" class="card-link"><div class="card">
-                    <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-                    <h3 data-en="Service Desk" data-ja="サービスデスク">サービスデスク</h3>
-                    <p data-en="Dedicated service desk outsourcing with ITIL-aligned processes and bilingual agents." data-ja="ITIL準拠プロセスとバイリンガルエージェントによるサービスデスクアウトソーシング。">ITIL準拠プロセスとバイリンガルエージェントによるサービスデスクアウトソーシング。</p>
-                </div></a>
-
-            </div>
+        <div class="footer-col">
+          <h4 data-en="Company" data-ja="会社情報">Company</h4>
+          <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+          <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+          <a href="blog/index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+          <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+          <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
         </div>
-    </section>
-
-    <!-- Why Thinkers -->
-    <section class="section">
-        <div class="container">
-            <div class="split-content">
-                <div class="split-text">
-                    <div class="section-label" data-en="Why Thinkers GK" data-ja="選ばれる理由">選ばれる理由</div>
-                    <h2 class="section-title" data-en="One partner for everything IT." data-ja="ITのすべてを一つのパートナーで。">ITのすべてを一つのパートナーで。</h2>
-                    <div class="value-props">
-                        <div class="value-prop">
-                            <h3 data-en="Bilingual by Default" data-ja="バイリンガル対応">バイリンガル対応</h3>
-                            <p data-en="Every engineer, every ticket, every report — in English and Japanese." data-ja="すべてのエンジニア、チケット、レポートが英語と日本語に対応。">すべてのエンジニア、チケット、レポートが英語と日本語に対応。</p>
-                        </div>
-                        <div class="value-prop">
-                            <h3 data-en="47 Prefectures" data-ja="全47都道府県">全47都道府県</h3>
-                            <p data-en="Tokyo HQ with nationwide field engineer coverage within 24 hours." data-ja="東京本社を拠点に、24時間以内に全国にフィールドエンジニアを派遣。">東京本社を拠点に、24時間以内に全国にフィールドエンジニアを派遣。</p>
-                        </div>
-                        <div class="value-prop">
-                            <h3 data-en="Compliance-Ready" data-ja="コンプライアンス対応">コンプライアンス対応</h3>
-                            <p data-en="ISO 27001, NIST 800-88, APPI — built into every process." data-ja="ISO 27001、NIST 800-88、APPI — すべてのプロセスに組み込み済み。">ISO 27001、NIST 800-88、APPI — すべてのプロセスに組み込み済み。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="split-image">
-                    <img src="assets/secure-infrastructure-800x500.jpg" alt="IT security operations" loading="lazy">
-                </div>
-            </div>
+        <div class="footer-col">
+          <h4 data-en="New Strategic Services" data-ja="新しい戦略サービス">New Strategic Services</h4>
+          <a href="service-m365-saas.html" data-en="Microsoft 365 & SaaS" data-ja="Microsoft 365・SaaS">Microsoft 365 & SaaS</a>
+          <a href="service-ai-integration.html" data-en="AI Integration" data-ja="AI統合">AI Integration</a>
+          <a href="service-dx-consulting.html" data-en="DX Consulting" data-ja="DXコンサルティング">DX Consulting</a>
+          <a href="service-zero-trust.html" data-en="Zero Trust" data-ja="Zero Trust">Zero Trust</a>
+          <a href="service-staff-augmentation.html" data-en="Staff Augmentation" data-ja="スタッフ増強支援">Staff Augmentation</a>
         </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-box">
-                <h2 data-en="Not sure which service you need?" data-ja="どのサービスが必要かお悩みですか？">どのサービスが必要かお悩みですか？</h2>
-                <p data-en="Get a free IT assessment. We'll evaluate your infrastructure and recommend the right solution." data-ja="無料のIT評価をご利用ください。インフラを評価し、最適なソリューションをご提案します。">無料のIT評価をご利用ください。インフラを評価し、最適なソリューションをご提案します。</p>
-                <div class="cta-actions">
-                    <a href="contact.html" class="btn btn-primary btn-lg" data-en="Get a Free Assessment" data-ja="無料評価を受ける">無料評価を受ける</a>
-                </div>
-            </div>
+        <div class="footer-col">
+          <h4 data-en="Contact" data-ja="連絡先">Contact</h4>
+          <a href="mailto:info@thinkersgk.com">info@thinkersgk.com</a>
+          <span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="nav-brand">
-                        <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
-                    </a>
-                    <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">日本国内企業と在日外資系企業の信頼できるITパートナー。</p>
-                </div>
-                <div class="footer-col">
-                    <h4 data-en="Company" data-ja="会社情報">会社情報</h4>
-                    <a href="about.html" data-en="About" data-ja="会社概要">会社概要</a>
-                    <a href="services.html" data-en="Services" data-ja="サービス">サービス</a>
-                    <a href="blog/index.html" data-en="Blog" data-ja="ブログ">ブログ</a>
-                    <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">お問い合わせ</a>
-                    <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">プライバシーポリシー</a>
-                </div>
-                <div class="footer-col">
-                    <h4 data-en="Services" data-ja="サービス">サービス</h4>
-                    <a href="service-it-support.html" data-en="IT Support" data-ja="ITサポート">ITサポート</a>
-                    <a href="service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">フィールドエンジニアリング</a>
-                    <a href="service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">サイバーセキュリティ</a>
-                    <a href="service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">資産ライフサイクル</a>
-                    <a href="service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">マネージドサービス</a>
-                    <a href="service-cloud-consulting.html" data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">クラウド＆コンサルティング</a>
-                </div>
-                <div class="footer-col">
-                    <h4 data-en="Contact" data-ja="連絡先">連絡先</h4>
-                    <a href="mailto:info@thinkersgk.com">info@thinkersgk.com</a>
-                    <span data-en="Tokyo, Japan" data-ja="東京、日本">東京、日本</span>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-en="&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved." data-ja="&copy; 2026 Thinkers GK (合同会社 Thinkers). 全著作権所有。">&copy; 2026 Thinkers GK (合同会社 Thinkers). 全著作権所有。</p>
-            </div>
-        </div>
-    </footer>
-
-<script src="js/chat-widget.js?v=3a" defer></script>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/chat-widget.js?v=3a" defer></script>
+  <script src="scripts/scroll-reveal.js?v=1" defer></script>
 </body>
 </html>
