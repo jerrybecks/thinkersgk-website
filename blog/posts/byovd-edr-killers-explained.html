@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYOVD & EDR Killers: How Attackers Neutralize Security Before Encryption | Thinkers GK</title>
+    <meta name="description" content=Discover the emerging BYOVD technique that exploits 35 vulnerable drivers to bypass EDR. Learn why traditional antivirus is no longer enough for SMBs in 2026.>
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css?v=26">
+    <script src="../../scripts/main.js?v=26"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="../../index.html" class="nav-brand">
+                <img src="../../assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" data-en="Home" data-ja="ホーム">Home</a>
+                <a href="../../services.html" data-en="Services" data-ja="サービス">Services</a>
+                <a href="../../about.html" data-en="About" data-ja="会社概要">About</a>
+                <a href="../index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+                <a href="../../contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
+            </div>
+            <div class="nav-utils">
+                <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+                <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label" data-en="Blog Post" data-ja="ブログ記事">Blog Post</div>
+            <h1><span data-en="BYOVD & EDR Killers: How Attackers Neutralize Security Before Encryption" data-ja="BYOVD と EDR キラー：エンクリプション前のセキュリティ無力化手法">BYOVD & EDR Killers: How Attackers Neutralize Security Before Encryption</span></h1>
+            <p class="text-muted" data-en=By Thinkers GK Team on March 22, 2026 data-ja=Thinkers GK チーム 2026 年 3 月 22 日>By Thinkers GK Team on March 22, 2026</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="section">
+        <div class="container prose">
+            <p data-en=In mid-2026, a disturbing pattern emerged in cyber attacks: ransomware groups are no longer fighting head-on against endpoint security. Instead, they are quietly dismantling detection tools before even encrypting any files. This technique? What analysts are calling BYOVD (Bring Your Own Vulnerable Driver) — and a related family of tactics known as "EDR Killers" has emerged as one of the most dangerous threats to small and medium businesses in 2026.>In mid-2026, a disturbing pattern emerged in cyber attacks: ransomware groups are no longer fighting head-on against endpoint security. Instead, they are quietly dismantling detection tools before even encrypting any files. This technique? What analysts are calling BYOVD (Bring Your Own Vulnerable Driver) — and a related family of tactics known as "EDR Killers" has emerged as one of the most dangerous threats to small and medium businesses in 2026.
+
+<p data-en=A new analysis of endpoint detection and response (EDR) killers reveals that 54 unique variants now exist, and collectively they exploit 35 vulnerable drivers to neutralize security software. The result? Attackers can disable or evade detection on critical endpoints for days or even weeks.>A new analysis of endpoint detection and response (EDR) killers reveals that 54 unique variants now exist, and collectively they exploit 35 vulnerable drivers to neutralize security software. The result? Attackers can disable or evade detection on critical endpoints for days or even weeks.
+
+<h2 data-en="The Threat: What is BYOVD?".data-ja="脅威とは？BYOVD とは？">The Threat: What is BYOVD?</h2>
+
+<p data-en=BYOVD sounds benign on the surface — "bringing your own driver" is commonly used in legitimate development. However, in the context of cybercrime, it refers to the malicious practice of supplying drivers that have known, unpatched security vulnerabilities. These drivers typically provide deep system access (ring 0 or kernel-level privileges) that allow malware to operate invisibly to traditional and even next-gen security tools.data-en=BYOVD sounds benign on the surface — "bringing your own driver" is commonly used in legitimate development. However, in the context of cybercrime, it refers to the malicious practice of supplying drivers that have known, unpatched security vulnerabilities. These drivers typically provide deep system access (ring 0 or kernel-level privileges) that allow malware to operate invisibly to traditional and even next-gen security tools.
+
+<p data-en=Here's how it works: An advanced persistent threat (APT) or ransomware group downloads a pre-built, cryptographically signed vulnerable driver onto any Windows endpoint. The system accepts it because it's digitally signed and matches the hardware architecture (e.g., x86_64 Windows 10/11). Once the driver is active, it hooks into critical system processes.>Here's how it works: An advanced persistent threat (APT) or ransomware group downloads a pre-built, cryptographically signed vulnerable driver onto any Windows endpoint. The system accepts it because it's digitally signed and matches the hardware architecture (e.g., x86_64 Windows 10/11). Once the driver is active, it hooks into critical system processes.
+
+<h2 data-en="The Technique: How EDR Killers Use BYOVD">" The Technique: How EDR Killers Use BYOVD"</h2>
+
+<p data-en=Endpoint Detection and Response (EDR) is the frontline defense for most modern enterprises. But EDR Killers use BYOVD to perform a pre-emptive strike: they disable their own detection capabilities before the ransomware encryption phase ever begins.>Endpoint Detection and Response (EDR) is the frontline defense for most modern enterprises. But EDR Killers use BYOVD to perform a pre-emptive strike: they disable their own detection capabilities before the ransomware encryption phase ever begins.
+
+<p data-en>The killer process downloads and injects the vulnerable driver, which then modifies registry keys and creates hooks that allow the driver to intercept and block system calls. When legitimate security software attempts to monitor the endpoint, the BYOVD driver simply doesn't respond to its monitoring requests in the expected way, and in some cases, actively prevents EDR agents from loading.>The killer process downloads and injects the vulnerable driver, which then modifies registry keys and creates hooks that allow the driver to intercept and block system calls. When legitimate security software attempts to monitor the endpoint, the BYOVD driver simply doesn't respond to its monitoring requests in the expected way, and in some cases, actively prevents EDR agents from loading.
+
+<p data-en>This creates a stealth mode that allows the threat actor to: collect credentials, access sensitive data, exfiltrate files, run cryptocurrency miners, or prepare for the ransomware encryption — all while remaining hidden from both traditional and next-gen security tools.>This creates a stealth mode that allows the threat actor to: collect credentials, access sensitive data, exfiltrate files, run cryptocurrency miners, or prepare for the ransomware encryption — all while remaining hidden from both traditional and next-gen security tools.
+
+<p data-en=SMBs using consumer-grade or basic tier EDR solutions that rely on signature-based detection or heuristics alone are especially vulnerable. The 35 vulnerable drivers identified in this analysis include kernel-mode rootkits, driver hooking mechanisms, and system-call interceptors that operate below the level of typical security scans.>SMBs using consumer-grade or basic tier EDR solutions that rely on signature-based detection or heuristics alone are especially vulnerable. The 35 vulnerable drivers identified in this analysis include kernel-mode rootkits, driver hooking mechanisms, and system-call interceptors that operate below the level of typical security scans.
+
+<h2 data-en="The Reality for SMBs in Japan">"The Reality for SMBs in Japan"</h2>
+
+<p data-en>Small and medium businesses in Japan face a unique cyber threat landscape. Many SMBs rely on Japanese cybersecurity providers who, while capable, may prioritize detection over prevention. Meanwhile, foreign-operated companies in Japan use international EDR vendors but face their own challenges: patch management lag, cost pressure, and the reality that no security tool is 100% effective on its own.>Small and medium businesses in Japan face a unique cyber threat landscape. Many SMBs rely on Japanese cybersecurity providers who, while capable, may prioritize detection over prevention. Meanwhile, foreign-operated companies in Japan use international EDR vendors but face their own challenges: patch management lag, cost pressure, and the reality that no security tool is 100% effective on its own.
+
+<p data-en=The BYOVD technique matters because it bypasses traditional detection methods. Even well-resized businesses that invest in high-end cybersecurity tools may find themselves vulnerable to this technique if: patch management remains inconsistent across endpoints, security awareness gaps exist among employees, and there is no redundancy or backup detection mechanisms in place.>The BYOVD technique matters because it bypasses traditional detection methods. Even well-resized businesses that invest in high-end cybersecurity tools may find themselves vulnerable to this technique if: patch management remains inconsistent across endpoints, security awareness gaps exist among employees, and there is no redundancy or backup detection mechanisms in place.
+
+<h2 data-en="What You Can Do: Four Actions Today">"What You Can Do: Four Actions Today"</h2>
+
+<h3 data-en="1. Conduct Regular Patch Audits">1. Conduct Regular Patch Audits</h3>
+
+<p data-en=The vulnerability lies in unpatched drivers. Regular patch management is the foundation of any robust security posture, but it must be comprehensive. Use your IT managed services team to audit every endpoint driver, identify known vulnerabilities, and prioritize patching based on severity.>The vulnerability lies in unpatched drivers. Regular patch management is the foundation of any robust security posture, but it must be comprehensive. Use your IT managed services team to audit every endpoint driver, identify known vulnerabilities, and prioritize patching based on severity.
+
+<h3 data-en="2. Implement EDR with Cloud Integration">2. Implement EDR with Cloud Integration</h3>
+
+<p data-en=EDR providers that integrate with cloud infrastructure offer better visibility and detection capabilities. Look for vendors that use behavioral analysis and anomaly detection, not just signature matching. Cloud-native EDR solutions can also reduce the attack surface by centralizing management and policy enforcement.>EDR providers that integrate with cloud infrastructure offer better visibility and detection capabilities. Look for vendors that use behavioral analysis and anomaly detection, not just signature matching. Cloud-native EDR solutions can also reduce the attack surface by centralizing management and policy enforcement.
+
+<h3 data-en="3. Enhance Endpoint Detection Redundancy">3. Enhance Endpoint Detection Redundancy</h3>
+
+<p data-en=Layered defense is the name of the game. Don't rely on a single security product. Use defense-in-depth strategies with layered detection tools, multi-factor authentication, and endpoint encryption. If EDR fails, you still have another line of defense.>Layered defense is the name of the game. Don't rely on a single security product. Use defense-in-depth strategies with layered detection tools, multi-factor authentication, and endpoint encryption. If EDR fails, you still have another line of defense.
+
+<h3 data-en="4. Build a Response Plan for Advanced Threats">4. Build a Response Plan for Advanced Threats</h3>
+
+<p data-en>Even with the best security tools, advanced threats will sometimes get through. Your response plan must account for scenarios where EDR detection fails or is circumvented. Plan for rapid incident response with clear escalation paths, backup systems, and the ability to recover critical data from secure backups.>Even with the best security tools, advanced threats will sometimes get through. Your response plan must account for scenarios where EDR detection fails or is circumvented. Plan for rapid incident response with clear escalation paths, backup systems, and the ability to recover critical data from secure backups.
+
+<p data-en=Consider working with our IT Support and Managed Services teams to enhance your infrastructure, or if you're already using our services, we can audit your existing security posture and recommend specific improvements.>Consider working with our IT Support and Managed Services teams to enhance your infrastructure, or if you're already using our services, we can audit your existing security posture and recommend specific improvements.
+
+<h2 data-en="The Bottom Line: Security is Continuous, Not Static">The Bottom Line: Security is Continuous, Not Static</h2>
+
+<p data-en=ByoVD and EDR Killer techniques remind us that cybersecurity is not a destination but a journey. Attackers are constantly evolving their methods, and relying on a single security vendor, patch strategy, or detection tool is no longer sufficient for 2026.>BYOVD and EDR Killer techniques remind us that cybersecurity is not a destination but a journey. Attackers are constantly evolving their methods, and relying on a single security vendor, patch strategy, or detection tool is no longer sufficient for 2026.
+
+<p data-en=SMBs in Japan that treat cybersecurity as a continuous investment — using professional IT support, maintaining consistent patch schedules, and implementing multi-layered security — are better positioned to withstand sophisticated attacks. The cost of a successful ransomware attack far exceeds the investment in robust security practices.>SMBs in Japan that treat cybersecurity as a continuous investment — using professional IT support, maintaining consistent patch schedules, and implementing multi-layered security — are better positioned to withstand sophisticated attacks. The cost of a successful ransomware attack far exceeds the investment in robust security practices.
+
+<p data-en=The new analysis from The Hacker News in mid-2026 confirmed that EDR killer programs have become an integral part of ransomware campaigns, not a niche capability. With 54 variants in circulation and a combined 35 vulnerable drivers exploited, this is not a future threat — it is present-day reality for businesses that fail to evolve their security posture accordingly.>The new analysis from The Hacker News in mid-2026 confirmed that EDR killer programs have become an integral part of ransomware campaigns, not a niche capability. With 54 variants in circulation and a combined 35 vulnerable drivers exploited, this is not a future threat — it is present-day reality for businesses that fail to evolve their security posture accordingly.
+
+<p data-en=Thinkers GK helps businesses build resilient IT infrastructure through proactive management and expert support. Whether you're managing your own infrastructure through our IT Support services or considering transitioning to our Managed Services, we focus on the same fundamentals: layered security, continuous monitoring, and regular vulnerability assessments.>Thinkers GK helps businesses build resilient IT infrastructure through proactive management and expert support. Whether you're managing your own infrastructure through our IT Support services or considering transitioning to our Managed Services, we focus on the same fundamentals: layered security, continuous monitoring, and regular vulnerability assessments.
+
+<h2 data-en="Ready to Fortify Your Security Posture?"Ready to Fortify Your Security Posture?</h2>
+
+<p data-en=Don't wait for the next attack to realize your security gaps. Whether you're a Japanese SME focused on local business continuity or an internationally operating company needing support across Japan, Thinkers GK can help you strengthen your defenses.>Don't wait for the next attack to realize your security gaps. Whether you're a Japanese SME focused on local business continuity or an internationally operating company needing support across Japan, Thinkers GK can help you strengthen your defenses.
+
+<div class="hero-actions">
+    <a href="../../contact.html" class="btn btn-primary" data-en="Schedule a Call" data-ja="お電話を予約">Schedule a Call</a>
+    <a href="mailto:info@thinkersgk.com" class="btn btn-ghost">info@thinkersgk.com</a>
+</div>
+</div>
+</section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2 data-en="Ready to simplify your IT?" data-ja="ITをシンプルにしませんか？">Ready to simplify your IT?</h2>
+                <p data-en=Let's talk about how Thinkers GK can support your business. No commitment, no sales pitch — just a conversation about your needs. data-ja=Thinkers GK がどのようにサポートできるかお話しましょう。お気軽にご相談ください。>Let's talk about how Thinkers GK can support your business. No commitment, no sales pitch — just a conversation about your needs.</p>
+                <div class="hero-actions">
+                    <a href="../../contact.html" class="btn btn-primary" data-en="Schedule a Call" data-ja="お電話を予約">Schedule a Call</a>
+                    <a href="mailto:info@thinkersgk.com" class="btn btn-ghost">info@thinkersgk.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../../index.html" class="nav-brand">
+                        <img src="../../assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+                    </a>
+                    <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">Trusted IT partner for local and international businesses across Japan.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-en="Company" data-ja="会社情報">Company</h4>
+                    <a href="../../about.html" data-en="About" data-ja="会社概要">About</a>
+                    <a href="../../services.html" data-en="Services" data-ja="サービス">Services</a>
+                    <a href="../../contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+                    <a href="../index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+                    <a href="../../privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-en="Services" data-ja="サービス">Services</h4>
+                    <a href="../../service-it-support.html" data-en="IT Support" data-ja="IT サポート">IT Support</a>
+                    <a href="../../service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
+                    <a href="../../service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a>
+                    <a href="../../service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a>
+                    <a href="../../service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a>
+                    <a href="../../service-cloud-consulting.html" data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">Cloud & Consulting</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-en="Contact" data-ja="連絡先">Contact</h4>
+                    <a href="mailto:info@thinkersgk.com">info@thinkersgk.com</a>
+                    <span data-en="Tokyo, Japan" data-ja="東京、日本">Tokyo, Japan</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
