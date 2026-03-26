@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /index.jp.html
+
 Sitemap: https://www.thinkersgk.com/sitemap.xml
