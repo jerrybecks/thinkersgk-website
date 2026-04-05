@@ -1,9 +1,403 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head> <!-- Google Analytics tracking code goes here --> <meta charset="UTF-8"> <link rel="canonical" href="https://www.thinkersgk.com/" /> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Thinkers GK | IT Services for Businesses in Japan</title> <meta name="description" content="Thinkers GK provides bilingual IT support, cybersecurity, field engineering, cloud migration, and IT asset lifecycle services for businesses operating in Japan."> <meta name="keywords" content="IT support Tokyo, IT services Japan, cybersecurity Tokyo, field engineering Japan, managed IT services, cloud migration Japan, AI integration, bilingual IT support, ITサポート 東京, サイバーセキュリティ 日本"> <meta name="robots" content="index, follow"> <meta property="og:title" content="Thinkers GK | IT Services for Businesses in Japan"> <meta property="og:description" content="Bilingual IT support, field engineering, cybersecurity, and practical technology services for companies operating in Japan."> <meta property="og:type" content="website"> <meta property="og:url" content="https://www.thinkersgk.com/"> <meta property="og:site_name" content="Thinkers GK"> <meta property="og:locale" content="en_US"> <meta property="og:locale:alternate" content="ja_JP"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="Thinkers GK | IT Services for Businesses in Japan"> <meta name="twitter:description" content="Bilingual IT support, cybersecurity, field engineering, and cloud solutions across Japan."> <link rel="icon" href="favicon.svg" type="image/svg+xml"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="styles/main.css?v=61"> <link rel="stylesheet" href="styles/redesign.css?v=7"> <script src="scripts/main.js?v=37"></script> <script src="scripts/enhancements.js?v=9" defer></script> <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://www.thinkersgk.com/#organization", "name": "Thinkers GK", "alternateName": "合同会社 Thinkers", "url": "https://www.thinkersgk.com/", "email": "info@thinkersgk.com", "description": "Professional IT Support, Cybersecurity, Field Engineering, Cloud Migration, and AI Integration services for businesses in Tokyo and across Japan. Bilingual EN/JP support.", "address": { "@type": "PostalAddress", "addressLocality": "Tokyo", "addressRegion": "Tokyo", "addressCountry": "JP" }, "areaServed": [ {"@type": "Country", "name": "Japan"}, {"@type": "City", "name": "Tokyo"}, {"@type": "City", "name": "Osaka"}, {"@type": "City", "name": "Nagoya"}, {"@type": "City", "name": "Fukuoka"}, {"@type": "City", "name": "Sapporo"}, {"@type": "City", "name": "Sendai"}, {"@type": "City", "name": "Hiroshima"} ], "openingHours": "Mo-Fr 09:00-18:00", "priceRange": "$$", "knowsLanguage": ["en", "ja"], "serviceType": [ "IT Support", "Cybersecurity", "Field Engineering", "Cloud Consulting", "Managed IT Services", "AI Integration", "DX Consulting", "Zero Trust Security", "IT Staff Augmentation" ], "hasOfferCatalog": { "@type": "OfferCatalog", "name": "IT Services", "itemListElement": [ {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Support & Helpdesk"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Field Engineering"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Migration"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Integration"}} ] }, "sameAs": [] } </script>   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://www.thinkersgk.com/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thinkers GK | IT Services for Businesses in Japan</title>
+  <meta name="description" content="Thinkers GK provides bilingual IT support, cybersecurity, field engineering, cloud migration, and IT asset lifecycle services for businesses operating in Japan.">
+  <meta name="keywords" content="IT support Tokyo, IT services Japan, cybersecurity Tokyo, field engineering Japan, managed IT services, cloud migration Japan, AI integration, bilingual IT support, ITサポート 東京, サイバーセキュリティ 日本">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Thinkers GK | IT Services for Businesses in Japan">
+  <meta property="og:description" content="Bilingual IT support, field engineering, cybersecurity, and practical technology services for companies operating in Japan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.thinkersgk.com/">
+  <meta property="og:site_name" content="Thinkers GK">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Thinkers GK | IT Services for Businesses in Japan">
+  <meta name="twitter:description" content="Bilingual IT support, cybersecurity, field engineering, and cloud solutions across Japan.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css?v=61">
+  <link rel="stylesheet" href="styles/redesign.css?v=7">
+  <script src="scripts/main.js?v=37"></script>
+  <script src="scripts/enhancements.js?v=9" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.thinkersgk.com/#organization",
+    "name": "Thinkers GK",
+    "alternateName": "合同会社 Thinkers",
+    "url": "https://www.thinkersgk.com/",
+    "email": "info@thinkersgk.com",
+    "description": "Professional IT Support, Cybersecurity, Field Engineering, Cloud Migration, and AI Integration services for businesses in Tokyo and across Japan. Bilingual EN/JP support.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2F-C, Shibuya Dogenzaka Tokyu Building, 1-10-8 Dogenzaka",
+      "addressLocality": "Shibuya-ku",
+      "addressRegion": "Tokyo",
+      "postalCode": "150-0043",
+      "addressCountry": "JP"
+    },
+    "areaServed": [
+      {"@type": "Country", "name": "Japan"},
+      {"@type": "City", "name": "Tokyo"},
+      {"@type": "City", "name": "Osaka"},
+      {"@type": "City", "name": "Nagoya"},
+      {"@type": "City", "name": "Fukuoka"},
+      {"@type": "City", "name": "Sapporo"},
+      {"@type": "City", "name": "Sendai"},
+      {"@type": "City", "name": "Hiroshima"}
+    ],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "priceRange": "$$",
+    "knowsLanguage": ["en", "ja"],
+    "serviceType": [
+      "IT Support",
+      "Cybersecurity",
+      "Field Engineering",
+      "Cloud Consulting",
+      "Managed IT Services",
+      "IT Asset Lifecycle"
+    ]
+  }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
-<body> <!-- Navigation --> <nav class="nav" id="nav"> <div class="container nav-inner"> <a href="index.html" class="nav-brand"> <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo"> </a> <div class="nav-menu" id="navMenu"> <a href="index.html" data-en="Home" data-ja="ホーム">ホーム</a> <a href="services.html" data-en="Services" data-ja="サービス">サービス</a> <a href="about.html" data-en="About" data-ja="会社概要">会社概要</a> <a href="blog/index.html" data-en="Blog" data-ja="ブログ">ブログ</a> <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">お問い合わせ</a> </div> <div class="nav-utils"> <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button> <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme"> <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg> </button> </div> <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"> <span></span><span></span><span></span> </button> </div> </nav> <!-- Hero with Video Background + Split Content --> <section class="hero hero-video-bg"> <!-- Video Background --> <video class="hero-video" autoplay loop muted playsinline preload="auto" poster="assets/videos/hero-poster.jpg"> <source src="assets/videos/hero-bg.mp4" type="video/mp4"> </video> <div class="hero-video-overlay"></div> <div class="container" style="position: relative; z-index: 2;"> <div class="hero-split-grid"> <div class="hero-content hero-content-left"> <div class="hero-badge" data-en="Bilingual IT Support for Businesses in Japan" data-ja="日本企業・外資系企業向けバイリンガルITサポート">日本企業・外資系企業向けバイリンガルITサポート</div> <h1> <span data-en="Your IT." data-ja="あなたのIT。">あなたのIT。</span><br> <span data-en="Our responsibility." data-ja="私たちの責任。">私たちの責任。</span> </h1> <p class="hero-sub" data-en="Thinkers GK supports companies operating in Japan with bilingual IT helpdesk, field engineering, cybersecurity, cloud support, and IT asset lifecycle services. Clear communication, practical delivery, and one accountable partner." data-ja="Thinkers GKは、日本で事業を行う企業向けに、バイリンガルITヘルプデスク、フィールドエンジニアリング、サイバーセキュリティ、クラウド支援、IT資産ライフサイクルサービスを提供します。明確なコミュニケーション、実務的な対応、一つの責任ある窓口。">Thinkers GK supports companies operating in Japan with bilingual IT helpdesk, field engineering, cybersecurity, cloud support, and IT asset lifecycle services. Clear communication, practical delivery, and one accountable partner.</p> <div class="hero-actions"> <a href="contact.html" class="btn btn-primary btn-lg" data-en="Request a Consultation" data-ja="ご相談を依頼する">ご相談を依頼する</a> <a href="services.html" class="btn btn-ghost" data-en="View Services" data-ja="サービスを見る">サービスを見る</a> </div> <div class="hero-trust-row"> <span class="hero-trust-item" data-en="✓ English / Japanese support" data-ja="✓ 英語・日本語対応">✓ 英語・日本語対応</span> <span class="hero-trust-item" data-en="✓ One accountable delivery partner" data-ja="✓ 一つの責任ある窓口">✓ 一つの責任ある窓口</span> <span class="hero-trust-item" data-en="✓ Tokyo-based, Japan-wide delivery" data-ja="✓ 東京拠点・日本全国対応">✓ 東京拠点・日本全国対応</span> </div> </div> <div class="hero-image-right"> <img src="assets/field-engineer-dreadlocks-800x500.jpg" alt="IT engineer working in server room" loading="eager"> </div> </div> </div> </section> <!-- Service Strip --> <div class="marquee-strip"> <div class="marquee-track"> <span data-en="IT Support" data-ja="ITサポート">ITサポート</span> <span class="marquee-dot"></span> <span data-en="Field Engineering" data-ja="フィールドエンジニアリング">フィールドエンジニアリング</span> <span class="marquee-dot"></span> <span data-en="Cybersecurity" data-ja="サイバーセキュリティ">サイバーセキュリティ</span> <span class="marquee-dot"></span> <span data-en="Cloud Migration" data-ja="クラウド移行">クラウド移行</span> <span class="marquee-dot"></span> <span data-en="AI Integration" data-ja="AI統合">AI統合</span> <span class="marquee-dot"></span> <span data-en="DX Consulting" data-ja="DXコンサルティング">DXコンサルティング</span> <span class="marquee-dot"></span> <span data-en="Zero Trust" data-ja="ゼロトラスト">ゼロトラスト</span> <span class="marquee-dot"></span> <span data-en="Managed Services" data-ja="マネージドサービス">マネージドサービス</span> <span class="marquee-dot"></span> <span data-en="IT Support" data-ja="ITサポート">ITサポート</span> <span class="marquee-dot"></span> <span data-en="Field Engineering" data-ja="フィールドエンジニアリング">フィールドエンジニアリング</span> <span class="marquee-dot"></span> <span data-en="Cybersecurity" data-ja="サイバーセキュリティ">サイバーセキュリティ</span> <span class="marquee-dot"></span> <span data-en="Cloud Migration" data-ja="クラウド移行">クラウド移行</span> <span class="marquee-dot"></span> <span data-en="AI Integration" data-ja="AI統合">AI統合</span> <span class="marquee-dot"></span> <span data-en="DX Consulting" data-ja="DXコンサルティング">DXコンサルティング</span> <span class="marquee-dot"></span> </div> </div> <section class="logo-bar"> <div class="container"> <p class="logo-bar-label" data-en="Platforms and environments we commonly support" data-ja="対応プラットフォーム・環境">対応プラットフォーム・環境</p> </div> <div class="logo-track-wrapper"> <div class="logo-track"> <div class="logo-item"> <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-1.243 18.083c-3.345 0-6.06-2.715-6.06-6.06s2.715-6.06 6.06-6.06c1.63 0 2.994.6 4.047 1.58l-1.64 1.576c-.449-.43-1.232-.93-2.407-.93-2.063 0-3.746 1.708-3.746 3.814 0 2.105 1.683 3.814 3.746 3.814 2.394 0 3.293-1.72 3.434-2.608h-3.434v-2.066h5.717c.053.296.096.593.096.981 0 3.38-2.26 5.78-5.813 5.78z"/></svg> <span>Google Cloud</span> </div> <div class="logo-item"> <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h11.5v11.5H0zM12.5 0H24v11.5H12.5zM0 12.5h11.5V24H0zM12.5 12.5H24V24H12.5z"/></svg> <span>Microsoft</span> </div> <div class="logo-item"> <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.784 0A1.5 1.5 0 0 0 6.3 1.484l-.876 7.011a1.5 1.5 0 0 0 1.484 1.706h4.584a.47.47 0 0 1 .465.534l-.876 7.011a.47.47 0 0 0 .465.534h1.5a1.5 1.5 0 0 0 1.484-1.295l.876-7.011a1.5 1.5 0 0 0-1.484-1.706H9.338a.47.47 0 0 1-.465-.534l.876-7.011A.47.47 0 0 0 9.284 0z"/></svg> <span>Cisco</span> </div> <div class="logo-item"> <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 4l10-4 10 4v6c0 5.55-4.02 10.74-10 12-5.98-1.26-10-6.45-10-12V4zm10 0L4 7v5c0 4.25 3.08 8.24 8 9.6 4.92-1.36 8-5.35 8-9.6V7l-8-3z"/></svg> <span>VMware</span> </div> <div class="logo-item"> <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> <span>Dell EMC</span> </div> <div class="logo-item"> <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg> <span>Sophos</span> </div> </div> </div> </section> <!-- Core Services --> <section class="section" id="services"> <div class="container"> <div class="section-header-flex"> <div> <div class="section-label" data-en="What we do" data-ja="事業内容">事業内容</div> <h2 class="section-title" data-en="IT services built around real operating needs." data-ja="現場の実務に合わせたITサービス。">現場の実務に合わせたITサービス。</h2> </div> <a href="services.html" class="btn btn-ghost btn-sm" data-en="View All Services →" data-ja="全サービスを見る →">全サービスを見る →</a> </div> <div class="cards-grid"> <a href="service-it-support.html" class="card-link"><div class="card"> <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div> <h3 data-en="IT Support" data-ja="ITサポート">ITサポート</h3> <p data-en="Bilingual user support, remote troubleshooting, account handling, and onsite follow-through when needed." data-ja="バイリンガルのユーザー支援、リモート対応、アカウント対応、必要時の現地フォロー。">バイリンガルのユーザー支援、リモート対応、アカウント対応、必要時の現地フォロー。</p> </div></a> <a href="service-field-engineering.html" class="card-link"><div class="card"> <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M3 9h1M3 15h1M20 9h1M20 15h1M9 3v1M15 3v1M9 20v1M15 20v1"/></svg></div> <h3 data-en="Field Engineering" data-ja="フィールドエンジニアリング">フィールドエンジニアリング</h3> <p data-en="Expert technicians for hardware deployment, network installations, and data center projects across Japan." data-ja="ハードウェア導入、ネットワーク構築、データセンタープロジェクトに対応する専門技術者。">ハードウェア導入、ネットワーク構築、データセンタープロジェクトに対応する専門技術者。</p> </div></a> <a href="service-cybersecurity.html" class="card-link"><div class="card"> <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div> <h3 data-en="Cybersecurity" data-ja="サイバーセキュリティ">サイバーセキュリティ</h3> <p data-en="Security audits, vulnerability assessments, and incident response. ISO 27001-aligned processes." data-ja="セキュリティ監査、脆弱性評価、インシデント対応。ISO 27001準拠のプロセス。">セキュリティ監査、脆弱性評価、インシデント対応。ISO 27001準拠のプロセス。</p> </div></a> <a href="service-asset-lifecycle.html" class="card-link"><div class="card"> <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div> <h3 data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT資産ライフサイクル</h3> <p data-en="From procurement to NIST 800-88 compliant data destruction. Secure asset management." data-ja="調達からNIST 800-88準拠のデータ消去まで。安全な資産管理。">調達からNIST 800-88準拠のデータ消去まで。安全な資産管理。</p> </div></a> <a href="service-managed-services.html" class="card-link"><div class="card"> <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div> <h3 data-en="Managed Services" data-ja="マネージドサービス">マネージドサービス</h3> <p data-en="Ongoing support operations, reporting, vendor coordination, and planning for teams that need continuity." data-ja="継続的な運用支援、報告、ベンダー調整、計画支援。">継続的な運用支援、報告、ベンダー調整、計画支援。</p> </div></a> <a href="service-cloud-consulting.html" class="card-link"><div class="card"> <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div> <h3 data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">クラウド＆コンサルティング</h3> <p data-en="Cloud migration, infrastructure planning, and strategic IT consulting." data-ja="クラウド移行、インフラ設計、戦略的ITコンサルティング。">クラウド移行、インフラ設計、戦略的ITコンサルティング。</p> </div></a> </div> </div> </section> <!-- Operating Principles --> <section class="stats-section"> <div class="container"> <div class="stats-grid"> <div class="stat-item"> <div class="stat-number stat-word" data-en="Clear" data-ja="明確">明確</div> <div class="stat-label" data-en="Communication in English and Japanese" data-ja="英語・日本語での明確なコミュニケーション">英語・日本語での明確なコミュニケーション</div> </div> <div class="stat-item"> <div class="stat-number stat-word" data-en="Practical" data-ja="実務重視">実務重視</div> <div class="stat-label" data-en="Support, projects, and site work under one partner" data-ja="サポート・案件対応・現地作業を一つの窓口で提供">サポート・案件対応・現地作業を一つの窓口で提供</div> </div> <div class="stat-item"> <div class="stat-number stat-word" data-en="Secure" data-ja="安全">安全</div> <div class="stat-label" data-en="Security-minded delivery with documented handling and lifecycle support" data-ja="文書化された運用とライフサイクル支援を含むセキュリティ重視の対応">文書化された運用とライフサイクル支援を含むセキュリティ重視の対応</div> </div> <div class="stat-item"> <div class="stat-number stat-word" data-en="Responsive" data-ja="柔軟対応">柔軟対応</div> <div class="stat-label" data-en="Tokyo-based coordination with Japan-wide field support capability" data-ja="東京拠点の調整力と日本全国でのフィールド対応力">東京拠点の調整力と日本全国でのフィールド対応力</div> </div> </div> </div> </section> <!-- Why Choose Us (2-column with image) --> <section class="section section-alt" id="why-us"> <div class="container"> <div class="split-content"> <div class="split-text"> <div class="section-label" data-en="Why Thinkers GK" data-ja="選ばれる理由">選ばれる理由</div> <h2 class="section-title" data-en="Built for businesses in Japan." data-ja="日本のビジネスのために。">日本のビジネスのために。</h2> <div class="value-props"> <div class="value-prop"> <h3 data-en="Bilingual by Default" data-ja="バイリンガル対応">バイリンガル対応</h3> <p data-en="Every engineer, every ticket, every report — available in English and Japanese. No translation delays." data-ja="すべてのエンジニア、チケット、レポートが英語と日本語に対応。翻訳の遅延なし。">すべてのエンジニア、チケット、レポートが英語と日本語に対応。翻訳の遅延なし。</p> </div> <div class="value-prop"> <h3 data-en="Nationwide Coverage" data-ja="全国対応">全国対応</h3> <p data-en="Tokyo-based coordination with field engineering support available across major business locations in Japan." data-ja="東京を拠点に、日本全国の主要ビジネス拠点でフィールドエンジニアリング支援を提供。">東京を拠点に、日本全国の主要ビジネス拠点でフィールドエンジニアリング支援を提供。</p> </div> <div class="value-prop"> <h3 data-en="Compliance-Ready" data-ja="コンプライアンス対応">コンプライアンス対応</h3> <p data-en="ISO 27001-aligned security processes, NIST 800-88 data destruction, APPI-compliant data handling." data-ja="ISO 27001準拠のセキュリティプロセス、NIST 800-88データ消去、APPI準拠のデータ管理。">ISO 27001準拠のセキュリティプロセス、NIST 800-88データ消去、APPI準拠のデータ管理。</p> </div> </div> </div> <div class="split-image"> <img src="assets/bilingual-support-800x500.jpg" alt="Bilingual IT support team" loading="lazy"> </div> </div> </div> </section> <!-- Video Showcase --> <section class="section video-showcase-section"> <div class="container"> <div class="section-label" data-en="See our work" data-ja="私たちの仕事">私たちの仕事</div> <h2 class="section-title" data-en="Technology in action." data-ja="テクノロジーを実行に。">テクノロジーを実行に。</h2> <div class="video-showcase-grid"> <div class="video-showcase-card card"> <div class="video-showcase-media"> <video autoplay loop muted playsinline preload="auto" poster="assets/videos/service-poster.jpg"> <source src="assets/videos/service-bg.mp4" type="video/mp4"> </video> </div> <div class="video-showcase-content"> <h3 data-en="Enterprise Infrastructure" data-ja="エンタープライズインフラ">エンタープライズインフラ</h3> <p data-en="Server deployments, network builds, and data center operations delivered by bilingual engineers across Japan." data-ja="バイリンガルエンジニアによるサーバー構築、ネットワーク設計、データセンター運用を日本全国で対応。">バイリンガルエンジニアによるサーバー構築、ネットワーク設計、データセンター運用を日本全国で対応。</p> <a href="service-field-engineering.html" class="btn btn-ghost btn-sm" data-en="Learn More →" data-ja="詳しく見る →">詳しく見る →</a> </div> </div> <div class="video-showcase-card card"> <div class="video-showcase-media"> <video autoplay loop muted playsinline preload="auto" poster="assets/videos/data-poster.jpg"> <source src="assets/videos/data-bg.mp4" type="video/mp4"> </video> </div> <div class="video-showcase-content"> <h3 data-en="Security & Compliance" data-ja="セキュリティ＆コンプライアンス">セキュリティ＆コンプライアンス</h3> <p data-en="Threat assessment, vulnerability testing, incident response, and APPI-compliant security operations." data-ja="脅威評価、脆弱性テスト、インシデント対応、APPI準拠のセキュリティ運用。">脅威評価、脆弱性テスト、インシデント対応、APPI準拠のセキュリティ運用。</p> <a href="service-cybersecurity.html" class="btn btn-ghost btn-sm" data-en="Learn More →" data-ja="詳しく見る →">詳しく見る →</a> </div> </div> </div> </div> </section> <!-- How We Work (4-step process) --> <section class="section section-alt" id="process"> <div class="container"> <div class="section-label" data-en="How we work" data-ja="サービスの流れ">サービスの流れ</div> <h2 class="section-title" data-en="From assessment to ongoing support." data-ja="評価から継続サポートまで。">評価から継続サポートまで。</h2> <div class="process-steps"> <div class="process-step"> <div class="process-num">01</div> <h3 data-en="Assess" data-ja="現状評価">現状評価</h3> <p data-en="We understand the environment, locations, constraints, and business context before pushing a solution." data-ja="まず環境、拠点、制約、業務背景を整理してから対応方針を組み立てます。">We understand the environment, locations, constraints, and business context before pushing a solution.</p> </div> <div class="process-step"> <div class="process-num">02</div> <h3 data-en="Plan" data-ja="計画策定">計画策定</h3> <p data-en="We scope the work, sequence the next steps, and make responsibilities and timing clear." data-ja="作業範囲、順序、担当、時期を明確にして進めます。">We scope the work, sequence the next steps, and make responsibilities and timing clear.</p> </div> <div class="process-step"> <div class="process-num">03</div> <h3 data-en="Deploy" data-ja="実行展開">実行展開</h3> <p data-en="Work is delivered remotely, onsite, or through coordinated vendors depending on what the situation actually needs." data-ja="状況に応じて、リモート、現地、ベンダー調整を使い分けて実行します。">Work is delivered remotely, onsite, or through coordinated vendors depending on what the situation actually needs.</p> </div> <div class="process-step"> <div class="process-num">04</div> <h3 data-en="Manage" data-ja="継続管理">継続管理</h3> <p data-en="We keep reporting, follow-through, and ongoing operational ownership clear after the initial work is done." data-ja="初回対応後も、報告、フォロー、継続的な運用責任を明確に保ちます。">We keep reporting, follow-through, and ongoing operational ownership clear after the initial work is done.</p> </div> </div> </div> </section> <!-- Our Engineers at Work --> <section class="section illustration-banner"> <div class="container"> <div class="illustration-grid"> <a href="service-field-engineering.html" class="illustration-card"> <img src="assets/field-engineer-dreadlocks-800x500.jpg" alt="IT field engineer working in server room" loading="lazy"> <div class="illustration-label" data-en="Expert Field Engineers" data-ja="専門フィールドエンジニア">専門フィールドエンジニア</div> </a> <a href="service-it-support.html" class="illustration-card"> <img src="assets/bilingual-support-800x500.jpg" alt="Bilingual IT support specialist" loading="lazy"> <div class="illustration-label" data-en="Bilingual User Support" data-ja="バイリンガルユーザー支援">バイリンガルユーザー支援</div> </a> <a href="service-cybersecurity.html" class="illustration-card"> <img src="assets/secure-infrastructure-800x500.jpg" alt="Security operations center" loading="lazy"> <div class="illustration-label" data-en="Secure Infrastructure" data-ja="安全なインフラ">安全なインフラ</div> </a> </div> </div> </section> <!-- Proof Points --> <section class="section section-alt" id="proof"> <div class="container"> <div class="proof-block"> <div class="section-label" data-en="Why buyers engage us" data-ja="選ばれる実務的な理由">選ばれる実務的な理由</div> <h2 class="section-title" data-en="Built to work well for companies operating in Japan." data-ja="日本で事業を行う企業にとって、使いやすいITパートナー。">日本で事業を行う企業にとって、使いやすいITパートナー。</h2> <div class="proof-grid"> <div class="proof-item"> <h3 data-en="One accountable contact" data-ja="一つの責任ある窓口">一つの責任ある窓口</h3> <p data-en="Support, field work, security coordination, and IT asset lifecycle requests can be handled through one partner instead of multiple vendors." data-ja="サポート、現地対応、セキュリティ調整、IT資産ライフサイクル対応を、複数業者ではなく一つの窓口で管理できます。">サポート、現地対応、セキュリティ調整、IT資産ライフサイクル対応を、複数業者ではなく一つの窓口で管理できます。</p> </div> <div class="proof-item"> <h3 data-en="Bilingual operational clarity" data-ja="バイリンガルでの運用の明確さ">バイリンガルでの運用の明確さ</h3> <p data-en="We help bridge communication between Japan operations and international stakeholders without adding translation friction to day-to-day IT work." data-ja="日本の現場と海外関係者の間のコミュニケーションを支援し、日常のIT業務に翻訳の負担を増やしません。">日本の現場と海外関係者の間のコミュニケーションを支援し、日常のIT業務に翻訳の負担を増やしません。</p> </div> <div class="proof-item"> <h3 data-en="Practical compliance mindset" data-ja="実務的なコンプライアンス対応">実務的なコンプライアンス対応</h3> <p data-en="Security handling, documentation, and asset lifecycle work are structured for companies that need dependable operational discipline in Japan." data-ja="セキュリティ対応、文書管理、IT資産ライフサイクル業務を、日本で安定した運用規律を求める企業向けに整理して提供します。">セキュリティ対応、文書管理、IT資産ライフサイクル業務を、日本で安定した運用規律を求める企業向けに整理して提供します。</p> </div> </div> </div> </div> </section> <!-- Global Coverage — Japan Globe Image --> <section class="globe-section"> <div class="globe-overlay-card"> <h3 data-en="Coverage (N→S)" data-ja="対応エリア（北→南）">対応エリア（北→南）</h3> <ol class="coverage-overlay-list"> <li data-en="Sapporo" data-ja="札幌">札幌</li> <li data-en="Sendai" data-ja="仙台">仙台</li> <li data-en="Tokyo" data-ja="東京">東京</li> <li data-en="Nagoya" data-ja="名古屋">名古屋</li> <li data-en="Osaka" data-ja="大阪">大阪</li> <li data-en="Hiroshima" data-ja="広島">広島</li> <li data-en="Fukuoka" data-ja="福岡">福岡</li> <li data-en="Naha" data-ja="那覇">那覇</li> </ol> </div> <div class="globe-image-container"> <img src="assets/globe-japan-dark-beacons.gif" alt="Japan coverage map showing Sapporo, Sendai, Tokyo, Nagoya, Osaka, Hiroshima, Fukuoka, and Naha" class="globe-image" loading="lazy"> </div> </section> <!-- CTA --> <section class="cta-section"> <div class="container"> <div class="cta-box" style="text-align: center; max-width: 640px; margin: 0 auto;"> <h2 data-en="Let's talk about your IT." data-ja="ITについてお話しましょう。">ITについてお話しましょう。</h2> <p data-en="Tell us what you need support with in Japan, and we will come back with a practical next step." data-ja="日本で必要としているIT支援内容をお知らせください。実務的な次の一手をご提案します。">日本で必要としているIT支援内容をお知らせください。実務的な次の一手をご提案します。</p> <div class="cta-actions"> <a href="contact.html" class="btn btn-primary btn-lg" data-en="Contact Thinkers GK" data-ja="Thinkers GKに相談する">Thinkers GKに相談する</a> </div> </div> </div> </section> <!-- Footer --> <footer class="footer"> <div class="container"> <div class="footer-grid"> <div class="footer-brand"> <a href="index.html" class="nav-brand"> <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo"> </a> <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">日本国内企業と在日外資系企業の信頼できるITパートナー。</p> </div> <div class="footer-col"> <h4 data-en="Company" data-ja="会社情報">会社情報</h4> <a href="about.html" data-en="About" data-ja="会社概要">会社概要</a> <a href="services.html" data-en="Services" data-ja="サービス">サービス</a> <a href="blog/index.html" data-en="Blog" data-ja="ブログ">ブログ</a> <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">お問い合わせ</a> <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">プライバシーポリシー</a> </div> <div class="footer-col"> <h4 data-en="Services" data-ja="サービス">サービス</h4> <a href="service-it-support.html" data-en="IT Support" data-ja="ITサポート">ITサポート</a> <a href="service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">フィールドエンジニアリング</a> <a href="service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">サイバーセキュリティ</a> <a href="service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">資産ライフサイクル</a> <a href="service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">マネージドサービス</a> <a href="service-cloud-consulting.html" data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">クラウド＆コンサルティング</a> </div> <div class="footer-col"> <h4 data-en="Contact" data-ja="連絡先">連絡先</h4> <a href="mailto:info@thinkersgk.com">info@thinkersgk.com</a> <span data-en="2F-C, Shibuya Dogenzaka Tokyu Bldg, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo" data-ja="〒150-0043 東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C">〒150-0043 東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C</span> </div> </div> <div class="footer-bottom"> <p data-en="&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved." data-ja="&copy; 2026 Thinkers GK (合同会社 Thinkers). 全著作権所有。">&copy; 2026 Thinkers GK (合同会社 Thinkers). 全著作権所有。</p> </div> </div> </footer> <script src="js/chat-widget.js?v=3a" defer></script>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+      </a>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" data-en="Home" data-ja="ホーム">Home</a>
+        <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+        <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+        <a href="blog/index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+        <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
+      </div>
+      <div class="nav-utils">
+        <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
+        <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
+          <svg id="themeIcon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="home-cinematic-hero">
+    <video class="home-cinematic-hero__video" autoplay loop muted playsinline preload="auto" poster="assets/videos/hero-poster.jpg">
+      <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="home-cinematic-hero__overlay"></div>
+    <div class="home-cinematic-hero__grid"></div>
+    <div class="container home-cinematic-hero__content">
+      <div class="home-cinematic-hero__copy">
+        <div class="hero-badge" data-en="Bilingual IT delivery for companies operating in Japan" data-ja="日本で事業を行う企業向けバイリンガルIT支援">Bilingual IT delivery for companies operating in Japan</div>
+        <h1 data-en="Japan IT operations, handled with clarity." data-ja="日本でのIT運用を、明確に前へ。">Japan IT operations, handled with clarity.</h1>
+        <p class="hero-sub" data-en="Thinkers GK supports offices, projects, users, infrastructure, and IT asset work across Japan. One accountable partner. Clear English and Japanese communication. Practical delivery on the ground." data-ja="Thinkers GKは、日本全国でオフィス運用、プロジェクト、ユーザー支援、インフラ、IT資産対応を支援します。一つの責任ある窓口、英語と日本語での明確なコミュニケーション、そして現場で機能する実務対応。">Thinkers GK supports offices, projects, users, infrastructure, and IT asset work across Japan. One accountable partner. Clear English and Japanese communication. Practical delivery on the ground.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg" data-en="Request a Consultation" data-ja="ご相談を依頼する">Request a Consultation</a>
+          <a href="services.html" class="btn btn-ghost btn-lg" data-en="Explore Services" data-ja="サービスを見る">Explore Services</a>
+        </div>
+        <div class="home-cinematic-hero__signals">
+          <div class="home-cinematic-hero__signal">
+            <strong data-en="Bilingual by default" data-ja="英語・日本語対応">Bilingual by default</strong>
+            <span data-en="English and Japanese coordination for users, vendors, and stakeholders." data-ja="ユーザー、ベンダー、関係者との英語・日本語調整に対応。">English and Japanese coordination for users, vendors, and stakeholders.</span>
+          </div>
+          <div class="home-cinematic-hero__signal">
+            <strong data-en="Field-ready across Japan" data-ja="日本全国の現地対応">Field-ready across Japan</strong>
+            <span data-en="Tokyo-based coordination with support across major business locations." data-ja="東京拠点の調整力と主要拠点でのフィールド対応。">Tokyo-based coordination with support across major business locations.</span>
+          </div>
+          <div class="home-cinematic-hero__signal">
+            <strong data-en="Operational accountability" data-ja="運用責任を重視">Operational accountability</strong>
+            <span data-en="Support, security, reporting, and lifecycle work delivered with follow-through." data-ja="サポート、セキュリティ、報告、ライフサイクル対応まで一貫して実行。">Support, security, reporting, and lifecycle work delivered with follow-through.</span>
+          </div>
+        </div>
+      </div>
+      <div class="home-cinematic-hero__aside">
+        <div class="home-cinematic-hero__panel">
+          <div class="home-cinematic-hero__panel-head">
+            <span data-en="Operations Snapshot" data-ja="対応イメージ">Operations Snapshot</span>
+            <span data-en="Japan-wide" data-ja="全国対応">Japan-wide</span>
+          </div>
+          <div class="home-cinematic-hero__panel-body">
+            <div class="home-cinematic-hero__metric">
+              <span data-en="Support lanes" data-ja="支援領域">Support lanes</span>
+              <strong data-en="Helpdesk, field engineering, cybersecurity, lifecycle" data-ja="ヘルプデスク、現地対応、セキュリティ、資産対応">Helpdesk, field engineering, cybersecurity, lifecycle</strong>
+            </div>
+            <div class="home-cinematic-hero__metric">
+              <span data-en="Best fit" data-ja="主な支援先">Best fit</span>
+              <strong data-en="Japan offices, regional sites, international teams" data-ja="日本拠点、地方拠点、海外チームとの連携">Japan offices, regional sites, international teams</strong>
+            </div>
+            <div class="home-cinematic-hero__metric">
+              <span data-en="Delivery model" data-ja="進行の考え方">Delivery model</span>
+              <strong data-en="Assess, coordinate, deliver, document" data-ja="整理、調整、実行、記録">Assess, coordinate, deliver, document</strong>
+            </div>
+          </div>
+        </div>
+        <div class="home-cinematic-hero__media card">
+          <img src="assets/field-engineer-dreadlocks-800x500.jpg" alt="IT engineer working in server room" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-control-tower fade-target">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="section-label" data-en="Control tower model" data-ja="コントロールタワー運用">Control tower model</div>
+          <h2 class="section-title" data-en="One primary provider. A vetted fulfillment network behind you." data-ja="主幹となる一次窓口。全国の実行ネットワーク。">One primary provider. A vetted fulfillment network behind you.</h2>
+        </div>
+        <a href="why-us.html" class="btn btn-ghost btn-sm" data-en="Fulfillment Network →" data-ja="実行ネットワークを見る →">Fulfillment Network →</a>
+      </div>
+      <div class="home-control-grid">
+        <div class="home-control-card">
+          <div class="home-control-step">01</div>
+          <h3 data-en="We qualify and scope fast." data-ja="初期整理とスコープ確定を迅速に。">We qualify and scope fast.</h3>
+          <p data-en="AI-assisted intake + senior review. We translate business intent into clear operational scope in both English and Japanese." data-ja="AI支援の受付と専門レビューで、英語・日本語の両方で明確なスコープに整理します。">AI-assisted intake + senior review. We translate business intent into clear operational scope in both English and Japanese.</p>
+        </div>
+        <div class="home-control-card">
+          <div class="home-control-step">02</div>
+          <h3 data-en="We execute locally." data-ja="現場で確実に実行。">We execute locally.</h3>
+          <p data-en="Tokyo-based coordination with vetted regional teams across Japan. We stay accountable while the work gets done on the ground." data-ja="東京拠点の指揮と全国の実行チーム。現場対応の責任は当社が持ち続けます。">Tokyo-based coordination with vetted regional teams across Japan. We stay accountable while the work gets done on the ground.</p>
+        </div>
+        <div class="home-control-card">
+          <div class="home-control-step">03</div>
+          <h3 data-en="We document and certify." data-ja="証明と記録まで一貫。">We document and certify.</h3>
+          <p data-en="Chain-of-custody, destruction certificates, and executive reporting so your Japan operations stay compliant and auditable." data-ja="チェーン・オブ・カストディ、廃棄証明、レポートまで一貫対応します。">Chain-of-custody, destruction certificates, and executive reporting so your Japan operations stay compliant and auditable.</p>
+        </div>
+      </div>
+      <div class="home-control-cta">
+        <div>
+          <strong data-en="Primary provider. Single SLA." data-ja="一次窓口・単一SLA。">Primary provider. Single SLA.</strong>
+          <span data-en="You never chase vendors. We stay responsible from intake to closeout." data-ja="ベンダー対応の追跡は不要。受付から完了まで責任を持ちます。">You never chase vendors. We stay responsible from intake to closeout.</span>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-sm" data-en="Start a project" data-ja="案件相談を始める">Start a project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-platform-strip fade-target">
+    <div class="container">
+      <div class="home-platform-strip__label" data-en="Platforms and environments we commonly support" data-ja="対応プラットフォーム・環境">Platforms and environments we commonly support</div>
+      <div class="home-platform-strip__row">
+        <span>Google Cloud</span>
+        <span>Microsoft 365</span>
+        <span>Cisco</span>
+        <span>VMware</span>
+        <span>Dell EMC</span>
+        <span>Sophos</span>
+        <span>Citrix</span>
+        <span>Oracle</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-service-overview fade-target" id="services">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="section-label" data-en="What we do" data-ja="事業内容">What we do</div>
+          <h2 class="section-title" data-en="Services built around real operating needs." data-ja="現場の運用に合わせたサービス。">Services built around real operating needs.</h2>
+        </div>
+        <a href="services.html" class="btn btn-ghost btn-sm" data-en="View All Services →" data-ja="全サービスを見る →">View All Services →</a>
+      </div>
+      <div class="home-service-overview__grid">
+        <a href="service-it-support.html" class="home-service-card home-service-card--large">
+          <div class="home-service-card__media">
+            <img src="assets/bilingual-support-800x500.jpg" alt="Bilingual IT support specialist" loading="lazy">
+          </div>
+          <div class="home-service-card__body">
+            <span data-en="IT Support" data-ja="ITサポート">IT Support</span>
+            <h3 data-en="User support that works for bilingual environments." data-ja="バイリンガル環境で機能するユーザー支援。">User support that works for bilingual environments.</h3>
+            <p data-en="Day-to-day support, remote troubleshooting, account handling, and onsite follow-through when local action is needed." data-ja="日常サポート、リモート対応、アカウント管理、必要時の現地フォローまで対応します。">Day-to-day support, remote troubleshooting, account handling, and onsite follow-through when local action is needed.</p>
+          </div>
+        </a>
+        <a href="service-field-engineering.html" class="home-service-card">
+          <div class="home-service-card__body">
+            <span data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</span>
+            <h3 data-en="Hands-on site delivery across Japan." data-ja="日本全国での現地対応。">Hands-on site delivery across Japan.</h3>
+            <p data-en="Deployments, swaps, installs, surveys, and coordinated work on the ground." data-ja="導入、交換、設置、調査、現地での実行支援。">Deployments, swaps, installs, surveys, and coordinated work on the ground.</p>
+          </div>
+        </a>
+        <a href="service-cybersecurity.html" class="home-service-card">
+          <div class="home-service-card__body">
+            <span data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</span>
+            <h3 data-en="Security work with practical operational discipline." data-ja="実務と運用を意識したセキュリティ対応。">Security work with practical operational discipline.</h3>
+            <p data-en="Assessments, vulnerability handling, response support, and documented security practices." data-ja="評価、脆弱性対応、初動支援、文書化されたセキュリティ実務。">Assessments, vulnerability handling, response support, and documented security practices.</p>
+          </div>
+        </a>
+        <a href="service-asset-lifecycle.html" class="home-service-card">
+          <div class="home-service-card__body">
+            <span data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT Asset Lifecycle</span>
+            <h3 data-en="Procurement through disposal, handled cleanly." data-ja="調達から廃棄まで一貫対応。">Procurement through disposal, handled cleanly.</h3>
+            <p data-en="Asset coordination, tracking, documentation, and secure end-of-life processing." data-ja="資産調整、追跡、記録、安全な廃棄対応まで整理して支援します。">Asset coordination, tracking, documentation, and secure end-of-life processing.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt home-principles fade-target">
+    <div class="container">
+      <div class="home-principles__header">
+        <div class="section-label" data-en="Why teams engage us" data-ja="選ばれる理由">Why teams engage us</div>
+        <h2 class="section-title" data-en="A premium operator feel, grounded in execution." data-ja="見た目ではなく、実行で信頼される体制。">A premium operator feel, grounded in execution.</h2>
+      </div>
+      <div class="home-principles__grid">
+        <div class="home-principles__lead card">
+          <h3 data-en="One accountable delivery partner" data-ja="一つの責任ある窓口">One accountable delivery partner</h3>
+          <p data-en="Companies use Thinkers GK when they want less fragmentation between users, vendors, sites, projects, and reporting. We keep the work moving and the picture clear." data-ja="ユーザー、ベンダー、拠点、案件、報告が分断されず、一つの流れで進む体制を求める企業に選ばれています。">Companies use Thinkers GK when they want less fragmentation between users, vendors, sites, projects, and reporting. We keep the work moving and the picture clear.</p>
+        </div>
+        <div class="home-principles__list">
+          <div class="home-principles__item">
+            <strong data-en="Bilingual operational clarity" data-ja="英語・日本語での明確な進行">Bilingual operational clarity</strong>
+            <span data-en="Requirements, updates, and next steps stay understandable on both sides." data-ja="要件、進捗、次の一手を英語・日本語の両方で分かりやすく保ちます。">Requirements, updates, and next steps stay understandable on both sides.</span>
+          </div>
+          <div class="home-principles__item">
+            <strong data-en="Japan-aware execution" data-ja="日本の現場を踏まえた対応">Japan-aware execution</strong>
+            <span data-en="We work around access rules, site realities, vendor rhythms, and local constraints." data-ja="入館条件、現場事情、ベンダー調整、地域条件を踏まえて進めます。">We work around access rules, site realities, vendor rhythms, and local constraints.</span>
+          </div>
+          <div class="home-principles__item">
+            <strong data-en="Documented follow-through" data-ja="記録と引き継ぎを重視">Documented follow-through</strong>
+            <span data-en="Status, handoff, closure, and lifecycle records are treated as part of delivery." data-ja="進捗、引き継ぎ、完了整理、ライフサイクル記録まで含めて対応します。">Status, handoff, closure, and lifecycle records are treated as part of delivery.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-motion-band fade-target">
+    <div class="container">
+      <div class="home-motion-band__grid">
+        <div class="home-motion-band__text">
+          <div class="section-label" data-en="Inside the work" data-ja="対応のイメージ">Inside the work</div>
+          <h2 class="section-title" data-en="Support, infrastructure, and security shown with real motion." data-ja="サポート、インフラ、セキュリティを実際の映像で。">Support, infrastructure, and security shown with real motion.</h2>
+          <p data-en="A closer look at the work: live support operations, infrastructure handling, and security support in motion." data-ja="サポート運用、インフラ対応、セキュリティ支援の実際の動きを映像でご覧いただけます。">A closer look at the work: live support operations, infrastructure handling, and security support in motion.</p>
+        </div>
+        <div class="home-motion-band__media">
+          <div class="home-motion-band__card">
+            <video autoplay loop muted playsinline preload="auto" poster="assets/videos/service-poster.jpg">
+              <source src="assets/videos/service-bg.mp4" type="video/mp4">
+            </video>
+            <div class="home-motion-band__caption">
+              <strong data-en="Support operations" data-ja="サポート運用">Support operations</strong>
+              <span data-en="Real people, real queues, and coordinated day-to-day execution across support environments." data-ja="実際の人、実際の対応、そしてサポート現場での協調的な日常運用。">Real people, real queues, and coordinated day-to-day execution across support environments.</span>
+            </div>
+          </div>
+          <div class="home-motion-band__card">
+            <video autoplay loop muted playsinline preload="auto" poster="assets/videos/data-poster.jpg">
+              <source src="assets/videos/data-bg.mp4" type="video/mp4">
+            </video>
+            <div class="home-motion-band__caption">
+              <strong data-en="Security handling" data-ja="セキュリティ対応">Security handling</strong>
+              <span data-en="Assessment, visibility, and practical operational control." data-ja="評価、可視化、そして実務に落ちる運用管理。">Assessment, visibility, and practical operational control.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-coverage fade-target">
+    <div class="container">
+      <div class="home-coverage__frame">
+        <div class="home-coverage__copy">
+          <div class="section-label" data-en="Coverage" data-ja="対応エリア">Coverage</div>
+          <h2 class="section-title" data-en="Tokyo coordination, Japan-wide reach." data-ja="東京で調整し、日本全国で対応。">Tokyo coordination, Japan-wide reach.</h2>
+          <p data-en="For offices and sites that need a dependable partner in Japan, we coordinate centrally and execute where the work actually happens." data-ja="日本国内のオフィスや拠点で、中央の調整力と現地での実行力の両方が必要な場面に対応します。">For offices and sites that need a dependable partner in Japan, we coordinate centrally and execute where the work actually happens.</p>
+          <ol class="home-coverage__list">
+            <li>Sapporo</li>
+            <li>Sendai</li>
+            <li>Tokyo</li>
+            <li>Nagoya</li>
+            <li>Osaka</li>
+            <li>Hiroshima</li>
+            <li>Fukuoka</li>
+            <li>Naha</li>
+          </ol>
+        </div>
+        <div class="home-coverage__visual">
+          <img src="assets/globe-japan-dark-beacons.gif" alt="Japan coverage map showing key service locations" class="globe-image" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section home-final-cta fade-target">
+    <div class="container">
+      <div class="cta-box home-final-cta__box">
+        <div class="section-label" data-en="Start the conversation" data-ja="ご相談開始">Start the conversation</div>
+        <h2 data-en="Tell us what needs to get done in Japan." data-ja="日本で必要な対応内容をお聞かせください。">Tell us what needs to get done in Japan.</h2>
+        <p data-en="Whether it is user support, a site project, vendor coordination, cybersecurity work, or IT asset lifecycle handling, we will help you scope the right next step." data-ja="ユーザー支援、拠点案件、ベンダー調整、セキュリティ対応、IT資産対応まで、次に何を進めるべきかを整理してご案内します。">Whether it is user support, a site project, vendor coordination, cybersecurity work, or IT asset lifecycle handling, we will help you scope the right next step.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg" data-en="Contact Thinkers GK" data-ja="Thinkers GKに相談する">Contact Thinkers GK</a>
+          <a href="services.html" class="btn btn-ghost btn-lg" data-en="Review Services" data-ja="サービスを見る">Review Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-brand">
+            <img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo">
+          </a>
+          <p data-en="Trusted IT partner for local and international businesses across Japan." data-ja="日本国内企業と在日外資系企業の信頼できるITパートナー。">Trusted IT partner for local and international businesses across Japan.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-en="Company" data-ja="会社情報">Company</h4>
+          <a href="about.html" data-en="About" data-ja="会社概要">About</a>
+          <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+          <a href="blog/index.html" data-en="Blog" data-ja="ブログ">Blog</a>
+          <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
+          <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en="Services" data-ja="サービス">Services</h4>
+          <a href="service-it-support.html" data-en="IT Support" data-ja="ITサポート">IT Support</a>
+          <a href="service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
+          <a href="service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a>
+          <a href="service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a>
+          <a href="service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a>
+          <a href="service-cloud-consulting.html" data-en="Cloud & Consulting" data-ja="クラウド＆コンサルティング">Cloud & Consulting</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-en="Contact" data-ja="連絡先">Contact</h4>
+          <a href="mailto:info@thinkersgk.com">info@thinkersgk.com</a>
+          <span data-en="2F-C, Shibuya Dogenzaka Tokyu Bldg, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo" data-ja="〒150-0043 東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C">2F-C, Shibuya Dogenzaka Tokyu Bldg, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-en="&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved." data-ja="&copy; 2026 Thinkers GK (合同会社 Thinkers). 全著作権所有。">&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/chat-widget.js?v=3a" defer></script>
   <script src="scripts/scroll-reveal.js?v=1" defer></script>
 </body>
 </html>

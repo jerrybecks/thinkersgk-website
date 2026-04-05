@@ -593,6 +593,68 @@
     gap: 1rem;
 }
 
+.section-lead {
+    max-width: 70ch;
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin: 0.75rem 0 0;
+}
+
+.why-us-network-grid,
+.why-us-trust-grid,
+.services-fulfillment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-top: 2rem;
+}
+
+.why-us-network-card,
+.why-us-trust-card,
+.services-fulfillment-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: rgba(248, 250, 252, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.why-us-network-card span,
+.why-us-trust-card span,
+.services-fulfillment-card span {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-text-muted);
+}
+
+.why-us-network-card h3,
+.why-us-trust-card h3,
+.services-fulfillment-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.why-us-network-card p,
+.why-us-trust-card p,
+.services-fulfillment-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+}
+
+[data-theme="dark"] .why-us-network-card,
+[data-theme="dark"] .why-us-trust-card,
+[data-theme="dark"] .services-fulfillment-card {
+    background: rgba(10, 15, 25, 0.84);
+    border-color: rgba(148, 163, 184, 0.14);
+    box-shadow: 0 20px 38px rgba(2, 6, 23, 0.28);
+}
+
 .service-link-card {
     display: flex;
     flex-direction: column;
@@ -747,7 +809,10 @@
     .why-us-engagement-grid,
     .why-us-pressure-grid,
     .why-us-outcomes,
-    .why-us-proof-grid {
+    .why-us-proof-grid,
+    .why-us-network-grid,
+    .why-us-trust-grid,
+    .services-fulfillment-grid {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -780,7 +845,10 @@
     .why-us-engagement-grid,
     .why-us-pressure-grid,
     .why-us-outcomes,
-    .why-us-proof-grid {
+    .why-us-proof-grid,
+    .why-us-network-grid,
+    .why-us-trust-grid,
+    .services-fulfillment-grid {
         grid-template-columns: 1fr;
     }
 

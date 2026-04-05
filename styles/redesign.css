@@ -1235,6 +1235,86 @@ html {
     color: rgba(226, 232, 240, 0.86);
 }
 
+.home-control-tower.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.home-control-tower.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home-control-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.home-control-card {
+    border: 1px solid var(--color-border);
+    border-radius: 1.4rem;
+    padding: 1.8rem;
+    background: var(--color-card-bg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.home-control-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.home-control-card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+}
+
+.home-control-step {
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    font-weight: 700;
+    color: var(--color-text-muted);
+}
+
+.home-control-cta {
+    margin-top: 2.4rem;
+    border-radius: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.04), rgba(37, 99, 235, 0.08));
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.home-control-cta strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.home-control-cta span {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+[data-theme="dark"] .home-control-card {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(10, 14, 24, 0.96));
+    box-shadow: 0 24px 48px rgba(2, 6, 23, 0.35);
+}
+
+[data-theme="dark"] .home-control-cta {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.45), rgba(15, 23, 42, 0.9));
+}
+
 .home-service-overview__grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -1545,7 +1625,8 @@ html {
     .home-cinematic-hero__content,
     .home-principles__grid,
     .home-motion-band__grid,
-    .home-coverage__frame {
+    .home-coverage__frame,
+    .home-control-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1585,6 +1666,11 @@ html {
 
     .home-platform-strip__row {
         gap: 0.65rem;
+    }
+
+    .home-control-cta {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .home-coverage__list {
