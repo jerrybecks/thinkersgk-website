@@ -3015,10 +3015,19 @@ html { scroll-behavior: smooth; }
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 48px;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .section-header-flex .section-title {
     margin-bottom: 0;
+}
+
+.section-header-flex .btn {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.2;
+    text-align: left;
 }
 
 /* ── Split Content (2-col text + image) ── */
