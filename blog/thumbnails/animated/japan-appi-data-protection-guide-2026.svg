@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4c1d95"/><stop offset="100%" style="stop-color:#2e1065"/></linearGradient></defs>
+  <style>
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:.6}}
+    .icon{animation:float 4s ease-in-out infinite}
+    .dot{animation:pulse 3s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <circle cx="150" cy="80" r="1.5" fill="rgba(196,181,253,0.7)" class="dot" opacity="0.2"/>
+  <circle cx="450" cy="70" r="2" fill="rgba(196,181,253,0.7)" class="dot" opacity="0.15"/>
+  <circle cx="130" cy="200" r="1" fill="rgba(196,181,253,0.7)" class="dot" opacity="0.2"/>
+  <circle cx="470" cy="210" r="1.5" fill="rgba(196,181,253,0.7)" class="dot" opacity="0.15"/>
+  <circle cx="200" cy="260" r="1" fill="rgba(196,181,253,0.7)" class="dot" opacity="0.1"/>
+  <circle cx="400" cy="250" r="1.5" fill="rgba(196,181,253,0.7)" class="dot" opacity="0.1"/>
+  <g class="icon"><ellipse cx="300" cy="135" rx="35" ry="12" fill="none" stroke="rgba(196,181,253,0.7)" stroke-width="2"/><path d="M265 135 L265 175 C265 182 280 188 300 188 C320 188 335 182 335 175 L335 135" fill="none" stroke="rgba(196,181,253,0.7)" stroke-width="2"/><path d="M265 155 C265 162 280 168 300 168 C320 168 335 162 335 155" fill="none" stroke="rgba(196,181,253,0.7)" stroke-width="1.5" opacity="0.5"/></g>
+  <rect x="215" y="240" width="190" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">DATA & COMPLIANCE</text>
+</svg>

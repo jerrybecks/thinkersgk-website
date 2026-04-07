@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1e3a5f"/><stop offset="100%" style="stop-color:#0f1b2d"/></linearGradient></defs>
+  <style>
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:.6}}
+    .icon{animation:float 4s ease-in-out infinite}
+    .dot{animation:pulse 3s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <circle cx="150" cy="80" r="1.5" fill="rgba(56,189,248,0.7)" class="dot" opacity="0.2"/>
+  <circle cx="450" cy="70" r="2" fill="rgba(56,189,248,0.7)" class="dot" opacity="0.15"/>
+  <circle cx="130" cy="200" r="1" fill="rgba(56,189,248,0.7)" class="dot" opacity="0.2"/>
+  <circle cx="470" cy="210" r="1.5" fill="rgba(56,189,248,0.7)" class="dot" opacity="0.15"/>
+  <circle cx="200" cy="260" r="1" fill="rgba(56,189,248,0.7)" class="dot" opacity="0.1"/>
+  <circle cx="400" cy="250" r="1.5" fill="rgba(56,189,248,0.7)" class="dot" opacity="0.1"/>
+  <g class="icon"><path d="M300 115 L340 130 L340 165 C340 185 320 200 300 210 C280 200 260 185 260 165 L260 130 Z" fill="none" stroke="rgba(56,189,248,0.7)" stroke-width="2.5"/><polyline points="282,160 295,173 318,148" fill="none" stroke="rgba(56,189,248,0.7)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="235" y="240" width="150" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">CYBERSECURITY</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#7c2d12"/><stop offset="100%" style="stop-color:#431407"/></linearGradient></defs>
+  <style>
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:.6}}
+    .icon{animation:float 4s ease-in-out infinite}
+    .dot{animation:pulse 3s ease-in-out infinite}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+  </style>
+  <rect width="600" height="340" rx="12" fill="url(#bg)"/>
+  <circle cx="150" cy="80" r="1.5" fill="rgba(251,146,60,0.7)" class="dot" opacity="0.2"/>
+  <circle cx="450" cy="70" r="2" fill="rgba(251,146,60,0.7)" class="dot" opacity="0.15"/>
+  <circle cx="130" cy="200" r="1" fill="rgba(251,146,60,0.7)" class="dot" opacity="0.2"/>
+  <circle cx="470" cy="210" r="1.5" fill="rgba(251,146,60,0.7)" class="dot" opacity="0.15"/>
+  <circle cx="200" cy="260" r="1" fill="rgba(251,146,60,0.7)" class="dot" opacity="0.1"/>
+  <circle cx="400" cy="250" r="1.5" fill="rgba(251,146,60,0.7)" class="dot" opacity="0.1"/>
+  <g class="icon"><rect x="265" y="125" width="70" height="20" rx="3" fill="none" stroke="rgba(251,146,60,0.7)" stroke-width="2"/><rect x="265" y="150" width="70" height="20" rx="3" fill="none" stroke="rgba(251,146,60,0.7)" stroke-width="2"/><rect x="265" y="175" width="70" height="20" rx="3" fill="none" stroke="rgba(251,146,60,0.7)" stroke-width="2"/><circle cx="280" cy="135" r="2" fill="rgba(251,146,60,0.7)"/><circle cx="280" cy="160" r="2" fill="rgba(251,146,60,0.7)"/><circle cx="280" cy="185" r="2" fill="rgba(251,146,60,0.7)"/></g>
+  <rect x="255" y="240" width="110" height="28" rx="14" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="259" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">IT ASSETS</text>
+</svg>
