@@ -69,16 +69,64 @@
       letter-spacing: 0.02em;
     }
     .lp-hero {
-      padding: 100px 0 80px;
+      padding: 0;
       position: relative;
       overflow: hidden;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
     }
-    .lp-hero::before {
-      content: '';
+    .lp-hero__video {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(124,58,237,0.04) 100%);
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .lp-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,17,23,0.82) 0%, rgba(37,99,235,0.25) 100%);
+      z-index: 1;
+    }
+    [data-theme="dark"] .lp-hero__overlay {
+      background: linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(37,99,235,0.18) 100%);
+    }
+    .lp-hero > .container {
+      position: relative;
+      z-index: 2;
+      padding-top: 120px;
+      padding-bottom: 80px;
+    }
+    .lp-hero h1,
+    .lp-hero .lp-hero-sub,
+    .lp-hero .lp-hero-badge,
+    .lp-hero .lp-trust-item {
+      color: #fff;
+    }
+    .lp-hero .lp-hero-sub {
+      color: rgba(255,255,255,0.8);
+    }
+    .lp-hero .lp-trust-item {
+      color: rgba(255,255,255,0.7);
+    }
+    .lp-hero .lp-trust-item svg {
+      color: #60a5fa;
+    }
+    .lp-hero .lp-hero-badge {
+      background: rgba(59,130,246,0.25);
+      color: #93c5fd;
+    }
+    .lp-hero-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .lp-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
     .lp-hero-grid {
       display: grid;
@@ -125,36 +173,41 @@
       color: var(--color-accent);
     }
     .lp-hero-visual {
-      background: var(--color-card-bg);
-      border: 1px solid var(--color-border);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: var(--radius);
-      padding: 40px;
+      padding: 32px;
       text-align: center;
+      color: #fff;
     }
     .lp-hero-visual h3 {
       margin-bottom: 24px;
       font-size: 1.1rem;
+      color: #fff;
     }
     .lp-stat-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 16px;
     }
     .lp-stat {
       text-align: center;
       padding: 16px;
-      background: var(--color-bg);
+      background: rgba(255,255,255,0.06);
       border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
     .lp-stat-num {
       font-size: 2rem;
       font-weight: 700;
-      color: var(--color-accent);
+      color: #60a5fa;
       display: block;
     }
     .lp-stat-label {
       font-size: 0.8rem;
-      color: var(--color-muted);
+      color: rgba(255,255,255,0.6);
       margin-top: 4px;
     }
 
@@ -389,6 +442,7 @@
       <div class="nav-menu" id="navMenu">
         <a href="index.html" data-en="Home" data-ja="ホーム">Home</a>
         <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+        <a href="itad-japan.html" data-en="ITAD Japan" data-ja="ITAD 日本">ITAD Japan</a>
         <a href="about.html" data-en="About" data-ja="会社概要">About</a>
         <a href="blog/index.html" data-en="Blog" data-ja="ブログ">Blog</a>
         <a href="contact.html" class="btn btn-sm" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
@@ -422,9 +476,13 @@
 
   <!-- HERO: Problem-aware hook -->
   <section class="lp-hero">
+    <video class="lp-hero__video" autoplay loop muted playsinline preload="auto" poster="assets/hero-asset-lifecycle-1400x600.jpg">
+      <source src="assets/videos/data-bg.mp4" type="video/mp4">
+    </video>
+    <div class="lp-hero__overlay"></div>
     <div class="container">
       <div class="lp-hero-grid">
-        <div class="section-reveal">
+        <div>
           <div class="lp-hero-badge" data-en="ITAD Japan" data-ja="ITAD 日本">ITAD Japan</div>
           <h1 data-en="IT asset disposal in Japan shouldn't be a compliance risk." data-ja="日本でのIT資産廃棄は、コンプライアンスリスクであってはなりません。">IT asset disposal in Japan shouldn't be a compliance risk.</h1>
           <p class="lp-hero-sub" data-en="When you close an office, refresh a data center, or decommission legacy systems in Japan — you need a partner who speaks both languages, knows both compliance frameworks, and has done it before." data-ja="オフィス閉鎖、データセンター刷新、レガシーシステムの廃棄。日本で対応するには、両言語を話し、両方のコンプライアンス基準を理解し、実績のあるパートナーが必要です。">When you close an office, refresh a data center, or decommission legacy systems in Japan — you need a partner who speaks both languages, knows both compliance frameworks, and has done it before.</p>
@@ -448,6 +506,9 @@
           </div>
         </div>
         <div class="lp-hero-visual">
+          <div class="lp-hero-image" style="margin-bottom: 24px;">
+            <img src="assets/hero-asset-lifecycle-1400x600.jpg" alt="Secure IT asset disposal in Japan" loading="eager">
+          </div>
           <h3 data-en="Why companies choose us" data-ja="選ばれる理由">Why companies choose us</h3>
           <div class="lp-stat-grid">
             <div class="lp-stat">
@@ -632,7 +693,7 @@
           <a href="service-it-support.html" data-en="IT Support" data-ja="ITサポート">IT Support</a>
           <a href="service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
           <a href="service-cybersecurity.html" data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</a>
-          <a href="service-itad.html" data-en="IT Asset Disposal" data-ja="IT資産廃棄">IT Asset Disposal</a>
+          <a href="itad-japan.html" data-en="ITAD Japan" data-ja="ITAD 日本">ITAD Japan</a>
           <a href="service-asset-lifecycle.html" data-en="Asset Lifecycle" data-ja="資産ライフサイクル">Asset Lifecycle</a>
           <a href="service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a>
         </div>
