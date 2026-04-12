@@ -3169,6 +3169,19 @@ html { scroll-behavior: smooth; }
     gap: 16px;
 }
 
+@media (max-width: 768px) {
+    .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .cta-actions .btn {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 /* ── Testimonials Grid ── */
 .testimonials-grid {
     display: grid;

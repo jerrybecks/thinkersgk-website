@@ -1380,6 +1380,82 @@ html {
     line-height: 1.75;
 }
 
+.home-signature-offers__header {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.home-signature-offers__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.home-signature-offers__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.45rem;
+    border-radius: 1.3rem;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 255, 0.98));
+    box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .home-signature-offers__card {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(9, 13, 24, 0.98));
+    box-shadow: 0 24px 48px rgba(2, 6, 23, 0.35);
+}
+
+.home-signature-offers__eyebrow {
+    color: var(--color-accent);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.home-signature-offers__card h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--color-text);
+}
+
+.home-signature-offers__card p {
+    margin: 0;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.home-signature-offers__card ul {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--color-text-secondary);
+    display: grid;
+    gap: 0.55rem;
+}
+
+.home-signature-offers__card li {
+    line-height: 1.7;
+}
+
+.home-signature-offers__footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-signature-offers__footer a:first-child {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
 .home-principles__header {
     max-width: 56rem;
 }
@@ -1623,6 +1699,7 @@ html {
 
 @media (max-width: 1100px) {
     .home-cinematic-hero__content,
+    .home-signature-offers__header,
     .home-principles__grid,
     .home-motion-band__grid,
     .home-coverage__frame,
@@ -1655,6 +1732,7 @@ html {
     }
 
     .home-service-overview__grid,
+    .home-signature-offers__grid,
     .home-motion-band__media {
         grid-template-columns: 1fr;
     }
@@ -1675,5 +1753,10 @@ html {
 
     .home-coverage__list {
         grid-template-columns: 1fr;
+    }
+
+    .home-signature-offers__footer {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
