@@ -1875,3 +1875,59 @@ html {
     gap: 1.25rem;
   }
 }
+
+/* ═══════════════════════════════════════════
+   BLOG INDEX — IMAGE CARD STYLE (v8)
+═══════════════════════════════════════════ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+article.blog-card.card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+article.blog-card.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] article.blog-card.card:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+
+article.blog-card.card > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+article.blog-card.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
