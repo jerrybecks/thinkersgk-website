@@ -1760,3 +1760,118 @@ html {
         align-items: flex-start;
     }
 }
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS SECTION
+═══════════════════════════════════════════ */
+.home-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.home-testimonials__card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--surface, #fff);
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+}
+
+.home-testimonials__quote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary, #6b7280);
+  font-style: italic;
+  flex: 1;
+  margin: 0;
+}
+
+.home-testimonials__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.home-testimonials__author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.home-testimonials__author strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary, #111827);
+}
+
+.home-testimonials__author span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-tertiary, #9ca3af);
+}
+
+/* ═══════════════════════════════════════════
+   TEAM & TRUST BAND
+═══════════════════════════════════════════ */
+.home-trust-band__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.home-trust-band__copy .section-title {
+  margin-bottom: 1rem;
+}
+
+.home-trust-band__copy p {
+  color: var(--text-secondary, #6b7280);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.home-trust-band__stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.home-trust-band__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.home-trust-band__stat strong {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent, #2563eb);
+}
+
+.home-trust-band__stat span {
+  font-size: 0.8rem;
+  color: var(--text-tertiary, #9ca3af);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .home-testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-trust-band__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .home-trust-band__stats {
+    gap: 1.25rem;
+  }
+}
