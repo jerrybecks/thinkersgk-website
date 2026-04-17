@@ -676,17 +676,15 @@ html {
     font-weight: 500;
 }
 
-/* --- Section Reveal Animation --- */
+/* --- Section Reveal (float disabled) --- */
 .section-reveal {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 1;
+    transform: none;
 }
 
 .section-reveal.revealed {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: none;
 }
 
 /* --- Staggered Card Entrance --- */
@@ -739,16 +737,6 @@ html {
     animation-play-state: paused !important;
 }
 
-/* --- Icon Float (on card hover) --- */
-@keyframes iconFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-
-.card:hover .icon,
-.card:hover [class*="icon"] {
-    animation: iconFloat 2s ease-in-out infinite;
-}
 
 /* --- Illustration Hover --- */
 .illustration-banner img,
@@ -1179,9 +1167,8 @@ html {
 .home-motion-band.fade-in-up,
 .home-coverage.fade-in-up,
 .home-final-cta.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
+    opacity: 1;
+    transform: none;
 }
 
 .home-platform-strip.fade-in-up.is-visible,
@@ -1191,7 +1178,7 @@ html {
 .home-coverage.fade-in-up.is-visible,
 .home-final-cta.fade-in-up.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 .home-platform-strip {
@@ -1236,14 +1223,13 @@ html {
 }
 
 .home-control-tower.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
+    opacity: 1;
+    transform: none;
 }
 
 .home-control-tower.fade-in-up.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 .home-control-grid {
