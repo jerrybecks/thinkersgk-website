@@ -1882,12 +1882,17 @@ article.blog-card.card {
 }
 
 article.blog-card.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-border);
+}
+
+article.blog-card.card:hover::before {
+  opacity: 0;
 }
 
 [data-theme="dark"] article.blog-card.card:hover {
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  box-shadow: var(--shadow-sm);
 }
 
 article.blog-card.card > a {
@@ -1916,4 +1921,20 @@ article.blog-card.card img {
   .blog-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Contact form card — no hover lift */
+.contact-form-container .card:hover,
+.contact-layout .card:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-border);
+}
+.contact-form-container .card:hover::before,
+.contact-layout .card:hover::before {
+  opacity: 0;
+}
+.contact-form-container .card:hover .icon,
+.contact-layout .card:hover .icon {
+  transform: none;
 }
