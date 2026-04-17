@@ -983,20 +983,7 @@
             });
         }
 
-        // ── Staggered fade-in on scroll ──────────────
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.08 });
-
-        document.querySelectorAll('.card, .feature, .cta-box, .service-detail-inner, .fade-target, .stat-item, .logo-bar, .contact-info, .contact-form, .service-feature-card, .process-step, .testimonial-block, .testimonial-card, .sla-card, .illustration-card').forEach(function(el, i) {
-            el.classList.add('fade-in-up');
-            el.style.transitionDelay = (i % 6) * 0.1 + 's';
-            observer.observe(el);
-        });
+        // Staggered fade-in removed — caused floating/slide-up effect on cards
 
         // ── Init modules ─────────────────────────────
         initParticleNetwork();

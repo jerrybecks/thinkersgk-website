@@ -730,11 +730,6 @@ img { max-width: 100%; display: block; }
     100% { transform: translateY(0) scale(1); }
 }
 
-@keyframes cardBreathing {
-    0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-3px) scale(1.005); } /* Added subtle scale */
-    100% { transform: translateY(0) scale(1); }
-}
 
 .hero-sub {
     font-size: clamp(1rem, 1.8vw, 1.1875rem);
@@ -2047,60 +2042,18 @@ img { max-width: 100%; display: block; }
     .logo-track { gap: 32px; }
 }
 
-.card.fade-in-up {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.card.fade-in-up.is-visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    animation: cardBreathing 4s ease-in-out infinite alternate;
-}
-
-.illustration-card.fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.illustration-card.fade-in-up.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.stat-item.fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.stat-item.fade-in-up.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.feature.fade-in-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.feature.fade-in-up.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.fade-target.fade-in-up {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
+.card.fade-in-up,
+.card.fade-in-up.is-visible,
+.illustration-card.fade-in-up,
+.illustration-card.fade-in-up.is-visible,
+.stat-item.fade-in-up,
+.stat-item.fade-in-up.is-visible,
+.feature.fade-in-up,
+.feature.fade-in-up.is-visible,
+.fade-target.fade-in-up,
 .fade-target.fade-in-up.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 @media (max-width: 480px) {

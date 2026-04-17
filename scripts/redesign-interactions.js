@@ -9,29 +9,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         var isMobile = window.innerWidth < 768;
 
-        // -------------------------------------------------------------------
-        // 1. Enhanced Section Reveal
-        // -------------------------------------------------------------------
-        var sections = document.querySelectorAll(
-            '.section, .stats-section, .globe-section, .illustration-banner, .cta-section'
-        );
-        sections.forEach(function (el) {
-            el.classList.add('section-reveal');
-        });
-        var revealObserver = new IntersectionObserver(
-            function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.05 }
-        );
-        sections.forEach(function (el) {
-            revealObserver.observe(el);
-        });
+        // 1. Section Reveal — removed (caused floating effect)
 
         // -------------------------------------------------------------------
         // 2. Magnetic Button Effect (desktop only)
@@ -194,33 +172,7 @@
             });
         }
 
-        // -------------------------------------------------------------------
-        // 7. Staggered Card Entrance
-        // -------------------------------------------------------------------
-        var cardStyle = document.createElement('style');
-        cardStyle.textContent =
-            '.card { opacity: 0; transform: translateY(20px); }' +
-            '.card-visible { opacity: 1 !important; transform: none !important;' +
-            ' transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; }';
-        document.head.appendChild(cardStyle);
-
-        var cardObserver = new IntersectionObserver(
-            function (entries) {
-                var visibleCards = entries.filter(function (e) {
-                    return e.isIntersecting;
-                });
-                visibleCards.forEach(function (entry, i) {
-                    setTimeout(function () {
-                        entry.target.classList.add('card-visible');
-                    }, i * 150);
-                    cardObserver.unobserve(entry.target);
-                });
-            },
-            { threshold: 0.1 }
-        );
-        document.querySelectorAll('.card').forEach(function (c) {
-            cardObserver.observe(c);
-        });
+        // 7. Staggered Card Entrance — removed (caused floating effect)
 
         // -------------------------------------------------------------------
         // 8. Smooth Theme Transition
