@@ -1882,9 +1882,9 @@ article.blog-card.card {
 }
 
 article.blog-card.card:hover {
-  transform: none;
-  box-shadow: var(--shadow-sm);
-  border-color: var(--color-border);
+  transform: translateY(-3px);
+  border-color: rgba(67, 56, 202, 0.28);
+  box-shadow: 0 24px 44px rgba(55, 48, 163, 0.12);
 }
 
 article.blog-card.card:hover::before {
@@ -1892,7 +1892,7 @@ article.blog-card.card:hover::before {
 }
 
 [data-theme="dark"] article.blog-card.card:hover {
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 24px 44px rgba(55, 48, 163, 0.2);
 }
 
 article.blog-card.card > a {
@@ -1923,12 +1923,12 @@ article.blog-card.card img {
   }
 }
 
-/* Contact form card — no hover lift */
+/* Contact form card — glow only, no lift */
 .contact-form-container .card:hover,
 .contact-layout .card:hover {
   transform: none;
-  box-shadow: var(--shadow-sm);
-  border-color: var(--color-border);
+  border-color: rgba(67, 56, 202, 0.22);
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.06), 0 8px 28px rgba(55, 48, 163, 0.09);
 }
 .contact-form-container .card:hover::before,
 .contact-layout .card:hover::before {
