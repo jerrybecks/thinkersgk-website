@@ -38,34 +38,7 @@
             });
         }
 
-        // -------------------------------------------------------------------
-        // 3. 3D Card Tilt — perspective-based (desktop only)
-        // -------------------------------------------------------------------
-        if (!isMobile) {
-            document.querySelectorAll('.card').forEach(function (card) {
-                card.addEventListener('mousemove', function (e) {
-                    var rect = card.getBoundingClientRect();
-                    var x = (e.clientX - rect.left) / rect.width - 0.5;
-                    var y = (e.clientY - rect.top) / rect.height - 0.5;
-                    card.style.transform =
-                        'perspective(800px) rotateX(' +
-                        -y * 8 +
-                        'deg) rotateY(' +
-                        x * 8 +
-                        'deg) translateY(-4px)';
-                });
-                card.addEventListener('mouseleave', function () {
-                    card.style.transform = '';
-                    card.style.transition = 'transform 0.5s ease';
-                    setTimeout(function () {
-                        card.style.transition = '';
-                    }, 500);
-                });
-                card.addEventListener('mouseenter', function () {
-                    card.style.transition = 'none';
-                });
-            });
-        }
+        // 3. 3D Card Tilt — removed
 
         // -------------------------------------------------------------------
         // 4. Logo Bar Hover Pause

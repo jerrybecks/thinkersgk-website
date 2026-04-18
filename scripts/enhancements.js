@@ -48,27 +48,8 @@
     });
   }
 
-  // ── 3. 3D card tilt ─────────────────────────────────────────────────────────
-  function initCardTilt() {
-    var MAX_TILT = 6; // degrees
-    var cards = document.querySelectorAll('.card, .service-feature-card');
-    cards.forEach(function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var cx = rect.left + rect.width / 2;
-        var cy = rect.top + rect.height / 2;
-        var dx = (e.clientX - cx) / (rect.width / 2);
-        var dy = (e.clientY - cy) / (rect.height / 2);
-        card.style.transform =
-          'perspective(600px) rotateX(' + (-dy * MAX_TILT) + 'deg) rotateY(' + (dx * MAX_TILT) + 'deg) translateZ(4px)';
-      });
-      card.addEventListener('mouseleave', function () {
-        card.style.transition = 'transform 0.4s ease';
-        card.style.transform = '';
-        setTimeout(function () { card.style.transition = ''; }, 400);
-      });
-    });
-  }
+  // 3. 3D card tilt — removed
+  function initCardTilt() {}
 
   // ── 4. Curated service hero media ──────────────────────────────────────────
   function initServiceHeroMedia() {
