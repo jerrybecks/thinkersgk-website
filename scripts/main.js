@@ -63,6 +63,7 @@
         document.documentElement.setAttribute('lang', lang);
         localStorage.setItem(LANG_KEY, lang);
         document.querySelectorAll('[data-en]').forEach(function(el) {
+            if (el.closest('[data-no-lang-toggle]')) return;
             el.innerHTML = lang === 'ja' ? el.getAttribute('data-ja') : el.getAttribute('data-en');
         });
         document.querySelectorAll('[data-en-placeholder]').forEach(function(el) {
@@ -70,6 +71,7 @@
         });
         var langBtn = document.getElementById('langToggle');
         if (langBtn) langBtn.textContent = lang === 'ja' ? 'EN' : 'JP';
+        document.dispatchEvent(new Event('thinkers:lang-changed'));
     }
 
     function initNavDropdowns() {
