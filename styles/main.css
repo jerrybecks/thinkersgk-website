@@ -2371,6 +2371,9 @@ img { max-width: 100%; display: block; }
 
 .prose a { color: var(--color-accent); }
 .prose a:hover { text-decoration: underline; }
+.prose .btn { color: inherit; text-decoration: none; }
+.prose .btn-primary { color: #fff !important; }
+.prose .btn-ghost { color: var(--color-text) !important; }
 
 
 /* ========================================
@@ -3434,4 +3437,251 @@ html { scroll-behavior: smooth; }
     .blog-grid { grid-template-columns: 1fr; }
     .blog-grid .card-link:first-child { grid-column: span 1; }
     .blog-post-card { padding: 22px 20px 20px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL REVEAL SYSTEM
+   Scoped to html.js-scroll-ready (set by scroll-reveal.js).
+   Elements stay fully visible if JS fails — no FOUC.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Section titles / labels — slide up & fade in */
+.js-scroll-ready .section-title,
+.js-scroll-ready .section-label {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.08s;
+}
+.js-scroll-ready .section-title.is-visible,
+.js-scroll-ready .section-label.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Numbered section markers */
+.js-scroll-ready .section-num {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:
+        opacity  0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js-scroll-ready .section-num.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Standalone .reveal elements */
+.js-scroll-ready .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js-scroll-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Stagger grid children (JS adds .stagger-parent to grids) */
+.js-scroll-ready .stagger-parent > * {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+        opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js-scroll-ready .stagger-parent > *.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* prefers-reduced-motion — disable all reveal animations */
+@media (prefers-reduced-motion: reduce) {
+    .js-scroll-ready .section-title,
+    .js-scroll-ready .section-label,
+    .js-scroll-ready .section-num,
+    .js-scroll-ready .reveal,
+    .js-scroll-ready .stagger-parent > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION LABEL — animated underline on reveal
+   ═══════════════════════════════════════════════════════════════ */
+.section-label {
+    position: relative;
+    display: inline-block;
+}
+.section-label::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+.section-label.is-visible::after {
+    transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+    .section-label::after { transition: none; transform: scaleX(1); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   NUMBERED SECTION MARKERS  (01 / 02 / 03)
+   ═══════════════════════════════════════════════════════════════ */
+.section-num {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.65;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION-ALT — subtle gradient accent line at top
+   Gives visual rhythm between sections without heavy borders.
+   ═══════════════════════════════════════════════════════════════ */
+.section-alt {
+    position: relative;
+}
+.section-alt::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0.22;
+    pointer-events: none;
+}
+[data-theme="dark"] .section-alt::before {
+    opacity: 0.35;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD — gradient glow border on hover (::before layer)
+   ═══════════════════════════════════════════════════════════════ */
+.card::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius) + 1px);
+    background: linear-gradient(135deg, var(--color-accent), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+.card:hover::before {
+    opacity: 0.12;
+}
+[data-theme="dark"] .card:hover::before {
+    opacity: 0.22;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS — physical active (press) state
+   ═══════════════════════════════════════════════════════════════ */
+.btn {
+    position: relative;
+}
+.btn:active {
+    transform: scale(0.965) translateY(1px) !important;
+    transition: transform 0.08s ease !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MARQUEE — CSS-only auto-scroll ticker
+   ═══════════════════════════════════════════════════════════════ */
+.marquee-wrap {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 0;
+    animation: marquee-scroll 28s linear infinite;
+}
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.1rem;
+    margin-right: 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+[data-theme="dark"] .marquee-item {
+    background: rgba(15, 23, 42, 0.82);
+    border-color: rgba(148, 163, 184, 0.16);
+    color: rgba(226, 232, 240, 0.86);
+}
+.marquee-item::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.55;
+    flex-shrink: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE FIXES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Tighten container on very small phones */
+@media (max-width: 380px) {
+    .container { padding: 0 16px; }
+}
+
+/* Footer: single column on phones */
+@media (max-width: 520px) {
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 28px;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
 }

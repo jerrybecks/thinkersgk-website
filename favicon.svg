@@ -1,43 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb"/>
-      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a3460"/>
+      <stop offset="100%" stop-color="#1e4080"/>
     </linearGradient>
   </defs>
+
   <!-- Background rounded square -->
-  <rect width="100" height="100" rx="20" fill="url(#bgGrad)"/>
+  <rect width="100" height="100" rx="16" fill="url(#bg)"/>
 
-  <!-- Sun dome (half circle) -->
-  <path d="M30 62 A22 22 0 0 1 70 62" fill="#93c5fd" opacity="0.9"/>
-
-  <!-- Horizon line -->
-  <line x1="18" y1="62" x2="82" y2="62" stroke="white" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Sun rays -->
-  <g stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.85">
-    <!-- Center top ray -->
-    <line x1="50" y1="38" x2="50" y2="26"/>
-    <!-- Angled rays left -->
-    <line x1="42" y1="40" x2="36" y2="29"/>
-    <line x1="35" y1="45" x2="24" y2="37"/>
-    <line x1="30" y1="52" x2="18" y2="48"/>
-    <!-- Angled rays right -->
-    <line x1="58" y1="40" x2="64" y2="29"/>
-    <line x1="65" y1="45" x2="76" y2="37"/>
-    <line x1="70" y1="52" x2="82" y2="48"/>
+  <!-- Sun dome + rays, centered at (50, 54) -->
+  <g transform="translate(50,54)">
+    <!-- Dome -->
+    <path d="M-20 0 A20 20 0 0 1 20 0 Z" fill="#a8c8f8" opacity="0.92"/>
+    <!-- Horizon line -->
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+    <!-- Rays — 13 rays matching the real logo -->
+    <g stroke="white" stroke-width="1.4" stroke-linecap="round" opacity="0.85">
+      <line x1="0"    y1="-22" x2="0"    y2="-34"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(-15)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(-30)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(-45)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(-60)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(-75)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(-90)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(15)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(30)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(45)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(60)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(75)"/>
+      <line x1="-6"   y1="-21" x2="-9"   y2="-33" transform="rotate(90)"/>
+    </g>
   </g>
 
-  <!-- Thinker figure (simplified silhouette sitting with head bowed) -->
-  <g fill="white" opacity="0.95">
+  <!-- Thinker silhouette — matches the real logo's Rodin pose -->
+  <g transform="translate(50,56)" fill="white" opacity="0.96">
     <!-- Head -->
-    <circle cx="56" cy="67" r="4.5"/>
-    <!-- Body hunched forward -->
-    <path d="M52 71 C50 74, 48 78, 50 82 L56 82 C55 78, 55 75, 56 72 Z" />
-    <!-- Arm resting on knee going to chin -->
-    <path d="M53 73 C51 72, 50 70, 53 68" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    <!-- Legs -->
-    <path d="M50 82 L44 82 C43 80, 44 77, 48 76" fill="white"/>
-    <path d="M56 82 L60 82 C60 80, 58 78, 55 78" fill="white"/>
+    <circle cx="2" cy="-10" r="5.5"/>
+    <!-- Torso (hunched forward) -->
+    <path d="M-2 -5 C -3 -1, -4 4, -2 9 L 5 9 C 5 4, 4 -1, 4 -5 Z"/>
+    <!-- Left arm: elbow on left knee, hand up to chin -->
+    <path d="M-2 2 C -9 3, -11 0, -8 -7" stroke="white" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+    <!-- Left leg -->
+    <path d="M-2 9 L -9 18 L -5 18 L 0 11 Z"/>
+    <!-- Right leg -->
+    <path d="M5 9 L 10 18 L 14 18 L 7 11 Z"/>
   </g>
 </svg>

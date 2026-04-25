@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="canonical" href="https://www.thinkersgk.com/">
   <link rel="alternate" hreflang="en" href="https://www.thinkersgk.com/">
@@ -81,6 +82,7 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="ef930246-c82a-48a7-a8a7-9b8dde1e0a78"></script>
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -127,7 +129,7 @@
     <div class="container home-cinematic-hero__content">
       <div class="home-cinematic-hero__copy">
         <div class="hero-badge" data-en="Bilingual IT delivery for companies operating in Japan" data-ja="日本で事業を行う企業向けバイリンガルIT支援">Bilingual IT delivery for companies operating in Japan</div>
-        <h1 data-en="Japan IT operations, handled with clarity." data-ja="日本でのIT運用を、明確に前へ。">Japan IT operations, handled with clarity.</h1>
+        <h1 data-en="Japan IT operations, handled with <span class='text-gradient'>clarity.</span>" data-ja="日本でのIT運用を、<span class='text-gradient'>明確に</span>前へ。">Japan IT operations, handled with <span class="text-gradient">clarity.</span></h1>
         <p class="hero-sub" data-en="Thinkers GK supports offices, projects, users, infrastructure, and IT asset work across Japan. One accountable partner. Clear English and Japanese communication. Practical delivery on the ground." data-ja="Thinkers GKは、日本全国でオフィス運用、プロジェクト、ユーザー支援、インフラ、IT資産対応を支援します。一つの責任ある窓口、英語と日本語での明確なコミュニケーション、そして現場で機能する実務対応。">Thinkers GK supports offices, projects, users, infrastructure, and IT asset work across Japan. One accountable partner. Clear English and Japanese communication. Practical delivery on the ground.</p>
         <div class="hero-actions">
           <a href="contact.html" class="btn btn-primary btn-lg" data-en="Request a Consultation" data-ja="ご相談を依頼する">Request a Consultation</a>
@@ -215,15 +217,38 @@
   <section class="home-platform-strip fade-target">
     <div class="container">
       <div class="home-platform-strip__label" data-en="Platforms and environments we commonly support" data-ja="対応プラットフォーム・環境">Platforms and environments we commonly support</div>
-      <div class="home-platform-strip__row">
-        <span>Google Cloud</span>
-        <span>Microsoft 365</span>
-        <span>Cisco</span>
-        <span>VMware</span>
-        <span>Dell EMC</span>
-        <span>Sophos</span>
-        <span>Citrix</span>
-        <span>Oracle</span>
+    </div>
+    <div class="home-platform-strip__marquee" aria-hidden="true">
+      <div class="home-platform-strip__track">
+        <span class="pill">Google Cloud</span>
+        <span class="pill">Microsoft 365</span>
+        <span class="pill">Cisco</span>
+        <span class="pill">VMware</span>
+        <span class="pill">Dell EMC</span>
+        <span class="pill">Sophos</span>
+        <span class="pill">Citrix</span>
+        <span class="pill">Oracle</span>
+        <span class="pill">Intune</span>
+        <span class="pill">Azure AD</span>
+        <span class="pill">CrowdStrike</span>
+        <span class="pill">HP / Lenovo</span>
+        <span class="pill">Fortinet</span>
+        <span class="pill">Zoom</span>
+        <!-- Duplicate set for seamless infinite loop -->
+        <span class="pill">Google Cloud</span>
+        <span class="pill">Microsoft 365</span>
+        <span class="pill">Cisco</span>
+        <span class="pill">VMware</span>
+        <span class="pill">Dell EMC</span>
+        <span class="pill">Sophos</span>
+        <span class="pill">Citrix</span>
+        <span class="pill">Oracle</span>
+        <span class="pill">Intune</span>
+        <span class="pill">Azure AD</span>
+        <span class="pill">CrowdStrike</span>
+        <span class="pill">HP / Lenovo</span>
+        <span class="pill">Fortinet</span>
+        <span class="pill">Zoom</span>
       </div>
     </div>
   </section>
@@ -232,12 +257,13 @@
     <div class="container">
       <div class="section-header-flex">
         <div>
+          <span class="section-num">01</span>
           <div class="section-label" data-en="What we do" data-ja="事業内容">What we do</div>
           <h2 class="section-title" data-en="Services built around real operating needs." data-ja="現場の運用に合わせたサービス。">Services built around real operating needs.</h2>
         </div>
         <a href="services.html" class="btn btn-ghost btn-sm" data-en="View All Services →" data-ja="全サービスを見る →">View All Services →</a>
       </div>
-      <div class="home-service-overview__grid">
+      <div class="home-service-overview__grid stagger-grid">
         <a href="service-it-support.html" class="home-service-card home-service-card--large">
           <div class="home-service-card__media">
             <img src="assets/bilingual-support-800x500.jpg" alt="Bilingual IT support specialist" loading="lazy">
@@ -249,25 +275,37 @@
           </div>
         </a>
         <a href="service-field-engineering.html" class="home-service-card">
+          <div class="home-service-card__icon home-service-card__icon--field">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
           <div class="home-service-card__body">
             <span data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</span>
             <h3 data-en="Hands-on site delivery across Japan." data-ja="日本全国での現地対応。">Hands-on site delivery across Japan.</h3>
             <p data-en="Deployments, swaps, installs, surveys, and coordinated work on the ground." data-ja="導入、交換、設置、調査、現地での実行支援。">Deployments, swaps, installs, surveys, and coordinated work on the ground.</p>
           </div>
+          <div class="home-service-card__arrow">→</div>
         </a>
         <a href="service-cybersecurity.html" class="home-service-card">
+          <div class="home-service-card__icon home-service-card__icon--cyber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
           <div class="home-service-card__body">
             <span data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</span>
             <h3 data-en="Security work with practical operational discipline." data-ja="実務と運用を意識したセキュリティ対応。">Security work with practical operational discipline.</h3>
             <p data-en="Assessments, vulnerability handling, response support, and documented security practices." data-ja="評価、脆弱性対応、初動支援、文書化されたセキュリティ実務。">Assessments, vulnerability handling, response support, and documented security practices.</p>
           </div>
+          <div class="home-service-card__arrow">→</div>
         </a>
         <a href="service-asset-lifecycle.html" class="home-service-card">
+          <div class="home-service-card__icon home-service-card__icon--asset">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
           <div class="home-service-card__body">
             <span data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT Asset Lifecycle</span>
             <h3 data-en="Procurement through disposal, handled cleanly." data-ja="調達から廃棄まで一貫対応。">Procurement through disposal, handled cleanly.</h3>
             <p data-en="Asset coordination, tracking, documentation, and secure end-of-life processing." data-ja="資産調整、追跡、記録、安全な廃棄対応まで整理して支援します。">Asset coordination, tracking, documentation, and secure end-of-life processing.</p>
           </div>
+          <div class="home-service-card__arrow">→</div>
         </a>
       </div>
     </div>
@@ -329,6 +367,7 @@
   <section class="section section-alt home-principles fade-target">
     <div class="container">
       <div class="home-principles__header">
+        <span class="section-num">02</span>
         <div class="section-label" data-en="Why teams engage us" data-ja="選ばれる理由">Why teams engage us</div>
         <h2 class="section-title" data-en="A premium operator feel, grounded in execution." data-ja="見た目ではなく、実行で信頼される体制。">A premium operator feel, grounded in execution.</h2>
       </div>
@@ -360,9 +399,11 @@
     <div class="container">
       <div class="section-header-flex">
         <div class="home-testimonials__meta">
+          <span class="section-num">03</span>
           <div class="section-label" data-en="Client feedback" data-ja="お客様の声">Client feedback</div>
           <h2 class="section-title" data-en="Trusted by IT leaders across Japan." data-ja="日本全国のITリーダーから信頼されています。">Trusted by IT leaders across Japan.</h2>
         </div>
+        <a href="case-studies.html" class="btn btn-ghost btn-sm" data-en="See delivery scenarios →" data-ja="事例を見る →">See delivery scenarios →</a>
       </div>
       <div class="home-testimonials__grid">
         <div class="home-testimonials__card card">
@@ -400,7 +441,34 @@
   </section>
 
   <!-- Team & Trust Band -->
-  <section class="section section-alt home-trust-band fade-target">
+  <!-- Full-bleed dark stats strip -->
+  <section class="home-stats-strip">
+    <div class="container">
+      <div class="home-stats-strip__row">
+        <div class="home-stats-strip__item">
+          <strong data-count="8" data-suffix="+">8+</strong>
+          <span data-en="Major cities covered" data-ja="主要対応都市">Major cities covered</span>
+        </div>
+        <div class="home-stats-strip__divider"></div>
+        <div class="home-stats-strip__item">
+          <strong>EN / JP</strong>
+          <span data-en="Bilingual delivery" data-ja="バイリンガル対応">Bilingual delivery</span>
+        </div>
+        <div class="home-stats-strip__divider"></div>
+        <div class="home-stats-strip__item">
+          <strong>4–8h</strong>
+          <span data-en="Response SLA" data-ja="初期回答SLA">Response SLA</span>
+        </div>
+        <div class="home-stats-strip__divider"></div>
+        <div class="home-stats-strip__item">
+          <strong data-count="100" data-suffix="%">100%</strong>
+          <span data-en="Documented delivery" data-ja="記録付き対応">Documented delivery</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-trust-band fade-target">
     <div class="container">
       <div class="home-trust-band__grid">
         <div class="home-trust-band__image">
@@ -410,20 +478,7 @@
           <div class="section-label" data-en="Our team" data-ja="チーム">Our team</div>
           <h2 class="section-title" data-en="Bilingual engineers. Japan-experienced operators." data-ja="バイリンガルエンジニアと、日本の現場を熟知したオペレーター。">Bilingual engineers. Japan-experienced operators.</h2>
           <p data-en="Our team brings together Japanese engineers, bilingual PMs, and operations staff who understand both the technical reality on the ground and the reporting expectations of international HQs." data-ja="日本人エンジニア、バイリンガルPM、そして現地の技術的実態とグローバル本社の報告要件の両方を理解するオペレーションスタッフで構成されています。">Our team brings together Japanese engineers, bilingual PMs, and operations staff who understand both the technical reality on the ground and the reporting expectations of international HQs.</p>
-          <div class="home-trust-band__stats">
-            <div class="home-trust-band__stat">
-              <strong>8+</strong>
-              <span data-en="Major cities covered" data-ja="主要対応都市">Major cities covered</span>
-            </div>
-            <div class="home-trust-band__stat">
-              <strong>EN/JP</strong>
-              <span data-en="Bilingual delivery" data-ja="バイリンガル対応">Bilingual delivery</span>
-            </div>
-            <div class="home-trust-band__stat">
-              <strong>4–8h</strong>
-              <span data-en="Response SLA" data-ja="初期回答SLA">Response SLA</span>
-            </div>
-          </div>
+          <a href="why-us.html" class="btn btn-ghost btn-sm" data-en="Why teams choose us →" data-ja="選ばれる理由 →">Why teams choose us →</a>
         </div>
       </div>
     </div>
@@ -465,6 +520,7 @@
     <div class="container">
       <div class="home-coverage__frame">
         <div class="home-coverage__copy">
+          <span class="section-num">04</span>
           <div class="section-label" data-en="Coverage" data-ja="対応エリア">Coverage</div>
           <h2 class="section-title" data-en="Tokyo coordination, Japan-wide reach." data-ja="東京で調整し、日本全国で対応。">Tokyo coordination, Japan-wide reach.</h2>
           <p data-en="For offices and sites that need a dependable partner in Japan, we coordinate centrally and execute where the work actually happens." data-ja="日本国内のオフィスや拠点で、中央の調整力と現地での実行力の両方が必要な場面に対応します。">For offices and sites that need a dependable partner in Japan, we coordinate centrally and execute where the work actually happens.</p>
@@ -486,6 +542,58 @@
     </div>
   </section>
 
+  <!-- Latest Insights — asymmetric blog preview -->
+  <section class="home-insights fade-target">
+    <div class="container">
+      <div class="home-insights__head">
+        <div>
+          <div class="section-label" data-en="Latest insights" data-ja="最新インサイト">Latest insights</div>
+          <h2 class="section-title" data-en="From the Thinkers GK blog." data-ja="Thinkers GKブログより。">From the Thinkers GK blog.</h2>
+        </div>
+        <a href="blog/index.html" class="btn btn-ghost btn-sm" data-en="All articles →" data-ja="全記事を見る →">All articles →</a>
+      </div>
+      <div class="home-insights__grid">
+        <!-- Featured post: latest -->
+        <a href="blog/posts/microsoft-copilot-deployment-japan-2026.html" class="home-insights__featured">
+          <img src="assets/blog-microsoft-copilot-japan-2026-800x500.jpg" alt="Deploying Microsoft Copilot in Japan" loading="lazy">
+          <div class="home-insights__feat-body">
+            <div class="home-insights__cat">Cloud &amp; AI</div>
+            <h3 class="home-insights__feat-title" data-en="Deploying Microsoft Copilot in Japan: What IT Teams Need to Know in 2026" data-ja="日本でのMicrosoft Copilot導入：2026年にITチームが知るべきこと">Deploying Microsoft Copilot in Japan: What IT Teams Need to Know in 2026</h3>
+            <p class="home-insights__feat-desc" data-en="Data residency, oversharing risks, and why Japanese staff need a different onboarding approach." data-ja="データ所在地、過剰共有リスク、日本人スタッフへの異なるオンボーディングアプローチが必要な理由。">Data residency, oversharing risks, and why Japanese staff need a different onboarding approach.</p>
+            <span class="home-insights__date">April 17, 2026</span>
+          </div>
+        </a>
+        <!-- Side: 2 secondary posts -->
+        <div class="home-insights__side">
+          <a href="blog/posts/zero-trust-security-for-japanese-enterprises.html" class="home-insights__mini">
+            <img src="assets/blog-zero-trust-enterprise-800x500.jpg" alt="Zero Trust Security for Japanese Enterprises" loading="lazy">
+            <div class="home-insights__mini-body">
+              <div class="home-insights__cat">Zero Trust</div>
+              <p class="home-insights__mini-title" data-en="Zero Trust Security for Japanese Enterprises" data-ja="ゼロトラストセキュリティの日本企業への適用">Zero Trust Security for Japanese Enterprises</p>
+              <span class="home-insights__mini-date">April 7, 2026</span>
+            </div>
+          </a>
+          <a href="blog/posts/disaster-recovery-plan-smb-japan-2026.html" class="home-insights__mini">
+            <img src="assets/blog-disaster-recovery-japan-800x500.jpg" alt="Disaster Recovery Planning for SMBs in Japan" loading="lazy">
+            <div class="home-insights__mini-body">
+              <div class="home-insights__cat">Business Continuity</div>
+              <p class="home-insights__mini-title" data-en="Disaster Recovery Planning for SMBs in Japan (2026)" data-ja="日本の中小企業のための災害復旧計画（2026年）">Disaster Recovery Planning for SMBs in Japan (2026)</p>
+              <span class="home-insights__mini-date">April 2, 2026</span>
+            </div>
+          </a>
+          <a href="blog/posts/enterprise-ai-agent-orchestration-2026.html" class="home-insights__mini">
+            <img src="assets/blog-ai-orchestration-800x500.jpg" alt="Enterprise AI Agent Orchestration in 2026" loading="lazy">
+            <div class="home-insights__mini-body">
+              <div class="home-insights__cat">AI Operations</div>
+              <p class="home-insights__mini-title" data-en="Enterprise AI Agent Orchestration in 2026" data-ja="2026年のエンタープライズAIエージェントオーケストレーション">Enterprise AI Agent Orchestration in 2026</p>
+              <span class="home-insights__mini-date">March 31, 2026</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section home-final-cta fade-target">
     <div class="container">
       <div class="cta-box home-final-cta__box">
@@ -495,6 +603,7 @@
         <div class="cta-actions">
           <a href="contact.html" class="btn btn-primary btn-lg" data-en="Contact Thinkers GK" data-ja="Thinkers GKに相談する">Contact Thinkers GK</a>
           <a href="services.html" class="btn btn-ghost btn-lg" data-en="Review Services" data-ja="サービスを見る">Review Services</a>
+          <a href="case-studies.html" class="btn btn-ghost btn-lg" data-en="Case Studies" data-ja="事例を見る">Case Studies</a>
         </div>
       </div>
     </div>
@@ -513,6 +622,7 @@
           <h4 data-en="Company" data-ja="会社情報">Company</h4>
           <a href="about.html" data-en="About" data-ja="会社概要">About</a>
           <a href="services.html" data-en="Services" data-ja="サービス">Services</a>
+          <a href="case-studies.html" data-en="Case Studies" data-ja="導入事例">Case Studies</a>
           <a href="blog/index.html" data-en="Blog" data-ja="ブログ">Blog</a>
           <a href="contact.html" data-en="Contact" data-ja="お問い合わせ">Contact</a>
           <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
@@ -540,6 +650,32 @@
   </footer>
   <script src="js/chat-widget.js?v=3a" defer></script>
   <script src="scripts/scroll-reveal.js?v=1" defer></script>
+  <script>
+  (function() {
+    var counters = document.querySelectorAll('[data-count]');
+    if (!counters.length || !('IntersectionObserver' in window)) return;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1600;
+        var start = null;
+        function ease(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          el.textContent = Math.floor(ease(progress) * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(c) { observer.observe(c); });
+  })();
+  </script>
   <img src="https://hub.thinkersgk.com/api/visitor/track?p=/" width="1" height="1" alt="" style="display:none" loading="eager" referrerpolicy="no-referrer-when-downgrade">
 </body>
 </html>

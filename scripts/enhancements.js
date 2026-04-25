@@ -48,8 +48,168 @@
     });
   }
 
-  // 3. 3D card tilt — removed
-  function initCardTilt() {}
+  // ── 3. 3D card tilt ────────────────────────────────────────────────────────
+  function initCardTilt() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
+    document.querySelectorAll('.card').forEach(function (card) {
+      card.style.transformStyle = 'preserve-3d';
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var dx = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+        var dy = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+        card.style.transform = 'translateY(-6px) rotateX(' + (dy * -5) + 'deg) rotateY(' + (dx * 5) + 'deg)';
+        card.style.transition = 'transform 0.08s ease';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.45s cubic-bezier(0.22,1,0.36,1)';
+      });
+    });
+  }
+
+  // ── 4. Hero cursor spotlight ────────────────────────────────────────────────
+  function initHeroCursorSpotlight() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
+    var hero = document.querySelector('.home-cinematic-hero');
+    if (!hero) return;
+
+    hero.style.setProperty('--hx', '-999px');
+    hero.style.setProperty('--hy', '-999px');
+    hero.classList.add('has-spotlight');
+
+    var raf = null;
+    hero.addEventListener('mousemove', function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        hero.style.setProperty('--hx', x + 'px');
+        hero.style.setProperty('--hy', y + 'px');
+        raf = null;
+      });
+    });
+    hero.addEventListener('mouseleave', function () {
+      hero.style.setProperty('--hx', '-999px');
+      hero.style.setProperty('--hy', '-999px');
+    });
+  }
+
+  // ── 5. Badge typer — cycles phrases on the hero badge ─────────────────────
+  function initBadgeTyper() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var badge = document.querySelector('.home-cinematic-hero .hero-badge');
+    if (!badge) return;
+
+    var phrasesEn = [
+      'Bilingual IT delivery for companies operating in Japan',
+      'Field engineering across Tokyo and nationwide Japan',
+      'Cybersecurity, ITAD & managed services in Japan',
+      'One accountable IT partner for your Japan office'
+    ];
+    var phrasesJa = [
+      '日本で事業を行う企業向けバイリンガルIT支援',
+      '東京・全国でのフィールドエンジニアリング',
+      'サイバーセキュリティ・ITAD・マネージドサービス',
+      '日本拠点に特化した、信頼できるITパートナー'
+    ];
+
+    var idx = 0;
+    var charIdx = 0;
+    var deleting = false;
+    var pauseCount = 0;
+    var PAUSE_TYPE = 90;    /* ~2.9s at 32ms ticks */
+    var PAUSE_DEL = 12;     /* ~0.4s */
+    var TYPE_SPEED = 38;
+    var DEL_SPEED = 16;
+
+    function getLang() { return document.documentElement.getAttribute('lang') || 'en'; }
+
+    function tick() {
+      var list = getLang() === 'ja' ? phrasesJa : phrasesEn;
+      var target = list[idx % list.length];
+
+      if (pauseCount > 0) { pauseCount--; setTimeout(tick, 32); return; }
+
+      if (!deleting) {
+        charIdx = Math.min(charIdx + 1, target.length);
+        badge.textContent = target.slice(0, charIdx);
+        if (charIdx >= target.length) { deleting = true; pauseCount = PAUSE_TYPE; }
+        setTimeout(tick, TYPE_SPEED);
+      } else {
+        charIdx = Math.max(charIdx - 1, 0);
+        badge.textContent = target.slice(0, charIdx);
+        if (charIdx <= 0) { deleting = false; idx++; pauseCount = PAUSE_DEL; }
+        setTimeout(tick, DEL_SPEED);
+      }
+    }
+
+    /* Let hero load first, then start cycling */
+    charIdx = phrasesEn[0].length;
+    badge.textContent = phrasesEn[0];
+    setTimeout(function () { deleting = true; tick(); }, 3400);
+  }
+
+  // ── 6. Word scramble on hero gradient text ──────────────────────────────────
+  function initWordScramble() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var target = document.querySelector('.home-cinematic-hero .text-gradient');
+    if (!target) return;
+
+    var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var finalText = target.textContent.trim();
+    var duration = 800;
+    var start = null;
+
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var resolved = Math.floor(progress * finalText.length);
+      var result = '';
+      for (var i = 0; i < finalText.length; i++) {
+        if (finalText[i] === ' ' || finalText[i] === '.') {
+          result += finalText[i];
+        } else if (i < resolved) {
+          result += finalText[i];
+        } else {
+          result += CHARS[Math.floor(Math.random() * CHARS.length)];
+        }
+      }
+      target.textContent = result;
+      if (progress < 1) requestAnimationFrame(step);
+      else target.textContent = finalText;
+    }
+
+    /* Fire after hero h1 animate-in (~1.4s delay) */
+    setTimeout(function () { requestAnimationFrame(step); }, 1400);
+  }
+
+  // ── 7. Hero parallax — grid + overlay shift on scroll ──────────────────────
+  function initHeroParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(max-width: 768px)').matches) return;
+
+    var grid = document.querySelector('.home-cinematic-hero__grid');
+    var overlay = document.querySelector('.home-cinematic-hero__overlay');
+    if (!grid) return;
+
+    var raf = null;
+    window.addEventListener('scroll', function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        var y = window.scrollY;
+        grid.style.transform = 'translateY(' + (y * 0.22) + 'px)';
+        if (overlay) overlay.style.transform = 'translateY(' + (y * 0.1) + 'px)';
+        raf = null;
+      });
+    }, { passive: true });
+  }
 
   // ── 4. Curated service hero media ──────────────────────────────────────────
   function initServiceHeroMedia() {
@@ -629,6 +789,10 @@
     initScrollProgress();
     initCardSpotlight();
     initCardTilt();
+    initHeroCursorSpotlight();
+    initBadgeTyper();
+    initWordScramble();
+    initHeroParallax();
     initServiceHeroMedia();
     initServiceLaunchHeroMedia();
     initBlogCardMedia();
