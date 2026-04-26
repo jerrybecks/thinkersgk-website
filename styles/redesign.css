@@ -2938,3 +2938,314 @@ html[lang="ja"] .line-bubble__label-ja { display: inline; }
   .line-cta-card__icon { width: 38px; height: 38px; }
   .line-cta-card__title { font-size: 15px; }
 }
+/* =============================================================================
+   Section header rhythm — unify the 01/02/03/04 numbering across all sections.
+   Also adds styling for the new live ops panel, recent thinking strip, and
+   bilingual proof block introduced in this bundle.
+
+   Append to styles/redesign.css.
+
+   The current site puts .section-num inside .section-header-flex on some
+   sections and inline-with-h2 on others. This pass standardizes both forms
+   so they render identically.
+   ============================================================================= */
+
+/* ── Section number — consistent across both layouts ──────────────────────── */
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+[data-theme="dark"] .section-num {
+  background: rgba(96, 165, 250, 0.12);
+  color: var(--color-accent);
+}
+
+.section-header-flex .section-num {
+  margin-bottom: 8px;
+}
+
+.section-num + .section-label {
+  margin-top: 0;
+}
+
+/* ── Live ops panel — additions to existing home-cinematic-hero__panel ───── */
+
+.home-cinematic-hero__panel--live .home-cinematic-hero__panel-head::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #97C459;
+  border-radius: 50%;
+  margin-left: 8px;
+  box-shadow: 0 0 0 0 rgba(151, 196, 89, 0.7);
+  animation: live-pulse 2.4s ease-out infinite;
+}
+@keyframes live-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(151, 196, 89, 0.6); }
+  70%  { box-shadow: 0 0 0 10px rgba(151, 196, 89, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(151, 196, 89, 0); }
+}
+
+.home-cinematic-hero__metric--live {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+.home-cinematic-hero__metric--live:last-of-type {
+  border-bottom: 0;
+}
+.home-cinematic-hero__metric--live span {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.home-cinematic-hero__metric--live strong {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.home-cinematic-hero__metric--live strong.is-good { color: #97C459; }
+.home-cinematic-hero__metric--live strong.is-warn { color: #EF9F27; }
+
+.home-cinematic-hero__panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  opacity: 0.65;
+}
+.home-cinematic-hero__live-dot {
+  width: 6px;
+  height: 6px;
+  background: #97C459;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.home-cinematic-hero__live-stamp {
+  margin-left: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-cinematic-hero__panel--live .home-cinematic-hero__panel-head::after {
+    animation: none;
+  }
+}
+
+/* ── Recent thinking strip ─────────────────────────────────────────────────── */
+
+.home-recent-thinking__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+@media (max-width: 900px) { .home-recent-thinking__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .home-recent-thinking__grid { grid-template-columns: 1fr; } }
+
+.home-recent-thinking__card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.home-recent-thinking__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+[data-theme="dark"] .home-recent-thinking__card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.home-recent-thinking__media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-bg-alt, #f8f9fb);
+}
+.home-recent-thinking__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.home-recent-thinking__card:hover .home-recent-thinking__media img {
+  transform: scale(1.04);
+}
+
+.home-recent-thinking__body {
+  padding: 16px 18px 20px;
+}
+.home-recent-thinking__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.home-recent-thinking__meta time { font-variant-numeric: tabular-nums; }
+.home-recent-thinking__dot { opacity: 0.5; }
+
+.home-recent-thinking__card h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+.home-recent-thinking__card p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ── Bilingual proof block ─────────────────────────────────────────────────── */
+
+.home-bilingual-proof__header {
+  max-width: 720px;
+  margin: 0 0 28px;
+}
+.home-bilingual-proof__header .section-title { margin-top: 8px; }
+.home-bilingual-proof__header .section-lead {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.home-bilingual-proof__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 720px) { .home-bilingual-proof__grid { grid-template-columns: 1fr; } }
+
+.home-bilingual-proof__pane {
+  padding: 18px 20px 20px;
+}
+
+.home-bilingual-proof__pane-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.home-bilingual-proof__lang-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+[data-theme="dark"] .home-bilingual-proof__lang-flag {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.home-bilingual-proof__pane-meta {
+  font-size: 12px;
+  color: var(--color-text-tertiary, var(--color-text-secondary));
+}
+
+.home-bilingual-proof__ticket-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.home-bilingual-proof__ticket-id {
+  font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+}
+.home-bilingual-proof__ticket-status {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.home-bilingual-proof__ticket-status--resolved {
+  background: rgba(99, 153, 34, 0.12);
+  color: #3B6D11;
+}
+[data-theme="dark"] .home-bilingual-proof__ticket-status--resolved {
+  background: rgba(151, 196, 89, 0.16);
+  color: #C0DD97;
+}
+
+.home-bilingual-proof__ticket-subject {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 6px 0 14px;
+}
+
+.home-bilingual-proof__ticket-fields {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 6px 12px;
+  margin: 0 0 14px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.home-bilingual-proof__ticket-fields dt {
+  color: var(--color-text-tertiary, var(--color-text-secondary));
+  font-weight: 400;
+}
+.home-bilingual-proof__ticket-fields dd {
+  margin: 0;
+}
+
+.home-bilingual-proof__ticket-summary {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--color-border);
+}
+
+.home-bilingual-proof__footnote {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-tertiary, var(--color-text-secondary));
+  font-style: italic;
+}
+
+/* ── data-no-lang-toggle: opt this section out of the EN/JP swap ─────────── */
+[data-no-lang-toggle],
+[data-no-lang-toggle] * {
+  /* The EN/JP toggle script should respect this attribute on a parent.
+     If your setLang() walks all [data-en] elements, add a guard:
+       if (el.closest('[data-no-lang-toggle]')) return;
+     so this section keeps both languages visible regardless of toggle state. */
+}

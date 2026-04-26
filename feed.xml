@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+  <title>Thinkers GK Blog — Japan IT Insights</title>
+  <link>https://www.thinkersgk.com/blog/index.html</link>
+  <description>Practical thinking on IT operations, cybersecurity, cloud, and managed services for businesses in Japan.</description>
+  <language>en</language>
+  <managingEditor>info@thinkersgk.com (Thinkers GK)</managingEditor>
+  <atom:link href="https://www.thinkersgk.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>Sat, 25 Apr 2026 23:59:04 +0000</lastBuildDate>
+  <image>
+    <url>https://www.thinkersgk.com/assets/logo-dark.png</url>
+    <title>Thinkers GK</title>
+    <link>https://www.thinkersgk.com/</link>
+  </image>
+  <item>
+    <title>Japan's Proactive Cyber Defense Strategy 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/japans-new-proactive-cyber-defense-october-2026.html</link>
+    <description>Japan launches a major shift in cyber operations policy — what it means for businesses and IT organizations operating in Japan.</description>
+    <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/japans-new-proactive-cyber-defense-october-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/blog-japans-new-proactive-cyber-defense-october-2026-800x500.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Deploying Microsoft Copilot in Japan: What IT Teams Need to Know in 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/microsoft-copilot-deployment-japan-2026.html</link>
+    <description>Data residency, oversharing risks, and why Japanese staff need a different onboarding approach.</description>
+    <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/microsoft-copilot-deployment-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/blog-microsoft-copilot-japan-2026-800x500.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Choosing the Right Managed Service Provider in Japan (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/choosing-managed-service-provider-japan-2026.html</link>
+    <description>A practical guide to selecting the best MSP in Japan. Evaluation criteria, red flags, and interview questions for SMBs.</description>
+    <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/choosing-managed-service-provider-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/blog-choosing-msp-800x500.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Zero Trust Security for Japanese Enterprises</title>
+    <link>https://www.thinkersgk.com/blog/posts/zero-trust-security-for-japanese-enterprises.html</link>
+    <description>Practical zero trust implementation for Japan-based teams — beyond the buzzword, into actual network segmentation and identity controls.</description>
+    <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/zero-trust-security-for-japanese-enterprises.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>IT Asset Lifecycle Management Best Practices for Japan</title>
+    <link>https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-best-practices-for-japan.html</link>
+    <description>From procurement to secure disposal — how to manage IT assets across your Japan operations without the gaps.</description>
+    <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-best-practices-for-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Edge AI in Japan: A Business Guide for 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/edge-ai-japan-2026-business-guide.html</link>
+    <description>Edge AI is moving from factory floors to office environments. What Japanese businesses need to evaluate before they invest.</description>
+    <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/edge-ai-japan-2026-business-guide.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Enterprise AI Agent Orchestration in 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/enterprise-ai-agent-orchestration-2026.html</link>
+    <description>Multi-agent AI systems are entering enterprise IT. What the orchestration layer looks like and what governance it requires.</description>
+    <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/enterprise-ai-agent-orchestration-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>AI-Powered Attack Evolution in Japan (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-attack-evolution-2026-japan.html</link>
+    <description>Phishing, deepfakes, and automated reconnaissance — how AI is changing the threat landscape specifically for Japan operations.</description>
+    <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-attack-evolution-2026-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>BYOVD &amp; EDR Killers Explained</title>
+    <link>https://www.thinkersgk.com/blog/posts/byovd-edr-killers-explained.html</link>
+    <description>Bring Your Own Vulnerable Driver attacks are disabling endpoint detection tools. What this means for your Japan endpoint security stack.</description>
+    <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/byovd-edr-killers-explained.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/blog-byovd-edr-800x500.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Japan's IT Skills Shortage in 2026: Solutions for Businesses</title>
+    <link>https://www.thinkersgk.com/blog/posts/japan-it-skills-shortage-2026.html</link>
+    <description>Japan faces a critical IT talent gap with 800,000 professionals needed. How managed services can help your business close the gap.</description>
+    <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/japan-it-skills-shortage-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Network as a Service (NaaS) in Japan 2026: The Complete Business Guide</title>
+    <link>https://www.thinkersgk.com/blog/posts/network-as-a-service-japan-2026.html</link>
+    <description>NaaS is transforming Japanese businesses. Market projected to reach $18.3B by 2034 with 29% CAGR.</description>
+    <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/network-as-a-service-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>AI as Tradecraft: How Threat Actors Power Cyberattacks in 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-as-tradecraft-threat-operations-2026.html</link>
+    <description>Threat actors are using AI to speed up reconnaissance, write malware, and automate social engineering. Here's what Japanese businesses need to know.</description>
+    <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-as-tradecraft-threat-operations-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/blog-ai-as-tradecraft-threat-operations-2026-800x500.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>IT Asset Lifecycle Management in 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-2026.html</link>
+    <description>Automated discovery, shadow IT, and sustainable disposal — how ITAM is evolving and what Japan businesses need to keep up.</description>
+    <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Disaster Recovery Planning for SMBs in Japan (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/disaster-recovery-plan-smb-japan-2026.html</link>
+    <description>Most Japan SMBs have no tested recovery plan. Here's a realistic framework to build one without enterprise-level resources.</description>
+    <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/disaster-recovery-plan-smb-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Japan AI Governance 2026: A Business Guide</title>
+    <link>https://www.thinkersgk.com/blog/posts/japan-ai-governance-2026-business-guide.html</link>
+    <description>Japan's AI governance framework is taking shape. What international companies operating in Japan need to understand now.</description>
+    <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/japan-ai-governance-2026-business-guide.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Japan's Proactive Cyber Defense Framework (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/japan-proactive-cyber-defense-october-2026.html</link>
+    <description>Japan is shifting from reactive to proactive cyber defense. What the new legal framework means for private sector businesses.</description>
+    <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/japan-proactive-cyber-defense-october-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Japan APPI Data Protection Guide 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/japan-appi-data-protection-guide-2026.html</link>
+    <description>Japan's Personal Information Protection Act and what it means for your IT systems, vendor contracts, and cross-border data flows.</description>
+    <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/japan-appi-data-protection-guide-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>The Rise of AIOps in IT Operations (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/aiops-rise-it-operations-2026.html</link>
+    <description>AIOps is automating incident detection, root cause analysis, and remediation. How Japan IT teams can start using it without rebuilding from scratch.</description>
+    <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/aiops-rise-it-operations-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>New Ransomware Tactics 2026: What Japanese SMBs Need to Know</title>
+    <link>https://www.thinkersgk.com/blog/posts/ransomware-trends-2026-japan.html</link>
+    <description>Ransomware attacks rose 47% in 2025. DDoS extortion, insider recruitment, and gig worker exploitation — the new tactics hitting Japan businesses.</description>
+    <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ransomware-trends-2026-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Edge AI &amp; Industrial Transformation in Japan (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/edge-ai-industrial-transformation-japan-2026.html</link>
+    <description>Japanese manufacturers are deploying edge AI to reduce downtime and improve quality control. What the infrastructure requirements look like.</description>
+    <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/edge-ai-industrial-transformation-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Green IT &amp; Sustainable Data Centers in Japan</title>
+    <link>https://www.thinkersgk.com/blog/posts/green-it-sustainable-data-centers-japan.html</link>
+    <description>Japan's 2050 carbon neutrality goal is driving data center sustainability requirements. What enterprises need to plan for.</description>
+    <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/green-it-sustainable-data-centers-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>AI as the Backbone of Intelligent Apps in 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-backbone-intelligent-apps-2026.html</link>
+    <description>Enterprise applications are being rebuilt around AI inference layers. What this means for IT infrastructure and vendor selection in Japan.</description>
+    <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-backbone-intelligent-apps-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Zero Trust in Japan: 2026 Implementation Guide</title>
+    <link>https://www.thinkersgk.com/blog/posts/zero-trust-japan-2026.html</link>
+    <description>Japan-specific zero trust rollout: how to handle legacy systems, vendor access, physical site restrictions, and bilingual change management.</description>
+    <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/zero-trust-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Cybersecurity Best Practices for Japan Businesses</title>
+    <link>https://www.thinkersgk.com/blog/posts/cybersecurity-best-practices.html</link>
+    <description>The security controls that matter most — endpoint hardening, email filtering, MFA, and incident response basics for Japan operations.</description>
+    <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/cybersecurity-best-practices.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>AI and the Revolution in Managed IT Services Japan</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-revolution-managed-it-services-japan.html</link>
+    <description>AI is changing what managed IT looks like — from monitoring to auto-remediation. How Japan MSPs are adapting and what clients should expect.</description>
+    <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-revolution-managed-it-services-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Managed Security Services: SMB Guide 2026</title>
+    <link>https://www.thinkersgk.com/blog/posts/managed-security-services-smb-guide-2026.html</link>
+    <description>What managed security services actually include, how to evaluate MSSP proposals, and what SLAs to demand for Japan operations.</description>
+    <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/managed-security-services-smb-guide-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Agentic AI, Workplace Security &amp; Governance</title>
+    <link>https://www.thinkersgk.com/blog/posts/agentic-ai-workplace-security-governance.html</link>
+    <description>Autonomous AI agents in the workplace introduce new security and governance risks. What policies Japan IT teams need to put in place.</description>
+    <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/agentic-ai-workplace-security-governance.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Zero Trust Security Explained</title>
+    <link>https://www.thinkersgk.com/blog/posts/zero-trust-security-explained.html</link>
+    <description>Never trust, always verify — what zero trust actually means in practice for IT teams managing hybrid and cloud environments.</description>
+    <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/zero-trust-security-explained.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Passwordless Authentication Explained</title>
+    <link>https://www.thinkersgk.com/blog/posts/passwordless-authentication-explained.html</link>
+    <description>FIDO2, passkeys, and biometrics — how passwordless works, what it doesn't solve, and how Japan enterprises are rolling it out.</description>
+    <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/passwordless-authentication-explained.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Understanding Managed IT Services</title>
+    <link>https://www.thinkersgk.com/blog/posts/understanding-managed-services.html</link>
+    <description>What managed IT services actually cover, how to evaluate providers, and what questions to ask before signing an MSP contract in Japan.</description>
+    <pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/understanding-managed-services.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/blog-understanding-managed-services-800x500.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Data Destruction Essentials for Japan Businesses</title>
+    <link>https://www.thinkersgk.com/blog/posts/data-destruction-essentials.html</link>
+    <description>NIST 800-88, degaussing, physical destruction — what data sanitization methods are right for your hardware and compliance requirements.</description>
+    <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/data-destruction-essentials.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Post-Quantum Cryptography: What Japan Businesses Need to Plan For</title>
+    <link>https://www.thinkersgk.com/blog/posts/post-quantum-cryptography-japan-2026.html</link>
+    <description>NIST finalized post-quantum standards. When to act, what systems to inventory, and how to start a crypto agility roadmap in Japan.</description>
+    <pubDate>Fri, 20 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/post-quantum-cryptography-japan-2026.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>The AI Maturity Curve for Japanese Businesses</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-maturity-curve-japanese-businesses.html</link>
+    <description>Where most Japanese businesses actually sit on the AI adoption curve and what separates those making real progress from those still experimenting.</description>
+    <pubDate>Wed, 18 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-maturity-curve-japanese-businesses.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Evolving Cyber Threats for Japanese SMBs</title>
+    <link>https://www.thinkersgk.com/blog/posts/evolving-cyber-threats-japanese-smbs.html</link>
+    <description>Supply chain attacks, BEC fraud, and ransomware-as-a-service — the threat vectors most likely to hit Japan small and mid-sized businesses.</description>
+    <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/evolving-cyber-threats-japanese-smbs.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>AI Security Threats in Japan (2026)</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-security-threats-2026-japan.html</link>
+    <description>Prompt injection, model poisoning, and AI supply chain attacks — the emerging security threats that Japan IT teams need to understand.</description>
+    <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-security-threats-2026-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>AI Practical Applications &amp; Cloud Integration</title>
+    <link>https://www.thinkersgk.com/blog/posts/ai-practical-applications-cloud-integration.html</link>
+    <description>Moving past AI pilots — practical applications that are delivering real ROI in cloud-connected Japan enterprise environments.</description>
+    <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/ai-practical-applications-cloud-integration.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>Asahi Cyberattack: Case Study &amp; Lessons for Japan Businesses</title>
+    <link>https://www.thinkersgk.com/blog/posts/asahi-cyberattack-case-study-japan.html</link>
+    <description>Breaking down a major Japan cyberattack — what happened, how it could have been prevented, and what every Japan IT team should take from it.</description>
+    <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/asahi-cyberattack-case-study-japan.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+  <item>
+    <title>The Year of Truth for AI in Japanese SMBs</title>
+    <link>https://www.thinkersgk.com/blog/posts/the-year-of-truth-for-ai-japanese-smbs.html</link>
+    <description>After years of AI hype, 2026 is separating businesses seeing real results from those still stuck in proof-of-concept mode.</description>
+    <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+    <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/the-year-of-truth-for-ai-japanese-smbs.html</guid>
+    <enclosure url="https://www.thinkersgk.com/assets/about-hero-1400x600.jpg" type="image/jpeg" length="0"/>
+  </item>
+</channel>
+</rss>

@@ -10,6 +10,33 @@
      CSS animations in main.css also check this query. */
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  /* Pre-mark elements already in the viewport so they never flash hidden
+     when js-scroll-ready is added below. */
+  function inViewport(el) {
+    var r = el.getBoundingClientRect();
+    return r.bottom > 0 && r.top < window.innerHeight;
+  }
+  function preReveal() {
+    document.querySelectorAll('.section-title, .section-label').forEach(function (el) {
+      if (el.closest('.home-cinematic-hero, .service-page-hero, .page-header, .hero')) return;
+      if (inViewport(el)) el.classList.add('is-visible');
+    });
+    document.querySelectorAll('.section-num, .reveal').forEach(function (el) {
+      if (inViewport(el)) el.classList.add('is-visible');
+    });
+    var STAGGER_GRIDS = [
+      '.cards-grid', '.home-service-overview__grid', '.home-testimonials__grid',
+      '.home-signature-offers__grid', '.home-principles__grid', '.cs-grid'
+    ].join(',');
+    document.querySelectorAll(STAGGER_GRIDS).forEach(function (grid) {
+      if (!inViewport(grid)) return;
+      Array.from(grid.children).forEach(function (child) {
+        child.classList.add('is-visible');
+      });
+    });
+  }
+  preReveal();
+
   /* Signal to CSS that JS loaded — used to gate initial hidden states */
   document.documentElement.classList.add('js-scroll-ready');
 
