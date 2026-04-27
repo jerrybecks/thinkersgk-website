@@ -914,17 +914,9 @@
     function initHeroTextAnim() {
         var el = document.querySelector('.hero-title-animated');
         if (!el) return;
-        var text = el.getAttribute('data-text') || el.textContent;
-        el.textContent = '';
-        el.style.opacity = '1';
-        var chars = text.split('');
-        chars.forEach(function(char, i) {
-            var span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char;
-            span.className = 'hero-char';
-            span.style.animationDelay = (i * 0.04 + 0.5) + 's';
-            el.appendChild(span);
-        });
+        // Animate heading as one unit — no per-character splitting
+        el.style.animation = 'fadeInUp 0.8s ease 0.3s both';
+        el.style.opacity = '';
     }
 
     // ── Logo Bar Scroll ─────────────────────────────
