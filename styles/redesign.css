@@ -2885,55 +2885,39 @@ article.blog-card.card img {
   .line-bubble:hover { transform: none; }
 }
 
-/* ── LINE inline CTA card (contact page) ───────────────────────────────── */
-.line-cta-card {
+/* ── Contact form — submit row with inline LINE option ──────────────────── */
+.contact-submit-row {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 20px 24px;
-  background: linear-gradient(135deg, #06C755 0%, #05B34A 100%);
-  border-radius: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.contact-line-inline {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #06C755;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(6, 199, 85, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin: 24px 0;
-}
-.line-cta-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(6, 199, 85, 0.35);
-}
-.line-cta-card__icon {
-  width: 44px;
-  height: 44px;
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 10px;
-  padding: 8px;
+  box-shadow: 0 3px 10px rgba(6, 199, 85, 0.38);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.line-cta-card__icon svg { width: 100%; height: 100%; }
-.line-cta-card__copy { flex: 1; }
-.line-cta-card__title {
-  margin: 0 0 4px 0;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.3;
+.contact-line-inline:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 16px rgba(6, 199, 85, 0.5);
 }
-.line-cta-card__sub {
-  margin: 0;
+.contact-line-inline svg {
+  width: 24px;
+  height: 24px;
+}
+.contact-line-label {
   font-size: 13px;
-  opacity: 0.92;
-  line-height: 1.4;
-}
-.line-cta-card__arrow {
-  font-size: 22px;
-  opacity: 0.85;
-}
-
-@media (max-width: 480px) {
-  .line-cta-card { padding: 16px; gap: 12px; }
-  .line-cta-card__icon { width: 38px; height: 38px; }
-  .line-cta-card__title { font-size: 15px; }
+  color: var(--color-text-secondary, #6b7280);
 }
 /* =============================================================================
    Section header rhythm — unify the 01/02/03/04 numbering across all sections.
