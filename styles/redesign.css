@@ -2836,51 +2836,49 @@ article.blog-card.card img {
 
 /* ── LINE buttons ────────────────────────────────────────────────────────── */
 /* ── LINE floating button ──────────────────────────────────────────────── */
+/* LINE bubble — circular icon-only, sits to the left of the AI chat button */
 .line-bubble {
   position: fixed;
   bottom: 24px;
-  right: 24px;
-  z-index: 60;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 18px 12px 14px;
+  right: 96px; /* 24px (AI button right) + 60px (AI button width) + 12px gap */
+  z-index: 10000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   background: #06C755;
   color: #fff;
-  border-radius: 999px;
-  font-family: var(--font-sans, system-ui, sans-serif);
-  font-size: 14px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(6, 199, 85, 0.32), 0 2px 6px rgba(0, 0, 0, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 16px rgba(6, 199, 85, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .line-bubble:hover {
-  transform: translateY(-2px);
-  background: #05B34A;
-  box-shadow: 0 10px 28px rgba(6, 199, 85, 0.4), 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: scale(1.08);
+  box-shadow: 0 6px 24px rgba(6, 199, 85, 0.5);
 }
 .line-bubble:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 2px;
 }
 .line-bubble__icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
+/* Hide text labels — icon-only design */
+.line-bubble__label-en,
 .line-bubble__label-ja { display: none; }
-html[lang="ja"] .line-bubble__label-en { display: none; }
-html[lang="ja"] .line-bubble__label-ja { display: inline; }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .line-bubble {
     bottom: 16px;
-    right: 16px;
-    padding: 10px 14px 10px 12px;
-    font-size: 13px;
+    right: 82px; /* 16px + 54px (mobile AI btn) + 12px gap */
+    width: 54px;
+    height: 54px;
   }
-  .line-bubble__icon { width: 20px; height: 20px; }
+  .line-bubble__icon { width: 24px; height: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .line-bubble { transition: none; }
