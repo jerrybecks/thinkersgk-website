@@ -155,40 +155,8 @@
     setTimeout(function () { deleting = true; tick(); }, 3400);
   }
 
-  // ── 6. Word scramble on hero gradient text ──────────────────────────────────
-  function initWordScramble() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var target = document.querySelector('.home-cinematic-hero .text-gradient');
-    if (!target) return;
-
-    var CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    var finalText = target.textContent.trim();
-    var duration = 800;
-    var start = null;
-
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var resolved = Math.floor(progress * finalText.length);
-      var result = '';
-      for (var i = 0; i < finalText.length; i++) {
-        if (finalText[i] === ' ' || finalText[i] === '.') {
-          result += finalText[i];
-        } else if (i < resolved) {
-          result += finalText[i];
-        } else {
-          result += CHARS[Math.floor(Math.random() * CHARS.length)];
-        }
-      }
-      target.textContent = result;
-      if (progress < 1) requestAnimationFrame(step);
-      else target.textContent = finalText;
-    }
-
-    /* Fire after hero h1 animate-in (~1.4s delay) */
-    setTimeout(function () { requestAnimationFrame(step); }, 1400);
-  }
+  // ── 6. Word scramble removed — caused visible glitch on every page load ───────
+  function initWordScramble() { /* disabled */ }
 
   // ── 7. Hero parallax — grid + overlay shift on scroll ──────────────────────
   function initHeroParallax() {
