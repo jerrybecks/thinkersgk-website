@@ -208,11 +208,7 @@
         <!-- Header -->
         <div class="tgk-chat-header">
           <div class="tgk-chat-header-info">
-            <div class="tgk-chat-avatar">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-              </svg>
-            </div>
+            <img src="assets/logo-light.png" alt="Thinkers GK" class="tgk-chat-logo">
             <div>
               <div class="tgk-chat-title">${t('title')}</div>
               <div class="tgk-chat-subtitle">${t('subtitle')}</div>
@@ -600,14 +596,12 @@
         align-items: center;
         gap: 10px;
       }
-      .tgk-chat-avatar {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .tgk-chat-logo {
+        height: 30px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        flex-shrink: 0;
       }
       .tgk-chat-title {
         font-family: var(--font, 'Inter', sans-serif);
