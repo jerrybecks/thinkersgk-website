@@ -70,7 +70,7 @@
             el.placeholder = lang === 'ja' ? el.getAttribute('data-ja-placeholder') : el.getAttribute('data-en-placeholder');
         });
         var langBtn = document.getElementById('langToggle');
-        if (langBtn) langBtn.textContent = lang === 'ja' ? 'EN' : 'JP';
+        if (langBtn) langBtn.textContent = lang === 'ja' ? 'EN / 日本語' : 'EN / JP';
         document.dispatchEvent(new Event('thinkers:lang-changed'));
     }
 
@@ -927,6 +927,34 @@
         track.innerHTML = clone + clone;
     }
 
+    function initPlatformMarquee() {
+        document.querySelectorAll('[data-marquee-track]').forEach(function(track) {
+            if (track.dataset.marqueeReady === 'true') return;
+            var set = track.querySelector('.home-platform-strip__set');
+            if (!set) return;
+
+            var clone = set.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+            track.dataset.marqueeReady = 'true';
+            track.classList.add('is-marquee-ready');
+        });
+    }
+
+    function removeDuplicateThinkingSection() {
+        document.querySelectorAll('.home-recent-thinking').forEach(function(section) {
+            section.remove();
+        });
+
+        document.querySelectorAll('.section-label').forEach(function(label) {
+            var text = (label.textContent || '').trim().toLowerCase();
+            if (text === 'latest from our team') {
+                var section = label.closest('section');
+                if (section) section.remove();
+            }
+        });
+    }
+
     // ── DOM Ready ──────────────────────────────────
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -984,6 +1012,8 @@
         initCounters();
         initHeroTextAnim();
         initLogoScroll();
+        initPlatformMarquee();
+        removeDuplicateThinkingSection();
     });
 
 })();

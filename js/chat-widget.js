@@ -531,10 +531,10 @@
       /* ─── Bubble ─── */
       .tgk-chat-bubble {
         position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 60px;
-        height: 60px;
+        bottom: var(--floating-control-bottom, 24px);
+        right: var(--floating-chat-right, 94px);
+        width: var(--floating-control-size, 56px);
+        height: var(--floating-control-size, 56px);
         border-radius: 50%;
         background: var(--color-accent, #2563eb);
         color: #fff;
@@ -545,7 +545,7 @@
         justify-content: center;
         box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
-        z-index: 10000;
+        z-index: 9200;
       }
       .tgk-chat-bubble:hover {
         transform: scale(1.08);
@@ -559,10 +559,10 @@
       /* ─── Panel ─── */
       .tgk-chat-panel {
         position: fixed;
-        bottom: 96px;
-        right: 24px;
+        bottom: calc(var(--floating-control-bottom, 24px) + var(--floating-control-size, 56px) + var(--floating-control-gap, 14px));
+        right: var(--floating-control-right, 24px);
         width: 380px;
-        max-height: 560px;
+        max-height: min(560px, calc(100vh - 220px));
         background: var(--color-bg, #ffffff);
         border: 1px solid var(--color-border, #e5e7eb);
         border-radius: 16px;
@@ -570,7 +570,7 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        z-index: 9999;
+        z-index: 9300;
         opacity: 0;
         transform: translateY(20px) scale(0.95);
         pointer-events: none;
@@ -827,15 +827,15 @@
         .tgk-chat-panel {
           width: calc(100vw - 16px);
           right: 8px;
-          bottom: 88px;
-          max-height: calc(100vh - 120px);
+          bottom: calc(var(--floating-control-bottom, 16px) + var(--floating-control-size, 52px) + var(--floating-control-gap, 10px));
+          max-height: calc(100vh - 110px);
           border-radius: 12px;
         }
         .tgk-chat-bubble {
-          bottom: 16px;
-          right: 16px;
-          width: 54px;
-          height: 54px;
+          bottom: var(--floating-control-bottom, 16px);
+          right: var(--floating-chat-right, 78px);
+          width: var(--floating-control-size, 52px);
+          height: var(--floating-control-size, 52px);
         }
       }
 
