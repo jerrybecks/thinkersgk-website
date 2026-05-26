@@ -1,4 +1,4 @@
-const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/b28ca6f6df8643d4a346659a270b98481c679eb7";
+const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/73d94db19737ae27adb3b2408524f88ed786772a";
 
 const ASSETS = new Map([
   ["/", { path: "/index.html", type: "text/html; charset=utf-8" }],
