@@ -2150,6 +2150,12 @@ article.blog-card.card img {
     .home-platform-strip__track { animation: none; }
 }
 
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+    .home-platform-strip__track.is-marquee-ready {
+        animation-duration: 44s;
+    }
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    SECTION PRINCIPLES GRID — improved card variety
@@ -2293,19 +2299,6 @@ article.blog-card.card img {
     background: rgba(16, 185, 129, 0.15);
 }
 
-/* Arrow indicator */
-.home-service-card__arrow {
-    padding: 0 1.35rem 1.2rem;
-    font-size: 1.1rem;
-    color: var(--color-accent);
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.home-service-card:hover .home-service-card__arrow {
-    opacity: 1;
-    transform: translateX(0);
-}
 /* Give icon-based cards a left accent border on hover */
 .home-service-card:not(.home-service-card--large):hover {
     border-left: 3px solid var(--color-accent);
