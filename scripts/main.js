@@ -193,6 +193,33 @@
         else menu.appendChild(link);
     }
 
+    function normalizeFooterContent() {
+        var currentYear = String(new Date().getFullYear());
+
+        document.querySelectorAll('.footer .footer-col').forEach(function(col) {
+            var heading = col.querySelector('h4');
+            var headingText = heading ? (heading.getAttribute('data-en') || heading.textContent || '').trim().toLowerCase() : '';
+            if (headingText !== 'company') return;
+
+            col.querySelectorAll('a[href$="contact.html"]').forEach(function(link) {
+                link.setAttribute('data-en', 'Get in Touch');
+                link.setAttribute('data-ja', 'お問い合わせ');
+                link.textContent = document.documentElement.lang === 'ja' ? 'お問い合わせ' : 'Get in Touch';
+            });
+        });
+
+        document.querySelectorAll('.footer-bottom p').forEach(function(copy) {
+            var text = copy.textContent || '';
+            if (!/Thinkers GK/.test(text)) return;
+
+            var en = '&copy; ' + currentYear + ' Thinkers GK (合同会社 Thinkers). All rights reserved.';
+            var ja = '&copy; ' + currentYear + ' Thinkers GK (合同会社 Thinkers). 全著作権所有。';
+            copy.setAttribute('data-en', en);
+            copy.setAttribute('data-ja', ja);
+            copy.innerHTML = document.documentElement.lang === 'ja' ? ja : en;
+        });
+    }
+
     // ── Morphing Particle Network ──────────────────
     // Particles float freely, then morph into service-related shapes.
     // Each service page defines its shapes via data-particle-shapes attribute.
@@ -970,6 +997,7 @@
 
         initNavDropdowns();
         initWhyUsNavLink();
+        normalizeFooterContent();
 
         // Language toggle button
         var langBtn = document.getElementById('langToggle');
