@@ -1388,7 +1388,7 @@ html {
 
 .home-service-card__body p {
     margin: 0;
-    color: var(--color-text-secondary);
+    color: #4b5563;
     line-height: 1.75;
 }
 
@@ -1658,6 +1658,10 @@ html {
 [data-theme="dark"] .home-motion-band__text p,
 [data-theme="dark"] .home-coverage__copy p {
     color: rgba(203, 213, 225, 0.82);
+}
+
+[data-theme="dark"] .home-service-card__body p {
+    color: rgba(226, 232, 240, 0.9);
 }
 
 .home-coverage__visual img {
