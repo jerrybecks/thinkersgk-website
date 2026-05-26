@@ -57,6 +57,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 104px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -921,10 +922,20 @@ img { max-width: 100%; display: block; }
 /* ========================================
    SECTIONS
    ======================================== */
-.section { padding: 100px 0; }
+.section {
+    padding: 100px 0;
+    scroll-margin-top: 104px;
+}
+.page-header,
+.service-page-hero,
+.hero,
+.home-cinematic-hero {
+    scroll-margin-top: 104px;
+}
 .section-alt { background: var(--color-bg-alt); }
 
 .section-label {
+    scroll-margin-top: 112px;
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--color-accent);

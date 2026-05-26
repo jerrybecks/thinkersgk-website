@@ -17,6 +17,7 @@
 - Website: Removed redundant service-card hover arrows, aligned the footer contact link with the `Start a Project` CTA language, and slowed the platform marquee on mobile.
 - Website: Added CSS hover/focus support for the Services dropdown and row hover highlighting for the homepage support matrix.
 - Website: Increased homepage service-card description contrast in light and dark themes for better readability.
+- Website: Fixed case-study cards in dark mode by aligning their inline card colors with the global theme variables, and added sticky-header scroll offset spacing for section anchors.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
