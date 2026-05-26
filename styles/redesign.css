@@ -2938,51 +2938,7 @@ article.blog-card.card img {
 }
 
 
-/* ── LINE buttons ────────────────────────────────────────────────────────── */
 /* ── Floating contact controls ─────────────────────────────────────────── */
-:root {
-  --floating-control-size: 56px;
-  --floating-control-gap: 14px;
-  --floating-control-right: 24px;
-  --floating-control-bottom: 24px;
-  --floating-chat-right: calc(var(--floating-control-right) + var(--floating-control-size) + var(--floating-control-gap));
-}
-
-/* LINE bubble — circular icon-only, kept at the far-right edge */
-.line-bubble {
-  position: fixed;
-  bottom: var(--floating-control-bottom);
-  right: var(--floating-control-right);
-  z-index: 9100;
-  width: var(--floating-control-size);
-  height: var(--floating-control-size);
-  border-radius: 50%;
-  background: #06C755;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 16px rgba(6, 199, 85, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.line-bubble:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 24px rgba(6, 199, 85, 0.5);
-}
-.line-bubble:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 2px;
-}
-.line-bubble__icon {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-}
-/* Hide text labels — icon-only design */
-.line-bubble__label-en,
-.line-bubble__label-ja { display: none; }
-
 #tgk-chat-widget .tgk-chat-bubble {
   bottom: var(--floating-control-bottom);
   right: var(--floating-chat-right);
@@ -2999,21 +2955,6 @@ article.blog-card.card img {
 }
 
 @media (max-width: 480px) {
-  :root {
-    --floating-control-size: 52px;
-    --floating-control-gap: 10px;
-    --floating-control-right: 16px;
-    --floating-control-bottom: 16px;
-    --floating-chat-right: calc(var(--floating-control-right) + var(--floating-control-size) + var(--floating-control-gap));
-  }
-
-  .line-bubble {
-    width: var(--floating-control-size);
-    height: var(--floating-control-size);
-  }
-
-  .line-bubble__icon { width: 24px; height: 24px; }
-
   #tgk-chat-widget .tgk-chat-panel {
     right: 8px;
     bottom: calc(var(--floating-control-bottom) + var(--floating-control-size) + var(--floating-control-gap));
@@ -3021,11 +2962,6 @@ article.blog-card.card img {
     max-height: calc(100vh - 110px);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .line-bubble { transition: none; }
-  .line-bubble:hover { transform: none; }
-}
-
 /* ── Contact form — submit row with inline LINE option ──────────────────── */
 .contact-submit-row {
   display: flex;
