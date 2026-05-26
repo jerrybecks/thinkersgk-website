@@ -15,6 +15,7 @@
 - Website: Bumped homepage asset versions and moved the chat widget offsets into the widget CSS itself so cached files cannot keep the old overlapping controls alive.
 - Website: Switched floating contact controls to a clearly separated horizontal layout, strengthened language-toggle contrast, and added defensive hiding/removal for any stale duplicate team-insights block.
 - Website: Removed redundant service-card hover arrows, aligned the footer contact link with the `Start a Project` CTA language, and slowed the platform marquee on mobile.
+- Website: Added CSS hover/focus support for the Services dropdown and row hover highlighting for the homepage support matrix.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
