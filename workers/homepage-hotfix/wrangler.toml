@@ -5,6 +5,7 @@ compatibility_date = "2026-05-26"
 routes = [
   { pattern = "www.thinkersgk.com/", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/index.html", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/case-studies.html", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/styles/main.css*", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/styles/redesign.css*", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/scripts/main.js*", zone_name = "thinkersgk.com" },
