@@ -78,6 +78,10 @@ img {
     display: block;
 }
 
+.invert-dark {
+    filter: invert(1) brightness(2);
+}
+
 :root {
     --floating-control-size: 56px;
     --floating-control-gap: 14px;
@@ -2952,9 +2956,6 @@ article[id] {
 /* ========================================
    3D ENHANCEMENTS — Additive Styles
    ======================================== */
-
-/* Smooth scroll */
-html { scroll-behavior: smooth; }
 
 /* Hero 3D background canvas */
 #hero3d {

@@ -21,6 +21,7 @@
 - Website: Expanded sticky-header scroll clearance to all section wrappers and bumped the homepage/case-study stylesheet cache key.
 - Website: Added main-stylesheet fallback sizing for the LINE floating button on legacy blog posts, normalized footer contact labels, and made footer copyright years update from JavaScript.
 - Website: Removed duplicate LINE floating-button sizing from the redesign stylesheet so `main.css` owns the global widget coordinates.
+- Website: Updated the global logo/icon assets from the supplied Thinkers GK mark, cache-busted logo references, added richer favicon metadata to active layouts, and added a reusable `.invert-dark` image utility.
 
 ## [2026-05-10] - Lead Architect (Codex)
 

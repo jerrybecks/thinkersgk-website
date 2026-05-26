@@ -9,6 +9,7 @@
 
     // ── Theme Toggle (Dark/Light) ──────────────────
     const THEME_KEY = 'thinkers-theme';
+    const LOGO_VERSION = 'v=20260527';
 
     function getPreferredTheme() {
         const stored = localStorage.getItem(THEME_KEY);
@@ -37,11 +38,11 @@
         var logos = document.querySelectorAll('.nav-logo');
         logos.forEach(function(logo) {
             var src = logo.getAttribute('src') || '';
-            if (theme === 'dark') {
-                logo.src = src.replace('logo.png', 'logo-dark.png');
-            } else {
-                logo.src = src.replace('logo-dark.png', 'logo.png');
+            var nextSrc = theme === 'dark' ? src.replace('logo.png', 'logo-dark.png') : src.replace('logo-dark.png', 'logo.png');
+            if (/logo(?:-dark|-light)?\.png/i.test(nextSrc) && !/[?&]v=/.test(nextSrc)) {
+                nextSrc += (nextSrc.indexOf('?') === -1 ? '?' : '&') + LOGO_VERSION;
             }
+            logo.src = nextSrc;
         });
     }
 

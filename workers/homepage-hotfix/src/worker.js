@@ -7,7 +7,15 @@ const ASSETS = new Map([
   ["/styles/main.css", { path: "/styles/main.css", type: "text/css; charset=utf-8" }],
   ["/styles/redesign.css", { path: "/styles/redesign.css", type: "text/css; charset=utf-8" }],
   ["/scripts/main.js", { path: "/scripts/main.js", type: "application/javascript; charset=utf-8" }],
-  ["/js/chat-widget.js", { path: "/js/chat-widget.js", type: "application/javascript; charset=utf-8" }]
+  ["/js/chat-widget.js", { path: "/js/chat-widget.js", type: "application/javascript; charset=utf-8" }],
+  ["/assets/logo.png", { path: "/assets/logo.png", type: "image/png" }],
+  ["/assets/logo-dark.png", { path: "/assets/logo-dark.png", type: "image/png" }],
+  ["/assets/logo-light.png", { path: "/assets/logo-light.png", type: "image/png" }],
+  ["/apple-touch-icon.png", { path: "/apple-touch-icon.png", type: "image/png" }],
+  ["/favicon.png", { path: "/favicon.png", type: "image/png" }],
+  ["/favicon-48.png", { path: "/favicon-48.png", type: "image/png" }],
+  ["/favicon.ico", { path: "/favicon.ico", type: "image/x-icon" }],
+  ["/favicon.svg", { path: "/favicon.svg", type: "image/svg+xml; charset=utf-8" }]
 ]);
 
 export default {
