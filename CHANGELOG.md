@@ -18,6 +18,7 @@
 - Website: Added CSS hover/focus support for the Services dropdown and row hover highlighting for the homepage support matrix.
 - Website: Increased homepage service-card description contrast in light and dark themes for better readability.
 - Website: Fixed case-study cards in dark mode by aligning their inline card colors with the global theme variables, and added sticky-header scroll offset spacing for section anchors.
+- Website: Expanded sticky-header scroll clearance to all section wrappers and bumped the homepage/case-study stylesheet cache key.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
