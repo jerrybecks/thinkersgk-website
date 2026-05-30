@@ -1,0 +1,32 @@
+name = "thinkersgk-email-inbox"
+main = "index.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# Optional HTTP routes so the inbox endpoints can be served from your domain
+# (in addition to the workers.dev URL).
+routes = [
+  { pattern = "thinkersgk.com/ping", zone_name = "thinkersgk.com" },
+  { pattern = "thinkersgk.com/api/inbox*", zone_name = "thinkersgk.com" },
+  { pattern = "thinkersgk.com/api/delivery*", zone_name = "thinkersgk.com" },
+  { pattern = "thinkersgk.com/api/resend-webhook*", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/ping", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/api/inbox*", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/api/delivery*", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/api/resend-webhook*", zone_name = "thinkersgk.com" },
+]
+
+# KV namespace — create with: wrangler kv:namespace create INBOX_KV
+# Then replace <KV_NAMESPACE_ID> below with the returned id
+[[kv_namespaces]]
+binding = "INBOX_KV"
+id = "40803738d7064210b3a17d8ff2e92c82"
+
+[triggers]
+# Cloudflare Email Routing → Worker trigger (configured in CF dashboard)
+# Dashboard > Email > Email Routing > Rules > "Send to Worker" → thinkersgk-email-inbox
+# The email handler in index.js receives EmailEvent automatically.
+
+[build]
+command = ""
