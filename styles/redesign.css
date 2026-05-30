@@ -2199,6 +2199,29 @@ article.blog-card.card img {
     pointer-events: none;
 }
 
+/* Explicit star element (semantic complement to the ::before CSS stars) */
+.home-testimonials__stars {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: #f59e0b;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+    user-select: none;
+}
+/* Hide the CSS ::before stars when explicit HTML stars are present */
+.home-testimonials__card.card:has(.home-testimonials__stars)::before {
+    display: none;
+}
+
+/* Testimonial card hover — subtle accent border lift */
+.home-testimonials__card.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.home-testimonials__card.card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+}
 
 /* ═══════════════════════════════════════════════════════════════
    COVERAGE SECTION — globe float animation

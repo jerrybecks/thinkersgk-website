@@ -752,6 +752,29 @@
       '</div>';
   }
 
+  // ── Back to top button ───────────────────────────────────────────────────────
+  function initBackToTop() {
+    var btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    var THRESHOLD = 400;
+    var raf;
+    window.addEventListener('scroll', function () {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        raf = null;
+        var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrolled > THRESHOLD) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      });
+    }, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   // ── Boot ─────────────────────────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     initScrollProgress();
@@ -765,153 +788,7 @@
     initServiceLaunchHeroMedia();
     initBlogCardMedia();
     initBlogArticlePolish();
+    initBackToTop();
   });
 
-})();
-// Live ops panel — fetches real-time data from hub.thinkersgk.com and populates
-// the existing .home-cinematic-hero__panel-body in the homepage hero.
-//
-// Append this function to scripts/enhancements.js, then call it once on DOMContentLoaded.
-// The panel keeps its existing static markup as the fallback — we only swap content
-// once we have good data, so a hub outage leaves the page looking exactly as it does today.
-
-(function () {
-  const HUB_BASE = 'https://hub.thinkersgk.com'; // Adjust if your public host differs
-  const ENDPOINT = HUB_BASE + '/api/public/ops-snapshot';
-  const REFRESH_MS = 90 * 1000;
-
-  function formatNumber(n, suffix = '') {
-    if (n === null || n === undefined) return null;
-    const num = Number(n);
-    if (!Number.isFinite(num)) return null;
-    return num.toLocaleString('en-US') + suffix;
-  }
-
-  function formatRelative(iso) {
-    if (!iso) return '';
-    const t = Date.parse(iso);
-    if (!Number.isFinite(t)) return '';
-    const diff = Math.max(0, Date.now() - t);
-    const min = Math.floor(diff / 60000);
-    if (min < 1) return 'just now';
-    if (min < 60) return `${min} min ago`;
-    const hr = Math.floor(min / 60);
-    if (hr < 24) return `${hr} hr ago`;
-    return `${Math.floor(hr / 24)} d ago`;
-  }
-
-  // Build the live panel body. Returns an HTMLElement that replaces the static body.
-  function renderLivePanel(data, lang) {
-    const isJa = lang === 'ja';
-    const t = (en, ja) => (isJa ? ja : en);
-
-    const wrap = document.createElement('div');
-    wrap.className = 'home-cinematic-hero__panel-body home-cinematic-hero__panel-body--live';
-
-    const rows = [
-      data.ticketsResolvedToday !== null && data.ticketsResolvedToday !== undefined
-        ? { label: t('Tickets resolved today', '本日対応済み'), value: formatNumber(data.ticketsResolvedToday) }
-        : null,
-      data.avgFirstResponseMin
-        ? { label: t('Avg first response', '初動平均'), value: formatNumber(data.avgFirstResponseMin, ' min') }
-        : null,
-      data.endpointsMonitored
-        ? { label: t('Endpoints monitored', '監視端末数'), value: formatNumber(data.endpointsMonitored) }
-        : null,
-      data.slaPercent !== null && data.slaPercent !== undefined
-        ? { label: t('SLA achieved', 'SLA達成'), value: formatNumber(data.slaPercent, '%'), tone: 'good' }
-        : null,
-      data.openCriticalIncidents !== null && data.openCriticalIncidents !== undefined
-        ? {
-            label: t('Critical incidents', '重大障害'),
-            value: data.openCriticalIncidents === 0
-              ? t('0 open', '0 件')
-              : formatNumber(data.openCriticalIncidents),
-            tone: data.openCriticalIncidents === 0 ? 'good' : 'warn',
-          }
-        : null,
-    ].filter(Boolean);
-
-    if (!rows.length) return null;
-
-    rows.forEach(row => {
-      const item = document.createElement('div');
-      item.className = 'home-cinematic-hero__metric home-cinematic-hero__metric--live';
-      const label = document.createElement('span');
-      label.textContent = row.label;
-      const value = document.createElement('strong');
-      value.textContent = row.value;
-      if (row.tone === 'good') value.classList.add('is-good');
-      if (row.tone === 'warn') value.classList.add('is-warn');
-      item.appendChild(label);
-      item.appendChild(value);
-      wrap.appendChild(item);
-    });
-
-    // Footer with status indicator + last-updated stamp
-    const footer = document.createElement('div');
-    footer.className = 'home-cinematic-hero__panel-footer';
-    footer.innerHTML = `
-      <span class="home-cinematic-hero__live-dot" aria-hidden="true"></span>
-      <span class="home-cinematic-hero__live-label">${t('Live', 'リアルタイム')}</span>
-      <span class="home-cinematic-hero__live-stamp">${t('Updated', '更新')} ${formatRelative(data.updatedAt)}</span>
-    `;
-    wrap.appendChild(footer);
-
-    return wrap;
-  }
-
-  async function fetchSnapshot(timeoutMs = 4000) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const resp = await fetch(ENDPOINT, { signal: controller.signal, cache: 'no-store' });
-      if (!resp.ok) throw new Error('bad-status:' + resp.status);
-      const data = await resp.json();
-      if (!data || data.degraded) throw new Error('degraded');
-      return data;
-    } finally {
-      clearTimeout(timer);
-    }
-  }
-
-  async function tick() {
-    const panel = document.querySelector('.home-cinematic-hero__panel');
-    const body = panel ? panel.querySelector('.home-cinematic-hero__panel-body') : null;
-    if (!body) return; // Hero panel not on this page
-
-    try {
-      const data = await fetchSnapshot();
-      const lang = (document.documentElement.lang || 'en').toLowerCase();
-      const replacement = renderLivePanel(data, lang);
-      if (!replacement) return; // No usable rows — leave static fallback in place
-      // Mark the panel as live so CSS can style the indicator
-      panel.classList.add('home-cinematic-hero__panel--live');
-      // Swap only after we have a fully built replacement — never show "loading"
-      body.parentNode.replaceChild(replacement, body);
-    } catch (_) {
-      // Silently leave the static markup as-is. The user sees no error state.
-    }
-  }
-
-  function initLiveOpsPanel() {
-    // Skip if no panel on this page
-    if (!document.querySelector('.home-cinematic-hero__panel')) return;
-    // First fetch — fire-and-forget
-    tick();
-    // Refresh on a slow cadence; pause when tab is hidden to be polite
-    setInterval(() => {
-      if (document.visibilityState === 'visible') tick();
-    }, REFRESH_MS);
-    // Re-render on language toggle (we read document.lang inside renderLivePanel)
-    document.addEventListener('thinkers:lang-changed', tick);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLiveOpsPanel);
-  } else {
-    initLiveOpsPanel();
-  }
-
-  window.initLiveOpsPanel = initLiveOpsPanel;
 })();

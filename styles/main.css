@@ -3786,3 +3786,52 @@ article[id] {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ── Back to top button ────────────────────────────────────────────────────── */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+    z-index: 998;
+    pointer-events: none;
+}
+#back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+#back-to-top:hover {
+    background: var(--color-accent-hover);
+    box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+}
+@media (max-width: 768px) {
+    #back-to-top {
+        bottom: 5.5rem;
+        right: 1rem;
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ── Improved scroll progress bar ─────────────────────────────────────────── */
+#scroll-progress {
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent) 0%, #7c3aed 50%, var(--color-accent-hover) 100%);
+    box-shadow: 0 0 8px rgba(37,99,235,0.4);
+}
