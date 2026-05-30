@@ -45,14 +45,13 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": "https://www.thinkersgk.com/#organization",
-    "inLanguage": "en",
     "name": "Thinkers GK",
     "alternateName": "合同会社 Thinkers",
     "url": "https://www.thinkersgk.com/",
     "email": "info@thinkersgk.com",
-    "description": "Professional IT Support, Cybersecurity, Field Engineering, Cloud Migration, and AI Integration services for businesses in Tokyo and across Japan. Bilingual EN/JP support.",
+    "description": "Bilingual IT support, field engineering, ITAD, and cloud consulting for foreign companies and Japanese businesses in Tokyo and across Japan. English and Japanese delivery. One accountable partner.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2F-C, Shibuya Dogenzaka Tokyu Building, 1-10-8 Dogenzaka",
@@ -60,6 +59,11 @@
       "addressRegion": "Tokyo",
       "postalCode": "150-0043",
       "addressCountry": "JP"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.6580,
+      "longitude": 139.6990
     },
     "areaServed": [
       {"@type": "Country", "name": "Japan"},
@@ -74,13 +78,68 @@
     "openingHours": "Mo-Fr 09:00-18:00",
     "priceRange": "$$",
     "knowsLanguage": ["en", "ja"],
-    "serviceType": [
-      "IT Support",
-      "Cybersecurity",
-      "Field Engineering",
-      "Cloud Consulting",
-      "Managed IT Services",
-      "IT Asset Lifecycle"
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "IT Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bilingual IT Support & Helpdesk"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Field Engineering & Onsite Dispatch"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "IT Asset Disposal (ITAD) Japan"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Migration & Consulting"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed IT Services"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cybersecurity"}}
+      ]
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/thinkersgk"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What IT services does Thinkers GK provide in Tokyo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thinkers GK provides bilingual IT support, field engineering, onsite dispatch, IT asset disposal (ITAD), cloud migration, cybersecurity, and managed IT services across Tokyo and nationwide Japan. All services are delivered in both English and Japanese."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you support foreign companies operating in Japan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Thinkers GK specialises in supporting foreign companies with offices in Japan. We bridge the communication gap between international HQ and local Japanese operations, delivering IT support in whichever language each stakeholder needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does IT Asset Disposal (ITAD) work for businesses in Japan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thinkers GK manages the full ITAD lifecycle: secure data destruction, chain-of-custody documentation, certified disposal certificates, and compliant recycling under Japan's 資源有効利用促進法. We serve both Tokyo offices and nationwide locations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is your response time for IT support and field engineering?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For standard IT support tickets, we respond within 4 business hours during Japan standard time (Mon–Fri 09:00–18:00). Onsite field engineering dispatch is available across Tokyo and major Japanese cities with lead times confirmed at time of booking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Thinkers GK compliant with Japanese data protection regulations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Thinkers GK follows APPI (Act on the Protection of Personal Information) compliant data handling practices. Our ITAD service issues certified data destruction documentation meeting global audit requirements. We are working toward ISO 27001 certification."
+        }
+      }
     ]
   }
   </script>
