@@ -27,6 +27,7 @@
 - Website: Added GMO Aozora bank-review-safe pricing/request-flow language to English and Japanese service pages, removed homepage case-study prompts, and de-indexed/reframed the case-study page as illustrative service scenarios instead of unsupported customer proof.
 - Website: Removed the homepage bilingual ticket/proof example from English and Japanese pages so the bank-review homepage no longer shows fake-looking incident records or customer-feedback-style proof blocks.
 - Website: Added browser-language routing for Japanese visitors, with manual EN/JP language choice preserved after the visitor uses the language toggle, and served it from a new script path to avoid stale CDN cache.
+- Website: Removed remaining service-page testimonial/customer-feedback blocks and neutralized leftover `Trusted by`/`Trusted IT partner` proof wording across public HTML so the site stays bank-review-safe as a new company.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
