@@ -25,6 +25,7 @@
 - Website: Aligned public homepage and services copy with the bank-review business verification document by explicitly covering software/web development, workflow automation, cloud/Microsoft 365 integration, support, maintenance, and verifiable IT deliverables in English and Japanese.
 - Website: Removed public testimonial/client-feedback sections and softened customer-proof language so the site presents Thinkers GK as a new company with clear services, founder capability, and concrete deliverables for bank-review consistency.
 - Website: Added GMO Aozora bank-review-safe pricing/request-flow language to English and Japanese service pages, removed homepage case-study prompts, and de-indexed/reframed the case-study page as illustrative service scenarios instead of unsupported customer proof.
+- Website: Removed the homepage bilingual ticket/proof example from English and Japanese pages so the bank-review homepage no longer shows fake-looking incident records or customer-feedback-style proof blocks.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
