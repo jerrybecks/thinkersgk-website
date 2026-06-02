@@ -23,6 +23,7 @@
 - Website: Removed duplicate LINE floating-button sizing from the redesign stylesheet so `main.css` owns the global widget coordinates.
 - Website: Updated the global logo/icon assets from the supplied Thinkers GK mark, cache-busted logo references, added richer favicon metadata to active layouts, and added a reusable `.invert-dark` image utility.
 - Website: Aligned public homepage and services copy with the bank-review business verification document by explicitly covering software/web development, workflow automation, cloud/Microsoft 365 integration, support, maintenance, and verifiable IT deliverables in English and Japanese.
+- Website: Removed public testimonial/client-feedback sections and softened customer-proof language so the site presents Thinkers GK as a new company with clear services, founder capability, and concrete deliverables for bank-review consistency.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
