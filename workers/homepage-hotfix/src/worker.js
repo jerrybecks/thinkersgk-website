@@ -1,4 +1,4 @@
-const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/73d94db19737ae27adb3b2408524f88ed786772a";
+const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/e28cbd48e2c5b90154584ddce084a555f22a8ccd";
 
 const ASSETS = new Map([
   ["/", { path: "/index.html", type: "text/html; charset=utf-8" }],
@@ -31,10 +31,7 @@ export default {
       headers: {
         "User-Agent": "thinkersgk-homepage-hotfix"
       },
-      cf: {
-        cacheTtl: 60,
-        cacheEverything: true
-      }
+      cf: { cacheTtl: 0 }
     });
 
     if (!upstream.ok) {
@@ -47,7 +44,7 @@ export default {
     headers.delete("X-Frame-Options");
     headers.set("Content-Type", asset.type);
     headers.set("Cache-Control", "public, max-age=60, must-revalidate");
-    headers.set("X-ThinkersGK-Hotfix", "homepage-layout-2026-05-26");
+    headers.set("X-ThinkersGK-Hotfix", "homepage-feedback-purge-2026-06-02");
 
     return new Response(upstream.body, {
       status: upstream.status,
