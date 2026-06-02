@@ -50,6 +50,54 @@
 
     // ── Language Toggle (EN/JP) ────────────────────
     const LANG_KEY = 'thinkers-lang';
+    const LANG_SOURCE_KEY = 'thinkers-lang-source';
+
+    function getBrowserLang() {
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || navigator.userLanguage || 'en'];
+        return langs.some(function(lang) {
+            return /^ja(?:-|$)/i.test(lang || '');
+        }) ? 'ja' : 'en';
+    }
+
+    function hasManualLangPreference() {
+        return localStorage.getItem(LANG_SOURCE_KEY) === 'manual';
+    }
+
+    function localizedPathFor(lang) {
+        var path = window.location.pathname || '/';
+        var file = path.split('/').pop() || 'index.html';
+        var basePath = path.slice(0, path.length - (path.split('/').pop() || '').length);
+
+        if (path === '/' || file === '') file = 'index.html';
+        if (!/\.html$/i.test(file)) return null;
+
+        if (lang === 'ja') {
+            if (/\.ja\.html$/i.test(file)) return null;
+            if (file === 'index.html' || file === 'services.html' || file === 'privacy-policy.html') {
+                return basePath + file.replace(/\.html$/i, '.ja.html') + window.location.search + window.location.hash;
+            }
+            return null;
+        }
+
+        if (/\.ja\.html$/i.test(file)) {
+            return basePath + file.replace(/\.ja\.html$/i, '.html') + window.location.search + window.location.hash;
+        }
+
+        return null;
+    }
+
+    function applyInitialLanguageRoute() {
+        if (new URLSearchParams(window.location.search).has('lang')) return;
+        if (hasManualLangPreference()) return;
+
+        var browserLang = getBrowserLang();
+        var nextPath = localizedPathFor(browserLang);
+        if (nextPath && nextPath !== window.location.pathname + window.location.search + window.location.hash) {
+            window.location.replace(nextPath);
+        }
+    }
+
+    applyInitialLanguageRoute();
 
     function getLang() {
         var path = window.location.pathname || '';
@@ -57,12 +105,13 @@
         var pathForcesJapanese = /\.ja\.html$|\.jp\.html$|\/blog\/blog\.html$/i.test(path);
         if (pathForcesJapanese) return 'ja';
         if (stored === 'en' || stored === 'ja') return stored;
-        return 'en';
+        return getBrowserLang();
     }
 
-    function setLang(lang) {
+    function setLang(lang, options) {
+        options = options || {};
         document.documentElement.setAttribute('lang', lang);
-        localStorage.setItem(LANG_KEY, lang);
+        if (options.persist !== false) localStorage.setItem(LANG_KEY, lang);
         document.querySelectorAll('[data-en]').forEach(function(el) {
             if (el.closest('[data-no-lang-toggle]')) return;
             el.innerHTML = lang === 'ja' ? el.getAttribute('data-ja') : el.getAttribute('data-en');
@@ -73,6 +122,19 @@
         var langBtn = document.getElementById('langToggle');
         if (langBtn) langBtn.textContent = lang === 'ja' ? 'EN / 日本語' : 'EN / JP';
         document.dispatchEvent(new Event('thinkers:lang-changed'));
+    }
+
+    function switchLanguage(lang) {
+        localStorage.setItem(LANG_KEY, lang);
+        localStorage.setItem(LANG_SOURCE_KEY, 'manual');
+
+        var nextPath = localizedPathFor(lang);
+        if (nextPath && nextPath !== window.location.pathname + window.location.search + window.location.hash) {
+            window.location.href = nextPath;
+            return;
+        }
+
+        setLang(lang);
     }
 
     function initNavDropdowns() {
@@ -1005,10 +1067,10 @@
         if (langBtn) {
             langBtn.addEventListener('click', function() {
                 var current = getLang();
-                setLang(current === 'ja' ? 'en' : 'ja');
+                switchLanguage(current === 'ja' ? 'en' : 'ja');
             });
         }
-        setLang(getLang());
+        setLang(getLang(), { persist: false });
 
         // ── Navbar scroll effect ───────────────────
         var nav = document.getElementById('nav');
