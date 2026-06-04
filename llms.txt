@@ -1,0 +1,30 @@
+# Thinkers GK
+
+Thinkers GK (合同会社 Thinkers) is a bilingual IT services company based in Shibuya, Tokyo, Japan. The company supports foreign companies, Japanese SMEs, and branch offices that need practical IT execution in Japan: bilingual user support, onsite field engineering, managed services, cybersecurity, cloud consulting, Microsoft 365 and SaaS support, workflow automation, APAC procurement coordination, device lifecycle management, and IT asset disposal (ITAD) with secure data handling.
+
+## Primary Website
+
+- Home: https://www.thinkersgk.com/
+- Services: https://www.thinkersgk.com/services.html
+- Contact: https://www.thinkersgk.com/contact.html
+- Blog: https://www.thinkersgk.com/blog/
+
+## Core Services
+
+- Bilingual IT Support and Managed Services: https://www.thinkersgk.com/service-it-support.html
+- Field Engineering and Onsite Dispatch: https://www.thinkersgk.com/service-field-engineering.html
+- Device Lifecycle and Deployment: https://www.thinkersgk.com/service-device-lifecycle.html
+- IT Asset Disposal (ITAD) Japan: https://www.thinkersgk.com/itad-japan.html
+- Cybersecurity: https://www.thinkersgk.com/service-cybersecurity.html
+- Cloud and Consulting: https://www.thinkersgk.com/service-cloud-consulting.html
+- Managed Services: https://www.thinkersgk.com/service-managed-services.html
+- Workflow Automation and Business Systems: https://www.thinkersgk.com/services.html
+
+## Service Area
+
+Thinkers GK operates from Tokyo and supports work across Japan, including Tokyo, Osaka, Nagoya, Fukuoka, Sapporo, Sendai, Hiroshima, and other regional sites. The company also coordinates APAC hardware procurement and device lifecycle work where Japan-based execution needs to align with Singapore, Hong Kong, and other regional offices.
+
+## Contact
+
+- Email: info@thinkersgk.com
+- Address: 2F-C, Shibuya Dogenzaka Tokyu Building, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo 150-0043, Japan
