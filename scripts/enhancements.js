@@ -99,7 +99,17 @@
     });
   }
 
-  // ── 5. Badge typer — cycles phrases on the hero badge ─────────────────────
+  // ── 5. Intentional video pacing ─────────────────────────────────────────────
+  function initVideoPlaybackRates() {
+    document.querySelectorAll('video[data-playback-rate]').forEach(function (video) {
+      var rate = parseFloat(video.getAttribute('data-playback-rate'));
+      if (!rate || Number.isNaN(rate)) return;
+      video.playbackRate = rate;
+      video.defaultPlaybackRate = rate;
+    });
+  }
+
+  // ── 6. Badge typer — cycles phrases on the hero badge ─────────────────────
   function initBadgeTyper() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -781,6 +791,7 @@
     initCardSpotlight();
     initCardTilt();
     initHeroCursorSpotlight();
+    initVideoPlaybackRates();
     initBadgeTyper();
     initWordScramble();
     initHeroParallax();

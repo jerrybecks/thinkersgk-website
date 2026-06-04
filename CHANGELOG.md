@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-06-04] - Lead Architect (Codex)
+
+### Changed
+- Website: Replaced the homepage hero video/static side image treatment with the new Japan globe motion loop, slowed playback for a calmer first viewport, reduced hero headline scale, and cache-busted the affected CSS/JS assets.
+
 ## [2026-05-16] - Lead Architect (Codex)
 
 ### Added

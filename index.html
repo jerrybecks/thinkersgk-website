@@ -37,11 +37,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css?v=71">
-  <link rel="stylesheet" href="styles/redesign.css?v=20">
+  <link rel="stylesheet" href="styles/redesign.css?v=21">
   <script src="scripts/main-language.js?v=1"></script>
   
 <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
-<script src="scripts/enhancements.js?v=15" defer></script>
+<script src="scripts/enhancements.js?v=16" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -186,9 +186,10 @@
     </div>
   </nav>
 
-  <section class="home-cinematic-hero">
-    <video class="home-cinematic-hero__video" autoplay loop muted playsinline preload="auto" poster="assets/videos/hero-poster.jpg">
-      <source src="assets/videos/hero-bg.mp4" type="video/mp4">
+  <section class="home-cinematic-hero home-cinematic-hero--globe-backdrop">
+    <video class="home-cinematic-hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/videos/tgk-japan-globe-poster.jpg" data-playback-rate="0.68" aria-hidden="true">
+      <source src="assets/videos/tgk-japan-globe-loop.webm" type="video/webm">
+      <source src="assets/videos/tgk-japan-globe-loop.mp4" type="video/mp4">
     </video>
     <div class="home-cinematic-hero__overlay"></div>
     <div class="home-cinematic-hero__grid"></div>
@@ -236,9 +237,6 @@
               <strong data-en="Within 4 business hours — English and Japanese" data-ja="4営業時間以内 — 英語・日本語対応">Within 4 business hours — English and Japanese</strong>
             </div>
           </div>
-        </div>
-        <div class="home-cinematic-hero__media card">
-          <img src="assets/field-engineer-dreadlocks-800x500.jpg" alt="IT engineer working in server room" loading="eager">
         </div>
       </div>
     </div>
