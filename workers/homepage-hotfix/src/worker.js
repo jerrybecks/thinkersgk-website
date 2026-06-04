@@ -1,9 +1,12 @@
-const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/cbbe42f9669aa24c326392c15738b2a6dabccd9e";
+const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/ee96f9b005956ff70e6e7dc6ea44925c45d065eb";
 
 const ASSETS = new Map([
   ["/", { path: "/index.html", type: "text/html; charset=utf-8" }],
   ["/index.html", { path: "/index.html", type: "text/html; charset=utf-8" }],
   ["/case-studies.html", { path: "/case-studies.html", type: "text/html; charset=utf-8" }],
+  ["/llms.txt", { path: "/llms.txt", type: "text/plain; charset=utf-8" }],
+  ["/sitemap.xml", { path: "/sitemap.xml", type: "application/xml; charset=utf-8" }],
+  ["/9decf31152cf4527a0947c0c5656121b.txt", { path: "/9decf31152cf4527a0947c0c5656121b.txt", type: "text/plain; charset=utf-8" }],
   ["/styles/main.css", { path: "/styles/main.css", type: "text/css; charset=utf-8" }],
   ["/styles/redesign.css", { path: "/styles/redesign.css", type: "text/css; charset=utf-8" }],
   ["/scripts/main.js", { path: "/scripts/main.js", type: "application/javascript; charset=utf-8" }],
