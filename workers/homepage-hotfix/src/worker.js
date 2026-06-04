@@ -1,4 +1,4 @@
-const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/e28cbd48e2c5b90154584ddce084a555f22a8ccd";
+const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/cbbe42f9669aa24c326392c15738b2a6dabccd9e";
 
 const ASSETS = new Map([
   ["/", { path: "/index.html", type: "text/html; charset=utf-8" }],
@@ -7,7 +7,11 @@ const ASSETS = new Map([
   ["/styles/main.css", { path: "/styles/main.css", type: "text/css; charset=utf-8" }],
   ["/styles/redesign.css", { path: "/styles/redesign.css", type: "text/css; charset=utf-8" }],
   ["/scripts/main.js", { path: "/scripts/main.js", type: "application/javascript; charset=utf-8" }],
+  ["/scripts/enhancements.js", { path: "/scripts/enhancements.js", type: "application/javascript; charset=utf-8" }],
   ["/js/chat-widget.js", { path: "/js/chat-widget.js", type: "application/javascript; charset=utf-8" }],
+  ["/assets/videos/tgk-japan-globe-loop.mp4", { path: "/assets/videos/tgk-japan-globe-loop.mp4", type: "video/mp4" }],
+  ["/assets/videos/tgk-japan-globe-loop.webm", { path: "/assets/videos/tgk-japan-globe-loop.webm", type: "video/webm" }],
+  ["/assets/videos/tgk-japan-globe-poster.jpg", { path: "/assets/videos/tgk-japan-globe-poster.jpg", type: "image/jpeg" }],
   ["/assets/logo.png", { path: "/assets/logo.png", type: "image/png" }],
   ["/assets/logo-dark.png", { path: "/assets/logo-dark.png", type: "image/png" }],
   ["/assets/logo-light.png", { path: "/assets/logo-light.png", type: "image/png" }],

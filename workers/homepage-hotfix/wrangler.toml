@@ -9,5 +9,7 @@ routes = [
   { pattern = "www.thinkersgk.com/styles/main.css*", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/styles/redesign.css*", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/scripts/main.js*", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/scripts/enhancements.js*", zone_name = "thinkersgk.com" },
+  { pattern = "www.thinkersgk.com/assets/videos/*", zone_name = "thinkersgk.com" },
   { pattern = "www.thinkersgk.com/js/chat-widget.js*", zone_name = "thinkersgk.com" }
 ]
