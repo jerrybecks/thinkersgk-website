@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-06-06] - Lead Architect (Codex)
+
+### Fixed
+- Website: Removed duplicate blog imagery by syncing every published blog post's visible hero image, `og:image`, `twitter:image`, JSON-LD image, and blog-index card image to one unique article-specific asset.
+- Website: Replaced stale generic `about-hero-1400x600.jpg` fallbacks on published blog posts that were causing repeated social previews and repeated blog visuals.
+
+### Added
+- QA: Added `scripts/check-blog-images.js` to fail future checks if published blog posts reuse the same hero image, drift between hero/social/structured-data images, or if the blog index card grid shows duplicate images.
+
 ## [2026-06-05] - Lead Architect (Codex)
 
 ### Added
