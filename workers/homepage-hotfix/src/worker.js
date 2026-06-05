@@ -1,23 +1,20 @@
-const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/ee96f9b7255f2e7e8645694aaeb5835e08a1b320";
+const RAW_BASE = "https://raw.githubusercontent.com/jerrybecks/thinkersgk-website/main";
 
 const ASSETS = new Map([
   ["/", { path: "/index.html", type: "text/html; charset=utf-8" }],
   ["/index.html", { path: "/index.html", type: "text/html; charset=utf-8" }],
   ["/case-studies.html", { path: "/case-studies.html", type: "text/html; charset=utf-8" }],
-  ["/llms.txt", { path: "/llms.txt", type: "text/plain; charset=utf-8" }],
-  ["/sitemap.xml", { path: "/sitemap.xml", type: "application/xml; charset=utf-8" }],
-  ["/9decf31152cf4527a0947c0c5656121b.txt", { path: "/9decf31152cf4527a0947c0c5656121b.txt", type: "text/plain; charset=utf-8" }],
   ["/styles/main.css", { path: "/styles/main.css", type: "text/css; charset=utf-8" }],
   ["/styles/redesign.css", { path: "/styles/redesign.css", type: "text/css; charset=utf-8" }],
   ["/scripts/main.js", { path: "/scripts/main.js", type: "application/javascript; charset=utf-8" }],
-  ["/scripts/enhancements.js", { path: "/scripts/enhancements.js", type: "application/javascript; charset=utf-8" }],
   ["/js/chat-widget.js", { path: "/js/chat-widget.js", type: "application/javascript; charset=utf-8" }],
-  ["/assets/videos/tgk-japan-globe-loop.mp4", { path: "/assets/videos/tgk-japan-globe-loop.mp4", type: "video/mp4" }],
-  ["/assets/videos/tgk-japan-globe-loop.webm", { path: "/assets/videos/tgk-japan-globe-loop.webm", type: "video/webm" }],
-  ["/assets/videos/tgk-japan-globe-poster.jpg", { path: "/assets/videos/tgk-japan-globe-poster.jpg", type: "image/jpeg" }],
   ["/assets/logo.png", { path: "/assets/logo.png", type: "image/png" }],
   ["/assets/logo-dark.png", { path: "/assets/logo-dark.png", type: "image/png" }],
   ["/assets/logo-light.png", { path: "/assets/logo-light.png", type: "image/png" }],
+  ["/assets/logo-thinkers-new-transparent.png", { path: "/assets/logo-thinkers-new-transparent.png", type: "image/png" }],
+  ["/assets/logo-thinkers-new.png", { path: "/assets/logo-thinkers-new.png", type: "image/png" }],
+  ["/assets/logo-thinkers-new-small.png", { path: "/assets/logo-thinkers-new-small.png", type: "image/png" }],
+  ["/assets/videos/tgk-japan-globe-poster.jpg", { path: "/assets/videos/tgk-japan-globe-poster.jpg", type: "image/jpeg" }],
   ["/apple-touch-icon.png", { path: "/apple-touch-icon.png", type: "image/png" }],
   ["/favicon.png", { path: "/favicon.png", type: "image/png" }],
   ["/favicon-48.png", { path: "/favicon-48.png", type: "image/png" }],

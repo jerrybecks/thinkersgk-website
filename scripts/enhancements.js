@@ -103,13 +103,94 @@
   function initVideoPlaybackRates() {
     document.querySelectorAll('video[data-playback-rate]').forEach(function (video) {
       var rate = parseFloat(video.getAttribute('data-playback-rate'));
-      if (!rate || Number.isNaN(rate)) return;
+      if (!Number.isFinite(rate) || rate <= 0) return;
       video.playbackRate = rate;
       video.defaultPlaybackRate = rate;
     });
   }
 
-  // ── 6. Badge typer — cycles phrases on the hero badge ─────────────────────
+  function initAutoplayInViewVideos() {
+    var videos = Array.prototype.slice.call(document.querySelectorAll('video[data-autoplay-in-view]'));
+    if (!videos.length) return;
+
+    function playVideo(video) {
+      video.muted = true;
+      video.playsInline = true;
+      var playAttempt = video.play();
+      if (playAttempt && typeof playAttempt.catch === 'function') {
+        playAttempt.catch(function () {});
+      }
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(playVideo);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var video = entry.target;
+        if (entry.isIntersecting) {
+          playVideo(video);
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.28 });
+
+    videos.forEach(function (video) {
+      observer.observe(video);
+    });
+  }
+
+  // ── 6. Opening motion logo ─────────────────────────────────────────────────
+  function initBrandIntro() {
+    var intro = document.querySelector('[data-brand-intro]');
+    if (!intro) return;
+
+    var forceReplay = new URLSearchParams(window.location.search).get('intro') === '1';
+    var seenKey = 'thinkersBrandIntroSeen';
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var video = intro.querySelector('video');
+    var skip = intro.querySelector('[data-brand-intro-skip]');
+    var done = false;
+
+    function hideIntro() {
+      if (done) return;
+      done = true;
+      try { sessionStorage.setItem(seenKey, '1'); } catch (err) {}
+      intro.classList.add('is-hiding');
+      setTimeout(function () {
+        intro.classList.add('is-hidden');
+        if (video) video.pause();
+      }, 680);
+    }
+
+    try {
+      if (!forceReplay && sessionStorage.getItem(seenKey) === '1') {
+        intro.classList.add('is-hidden');
+        if (video) video.pause();
+        return;
+      }
+    } catch (err) {}
+
+    if (reduceMotion) {
+      setTimeout(hideIntro, 450);
+      return;
+    }
+
+    if (skip) skip.addEventListener('click', hideIntro);
+    if (video) {
+      video.playbackRate = 0.92;
+      video.addEventListener('ended', hideIntro, { once: true });
+      video.play().catch(function () {
+        setTimeout(hideIntro, 2400);
+      });
+    }
+    setTimeout(hideIntro, 4200);
+  }
+
+  // ── 5. Badge typer — cycles phrases on the hero badge ─────────────────────
   function initBadgeTyper() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -234,7 +315,7 @@
         titleEn: 'Nationwide hands-on coverage for installs, swaps, and site work.',
         titleJa: '設置、交換、現地作業を全国で実行。',
         bodyEn: 'A practical field delivery layer for offices, warehouses, project sites, and regional rollouts across Japan.',
-        bodyJa: 'オフィス、倉庫、現場、全国展開に対応する実務的なフィールド対応です。'
+        bodyJa: 'オフィス、倉庫、現場、複数拠点の段階的な展開に対応する実務的なフィールド対応です。'
       },
       'service-cloud-consulting.html': {
         image: 'assets/hero-cloud-consulting-1400x600.jpg',
@@ -792,6 +873,8 @@
     initCardTilt();
     initHeroCursorSpotlight();
     initVideoPlaybackRates();
+    initAutoplayInViewVideos();
+    initBrandIntro();
     initBadgeTyper();
     initWordScramble();
     initHeroParallax();

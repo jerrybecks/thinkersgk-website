@@ -1,15 +1,51 @@
 # Changelog
 
+## [2026-06-05] - Lead Architect (Codex)
+
+### Added
+- Project memory: Added `STATUS.md`, `progress.md`, and `decisions.md` to capture the current website/business-ops posture, recent operational findings, durable decisions, and next priorities for Codex/Gemini/Claude handoff.
+- Documentation: Added a project `README.md` describing the current bank-safe website direction, content rules, important memory files, and deployment caution around the broad dirty worktree.
+
+### Updated
+- Project memory: Recorded that Device Lifecycle & Deployment is now a core service lane, generated video assets remain local-review-only unless explicitly approved, public client-feedback/case-study claims should stay removed until supportable, and Command Center needs dedupe/acknowledgement logic for stale freee/bank-admin reminders.
+
 ## [2026-06-04] - Lead Architect (Codex)
 
-### Changed
-- Website: Replaced the homepage hero video/static side image treatment with the new Japan globe motion loop, slowed playback for a calmer first viewport, reduced hero headline scale, and cache-busted the affected CSS/JS assets.
+### Added
+- Website: Promoted the existing Device Lifecycle & Deployment service into the homepage, services grids, sitemap, and crawler configuration so Thinkers GK can clearly market procurement, endpoint rollout, asset tracking, retrieval, wiping, and ITAD documentation as a combined Japan/APAC service.
+
+### Updated
+- SEO: Added explicit OpenAI-related crawler allowances, including `OAI-SearchBot` and `OAI-AdsBot`, in `robots.txt` and registered the Device Lifecycle service URL in `sitemap.xml` for search submission workflows.
+- SEO: Fixed malformed meta-description markup on the legacy IT Asset Lifecycle service page so crawlers and social previews can parse the page head cleanly.
+- Website: Removed local English and Japanese homepage video treatments for review, replacing the intro, hero media, motion band, and Japan coverage loop with static visual assets.
+- Website: Reconciled the homepage implementation with the static-review direction by removing the remaining English homepage autoplay globe videos and using the selected poster artwork as the hero/coverage visual instead.
+- Website: Removed the public case-study claim surface for bank/new-company safety by converting `case-studies.html` into a noindex redirect to `how-we-work.html`, replacing homepage/why-us case-study links with delivery-approach links, and removing the old case-study URL from the sitemap.
+- Website: Synced the Japanese homepage with the bank-safe posture by updating the logo, removing the old hero media panel, replacing SLA/24-7 phrasing with ownership/coordination language, and using the same static globe hero treatment as the English homepage.
+- Website: Reworded the Japanese About page growth/timeline copy so it presents Thinkers GK as a new Japan-focused operator with clear service lanes instead of implying long historical expansion or mature nationwide track record.
+- Website: Softened Japanese field-engineering coverage copy from all-prefecture/nationwide language to major-location and multi-site rollout language for a more credible new-company public posture.
+- Website: Synced the new transparent Thinkers logo into the active Japanese page headers/footers checked during the bank-safe pass.
+- Website: Extended the bank-safe cleanup across public non-blog pages by removing stale case-study links, all-prefecture/nationwide overclaims, `24/7` service claims, and the legacy `index.jp.html` homepage body that could leak old video/copy through the Japanese alias.
+- Deployment: Updated the Cloudflare homepage hotfix Worker to read from the `main` branch and serve the new logo/static hero assets instead of staying pinned to an old commit.
+- Website/SEO: Added Device Lifecycle & Deployment to homepage structured data, English/Japanese contact-form service options, and social preview metadata for the new service page.
+- SEO: Added `llms.txt` as an AI-readable site summary covering Thinkers GK identity, service pages, coverage area, and contact details.
+- SEO: Added an IndexNow verification key file and a post-deploy submission helper for Bing/IndexNow discovery of the homepage, services, contact, Device Lifecycle, `llms.txt`, and sitemap URLs.
+
+## [2026-06-01] - Lead Architect (Codex)
+
+### Added
+- Business verification: Drafted a bilingual Thinkers LLC service proposal / IT solutions overview for Japanese corporate bank account application support, covering software development, cloud infrastructure, automation, consulting, and support operations.
+- Website: Added local WebM/MP4/poster video assets for the Japan coverage globe, About-page coordination visual, and Managed Services operations visual so the Groq-generated media can be reviewed in context before any production push.
+
+### Updated
+- Website: Replaced the local header/footer/email/favicon logo assets with the approved new Thinkers mark from the Groq asset folder, keeping the video/loading experiments unchanged for further review.
+- Website: Replaced the homepage static globe treatment with the selected animated Japan globe, added a motion visual to the About-page coordination block, and added a managed-operations video panel to the Managed Services page for local review only.
 
 ## [2026-05-16] - Lead Architect (Codex)
 
 ### Added
 - Website: Published a clean May 16 operations post, `Zoho Email Operations for Japan-Based Teams: What to Control After Migration`, and prepended it to the live blog index.
 - Website: Replaced the duplicate homepage blog block with a support matrix that explains user support, site work, security control, and asset lifecycle entry points.
+- Website: Added local homepage test assets for a Tokyo city loop hero card, including optimized MP4/WebM video and poster frame.
 
 ### Fixed
 - Website: Quarantined Yamamoto/Nakamura fake CRM-derived Orion drafts and removed two published blog cards/posts that referenced the fake record and exposed unsupported private CRM context.
@@ -27,12 +63,14 @@
 - Website: Added main-stylesheet fallback sizing for the LINE floating button on legacy blog posts, normalized footer contact labels, and made footer copyright years update from JavaScript.
 - Website: Removed duplicate LINE floating-button sizing from the redesign stylesheet so `main.css` owns the global widget coordinates.
 - Website: Updated the global logo/icon assets from the supplied Thinkers GK mark, cache-busted logo references, added richer favicon metadata to active layouts, and added a reusable `.invert-dark` image utility.
-- Website: Aligned public homepage and services copy with the bank-review business verification document by explicitly covering software/web development, workflow automation, cloud/Microsoft 365 integration, support, maintenance, and verifiable IT deliverables in English and Japanese.
-- Website: Removed public testimonial/client-feedback sections and softened customer-proof language so the site presents Thinkers GK as a new company with clear services, founder capability, and concrete deliverables for bank-review consistency.
-- Website: Added GMO Aozora bank-review-safe pricing/request-flow language to English and Japanese service pages, removed homepage case-study prompts, and de-indexed/reframed the case-study page as illustrative service scenarios instead of unsupported customer proof.
-- Website: Removed the homepage bilingual ticket/proof example from English and Japanese pages so the bank-review homepage no longer shows fake-looking incident records or customer-feedback-style proof blocks.
-- Website: Added browser-language routing for Japanese visitors, with manual EN/JP language choice preserved after the visitor uses the language toggle, and served it from a new script path to avoid stale CDN cache.
-- Website: Removed remaining service-page testimonial/customer-feedback blocks and neutralized leftover `Trusted by`/`Trusted IT partner` proof wording across public HTML so the site stays bank-review-safe as a new company.
+- Website: Replaced the homepage hero-side still image with the Tokyo city loop video treatment and tightened the hero headline/subcopy sizing for a calmer first viewport.
+- Website: Added a local Tokyo-backdrop hero variant so the city loop can run behind the homepage headline without duplicating the video in the side card.
+- Website: Brightened the local Tokyo hero backdrop and added a reusable video playback-rate hook so the homepage loop can run at a calmer pace.
+- Website: Added a local motion-logo intro overlay and swapped the homepage header/footer to the new trimmed Thinkers logo assets for review.
+- Website: Tuned the local logo review so the intro background matches the motion-logo source and the header logo blends into the nav surface instead of showing a mismatched white block.
+- Website: Added a transparent nav/footer logo variant from the approved logo source so the mark sits directly on the surrounding header/footer surfaces.
+- Website: Reworked the local motion-logo loading screen to share the homepage Tokyo video backdrop and dark hero atmosphere instead of using a separate beige page background.
+- Website: Added a local comparison variant using the Thinkers motion-logo video as the homepage hero background.
 
 ## [2026-05-10] - Lead Architect (Codex)
 
