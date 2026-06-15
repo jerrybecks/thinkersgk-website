@@ -3835,3 +3835,7 @@ article[id] {
     background: linear-gradient(90deg, var(--color-accent) 0%, #7c3aed 50%, var(--color-accent-hover) 100%);
     box-shadow: 0 0 8px rgba(37,99,235,0.4);
 }
+
+/* Brand-colored text selection — small touch, reads as intentional design */
+::selection { background: rgba(37, 99, 235, 0.22); color: inherit; }
+[data-theme="dark"] ::selection { background: rgba(96, 165, 250, 0.32); }

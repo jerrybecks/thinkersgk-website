@@ -208,7 +208,7 @@
         <!-- Header -->
         <div class="tgk-chat-header">
           <div class="tgk-chat-header-info">
-            <img src="assets/logo-light.png" alt="Thinkers GK" class="tgk-chat-logo">
+            <img src="/assets/logo-light.png" alt="Thinkers GK" class="tgk-chat-logo">
             <div>
               <div class="tgk-chat-title">${t('title')}</div>
               <div class="tgk-chat-subtitle">${t('subtitle')}</div>

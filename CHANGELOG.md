@@ -1,5 +1,23 @@
 # Changelog
 
+## [2026-06-15] - Lead Architect (Codex)
+
+### Updated
+- Website: Applied a local-first cosmetic refresh across `index.html`, `services.html`, `why-us.html`, `about.html`, `contact.html`, and `how-we-work.html` by adding page-specific body hooks and extending the shared CSS system for tighter spacing, stronger card hierarchy, richer section framing, and more consistent CTA presentation.
+- Website: Elevated the Services experience with stronger overview/offer card treatments, clearer pricing and engagement blocks, alternating section polish, and improved scanability for long-form service content.
+- Website: Upgraded supporting pages (`why-us`, `about`, `contact`, `how-we-work`) with more premium section styling, improved trust/info card presentation, better process/timeline treatment, and a reveal fallback so About-page content remains visible during local review.
+- Website: Integrated the homepage circuit-board motif directly around the hero badge/headline with animated trace paths and moving signal points so the motion now frames the opening message during local preview.
+- Website: After local review, removed the circuit hero variants from the secondary pages and kept the homepage hero version as the preferred direction for now.
+
+## [2026-06-11] - Lead Architect (Codex)
+
+### Added
+- Website: Added an internal `pattern-lab.html` review page with halftone, pixel scatter, circuit board, node-network, website-section, and business-card mockups for Thinkers GK brand-pattern exploration.
+- Website: Added a recommended hybrid pattern direction that combines a quiet node network, faint circuit traces, and restrained halftone accents for use across the website and future business-card artwork.
+- Website: Applied the recommended hybrid node/circuit/halftone pattern to the live local homepage hero as a reviewable brand-system experiment.
+- Website: Updated the pattern-lab business-card concepts to use the current Thinkers logo asset instead of typed placeholder branding.
+- Website: Revised the live local homepage hero experiment to use a circuit-board-only pattern, removing the node-network and halftone layers from the website treatment.
+
 ## [2026-06-06] - Lead Architect (Codex)
 
 ### Fixed

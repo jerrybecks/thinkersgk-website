@@ -73,7 +73,7 @@
 
         if (lang === 'ja') {
             if (/\.ja\.html$/i.test(file)) return null;
-            if (file === 'index.html' || file === 'services.html' || file === 'privacy-policy.html') {
+            if (file === 'index.html' || file === 'services.html' || file === 'privacy-policy.html' || file === 'terms-of-service.html') {
                 return basePath + file.replace(/\.html$/i, '.ja.html') + window.location.search + window.location.hash;
             }
             return null;

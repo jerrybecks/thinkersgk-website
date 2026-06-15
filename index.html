@@ -36,9 +36,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css?v=71">
-  <link rel="stylesheet" href="styles/redesign.css?v=25">
-  <script src="scripts/main-language.js?v=1"></script>
+  <link rel="stylesheet" href="styles/main.css?v=72">
+  <link rel="stylesheet" href="styles/redesign.css?v=27">
+  <script src="scripts/main-language.js?v=2"></script>
   
 <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
 <script src="scripts/enhancements.js?v=19" defer></script>
@@ -149,7 +149,7 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="ef930246-c82a-48a7-a8a7-9b8dde1e0a78"></script>
   <link rel="alternate" type="application/rss+xml" title="Thinkers GK Blog" href="https://www.thinkersgk.com/feed.xml">
 </head>
-<body>
+<body class="home-page">
   <nav class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-brand">
@@ -189,10 +189,22 @@
     <div class="home-cinematic-hero__still" aria-hidden="true"></div>
     <div class="home-cinematic-hero__overlay"></div>
     <div class="home-cinematic-hero__grid"></div>
+    <div class="home-cinematic-hero__brand-pattern" aria-hidden="true">
+      <svg class="home-cinematic-hero__circuit" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice">
+        <g id="homeHeroCircuitPattern"></g>
+      </svg>
+    </div>
     <div class="container home-cinematic-hero__content">
       <div class="home-cinematic-hero__copy">
-        <div class="hero-badge" data-en="Built for enterprise teams operating in Japan" data-ja="日本拠点の外資系企業向けITパートナー">Built for enterprise teams operating in Japan</div>
-        <h1 data-en="Japan IT operations, handled with <span class='text-gradient'>clarity.</span>" data-ja="日本でのIT運用を、<span class='text-gradient'>明確に</span>前へ。">Japan IT operations, handled with <span class="text-gradient">clarity.</span></h1>
+        <div class="home-cinematic-hero__headline-stack">
+          <div class="home-cinematic-hero__headline-circuit" aria-hidden="true">
+            <svg class="home-cinematic-hero__headline-svg" viewBox="0 0 860 420" preserveAspectRatio="none">
+              <g id="homeHeroHeadlineCircuit"></g>
+            </svg>
+          </div>
+          <div class="hero-badge" data-en="Built for enterprise teams operating in Japan" data-ja="日本拠点の外資系企業向けITパートナー">Built for enterprise teams operating in Japan</div>
+          <h1 data-en="Japan IT operations, handled with <span class='text-gradient'>clarity.</span>" data-ja="日本でのIT運用を、<span class='text-gradient'>明確に</span>前へ。">Japan IT operations, handled with <span class="text-gradient">clarity.</span></h1>
+        </div>
         <p class="hero-sub" data-en="Foreign companies in Japan trust Thinkers GK to bridge the gap between HQ expectations and ground-level IT delivery. Bilingual support. Onsite field engineers. ITAD with certified data destruction. One accountable partner." data-ja="在日外資系企業は、本社の期待と現場のITオペレーションをつなぐパートナーとしてThinkers GKを選んでいます。バイリンガル対応、現地フィールドエンジニア、認定済みデータ消去を含むITAD、そして一つの責任窓口。">Foreign companies in Japan trust Thinkers GK to bridge the gap between HQ expectations and ground-level IT delivery. Bilingual support. Onsite field engineers. ITAD with certified data destruction. One accountable partner.</p>
         <div class="hero-actions">
           <a href="contact.html" class="btn btn-primary btn-lg" data-en="Request a Consultation" data-ja="ご相談を依頼する">Request a Consultation</a>
@@ -349,9 +361,9 @@
         <a href="services.html" class="btn btn-ghost btn-sm" data-en="View All Services →" data-ja="全サービスを見る →">View All Services →</a>
       </div>
       <div class="home-service-overview__grid stagger-grid">
-        <article class="home-service-card home-service-card--large">
-          <div class="home-service-card__media">
-            <img src="assets/bilingual-support-800x500.jpg" alt="Bilingual IT support specialist" loading="lazy">
+        <article class="home-service-card">
+          <div class="home-service-card__icon home-service-card__icon--support">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
           </div>
           <div class="home-service-card__body">
             <span data-en="IT Support" data-ja="ITサポート">IT Support</span>
@@ -720,7 +732,7 @@
           <a href="how-we-work.html" data-en="How We Work" data-ja="進め方">How We Work</a>
           <a href="blog/index.html" data-en="Blog" data-ja="ブログ">Blog</a>
           <a href="contact.html" data-en="Start a Project" data-ja="案件相談">Start a Project</a>
-          <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a>
+          <a href="privacy-policy.html" data-en="Privacy Policy" data-ja="プライバシーポリシー">Privacy Policy</a> <a href="terms-of-service.html" data-en="Terms of Service" data-ja="利用規約">Terms of Service</a>
         </div>
         <div class="footer-col">
           <h4 data-en="Services" data-ja="サービス">Services</h4>
@@ -743,6 +755,7 @@
       </div>
     </div>
   </footer>
+  <script src="scripts/brand-patterns.js?v=2" defer></script>
   <script src="js/chat-widget.js?v=3d" defer></script>
   <script src="scripts/scroll-reveal.js?v=2" defer></script>
 <a class="line-bubble"

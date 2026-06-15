@@ -609,6 +609,11 @@
     margin-top: 2rem;
 }
 
+/* 4-step flows (e.g. inquiry → quote → delivery → billing) stay on one row */
+.services-fulfillment-grid--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .why-us-network-card,
 .why-us-trust-card,
 .services-fulfillment-card {
@@ -1060,4 +1065,174 @@
     .service-launch-hero__media-video {
         min-height: 220px;
     }
+}
+
+/* --- Cosmetic refresh: services page polish --- */
+.services-page .services-overview-nav {
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.services-page .services-overview-nav__card,
+.services-page .services-entry-card,
+.services-page .services-offer-detail,
+.services-page .services-overview-spotlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-page .services-overview-nav__card::before,
+.services-page .services-entry-card::before,
+.services-page .services-offer-detail::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(67, 56, 202, 0.95), rgba(6, 182, 212, 0.85), rgba(245, 158, 11, 0.8));
+    opacity: 0.94;
+}
+
+.services-page .services-overview-nav__card {
+    min-height: 100%;
+    padding: 1.35rem 1.2rem 1.25rem;
+    backdrop-filter: blur(12px);
+}
+
+.services-page .services-overview-nav__card strong {
+    font-size: 1.05rem;
+}
+
+.services-page .services-overview-nav__card span {
+    font-size: 0.92rem;
+    line-height: 1.72;
+}
+
+.services-page .services-entry-grid {
+    gap: 1.35rem;
+}
+
+.services-page .services-entry-card {
+    padding: 1.55rem;
+    box-shadow: 0 22px 44px rgba(15, 23, 42, 0.08);
+}
+
+.services-page .services-entry-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(67, 56, 202, 0.22);
+    box-shadow: 0 28px 56px rgba(37, 99, 235, 0.12);
+}
+
+.services-page .services-entry-card span {
+    color: #4f46e5;
+}
+
+.services-page .services-entry-card h3 {
+    font-size: 1.24rem;
+    line-height: 1.3;
+}
+
+.services-page .services-entry-card p,
+.services-page .services-entry-card li {
+    line-height: 1.74;
+}
+
+.services-page .services-entry-card ul {
+    gap: 0.6rem;
+}
+
+.services-page .services-entry-card__actions {
+    padding-top: 1rem;
+    margin-top: 0.25rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.services-page .services-entry-card__actions a:last-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.services-page .services-offer-detail-stack {
+    gap: 1.6rem;
+    margin: 2rem 0 2.5rem;
+}
+
+.services-page .services-offer-detail {
+    padding: 1.85rem;
+    border-radius: 24px;
+    box-shadow: 0 24px 54px rgba(15, 23, 42, 0.1);
+}
+
+.services-page .services-offer-detail__head {
+    gap: 1.35rem;
+    margin-bottom: 1.4rem;
+}
+
+.services-page .services-offer-detail__head h2 {
+    font-size: clamp(1.85rem, 2.2vw, 2.45rem);
+    line-height: 1.08;
+}
+
+.services-page .services-offer-detail__meta {
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.services-page .services-offer-detail__meta-card,
+.services-page .services-offer-detail__panel {
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.services-page .services-offer-detail__meta-card {
+    padding: 1.05rem 1rem 1.1rem;
+}
+
+.services-page .services-offer-detail__meta-card strong {
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.services-page .services-offer-detail__meta-card span {
+    font-size: 0.98rem;
+    color: var(--color-text);
+}
+
+.services-page .services-offer-detail__panel {
+    padding: 1.25rem;
+}
+
+.services-page .services-offer-detail__panel h3 {
+    font-size: 1.02rem;
+    margin-bottom: 0.8rem;
+}
+
+.services-page .services-offer-detail__panel li {
+    line-height: 1.72;
+}
+
+.services-page .services-overview-spotlight {
+    box-shadow: 0 28px 64px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="dark"] .services-page .services-entry-card {
+    box-shadow: 0 28px 52px rgba(2, 6, 23, 0.36);
+}
+
+[data-theme="dark"] .services-page .services-entry-card__actions {
+    border-top-color: rgba(148, 163, 184, 0.12);
+}
+
+[data-theme="dark"] .services-page .services-entry-card__actions a:last-child {
+    background: rgba(96, 165, 250, 0.12);
+    color: #bfdbfe;
 }
