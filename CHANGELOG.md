@@ -8,6 +8,15 @@
 - Website: Upgraded supporting pages (`why-us`, `about`, `contact`, `how-we-work`) with more premium section styling, improved trust/info card presentation, better process/timeline treatment, and a reveal fallback so About-page content remains visible during local review.
 - Website: Integrated the homepage circuit-board motif directly around the hero badge/headline with animated trace paths and moving signal points so the motion now frames the opening message during local preview.
 - Website: After local review, removed the circuit hero variants from the secondary pages and kept the homepage hero version as the preferred direction for now.
+- Housekeeping: Archived local review screenshots, internal pattern-lab/template files, non-website bank-submission drafts, and temporary project-note files to `/Users/mac/Archives/thinkersgk-website-cleanup/2026-06-15/` to reduce clutter in the active website repo.
+- Website: Added a new homepage buyer-trigger section plus a richer final CTA checklist, and inserted a services-page starting-lane section so business buyers can self-identify faster and reach a useful inquiry path more quickly during local review.
+- Website: Ran a second local growth pass to reduce long-scroll fatigue, add compact proof strips near the top of the homepage and services page, and tighten section spacing on high-scroll areas before live review.
+- Website: Consolidated lower-page flow by removing the redundant homepage motion-band section and the repetitive bottom services spotlight so both key pages end with a clearer path into the final CTA.
+- Website: Reframed the services-category section with category summary chips and more compact service cards (tighter spacing plus clamped descriptions) so buyers can scan 24 service entries faster during local review.
+- Website: Compressed the long offer-detail stack on the services page with shorter intros, quick-point chips, tighter meta cards, and denser detail panels so the mid-page offer section reads faster without removing proof or CTA paths.
+- Website: Polished the offer-detail header CTAs to sit lighter against the compressed content by softening button treatment, aligning them to the top edge, and improving mobile stacking.
+- Website: Completed another local-only whole-site growth pass by strengthening the About page with a proof strip, best-fit engagement cards, and a richer CTA checklist, while upgrading the Contact page with inquiry-lane guidance, expectation-setting proof chips, and a higher-clarity intake checklist before form submission.
+- Website: Applied a final tiny local polish pass before go-live by tightening homepage closing-CTA spacing, slightly compacting services offer-detail stacks, refining About proof/checklist density, and reducing the visual bulk of the Contact consultation block.
 
 ## [2026-06-11] - Lead Architect (Codex)
 

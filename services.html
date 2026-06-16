@@ -33,8 +33,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css?v=72">
-  <link rel="stylesheet" href="styles/redesign.css?v=14">
-  <link rel="stylesheet" href="styles/services-launch.css?v=6">
+  <link rel="stylesheet" href="styles/redesign.css?v=30">
+  <link rel="stylesheet" href="styles/services-launch.css?v=10">
   <script src="scripts/main-language.js?v=2"></script>
   
 <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
@@ -129,6 +129,54 @@
           </div>
         </div>
       </aside>
+    </div>
+  </section>
+
+  <section class="services-proof-strip fade-target" aria-label="Service delivery proof">
+    <div class="container">
+      <div class="services-proof-strip__grid">
+        <article class="services-proof-strip__item">
+          <span data-en="Before work starts" data-ja="開始前に明確化">Before work starts</span>
+          <strong data-en="Scope, assumptions, deliverables, and schedule are written down." data-ja="範囲・前提・成果物・予定を文書化。">Scope, assumptions, deliverables, and schedule are written down.</strong>
+        </article>
+        <article class="services-proof-strip__item">
+          <span data-en="During delivery" data-ja="実行中の可視化">During delivery</span>
+          <strong data-en="Tickets, coordination updates, photos, and technical records keep work visible." data-ja="チケット・進捗連絡・写真・技術記録で可視化。">Tickets, coordination updates, photos, and technical records keep work visible.</strong>
+        </article>
+        <article class="services-proof-strip__item">
+          <span data-en="At closeout" data-ja="完了時の証跡">At closeout</span>
+          <strong data-en="Completion reports, runbooks, and chain-of-custody records are available when relevant." data-ja="完了報告・手順書・必要時の管理証跡を用意。">Completion reports, runbooks, and chain-of-custody records are available when relevant.</strong>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-start-lanes fade-target">
+    <div class="container">
+      <div class="section-header-flex services-start-lanes__header">
+        <div>
+          <div class="section-label" data-en="Choose a starting lane" data-ja="最初の相談レーン">Choose a starting lane</div>
+          <h2 class="section-title" data-en="Most buyers start in one of these three ways." data-ja="多くのお客様は、この3つの入口から始まります。">Most buyers start in one of these three ways.</h2>
+        </div>
+        <p class="section-lead" data-en="You do not need to know the final engagement model before contacting us. These starting lanes help narrow the right first conversation and shorten the path to a useful quote." data-ja="最終的な契約形態が決まっていなくても大丈夫です。まずはこの入口から整理すると、見積までの流れが早くなります。">You do not need to know the final engagement model before contacting us. These starting lanes help narrow the right first conversation and shorten the path to a useful quote.</p>
+      </div>
+      <div class="services-start-lanes__grid">
+        <article class="services-start-lane-card">
+          <span data-en="Scoped project" data-ja="単発プロジェクト">Scoped project</span>
+          <h3 data-en="You need a defined outcome, timeline, and deliverables." data-ja="成果物・期間・範囲を明確にしたい。">You need a defined outcome, timeline, and deliverables.</h3>
+          <p data-en="Good for launches, migrations, office moves, network work, refresh projects, and tightly bounded implementation work." data-ja="立ち上げ、移行、移転、ネットワーク対応、刷新案件など、範囲を切って進めたい業務に適しています。">Good for launches, migrations, office moves, network work, refresh projects, and tightly bounded implementation work.</p>
+        </article>
+        <article class="services-start-lane-card">
+          <span data-en="Recurring support" data-ja="継続サポート">Recurring support</span>
+          <h3 data-en="You need an ongoing operating layer in Japan." data-ja="日本で継続的な運用レイヤーが必要。">You need an ongoing operating layer in Japan.</h3>
+          <p data-en="Good for bilingual user support, service ownership, reporting, vendor coordination, and monthly operational stability." data-ja="バイリンガル支援、運用責任、レポート、ベンダー調整、月次の安定運用に向いています。">Good for bilingual user support, service ownership, reporting, vendor coordination, and monthly operational stability.</p>
+        </article>
+        <article class="services-start-lane-card">
+          <span data-en="Onsite or lifecycle execution" data-ja="現地・ライフサイクル実行">Onsite or lifecycle execution</span>
+          <h3 data-en="You need devices, dispatch, retrieval, or documented closeout." data-ja="端末、現地対応、回収、証跡付き完了が必要。">You need devices, dispatch, retrieval, or documented closeout.</h3>
+          <p data-en="Good for procurement, rollout, swaps, surveys, retrieval, ITAD, and evidence-heavy execution across one or many sites." data-ja="調達、展開、交換、調査、回収、ITADなど、現場実行と証跡の両方が必要な場面に適しています。">Good for procurement, rollout, swaps, surveys, retrieval, ITAD, and evidence-heavy execution across one or many sites.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -293,7 +341,12 @@
             <div>
               <div class="section-label" data-en="Offer detail 01" data-ja="オファー詳細 01">Offer detail 01</div>
               <h2 data-en="Win10 Exit Sprint" data-ja="Win10 Exit Sprint">Win10 Exit Sprint</h2>
-              <p data-en="This offer is designed for teams that already know the refresh has to happen and need a clean, execution-minded path from audit through swap and disposal." data-ja="このオファーは、刷新の必要性は分かっているが、監査から交換、廃棄までを実行目線で整理したい企業向けです。">This offer is designed for teams that already know the refresh has to happen and need a clean, execution-minded path from audit through swap and disposal.</p>
+              <p data-en="For teams that already know the refresh has to happen and want a clean path from audit through swap and disposal." data-ja="刷新の必要性は固まっており、監査から交換、廃棄までをすっきり進めたい企業向けです。">For teams that already know the refresh has to happen and want a clean path from audit through swap and disposal.</p>
+              <div class="services-offer-detail__quick-points">
+                <span data-en="1–4 week sprint" data-ja="1〜4週間の短期実行">1–4 week sprint</span>
+                <span data-en="Audit, swap, disposal" data-ja="監査・交換・廃棄">Audit, swap, disposal</span>
+                <span data-en="Evidence-ready closeout" data-ja="証跡付きクローズアウト">Evidence-ready closeout</span>
+              </div>
             </div>
             <a href="contact.html" class="btn btn-primary btn-sm" data-en="Discuss this offer" data-ja="このオファーを相談">Discuss this offer</a>
           </div>
@@ -350,7 +403,12 @@
             <div>
               <div class="section-label" data-en="Offer detail 02" data-ja="オファー詳細 02">Offer detail 02</div>
               <h2 data-en="Legacy Bridge Assessment" data-ja="Legacy Bridge Assessment">Legacy Bridge Assessment</h2>
-              <p data-en="This is the right first step when the problem is bigger than a ticket but still too unclear for a full implementation project." data-ja="単発対応では足りないが、全面実装に入るにはまだ不明点が多い時の最初の一歩です。">This is the right first step when the problem is bigger than a ticket but still too unclear for a full implementation project.</p>
+              <p data-en="The right first step when the problem is bigger than a ticket but still too unclear for a full implementation project." data-ja="単発対応では足りないが、全面実装に入るにはまだ不明点が多い時の最初の一歩です。">The right first step when the problem is bigger than a ticket but still too unclear for a full implementation project.</p>
+              <div class="services-offer-detail__quick-points">
+                <span data-en="2–4 week assessment" data-ja="2〜4週間の診断">2–4 week assessment</span>
+                <span data-en="Current-state mapping" data-ja="現状整理">Current-state mapping</span>
+                <span data-en="Phase-one roadmap" data-ja="第1フェーズ計画">Phase-one roadmap</span>
+              </div>
             </div>
             <a href="contact.html" class="btn btn-primary btn-sm" data-en="Discuss this offer" data-ja="このオファーを相談">Discuss this offer</a>
           </div>
@@ -407,7 +465,12 @@
             <div>
               <div class="section-label" data-en="Offer detail 03" data-ja="オファー詳細 03">Offer detail 03</div>
               <h2 data-en="AI Control Tower Pilot" data-ja="AI Control Tower Pilot">AI Control Tower Pilot</h2>
-              <p data-en="This offer is for teams that want operational AI to be useful, visible, and governable instead of becoming another unmanaged tool." data-ja="運用AIを便利にしたいが、管理されない別ツールにはしたくない企業向けの支援です。">This offer is for teams that want operational AI to be useful, visible, and governable instead of becoming another unmanaged tool.</p>
+              <p data-en="For teams that want operational AI to be useful, visible, and governable instead of another unmanaged tool." data-ja="運用AIを便利にしつつ、管理されない別ツールにはしたくない企業向けの支援です。">For teams that want operational AI to be useful, visible, and governable instead of another unmanaged tool.</p>
+              <div class="services-offer-detail__quick-points">
+                <span data-en="3–6 week pilot" data-ja="3〜6週間の試験導入">3–6 week pilot</span>
+                <span data-en="Approval and routing design" data-ja="承認・ルーティング設計">Approval and routing design</span>
+                <span data-en="Visible human override" data-ja="見える人の介入">Visible human override</span>
+              </div>
             </div>
             <a href="contact.html" class="btn btn-primary btn-sm" data-en="Discuss this offer" data-ja="このオファーを相談">Discuss this offer</a>
           </div>
@@ -511,6 +574,11 @@
               <div class="section-label" data-en="Category 01" data-ja="カテゴリ 01">Category 01</div>
               <h2 data-en="Operations & Support" data-ja="運用・サポート">Operations & Support</h2>
               <p data-en="For teams that need a reliable day-to-day operating layer in Japan: end-user support, accountable service ownership, and extra delivery capacity when internal teams are stretched." data-ja="日本国内で日々の運用レイヤーを安定させたい企業向け。エンドユーザー支援、責任あるサービス運用、そして社内体制が足りない時の実行力を補います。">For teams that need a reliable day-to-day operating layer in Japan: end-user support, accountable service ownership, and extra delivery capacity when internal teams are stretched.</p>
+              <div class="service-category__summary">
+                <span data-en="Bilingual user support" data-ja="バイリンガル利用者支援">Bilingual user support</span>
+                <span data-en="Vendor and ticket ownership" data-ja="ベンダー・チケット運用">Vendor and ticket ownership</span>
+                <span data-en="Flexible delivery capacity" data-ja="柔軟な実行体制">Flexible delivery capacity</span>
+              </div>
             </div>
             <span class="service-category__tag" data-en="Daily operations" data-ja="日常運用">Daily operations</span>
           </div>
@@ -566,6 +634,11 @@
               <div class="section-label" data-en="Category 02" data-ja="カテゴリ 02">Category 02</div>
               <h2 data-en="Infrastructure & Delivery" data-ja="インフラ・現地対応">Infrastructure & Delivery</h2>
               <p data-en="For organizations changing physical environments, deploying equipment, or moving core infrastructure without losing control of the project." data-ja="物理環境の変更、機器導入、インフラ移行を進める際に、案件全体の見通しを失いたくない企業向け。">For organizations changing physical environments, deploying equipment, or moving core infrastructure without losing control of the project.</p>
+              <div class="service-category__summary">
+                <span data-en="Nationwide onsite execution" data-ja="全国オンサイト対応">Nationwide onsite execution</span>
+                <span data-en="Relocations and deployments" data-ja="移転・展開支援">Relocations and deployments</span>
+                <span data-en="Readiness and cutover control" data-ja="準備・切替管理">Readiness and cutover control</span>
+              </div>
             </div>
             <span class="service-category__tag" data-en="Execution" data-ja="実行支援">Execution</span>
           </div>
@@ -615,6 +688,11 @@
               <div class="section-label" data-en="Category 03" data-ja="カテゴリ 03">Category 03</div>
               <h2 data-en="Security & Risk" data-ja="セキュリティ・リスク">Security & Risk</h2>
               <p data-en="For teams that need to improve security posture, reduce operational risk, and create more defensible access and recovery models in Japan." data-ja="日本国内でセキュリティ態勢を改善し、運用リスクを減らし、より防御力のあるアクセス・復旧モデルを作りたい企業向け。">For teams that need to improve security posture, reduce operational risk, and create more defensible access and recovery models in Japan.</p>
+              <div class="service-category__summary">
+                <span data-en="Risk reduction programs" data-ja="リスク低減施策">Risk reduction programs</span>
+                <span data-en="Identity, backup, and control" data-ja="ID・バックアップ・統制">Identity, backup, and control</span>
+                <span data-en="Mixed-language user readiness" data-ja="多言語環境の利用者対策">Mixed-language user readiness</span>
+              </div>
             </div>
             <span class="service-category__tag" data-en="Risk reduction" data-ja="リスク低減">Risk reduction</span>
           </div>
@@ -658,6 +736,11 @@
               <div class="section-label" data-en="Category 04" data-ja="カテゴリ 04">Category 04</div>
               <h2 data-en="Transformation & Advisory" data-ja="変革・アドバイザリー">Transformation & Advisory</h2>
               <p data-en="For leadership teams planning modernization, cloud change, AI adoption, or broader operating-model upgrades without losing sight of delivery reality." data-ja="モダナイゼーション、クラウド変革、AI導入、運用モデル刷新を検討する経営・部門責任者向け。机上論ではなく実行現実まで含めて整理します。">For leadership teams planning modernization, cloud change, AI adoption, or broader operating-model upgrades without losing sight of delivery reality.</p>
+              <div class="service-category__summary">
+                <span data-en="Modernization roadmaps" data-ja="モダナイゼーション計画">Modernization roadmaps</span>
+                <span data-en="Cloud and AI change" data-ja="クラウド・AI変革">Cloud and AI change</span>
+                <span data-en="Lifecycle and governance" data-ja="ライフサイクルと統制">Lifecycle and governance</span>
+              </div>
             </div>
             <span class="service-category__tag" data-en="Advisory" data-ja="アドバイザリー">Advisory</span>
           </div>
@@ -700,49 +783,6 @@
             </a>
           </div>
         </section>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="services-overview-spotlight fade-target">
-        <div class="services-overview-spotlight__grid">
-          <div>
-            <div class="section-label" data-en="How engagements usually start" data-ja="主なご相談の始まり方">How engagements usually start</div>
-            <h2><a href="why-us.html" class="services-overview-spotlight__headline-link" data-en="Different entry points, one operating picture." data-ja="入口は違っても、運用全体は一つの絵として整理。">Different entry points, one operating picture.</a></h2>
-            <p data-en="Some companies come to us for a single urgent issue. Others start with one service line and then expand into a broader operating relationship. The important part is that the work does not stay fragmented between users, vendors, sites, and leadership reporting." data-ja="緊急課題から始まる企業もあれば、一つのサービスラインから広い運用関係へ広がる企業もあります。重要なのは、ユーザー、ベンダー、拠点、経営報告の間で仕事が分断されたままにならないことです。">Some companies come to us for a single urgent issue. Others start with one service line and then expand into a broader operating relationship. The important part is that the work does not stay fragmented between users, vendors, sites, and leadership reporting.</p>
-            <div class="services-overview-spotlight__chips">
-              <a href="why-us.html#single-project" data-en="Single project" data-ja="単発案件">Single project</a>
-              <a href="why-us.html#managed-layer" data-en="Managed operating layer" data-ja="継続運用">Managed operating layer</a>
-              <a href="why-us.html#regional-execution" data-en="Regional field execution" data-ja="地方拠点対応">Regional field execution</a>
-              <a href="why-us.html#transformation-program" data-en="Transformation program" data-ja="変革プログラム">Transformation program</a>
-            </div>
-            <div class="services-overview-spotlight__actions">
-              <a href="why-us.html" class="btn btn-primary" data-en="Open Why Us" data-ja="選ばれる理由を見る">Open Why Us</a>
-            </div>
-          </div>
-          <div class="services-overview-hero__panel">
-            <div class="services-overview-hero__panel-head">
-              <span data-en="Common buying triggers" data-ja="よくあるきっかけ">Common buying triggers</span>
-              <span data-en="What we hear first" data-ja="最初に聞くこと">What we hear first</span>
-            </div>
-            <div class="services-overview-hero__panel-body">
-              <a href="why-us.html#support-pressure" class="services-overview-hero__metric services-overview-hero__metric--link">
-                <span data-en="Support pressure" data-ja="サポート負荷">Support pressure</span>
-                <strong data-en="The local office is growing, but user support and vendor handling are too fragmented." data-ja="拠点が拡大したが、利用者支援とベンダー対応が分断されている。">The local office is growing, but user support and vendor handling are too fragmented.</strong>
-              </a>
-              <a href="why-us.html#change-pressure" class="services-overview-hero__metric services-overview-hero__metric--link">
-                <span data-en="Change pressure" data-ja="変化対応">Change pressure</span>
-                <strong data-en="We need to relocate, modernize, migrate, or tighten security without losing control of the project." data-ja="移転、刷新、移行、セキュリティ強化を進めたいが、案件の見通しは失いたくない。">We need to relocate, modernize, migrate, or tighten security without losing control of the project.</strong>
-              </a>
-              <a href="why-us.html#leadership-pressure" class="services-overview-hero__metric services-overview-hero__metric--link">
-                <span data-en="Leadership pressure" data-ja="経営視点">Leadership pressure</span>
-                <strong data-en="Headquarters wants better visibility, cleaner reporting, and stronger accountability for what is happening in Japan." data-ja="本社が、日本側の可視性、報告品質、責任の所在をもっと明確にしたい。">Headquarters wants better visibility, cleaner reporting, and stronger accountability for what is happening in Japan.</strong>
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
