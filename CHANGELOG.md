@@ -17,6 +17,7 @@
 - Website: Polished the offer-detail header CTAs to sit lighter against the compressed content by softening button treatment, aligning them to the top edge, and improving mobile stacking.
 - Website: Completed another local-only whole-site growth pass by strengthening the About page with a proof strip, best-fit engagement cards, and a richer CTA checklist, while upgrading the Contact page with inquiry-lane guidance, expectation-setting proof chips, and a higher-clarity intake checklist before form submission.
 - Website: Applied a final tiny local polish pass before go-live by tightening homepage closing-CTA spacing, slightly compacting services offer-detail stacks, refining About proof/checklist density, and reducing the visual bulk of the Contact consultation block.
+- Blog: Rebuilt the malformed Zoho Mail post into a normal polished article, replaced the repeated thumbnail treatment, added stronger article/service CTAs, introduced a "Start here" lead-routing section on `blog/index.html`, and cleaned the top AI card excerpt so the blog feed reads more credibly during local review.
 
 ## [2026-06-11] - Lead Architect (Codex)
 
