@@ -18,6 +18,8 @@ This is not a marketing vanity report. It is a small operating review for decidi
 ## Source
 - Umami event reporting for the Thinkers GK site
 - Use the event names defined in `docs/conversion-measurement-spec.md`
+- Fill the reusable report shell in `docs/weekly-conversion-review-template.md`
+- Use `docs/conversion-review-worksheet.md` to collect counts and turn them into one weekly decision
 
 ## Weekly scoreboard
 Record only the signals that change decisions.
