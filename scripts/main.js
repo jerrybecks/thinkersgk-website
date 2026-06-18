@@ -1048,6 +1048,70 @@
         });
     }
 
+    function trackUmamiEvent(eventName, payload) {
+        try {
+            if (!window.umami || typeof window.umami.track !== 'function' || !eventName) return;
+            window.umami.track(eventName, payload || {});
+        } catch (err) {
+            console.warn('Umami tracking failed:', err && err.message ? err.message : err);
+        }
+    }
+
+    function buildConversionPayload(el) {
+        var href = el && el.getAttribute ? (el.getAttribute('href') || '') : '';
+        var text = el && el.textContent ? el.textContent.replace(/\s+/g, ' ').trim() : '';
+        return {
+            path: window.location.pathname || '/',
+            href: href,
+            text: text.slice(0, 120),
+            lang: document.documentElement.getAttribute('lang') || 'en'
+        };
+    }
+
+    function classifyTrackedLink(link) {
+        if (!link || !link.getAttribute) return null;
+
+        var explicit = link.getAttribute('data-track-event');
+        if (explicit) return explicit;
+
+        var href = (link.getAttribute('href') || '').trim();
+        if (!href) return null;
+
+        if (/^mailto:/i.test(href)) return 'contact_email_click';
+        if (/line\.me\//i.test(href)) return 'contact_line_click';
+        if (/cal\.com\//i.test(href)) return 'consultation_calendar_click';
+        if (/contact(?:\.ja)?\.html(?:$|[?#])/i.test(href)) return 'contact_page_click';
+        if (/services(?:\.ja)?\.html(?:$|[?#])/i.test(href)) return 'services_page_click';
+        if (/how-we-work\.html(?:$|[?#])/i.test(href)) return 'how_we_work_click';
+        if (/itad-japan\.html(?:$|[?#])/i.test(href)) return 'itad_japan_click';
+        if (/blog\/posts\//i.test(href)) return 'blog_article_click';
+        if (/blog\/index\.html(?:$|[?#])/i.test(href)) return 'blog_index_click';
+        return null;
+    }
+
+    function initConversionTracking() {
+        document.addEventListener('click', function(event) {
+            var link = event.target && event.target.closest ? event.target.closest('a') : null;
+            if (!link) return;
+            var eventName = classifyTrackedLink(link);
+            if (!eventName) return;
+            trackUmamiEvent(eventName, buildConversionPayload(link));
+        }, true);
+
+        document.addEventListener('submit', function(event) {
+            var form = event.target;
+            if (!form || !form.matches || !form.matches('[data-track-form]')) return;
+            var formEvent = form.getAttribute('data-track-form');
+            if (!formEvent) return;
+            trackUmamiEvent(formEvent, {
+                path: window.location.pathname || '/',
+                lang: document.documentElement.getAttribute('lang') || 'en',
+                form_id: form.id || '',
+                action: form.getAttribute('action') || ''
+            });
+        }, true);
+    }
+
     // ── DOM Ready ──────────────────────────────────
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -1108,6 +1172,7 @@
         initLogoScroll();
         initPlatformMarquee();
         removeDuplicateThinkingSection();
+        initConversionTracking();
     });
 
 })();
