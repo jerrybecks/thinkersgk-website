@@ -16,7 +16,7 @@
 - **Hosting**: GitHub Pages (static site, `main` branch)
 - **Font**: Inter (Google Fonts)
 - **Form**: Formspree AJAX submission (form ID is still placeholder `your-form-id` — needs real ID)
-- **Analytics**: GA4 placeholder (`G-XXXXXXXXXX` — needs real tracking ID)
+- **Analytics**: Umami is the active lightweight measurement approach; custom events are documented in `docs/conversion-measurement-spec.md` and reviewed operationally via `docs/weekly-conversion-review.md`
 - **No bundler** — edit files directly, push to deploy
 
 ---
