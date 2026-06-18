@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-06-18] - Lead Architect (Codex)
+
+### Fixed
+- Website: Ran a post-merge Japanese buyer-path QA sweep, confirmed core EN/JP entry pages returned HTTP 200, browser-verified `index.ja.html` stayed on the explicit JP route with `lang="ja"`, and opened the repaired local review URLs on the MacBook.
+- Website: Eliminated the highest-impact Japanese buyer-path 404 cluster by adding localized counterparts for missing linked routes including `service-ai-integration.ja.html`, `service-cloud-consulting.ja.html`, `service-cloud-migration.ja.html`, `service-cybersecurity.ja.html`, `service-data-backup.ja.html`, `service-device-lifecycle.ja.html`, `service-dx-consulting.ja.html`, `service-it-support.ja.html`, `service-m365-saas.ja.html`, `service-managed-services.ja.html`, `service-networking.ja.html`, `service-office-relocation.ja.html`, `service-onsite-dispatch.ja.html`, `service-project-management.ja.html`, `service-wireless-survey.ja.html`, and `service-zero-trust.ja.html`.
+- Website: Added `service-asset-lifecycle.ja.html`, `why-us.ja.html`, and `get-started.ja.html`, then repointed the remaining high-value Japanese core/service links so the localized buyer path no longer drops users into missing English-only routes on homepage, services, legal, or related-service surfaces.
+- Website: Repointed remaining Japanese cross-links on existing pages such as `privacy-policy.ja.html`, `terms-of-service.ja.html`, `service-field-engineering.ja.html`, `service-staff-augmentation.ja.html`, `service-ai-solutions.ja.html`, `index.ja.html`, and `services.ja.html` to their Japanese counterparts where those localized pages now exist.
+- Website: Reduced the remaining non-Japanese internal links in `*.ja.html` to untranslated blog-post links on `index.ja.html`, leaving the core buyer path, service hub, and strategic conversion pages localized and returning HTTP 200 during local review.
+
 ## [2026-06-16] - Lead Architect (Codex)
 
 ### Fixed
