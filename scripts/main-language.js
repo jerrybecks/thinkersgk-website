@@ -90,6 +90,9 @@
         if (new URLSearchParams(window.location.search).has('lang')) return;
         if (hasManualLangPreference()) return;
 
+        var path = window.location.pathname || '';
+        if (/\.ja\.html$|\.jp\.html$/i.test(path)) return;
+
         var browserLang = getBrowserLang();
         var nextPath = localizedPathFor(browserLang);
         if (nextPath && nextPath !== window.location.pathname + window.location.search + window.location.hash) {
