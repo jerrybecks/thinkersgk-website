@@ -8,6 +8,7 @@
 - Website: Centered the shared footer on phone widths in `styles/main.css`, then normalized every page and published article to `main.css?v=73` so the footer brand, columns, and copyright line align centrally across homepage, services, contact, service pages, legal pages, and blog pages without stale mobile caches.
 - Website: Reworked the mobile navigation alignment in `styles/main.css` so hamburger-menu links use one left-aligned layout system, fixing the `Services` row/toggle misalignment and bumping the shared stylesheet to `main.css?v=74` across all pages.
 - Website: Updated the mobile navigation again so the full hamburger menu is centered consistently, including the `Services` row while keeping its trigger aligned, and bumped the shared stylesheet to `main.css?v=75` across all pages.
+- Website: Added a low-risk second-pass mobile polish layer in `styles/redesign.css` and normalized redesign asset references to `redesign.css?v=32`, tightening section rhythm, reducing mobile heading looseness, and making stacked CTAs/card padding feel more balanced across homepage, services, contact, and blog templates.
 
 ## [2026-06-18] - Lead Architect (Codex)
 

@@ -5028,3 +5028,83 @@ article.blog-card.card img {
     border-radius: 18px;
   }
 }
+
+/* --- Opinionated mobile polish pass --- */
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  h2,
+  .section-title,
+  .page-header h2,
+  .blog-post h2,
+  .blog-article h2 {
+    line-height: 1.32;
+    margin-bottom: 0.75rem;
+  }
+
+  h3,
+  .card h3,
+  .process-step h3,
+  .service-feature-card h3,
+  .related-grid .card h3 {
+    line-height: 1.38;
+  }
+
+  .hero-actions,
+  .cta-actions {
+    gap: 12px;
+  }
+
+  .hero-actions .btn,
+  .cta-actions .btn,
+  .cta-box .btn,
+  .blog-cta .btn,
+  .contact-page .contact-form .btn,
+  .contact-page .contact-form button,
+  .contact-page .contact-form a.btn {
+    max-width: 320px;
+    min-height: 52px;
+  }
+
+  .cards-grid,
+  .services-grid,
+  .related-grid,
+  .home-testimonials__grid,
+  .contact-page .contact-intake-strip__grid,
+  .about-page .about-engagements__grid {
+    gap: 18px;
+  }
+
+  .card,
+  .process-step,
+  .service-feature-card,
+  .proof-block,
+  .related-grid .card-link .card,
+  .contact-page .contact-intake-card,
+  .about-page .about-engagement-card {
+    padding: 1.4rem 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-bottom: 64px;
+  }
+
+  h2,
+  .section-title,
+  .blog-post h2,
+  .blog-article h2 {
+    font-size: clamp(1.55rem, 6vw, 1.8rem);
+    line-height: 1.28;
+  }
+
+  .section-lead,
+  .page-header p,
+  .blog-post p,
+  .blog-article p {
+    line-height: 1.68;
+  }
+}
