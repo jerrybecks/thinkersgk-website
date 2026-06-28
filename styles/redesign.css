@@ -2711,6 +2711,53 @@ article.blog-card.card img {
 
 
 /* ═══════════════════════════════════════════════════════════════
+   HERO — MOBILE CENTERING FIX
+   Keeps the homepage hero centered on phones instead of drifting left.
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .home-cinematic-hero__content {
+        justify-items: center;
+        text-align: center;
+    }
+
+    .home-cinematic-hero__copy {
+        width: 100%;
+        text-align: center;
+    }
+
+    .home-cinematic-hero__headline-stack {
+        margin: 0 0 0.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .home-cinematic-hero__copy h1,
+    .home-cinematic-hero__copy .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-cinematic-hero__copy .hero-sub {
+        max-width: 34rem;
+    }
+
+    .home-cinematic-hero__copy .hero-actions {
+        justify-content: center;
+    }
+
+    .home-cinematic-hero__signals {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .home-cinematic-hero__headline-stack {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    HERO — ANIMATED SHIMMER ON BADGE
    Top badge gets a subtle shimmer sweep after load.
    ═══════════════════════════════════════════════════════════════ */

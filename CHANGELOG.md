@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-06-28] - Lead Architect (Codex)
+
+### Fixed
+- Website: Centered the homepage cinematic hero for phone layouts in `styles/redesign.css` by resetting the negative headline-stack offset on mobile, centering the copy block/actions, and keeping the hero text/signals visually centered during narrow-width review.
+
 ## [2026-06-18] - Lead Architect (Codex)
 
 ### Fixed
