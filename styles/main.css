@@ -2106,7 +2106,7 @@ article[id] {
         right: 0;
         background: var(--color-bg);
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         padding: 24px;
         gap: 16px;
         border-bottom: 1px solid var(--color-border);
@@ -2126,18 +2126,18 @@ article[id] {
     .nav-menu > a {
         display: block;
         width: 100%;
-        text-align: left;
+        text-align: center;
     }
 
     .nav-dropdown {
         width: 100%;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
     .nav-dropdown__bar {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
         align-items: center;
         width: 100%;
         column-gap: 12px;
@@ -2147,12 +2147,14 @@ article[id] {
         display: block;
         width: 100%;
         flex: 1;
-        text-align: left;
+        text-align: center;
+        grid-column: 2;
     }
 
     .nav-dropdown__trigger {
         flex: 0 0 auto;
         justify-self: end;
+        grid-column: 3;
     }
 
     .nav-dropdown__panel {
