@@ -5,6 +5,9 @@
 ### Added
 - Website: Added `/gerald/` NFC-ready digital business card page for Gerald Anyanwu, including downloadable vCard, Thinkers GK logo asset, and sitemap entry for the public tap-to-share URL.
 
+### Fixed
+- Cloudflare: Disabled the temporary homepage hotfix Worker routes so the homepage is served directly from GitHub Pages again, and changed the Worker fallback behavior so raw GitHub asset fetch failures no longer show `Homepage hotfix asset unavailable`.
+
 ## [2026-06-28] - Lead Architect (Codex)
 
 ### Fixed

@@ -36,10 +36,10 @@ export default {
         "User-Agent": "thinkersgk-homepage-hotfix"
       },
       cf: { cacheTtl: 0 }
-    });
+    }).catch(() => null);
 
-    if (!upstream.ok) {
-      return new Response("Homepage hotfix asset unavailable", { status: 502 });
+    if (!upstream || !upstream.ok) {
+      return fetch(request);
     }
 
     const headers = new Headers(upstream.headers);

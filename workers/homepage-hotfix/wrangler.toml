@@ -3,16 +3,4 @@ main = "src/worker.js"
 compatibility_date = "2026-05-26"
 
 routes = [
-  { pattern = "www.thinkersgk.com/", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/index.html", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/case-studies.html", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/llms.txt", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/sitemap.xml", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/9decf31152cf4527a0947c0c5656121b.txt", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/styles/main.css*", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/styles/redesign.css*", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/scripts/main.js*", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/scripts/enhancements.js*", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/assets/videos/*", zone_name = "thinkersgk.com" },
-  { pattern = "www.thinkersgk.com/js/chat-widget.js*", zone_name = "thinkersgk.com" }
 ]
