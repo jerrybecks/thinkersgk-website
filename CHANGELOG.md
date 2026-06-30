@@ -10,6 +10,7 @@
 - Website: Restyled `/gerald/` as a mobile adaptation of the printed Thinkers GK business card while preserving the vCard save flow and quick contact actions.
 - Website: Removed the redundant TEL/MAIL/PIN/WEB rail from the top of `/gerald/` and strengthened the card-style circuit/square background treatment to better match the printed business card.
 - Website: Made the `/gerald/` address clickable with a Google Maps link for directions.
+- Website: Reworked the `/gerald/` card background into a Data Matrix, binary, blueprint-grid, and circuit-board inspired visual system to better match the printed card design direction.
 
 ## [2026-06-28] - Lead Architect (Codex)
 
