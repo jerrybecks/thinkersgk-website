@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gerald Anyanwu | Thinkers GK</title>
+  <meta name="description" content="Gerald Anyanwu, Representative at Thinkers GK. Japan-based IT support, procurement, onsite field engineering, office setup, ITAD, and local operations support.">
+  <style>
+    :root {
+      --navy: #123852;
+      --blue: #245a7d;
+      --gold: #d2ad60;
+      --paper: #f7f5ef;
+      --line: rgba(18, 56, 82, .14);
+      --ink: #142f43;
+      --muted: #607383;
+      --white: #fffdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(18,56,82,.04) 1px, transparent 1px),
+        linear-gradient(180deg, #ffffff, var(--paper));
+      background-size: 28px 28px, auto;
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .profile {
+      width: min(440px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 253, 248, .96);
+      box-shadow: 0 18px 50px rgba(18, 56, 82, .12);
+    }
+
+    .mast {
+      position: relative;
+      padding: 24px 22px 20px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(18,56,82,.97), rgba(30,83,116,.95)),
+        url("thinkers-logo-new.jpg") right -28px top -12px / 230px auto no-repeat;
+    }
+
+    .mast::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("thinkers-logo-new.jpg") right -28px top -12px / 230px auto no-repeat;
+      opacity: .08;
+      filter: grayscale(1) brightness(2.2);
+      pointer-events: none;
+    }
+
+    .logo {
+      position: relative;
+      z-index: 1;
+      width: 142px;
+      height: auto;
+      display: block;
+      margin-bottom: 28px;
+      background: rgba(255,255,255,.9);
+      border-radius: 6px;
+      padding: 7px;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .role {
+      position: relative;
+      z-index: 1;
+      margin-top: 8px;
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .content { padding: 20px 22px 22px; }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .action {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 1px solid var(--line);
+    }
+
+    .action.primary {
+      grid-column: 1 / -1;
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .action.secondary { color: var(--navy); background: white; }
+
+    .details {
+      display: grid;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .item {
+      display: grid;
+      gap: 3px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .value,
+    .value a {
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.45;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .service {
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 4px solid var(--gold);
+      background: #f2eee4;
+      color: #344f63;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 420px) {
+      main { padding: 12px; }
+      h1 { font-size: 28px; }
+      .actions { grid-template-columns: 1fr; }
+      .action.primary { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article class="profile">
+      <section class="mast">
+        <img class="logo" src="thinkers-logo-new.jpg" alt="Thinkers GK">
+        <h1>Gerald Anyanwu</h1>
+        <div class="role">Representative - Thinkers GK</div>
+      </section>
+
+      <section class="content">
+        <nav class="actions" aria-label="Contact actions">
+          <a class="action primary" href="gerald-thinkersgk.vcf">Save Contact</a>
+          <a class="action secondary" href="tel:+818033845132">Call</a>
+          <a class="action secondary" href="mailto:gerald@thinkersgk.com">Email</a>
+          <a class="action secondary" href="https://www.thinkersgk.com">Website</a>
+          <a class="action secondary" href="https://wa.me/818033845132">WhatsApp</a>
+        </nav>
+
+        <div class="details">
+          <div class="item">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:+818033845132">+81-80-3384-5132</a></div>
+          </div>
+          <div class="item">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:gerald@thinkersgk.com">gerald@thinkersgk.com</a><br><a href="mailto:support@thinkersgk.com">support@thinkersgk.com</a></div>
+          </div>
+          <div class="item">
+            <div class="label">Address</div>
+            <div class="value">Fukuras Mansion Room 402, Dogenzaka, Shibuya-ku, Tokyo 150-0043, Japan</div>
+          </div>
+          <div class="item">
+            <div class="label">Web</div>
+            <div class="value"><a href="https://www.thinkersgk.com">www.thinkersgk.com</a></div>
+          </div>
+        </div>
+
+        <div class="service">
+          Japan-based IT support, procurement, office setup, local coordination, asset lifecycle services, and onsite field support for overseas teams.
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

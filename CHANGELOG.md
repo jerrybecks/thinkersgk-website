@@ -1,5 +1,10 @@
 # Changelog
 
+## [2026-06-30] - Lead Architect (Codex)
+
+### Added
+- Website: Added `/gerald/` NFC-ready digital business card page for Gerald Anyanwu, including downloadable vCard, Thinkers GK logo asset, and sitemap entry for the public tap-to-share URL.
+
 ## [2026-06-28] - Lead Architect (Codex)
 
 ### Fixed

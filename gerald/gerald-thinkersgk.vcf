@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Anyanwu;Gerald;;;
+FN:Gerald Anyanwu
+ORG:Thinkers GK
+TITLE:Representative
+EMAIL;TYPE=WORK:gerald@thinkersgk.com
+EMAIL;TYPE=WORK:support@thinkersgk.com
+TEL;TYPE=CELL,VOICE:+81-80-3384-5132
+URL:https://www.thinkersgk.com
+ADR;TYPE=WORK:;;Fukuras Mansion Room 402, Dogenzaka, Shibuya-ku;Tokyo;Tokyo;150-0043;Japan
+NOTE:Japan-based IT support, procurement, office setup, local coordination, asset lifecycle services, and onsite field support.
+END:VCARD
