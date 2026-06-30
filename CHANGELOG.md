@@ -9,6 +9,7 @@
 - Cloudflare: Disabled the temporary homepage hotfix Worker routes so the homepage is served directly from GitHub Pages again, and changed the Worker fallback behavior so raw GitHub asset fetch failures no longer show `Homepage hotfix asset unavailable`.
 - Website: Restyled `/gerald/` as a mobile adaptation of the printed Thinkers GK business card while preserving the vCard save flow and quick contact actions.
 - Website: Removed the redundant TEL/MAIL/PIN/WEB rail from the top of `/gerald/` and strengthened the card-style circuit/square background treatment to better match the printed business card.
+- Website: Made the `/gerald/` address clickable with a Google Maps link for directions.
 
 ## [2026-06-28] - Lead Architect (Codex)
 
