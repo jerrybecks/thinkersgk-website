@@ -42,6 +42,13 @@ Thinkers GK operates from Tokyo and supports work across Japan, including Tokyo,
 - Windows 11 refresh guide: https://www.thinkersgk.com/blog/posts/windows-11-refresh-checklist-japan-offices.html
 - Intune device compliance guide: https://www.thinkersgk.com/blog/posts/intune-device-compliance-japan-office-guide.html
 
+- Japan Office IT Setup Checklist for Foreign Companies: https://www.thinkersgk.com/blog/posts/japan-office-it-setup-checklist-foreign-companies.html
+- Offboarding Device Retrieval in Japan: A Practical Checklist: https://www.thinkersgk.com/blog/posts/offboarding-device-retrieval-japan-checklist.html
+- Asset Register Cleanup for Japan Offices: What to Track First: https://www.thinkersgk.com/blog/posts/asset-register-cleanup-japan-office.html
+- ITAD Chain of Custody in Japan: What Foreign HQs Should Ask For: https://www.thinkersgk.com/blog/posts/itad-chain-of-custody-japan.html
+- Microsoft 365 Backup and Recovery for Japan Offices: What to Check: https://www.thinkersgk.com/blog/posts/microsoft-365-backup-recovery-japan-offices.html
+- Bilingual IT Support Escalation in Japan: How to Keep Tickets Moving: https://www.thinkersgk.com/blog/posts/bilingual-it-support-escalation-japan.html
+
 ## Contact
 
 - Email: info@thinkersgk.com
