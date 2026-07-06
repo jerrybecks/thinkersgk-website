@@ -1,3 +1,8 @@
+
+## 2026-07-06 - SEO and AI Search Sprint
+- Updated robots.txt, llms.txt, sitemap freshness, RSS feed, and IndexNow key file for search and AI crawler discovery.
+- Added four high-intent authority articles for ITAD Japan, device lifecycle management, Windows 11 refresh, and Intune/device compliance.
+- Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
 ## [2026-07-06] - Lead Architect (Codex)

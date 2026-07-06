@@ -7,7 +7,39 @@
   <language>en</language>
   <managingEditor>info@thinkersgk.com (Thinkers GK)</managingEditor>
   <atom:link href="https://www.thinkersgk.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 25 Apr 2026 23:59:04 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 05 Jul 2026 15:00:00 +0000</lastBuildDate>
+  <item>
+  <title>ITAD in Japan for Foreign Companies: Secure Disposal, Data Wiping, and Evidence</title>
+  <link>https://www.thinkersgk.com/blog/posts/itad-japan-foreign-companies-secure-disposal-guide.html</link>
+  <description>A practical guide to IT asset disposal in Japan for foreign companies: device inventory, chain of custody, secure wiping, certificates, recycling, and HQ reporting.</description>
+  <pubDate>Sun, 05 Jul 2026 15:00:00 +0000</pubDate>
+  <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/itad-japan-foreign-companies-secure-disposal-guide.html</guid>
+  <enclosure url="https://www.thinkersgk.com/assets/hero-itad-1400x600.jpg" type="image/jpeg" length="0"/>
+</item>
+<item>
+  <title>Device Lifecycle Management for Japan Offices: From Asset Register to EOL</title>
+  <link>https://www.thinkersgk.com/blog/posts/device-lifecycle-management-japan-offices.html</link>
+  <description>How Japan offices can manage company laptops, monitors, peripherals, retrieval, refresh timing, secure wiping, and end-of-life closeout with better records.</description>
+  <pubDate>Sun, 05 Jul 2026 15:00:00 +0000</pubDate>
+  <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/device-lifecycle-management-japan-offices.html</guid>
+  <enclosure url="https://www.thinkersgk.com/assets/hero-asset-lifecycle-1400x600.jpg" type="image/jpeg" length="0"/>
+</item>
+<item>
+  <title>Windows 11 Refresh Checklist for Japan Offices and APAC IT Teams</title>
+  <link>https://www.thinkersgk.com/blog/posts/windows-11-refresh-checklist-japan-offices.html</link>
+  <description>A practical Windows 11 refresh checklist for Japan offices: readiness audit, user migration, onsite swaps, device retrieval, secure wiping, and reporting.</description>
+  <pubDate>Sun, 05 Jul 2026 15:00:00 +0000</pubDate>
+  <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/windows-11-refresh-checklist-japan-offices.html</guid>
+  <enclosure url="https://www.thinkersgk.com/assets/hero-asset-lifecycle-1400x600.jpg" type="image/jpeg" length="0"/>
+</item>
+<item>
+  <title>Intune Device Compliance for Japan Offices: Practical Controls That Actually Stick</title>
+  <link>https://www.thinkersgk.com/blog/posts/intune-device-compliance-japan-office-guide.html</link>
+  <description>A practical guide to Microsoft Intune and device compliance for Japan offices: MFA, conditional access, endpoint policy, local support, and evidence.</description>
+  <pubDate>Sun, 05 Jul 2026 15:00:00 +0000</pubDate>
+  <guid isPermaLink="true">https://www.thinkersgk.com/blog/posts/intune-device-compliance-japan-office-guide.html</guid>
+  <enclosure url="https://www.thinkersgk.com/assets/blog-microsoft-copilot-japan-2026-800x500.jpg" type="image/jpeg" length="0"/>
+</item>
   <image>
     <url>https://www.thinkersgk.com/assets/logo-dark.png</url>
     <title>Thinkers GK</title>
