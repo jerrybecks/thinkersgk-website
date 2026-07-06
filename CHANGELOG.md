@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-07-06] - Lead Architect (Codex)
+
+### Updated
+- Website: Repositioned `index.html`, `index.ja.html`, `services.html`, and `services.ja.html` so the homepage and service-hub copy now lead with device lifecycle, bilingual IT operations, onsite execution, ITAD, and practical Microsoft 365 / Intune security cleanup instead of broader transformation-first language; refreshed EN/JP meta descriptions, hero framing, service hierarchy labels, and signature-offer / pillar copy accordingly.
+- Website: Expanded `service-device-lifecycle.html` into a fuller Device Lifecycle & Asset Management offer page with asset-register cleanup, managed lifecycle, Windows 11 refresh, partner-backed Device-as-a-Service, and ITAD/buyback starting offers; added pricing-basis language and stronger buyer-fit / related-service positioning without introducing public prices, owned inventory claims, certifications, or partner names.
+- Website: Repositioned `service-m365-saas.html`, `service-zero-trust.html`, and `service-cybersecurity.html` around practical device-security operations tied to the device lifecycle rollout, shifting the copy toward MFA, access review, Intune/device compliance, endpoint coordination, backup checks, and evidence-ready remediation while dialing back broad SOC/incident-response implications.
+- Website: Tightened the July 6 lifecycle repositioning pass by toning down procurement-first and certification-heavy phrasing on `index.html`, `index.ja.html`, `services.html`, `services.ja.html`, and `service-device-lifecycle.html`; aligned the device-lifecycle page's SEO/hero language around deployment, records, retrieval, and closeout; and repaired `service-cybersecurity.ja.html` metadata/hero copy plus its broken process CTA link.
+
 ## [2026-06-30] - Lead Architect (Codex)
 
 ### Added

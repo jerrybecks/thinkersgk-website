@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <link rel="canonical" href="https://www.thinkersgk.com/service-device-lifecycle.html">
+  <link rel="alternate" hreflang="en" href="https://www.thinkersgk.com/service-device-lifecycle.html">
+  <link rel="alternate" hreflang="ja" href="https://www.thinkersgk.com/service-device-lifecycle.ja.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.thinkersgk.com/service-device-lifecycle.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>Device Lifecycle & Deployment | Thinkers GK</title>
-  <meta name="description" content="Device lifecycle and deployment support for companies operating in Japan and APAC: procurement coordination, staging, delivery, asset tracking, retrieval, secure data wiping, and ITAD documentation.">
+  <meta name="description" content="Device lifecycle and deployment support for companies operating in Japan: asset register cleanup, rollout coordination, Windows 11 refresh planning, retrieval, secure wiping, and ITAD closeout.">
   <meta property="og:title" content="Device Lifecycle & Deployment | Thinkers GK">
-  <meta property="og:description" content="Procurement, deployment, tracking, retrieval, wiping, and disposal coordination for distributed IT hardware in Japan and APAC.">
+  <meta property="og:description" content="One accountable operating lane for company devices in Japan: deploy, track, support, retrieve, wipe, and close out with clear records.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.thinkersgk.com/service-device-lifecycle.html">
   <meta property="og:image" content="https://www.thinkersgk.com/assets/hero-asset-lifecycle-1400x600.jpg">
-  <meta property="og:image:alt" content="Device lifecycle and deployment support for companies operating in Japan and APAC">
+  <meta property="og:image:alt" content="Device lifecycle and asset management support for companies operating in Japan">
   <meta property="og:site_name" content="Thinkers GK">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Device Lifecycle & Deployment | Thinkers GK">
+  <meta name="twitter:description" content="Asset register cleanup, rollout coordination, Windows 11 refresh support, retrieval, wiping, and ITAD-ready closeout for company devices in Japan.">
   <meta name="twitter:image" content="https://www.thinkersgk.com/assets/hero-asset-lifecycle-1400x600.jpg">
-  <link rel="alternate" hreflang="en" href="https://www.thinkersgk.com/service-device-lifecycle.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.thinkersgk.com/service-device-lifecycle.html">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,15 +28,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css?v=75">
   <link rel="stylesheet" href="styles/redesign.css?v=32">
+  <link rel="stylesheet" href="styles/services-launch.css?v=5">
   <script src="scripts/main.js?v=38"></script>
   <script src="scripts/enhancements.js?v=15" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="scripts/scroll-reveal.js?v=2" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Device Lifecycle & Deployment",
     "alternateName": "デバイスライフサイクル・展開支援",
-    "description": "Procurement coordination, device deployment, asset tracking, retrieval, data wiping, and ITAD documentation for companies operating in Japan and APAC.",
+    "description": "Device lifecycle and deployment support for companies operating in Japan, including asset register cleanup, rollout coordination, deployment tracking, Windows 11 refresh planning, retrieval, secure wiping, and ITAD closeout.",
     "url": "https://www.thinkersgk.com/service-device-lifecycle.html",
     "provider": {
       "@type": "LocalBusiness",
@@ -45,19 +52,29 @@
       { "@type": "Country", "name": "Japan" },
       { "@type": "Place", "name": "APAC" }
     ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Device Lifecycle & Asset Management offers",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Asset Register Cleanup"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Managed Device Lifecycle"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Windows 11 Refresh Sprint"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Partner-backed Device-as-a-Service"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ITAD and Buyback"}}
+      ]
+    },
     "serviceType": [
-      "IT hardware procurement",
-      "Endpoint deployment",
-      "Asset lifecycle management",
-      "Device retrieval",
-      "Secure data wiping",
-      "IT asset disposition"
+      "Asset register cleanup",
+      "Managed device lifecycle",
+      "Windows 11 refresh planning",
+      "Partner-backed Device-as-a-Service coordination",
+      "IT asset disposition and buyback reporting"
     ]
   }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ef930246-c82a-48a7-a8a7-9b8dde1e0a78"></script>
 </head>
-<body>
+<body class="service-shell">
   <nav class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-brand"><img src="assets/logo-dark.png" alt="Thinkers GK" class="nav-logo"></a>
@@ -72,42 +89,199 @@
       <div class="nav-utils">
         <button class="nav-util-btn" id="langToggle" aria-label="Toggle language">JP</button>
         <button class="nav-util-btn" id="themeToggle" aria-label="Toggle theme">
-          <svg id="themeIcon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg id="themeIcon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
         </button>
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <section class="service-page-hero">
+  <section class="service-launch-hero">
+    <div class="container service-launch-hero__grid">
+      <div class="service-launch-hero__copy">
+        <a href="services.html" class="back-link" data-en="&larr; Back to All Services" data-ja="&larr; サービス一覧に戻る">&larr; Back to All Services</a>
+        <div class="section-label" data-en="Device lifecycle & deployment" data-ja="デバイスライフサイクル・展開支援">Device lifecycle & deployment</div>
+        <h1 data-en="One accountable operating lane for company devices in Japan: deploy, track, support, retrieve, wipe, and close out with clear records." data-ja="日本の会社用デバイスを一気通貫で支える運用窓口。展開、追跡、支援、回収、消去、クローズアウトまで記録付きで対応します。">One accountable operating lane for company devices in Japan: deploy, track, support, retrieve, wipe, and close out with clear records.</h1>
+        <p data-en="Thinkers GK helps foreign companies and Japan-based teams turn scattered hardware tasks into one operating model. We coordinate asset records, deployment logistics, lifecycle reporting, retrieval, secure wiping, supplier follow-through when needed, and evidence-ready closeout without claiming owned inventory, fixed lease programs, or public list pricing." data-ja="Thinkers GKは、外資系企業や日本拠点のチーム向けに、分散しがちなハードウェア業務を一つの運用モデルへ整理します。資産台帳、展開物流、ライフサイクル報告、回収、安全なデータ消去、必要時の調達実務、証跡付きのクローズアウトまでを一貫して支援し、保有在庫・固定リース・公開価格を前提に見せることはしません。">Thinkers GK helps foreign companies and Japan-based teams turn scattered hardware tasks into one operating model. We coordinate asset records, deployment logistics, lifecycle reporting, retrieval, secure wiping, supplier follow-through when needed, and evidence-ready closeout without claiming owned inventory, fixed lease programs, or public list pricing.</p>
+        <div class="service-launch-hero__actions">
+          <a href="contact.html" class="btn btn-primary btn-lg" data-en="Discuss device lifecycle support" data-ja="デバイス運用を相談する">Discuss device lifecycle support</a>
+          <a href="#offers" class="btn btn-ghost btn-lg" data-en="See starting offers" data-ja="開始メニューを見る">See starting offers</a>
+        </div>
+      </div>
+      <aside class="service-launch-hero__panel">
+        <div class="service-launch-hero__panel-head">
+          <span data-en="Best fit" data-ja="主な支援先">Best fit</span>
+          <span data-en="Asset control + execution" data-ja="統制と実行">Asset control + execution</span>
+        </div>
+        <div class="service-launch-hero__panel-body">
+          <div class="service-launch-hero__metric">
+            <span data-en="Typical buyer" data-ja="主なご相談者">Typical buyer</span>
+            <strong data-en="Foreign HQ teams, regional IT leads, and Japan offices that need one accountable local partner for device operations and reporting." data-ja="デバイス運用と報告を任せられる日本側パートナーを必要とする海外本社、地域IT責任者、日本拠点。">Foreign HQ teams, regional IT leads, and Japan offices that need one accountable local partner for device operations and reporting.</strong>
+          </div>
+          <div class="service-launch-hero__metric">
+            <span data-en="What we track" data-ja="追跡する内容">What we track</span>
+            <strong data-en="Serial number, assigned user, location, supplier, warranty, condition, lifecycle stage, and supporting documents for company devices." data-ja="シリアル番号、利用者、設置場所、仕入先、保証、状態、ライフサイクル段階、関連書類を追跡します。">Serial number, assigned user, location, supplier, warranty, condition, lifecycle stage, and supporting documents for company devices.</strong>
+          </div>
+          <div class="service-launch-hero__metric">
+            <span data-en="Commercial model" data-ja="提供モデル">Commercial model</span>
+            <strong data-en="Project-based cleanup, monthly per-device management, dispatch/logistics fees, supplier coordination when needed, and partner-backed DaaS on request." data-ja="台帳整理の単発案件、月額の端末管理、現地対応・物流費、必要時の調達調整、希望時のパートナー連携DaaSで構成します。">Project-based cleanup, monthly per-device management, dispatch/logistics fees, supplier coordination when needed, and partner-backed DaaS on request.</strong>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="scope">
     <div class="container">
-      <a href="services.html" class="back-link" data-en="&larr; Back to All Services" data-ja="&larr; サービス一覧に戻る">&larr; Back to All Services</a>
-      <div class="section-label" data-en="Device Lifecycle" data-ja="デバイスライフサイクル">Device Lifecycle</div>
-      <h1 data-en="Device Lifecycle & Deployment" data-ja="デバイスライフサイクル・展開支援">Device Lifecycle & Deployment</h1>
-      <p data-en="A practical operating layer for distributed IT hardware: procurement coordination, staging, delivery, asset tracking, retrieval, secure wiping, and end-of-life documentation across Japan and APAC." data-ja="分散拠点のIT機器を実務レベルで管理します。調達調整、キッティング、配送、資産追跡、回収、安全なデータ消去、廃棄証跡まで、日本およびAPACで一貫して支援します。">A practical operating layer for distributed IT hardware: procurement coordination, staging, delivery, asset tracking, retrieval, secure wiping, and end-of-life documentation across Japan and APAC.</p>
+      <div class="service-launch-section fade-target">
+        <div class="service-launch-section__head">
+          <div class="section-label" data-en="What we manage" data-ja="管理対象">What we manage</div>
+          <h2 data-en="A practical lifecycle view across devices, locations, and handoffs." data-ja="デバイス、拠点、引き継ぎをまたぐ実務的なライフサイクル管理。">A practical lifecycle view across devices, locations, and handoffs.</h2>
+          <p data-en="This service is built for companies that need more than ad hoc laptop setup. We manage the records and operating actions around laptops, desktops, monitors, thin clients, peripherals, routers, firewalls, and mobile devices where applicable, with enough detail to support refresh planning, retrieval, and ITAD closeout." data-ja="単発のPC設定だけでは足りない企業向けのサービスです。ノートPC、デスクトップ、モニター、シンクライアント、周辺機器、ルーター、ファイアウォール、必要に応じたモバイル端末までを対象に、更新計画、回収、ITADクローズアウトに必要な粒度で管理します。">This service is built for companies that need more than ad hoc laptop setup. We manage the records and operating actions around laptops, desktops, monitors, thin clients, peripherals, routers, firewalls, and mobile devices where applicable, with enough detail to support refresh planning, retrieval, and ITAD closeout.</p>
+        </div>
+        <div class="service-launch-grid">
+          <div class="service-launch-card">
+            <h3 data-en="Endpoint inventory" data-ja="端末インベントリ">Endpoint inventory</h3>
+            <p data-en="Laptops, desktops, monitors, thin clients, and core peripherals aligned to the right user, location, and lifecycle stage." data-ja="ノートPC、デスクトップ、モニター、シンクライアント、主要周辺機器を利用者・設置場所・ライフサイクル段階に紐づけます。">Laptops, desktops, monitors, thin clients, and core peripherals aligned to the right user, location, and lifecycle stage.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Network and edge devices" data-ja="ネットワーク・拠点機器">Network and edge devices</h3>
+            <p data-en="Routers, firewalls, and related site hardware tracked with supplier, handover, and replacement notes where those devices affect office operations." data-ja="ルーター、ファイアウォール、拠点機器について、仕入先、引き継ぎ、交換メモを含めて追跡します。">Routers, firewalls, and related site hardware tracked with supplier, handover, and replacement notes where those devices affect office operations.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Ownership and location" data-ja="利用者と設置場所">Ownership and location</h3>
+            <p data-en="Serial number, assigned user, desk or office location, custody status, and local delivery or retrieval checkpoints kept current." data-ja="シリアル番号、利用者、座席・拠点、保管状況、配送・回収のチェックポイントを更新します。">Serial number, assigned user, desk or office location, custody status, and local delivery or retrieval checkpoints kept current.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Warranty and supplier context" data-ja="保証と仕入先情報">Warranty and supplier context</h3>
+            <p data-en="Supplier, warranty status, purchase timing, and replacement risk notes organized so refresh decisions are not delayed by missing paperwork." data-ja="仕入先、保証状況、購入時期、更新リスクを整理し、書類不足で更新判断が止まらないようにします。">Supplier, warranty status, purchase timing, and replacement risk notes organized so refresh decisions are not delayed by missing paperwork.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Lifecycle evidence" data-ja="ライフサイクル証跡">Lifecycle evidence</h3>
+            <p data-en="Delivery records, setup notes, photos, chain-of-custody details, wipe or destruction certificates, and resale or recycling reports where needed." data-ja="納品記録、設定メモ、写真、チェーン・オブ・カストディ、消去・破壊証明、再販・リサイクル報告を必要に応じて残します。">Delivery records, setup notes, photos, chain-of-custody details, wipe or destruction certificates, and resale or recycling reports where needed.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Lifecycle decision support" data-ja="更新判断の材料">Lifecycle decision support</h3>
+            <p data-en="OS risk, readiness notes, refresh recommendations, and closeout actions collected in one lane so teams can decide what to replace, keep, retrieve, or retire." data-ja="OSリスク、準備状況、更新提案、クローズアウト作業を一つのレーンにまとめ、交換・継続・回収・廃棄の判断をしやすくします。">OS risk, readiness notes, refresh recommendations, and closeout actions collected in one lane so teams can decide what to replace, keep, retrieve, or retire.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="offers">
+    <div class="container">
+      <div class="service-launch-section fade-target">
+        <div class="service-launch-section__head">
+          <div class="section-label" data-en="Starting offers" data-ja="開始メニュー">Starting offers</div>
+          <h2 data-en="Five practical ways companies usually start." data-ja="多くの企業がここから始める5つの入口。">Five practical ways companies usually start.</h2>
+          <p data-en="The right entry point depends on whether your main issue is poor records, an upcoming refresh, recurring joiner/mover/leaver handling, or end-of-life closeout. These offers are designed to be easy to scope without forcing a one-size-fits-all contract." data-ja="課題が台帳不整備なのか、刷新計画なのか、継続的な入退社対応なのか、終息時のクローズアウトなのかで入口は変わります。これらのオファーは、一律契約を押し付けずに整理しやすい形で設計しています。">The right entry point depends on whether your main issue is poor records, an upcoming refresh, recurring joiner/mover/leaver handling, or end-of-life closeout. These offers are designed to be easy to scope without forcing a one-size-fits-all contract.</p>
+        </div>
+        <div class="services-entry-grid">
+          <article class="services-entry-card">
+            <span data-en="Offer 01" data-ja="オファー 01">Offer 01</span>
+            <h3 data-en="Asset Register Cleanup" data-ja="資産台帳クリーンアップ">Asset Register Cleanup</h3>
+            <p data-en="A one-time audit and normalization pass for companies that know their records are incomplete, inconsistent, or spread across too many spreadsheets and inboxes." data-ja="台帳が不完全、表記ゆれが多い、複数の表計算やメールに分散している企業向けの単発監査・整理です。">A one-time audit and normalization pass for companies that know their records are incomplete, inconsistent, or spread across too many spreadsheets and inboxes.</p>
+            <ul>
+              <li data-en="Device audit and exception review" data-ja="機器監査と例外確認">Device audit and exception review</li>
+              <li data-en="Serial, user, and location mapping" data-ja="シリアル・利用者・設置場所の対応付け">Serial, user, and location mapping</li>
+              <li data-en="Warranty and OS risk notes" data-ja="保証・OSリスクの注記">Warranty and OS risk notes</li>
+              <li data-en="Refresh recommendation summary" data-ja="刷新提案の要約">Refresh recommendation summary</li>
+            </ul>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Offer 02" data-ja="オファー 02">Offer 02</span>
+            <h3 data-en="Managed Device Lifecycle" data-ja="マネージド・デバイスライフサイクル">Managed Device Lifecycle</h3>
+            <p data-en="An ongoing operating layer for teams that want monthly visibility, cleaner handoffs, and less device chaos across procurement, deployment, and offboarding." data-ja="月次可視化、引き継ぎ整備、調達・展開・オフボーディングの混乱低減を求めるチーム向けの継続運用レイヤーです。">An ongoing operating layer for teams that want monthly visibility, cleaner handoffs, and less device chaos across procurement, deployment, and offboarding.</p>
+            <ul>
+              <li data-en="Monthly inventory and reporting" data-ja="月次インベントリと報告">Monthly inventory and reporting</li>
+              <li data-en="Joiner, mover, leaver device handling" data-ja="入社・異動・退職時の端末対応">Joiner, mover, leaver device handling</li>
+              <li data-en="Procurement coordination" data-ja="調達調整">Procurement coordination</li>
+              <li data-en="Deployment and retrieval tracking" data-ja="展開・回収の追跡">Deployment and retrieval tracking</li>
+            </ul>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Offer 03" data-ja="オファー 03">Offer 03</span>
+            <h3 data-en="Windows 11 Refresh Sprint" data-ja="Windows 11 更新スプリント">Windows 11 Refresh Sprint</h3>
+            <p data-en="A focused project for teams that need to understand Windows 10/11 readiness, replace aging machines, and close out retired devices cleanly." data-ja="Windows 10/11 対応状況の把握、老朽端末の置き換え、旧端末の整理を一気に進めたいチーム向けの集中的な案件です。">A focused project for teams that need to understand Windows 10/11 readiness, replace aging machines, and close out retired devices cleanly.</p>
+            <ul>
+              <li data-en="Windows 10/11 readiness audit" data-ja="Windows 10/11 準備状況監査">Windows 10/11 readiness audit</li>
+              <li data-en="Replacement plan and procurement support" data-ja="交換計画と調達支援">Replacement plan and procurement support</li>
+              <li data-en="Onsite swap and migration coordination" data-ja="現地交換と移行調整">Onsite swap and migration coordination</li>
+              <li data-en="Old-device wiping and ITAD closeout" data-ja="旧端末の消去とITADクローズアウト">Old-device wiping and ITAD closeout</li>
+            </ul>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Offer 04" data-ja="オファー 04">Offer 04</span>
+            <h3 data-en="Partner-backed Device-as-a-Service" data-ja="パートナー連携 Device-as-a-Service">Partner-backed Device-as-a-Service</h3>
+            <p data-en="For customers that want predictable monthly device cost, Thinkers GK can scope a partner-backed route and manage the operational layer around setup, support, retrieval, and closeout." data-ja="予測しやすい月額の機器費用を求めるお客様には、Thinkers GKがパートナー連携ルートを前提に、設定・支援・回収・クローズアウトの運用部分を担います。">For customers that want predictable monthly device cost, Thinkers GK can scope a partner-backed route and manage the operational layer around setup, support, retrieval, and closeout.</p>
+            <ul>
+              <li data-en="Quotation-based partner route" data-ja="個別見積のパートナールート">Quotation-based partner route</li>
+              <li data-en="Setup, delivery, support, and retrieval coordination" data-ja="設定・配送・支援・回収の調整">Setup, delivery, support, and retrieval coordination</li>
+              <li data-en="No claim of owned inventory or fixed finance terms" data-ja="自社在庫や固定金融条件は前提にしない">No claim of owned inventory or fixed finance terms</li>
+              <li data-en="Useful when local execution matters more than direct resale" data-ja="単純販売より現地実行が重要な案件向け">Useful when local execution matters more than direct resale</li>
+            </ul>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Offer 05" data-ja="オファー 05">Offer 05</span>
+            <h3 data-en="ITAD and Buyback" data-ja="ITAD・買い取り整理">ITAD and Buyback</h3>
+            <p data-en="When devices need to leave the business, we coordinate pickup, chain-of-custody, NIST-aligned wiping or destruction, certificates, and resale or recycling reporting." data-ja="機器を事業から切り離す際には、回収、チェーン・オブ・カストディ、NIST準拠の消去または破壊、証明書、再販・リサイクル報告を調整します。">When devices need to leave the business, we coordinate pickup, chain-of-custody, NIST-aligned wiping or destruction, certificates, and resale or recycling reporting.</p>
+            <ul>
+              <li data-en="Pickup and custody handoff" data-ja="回収と引き渡し管理">Pickup and custody handoff</li>
+              <li data-en="Wipe or destruction evidence" data-ja="消去・破壊証跡">Wipe or destruction evidence</li>
+              <li data-en="Certificates and closeout reporting" data-ja="証明書とクローズアウト報告">Certificates and closeout reporting</li>
+              <li data-en="Resale or recycling route summary" data-ja="再販・リサイクルルート整理">Resale or recycling route summary</li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="section-label" data-en="What We Manage" data-ja="管理対象">What We Manage</div>
-      <h2 class="section-title" data-en="One lifecycle view for every device." data-ja="すべてのデバイスを一つのライフサイクルで可視化。">One lifecycle view for every device.</h2>
-      <div class="service-features">
-        <div class="card">
-          <h3 data-en="Procurement Coordination" data-ja="調達調整">Procurement Coordination</h3>
-          <p data-en="We coordinate models, vendors, pricing, delivery constraints, regional availability, and approval notes so the buying process does not get buried in email threads." data-ja="モデル、ベンダー、価格、配送条件、地域ごとの在庫、承認事項を整理し、調達プロセスがメールの中で埋もれないようにします。">We coordinate models, vendors, pricing, delivery constraints, regional availability, and approval notes so the buying process does not get buried in email threads.</p>
+      <div class="service-launch-section fade-target">
+        <div class="service-launch-section__head">
+          <div class="section-label" data-en="Pricing basis" data-ja="価格の考え方">Pricing basis</div>
+          <h2 data-en="Quoted around scope, device count, logistics, and closeout complexity." data-ja="範囲、台数、物流、クローズアウト難易度に応じた見積。">Quoted around scope, device count, logistics, and closeout complexity.</h2>
+          <p data-en="We do not publish hard prices on this page. The common pricing categories below help buyers understand how lifecycle work is usually structured before a written quotation is issued." data-ja="このページでは固定価格を公開しません。以下は、書面見積の前に、ライフサイクル案件がどのような価格区分で構成されるかを理解するための目安です。">We do not publish hard prices on this page. The common pricing categories below help buyers understand how lifecycle work is usually structured before a written quotation is issued.</p>
         </div>
-        <div class="card">
-          <h3 data-en="Staging & Deployment" data-ja="キッティング・展開">Staging & Deployment</h3>
-          <p data-en="Device preparation, imaging, accessories, local delivery, on-site handover, and user-ready rollout support for offices, projects, and remote teams." data-ja="端末準備、イメージング、周辺機器、現地配送、オンサイト引き渡し、ユーザー利用開始までの展開を支援します。">Device preparation, imaging, accessories, local delivery, on-site handover, and user-ready rollout support for offices, projects, and remote teams.</p>
-        </div>
-        <div class="card">
-          <h3 data-en="Asset Tracking" data-ja="資産追跡">Asset Tracking</h3>
-          <p data-en="Maintain a clear record of device owner, location, model, serial number, supplier, warranty status, lifecycle stage, and supporting evidence." data-ja="利用者、拠点、モデル、シリアル番号、仕入先、保証状況、ライフサイクル状態、関連証跡を整理して管理します。">Maintain a clear record of device owner, location, model, serial number, supplier, warranty status, lifecycle stage, and supporting evidence.</p>
-        </div>
-        <div class="card">
-          <h3 data-en="Retrieval & Secure Retirement" data-ja="回収・安全な廃棄">Retrieval & Secure Retirement</h3>
-          <p data-en="Coordinate retrieval, chain of custody, NIST 800-88 aligned wiping, certificates, recycling, resale, and disposal documentation." data-ja="回収、管理証跡、NIST 800-88準拠のデータ消去、証明書、リサイクル、再販、廃棄書類まで支援します。">Coordinate retrieval, chain of custody, NIST 800-88 aligned wiping, certificates, recycling, resale, and disposal documentation.</p>
+        <div class="services-entry-grid">
+          <article class="services-entry-card">
+            <span data-en="Category 01" data-ja="区分 01">Category 01</span>
+            <h3 data-en="One-time audit or project fee" data-ja="単発監査・案件費">One-time audit or project fee</h3>
+            <p data-en="Used for register cleanup, lifecycle discovery, refresh planning, closeout design, and other scoped cleanup work." data-ja="台帳整理、現状把握、刷新計画、クローズアウト設計などの単発案件で用います。">Used for register cleanup, lifecycle discovery, refresh planning, closeout design, and other scoped cleanup work.</p>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Category 02" data-ja="区分 02">Category 02</span>
+            <h3 data-en="Monthly per-device management fee" data-ja="月額の端末管理費">Monthly per-device management fee</h3>
+            <p data-en="Used when Thinkers GK maintains an ongoing reporting and coordination lane across a live device estate." data-ja="Thinkers GKが稼働中の端末群に対して継続的な報告・調整レーンを持つ場合に用います。">Used when Thinkers GK maintains an ongoing reporting and coordination lane across a live device estate.</p>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Category 03" data-ja="区分 03">Category 03</span>
+            <h3 data-en="Onsite dispatch and logistics fees" data-ja="現地対応・物流費">Onsite dispatch and logistics fees</h3>
+            <p data-en="Used for desk-side swaps, handover visits, retrieval, staging movement, and other location-sensitive execution work." data-ja="端末交換、引き渡し訪問、回収、キッティング移送など、現地性の高い実行作業で用います。">Used for desk-side swaps, handover visits, retrieval, staging movement, and other location-sensitive execution work.</p>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Category 04" data-ja="区分 04">Category 04</span>
+            <h3 data-en="Supplier coordination or purchase handling" data-ja="仕入先調整または購入対応">Supplier coordination or purchase handling</h3>
+            <p data-en="Applied when vendor comparison, purchase handling, or fulfillment management are part of the agreed scope." data-ja="ベンダー比較、購入対応、履行管理が合意範囲に含まれる場合に適用します。">Applied when vendor comparison, purchase handling, or fulfillment management are part of the agreed scope.</p>
+          </article>
+          <article class="services-entry-card">
+            <span data-en="Category 05" data-ja="区分 05">Category 05</span>
+            <h3 data-en="Closeout, recycling, resale, or partner-backed terms" data-ja="クローズアウト・再資源化・再販・パートナー条件">Closeout, recycling, resale, or partner-backed terms</h3>
+            <p data-en="Used where closeout route pricing, buyback value, or partner-backed commercial terms need to be confirmed by quotation." data-ja="クローズアウトの処理費、買い取り価値、パートナー連携の商流条件を個別見積で確定する場合に用います。">Used where closeout route pricing, buyback value, or partner-backed commercial terms need to be confirmed by quotation.</p>
+          </article>
         </div>
       </div>
     </div>
@@ -115,37 +289,112 @@
 
   <section class="section section-alt">
     <div class="container">
-      <div class="section-label" data-en="Operating Flow" data-ja="運用フロー">Operating Flow</div>
-      <h2 class="section-title" data-en="From request to retirement." data-ja="依頼から回収・廃棄まで。">From request to retirement.</h2>
-      <div class="process-steps">
-        <div class="process-step"><div class="step-number">01</div><h3 data-en="Request" data-ja="依頼">Request</h3><p data-en="Capture business need, region, model requirements, quantity, timing, and approval owner." data-ja="業務要件、地域、モデル指定、数量、納期、承認者を整理します。">Capture business need, region, model requirements, quantity, timing, and approval owner.</p></div>
-        <div class="process-step"><div class="step-number">02</div><h3 data-en="Source" data-ja="調達">Source</h3><p data-en="Compare suppliers privately by price, lead time, model match, warranty, logistics risk, and documentation quality." data-ja="価格、納期、モデル一致度、保証、物流リスク、書類品質を仕入先ごとに非公開で比較します。">Compare suppliers privately by price, lead time, model match, warranty, logistics risk, and documentation quality.</p></div>
-        <div class="process-step"><div class="step-number">03</div><h3 data-en="Deploy" data-ja="展開">Deploy</h3><p data-en="Coordinate purchase, staging, dispatch, handover, and site confirmation across locations." data-ja="購入、キッティング、配送、引き渡し、拠点確認まで調整します。">Coordinate purchase, staging, dispatch, handover, and site confirmation across locations.</p></div>
-        <div class="process-step"><div class="step-number">04</div><h3 data-en="Recover" data-ja="回収">Recover</h3><p data-en="Track offboarding, device return, data wiping, certificates, recycling, resale, or storage." data-ja="退職・返却、端末回収、データ消去、証明書、リサイクル、再販、保管まで追跡します。">Track offboarding, device return, data wiping, certificates, recycling, resale, or storage.</p></div>
+      <div class="service-launch-proof fade-target">
+        <div class="section-label" data-en="Why this lane matters" data-ja="このレーンが効く理由">Why this lane matters</div>
+        <p data-en="Device work becomes expensive when procurement, support, refresh, retrieval, and disposal each sit with a different owner. This page positions Thinkers GK as the operating bridge between HQ, local users, vendors, onsite execution, and evidence-ready closeout in Japan." data-ja="調達、サポート、更新、回収、廃棄が別々の担当に分かれると、デバイス運用は急に高コスト化します。このページではThinkers GKを、日本における本社、現地利用者、ベンダー、現地実行、証跡付きクローズアウトをつなぐ運用ブリッジとして位置づけます。">Device work becomes expensive when procurement, support, refresh, retrieval, and disposal each sit with a different owner. This page positions Thinkers GK as the operating bridge between HQ, local users, vendors, onsite execution, and evidence-ready closeout in Japan.</p>
+        <div class="service-launch-proof__chips">
+          <span data-en="Foreign companies in Japan" data-ja="在日外資系企業">Foreign companies in Japan</span>
+          <span data-en="Serial-level asset records" data-ja="シリアル単位の台帳">Serial-level asset records</span>
+          <span data-en="Windows 11 refresh planning" data-ja="Windows 11 刷新計画">Windows 11 refresh planning</span>
+          <span data-en="Joiner / mover / leaver handling" data-ja="入社・異動・退職対応">Joiner / mover / leaver handling</span>
+          <span data-en="Chain-of-custody closeout" data-ja="引き渡し証跡付きクローズアウト">Chain-of-custody closeout</span>
+          <span data-en="Partner-backed DaaS on request" data-ja="必要時のパートナー連携DaaS">Partner-backed DaaS on request</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="section-label" data-en="Best Fit" data-ja="適したケース">Best Fit</div>
-      <h2 class="section-title" data-en="Built for companies that need Japan execution with global control." data-ja="グローバル管理と日本での実行力が必要な企業向け。">Built for companies that need Japan execution with global control.</h2>
-      <div class="related-grid">
-        <div class="card"><h3 data-en="Foreign HQ, Japan offices" data-ja="海外本社・日本拠点">Foreign HQ, Japan offices</h3><p data-en="Bridge HQ procurement standards with local vendor, delivery, and user realities in Japan." data-ja="本社の調達基準と日本のベンダー、配送、現場運用をつなぎます。">Bridge HQ procurement standards with local vendor, delivery, and user realities in Japan.</p></div>
-        <div class="card"><h3 data-en="APAC refresh projects" data-ja="APAC刷新案件">APAC refresh projects</h3><p data-en="Keep regional suppliers, quantities, locations, and model requirements organized without exposing vendors to each other." data-ja="地域別仕入先、数量、拠点、モデル要件を整理し、仕入先同士の情報分離も守ります。">Keep regional suppliers, quantities, locations, and model requirements organized without exposing vendors to each other.</p></div>
-        <div class="card"><h3 data-en="Offboarding and ITAD" data-ja="退職回収・ITAD">Offboarding and ITAD</h3><p data-en="Recover laptops, desktops, mobile devices, and storage media with documented chain of custody and secure data handling." data-ja="PC、モバイル端末、記憶媒体を回収し、管理証跡と安全なデータ処理を記録します。">Recover laptops, desktops, mobile devices, and storage media with documented chain of custody and secure data handling.</p></div>
+      <div class="service-launch-section fade-target">
+        <div class="service-launch-section__head">
+          <div class="section-label" data-en="Best fit" data-ja="適したケース">Best fit</div>
+          <h2 data-en="Especially useful for teams that need Japan execution with global visibility." data-ja="グローバル可視化を保ちながら、日本での実行力が必要なチーム向け。">Especially useful for teams that need Japan execution with global visibility.</h2>
+          <p data-en="This service is most valuable when the device estate is no longer small enough for informal handling, but not large enough to justify a fully internal Japan asset-operations team." data-ja="端末群が手作業の運用では回らない一方で、日本専任の資産運用チームを社内に置くほどでもない場面で特に有効です。">This service is most valuable when the device estate is no longer small enough for informal handling, but not large enough to justify a fully internal Japan asset-operations team.</p>
+        </div>
+        <div class="service-launch-grid">
+          <div class="service-launch-card">
+            <h3 data-en="Foreign HQ with Japan offices" data-ja="海外本社と日本拠点">Foreign HQ with Japan offices</h3>
+            <p data-en="You need local delivery, retrieval, and reporting in Japan without losing HQ control of standards and approvals." data-ja="本社の基準と承認を保ちながら、日本での配送・回収・報告を進めたいケース。">You need local delivery, retrieval, and reporting in Japan without losing HQ control of standards and approvals.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Windows 10 end-of-support pressure" data-ja="Windows 10 終息対応">Windows 10 end-of-support pressure</h3>
+            <p data-en="You need to sort readiness, replacement timing, user swaps, and old-device closeout in one project lane." data-ja="対応状況、交換時期、ユーザー切替、旧端末整理を一つの案件で進めたいケース。">You need to sort readiness, replacement timing, user swaps, and old-device closeout in one project lane.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Poor asset records or retrieval gaps" data-ja="台帳不備や回収漏れ">Poor asset records or retrieval gaps</h3>
+            <p data-en="You know devices are missing from the register, assigned-user data is stale, or offboarding retrieval has become inconsistent." data-ja="台帳から漏れている端末、古い利用者情報、退職時の回収漏れが発生しているケース。">You know devices are missing from the register, assigned-user data is stale, or offboarding retrieval has become inconsistent.</p>
+          </div>
+          <div class="service-launch-card">
+            <h3 data-en="Audit-sensitive teams" data-ja="監査感度の高いチーム">Audit-sensitive teams</h3>
+            <p data-en="You need serial-level evidence, chain-of-custody, and a cleaner paper trail around procurement, support, and closeout." data-ja="調達、支援、クローズアウトに関して、シリアル単位の証跡とより明確な書類管理が必要なケース。">You need serial-level evidence, chain-of-custody, and a cleaner paper trail around procurement, support, and closeout.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section cta-section">
+  <section class="section">
     <div class="container">
-      <div class="cta-box">
-        <h2 data-en="Need a controlled device rollout or retrieval plan?" data-ja="管理された端末展開・回収計画が必要ですか？">Need a controlled device rollout or retrieval plan?</h2>
-        <p data-en="Tell us the regions, quantities, models, and timelines. We will help turn the request into a controlled operating plan." data-ja="地域、数量、モデル、スケジュールをお知らせください。実行可能な運用計画に落とし込みます。">Tell us the regions, quantities, models, and timelines. We will help turn the request into a controlled operating plan.</p>
+      <div class="service-launch-section service-launch-faq fade-target">
+        <div class="service-launch-section__head">
+          <div class="section-label" data-en="FAQ" data-ja="よくある質問">FAQ</div>
+          <h2 data-en="Common questions before asset-management work starts." data-ja="資産管理支援の前によくある質問。">Common questions before asset-management work starts.</h2>
+        </div>
+        <dl>
+          <div>
+            <dt data-en="Do you need us to buy all devices through Thinkers GK?" data-ja="すべての機器をThinkers GK経由で購入する必要がありますか？">Do you need us to buy all devices through Thinkers GK?</dt>
+            <dd data-en="No. We can work with client-funded procurement, existing suppliers, or a mixed model. The main value is control of records, execution, and closeout, not forcing one sourcing route." data-ja="いいえ。お客様負担の調達、既存仕入先、または混在モデルで進められます。価値の中心は、仕入先の一本化ではなく、記録・実行・クローズアウトの統制です。">No. We can work with client-funded procurement, existing suppliers, or a mixed model. The main value is control of records, execution, and closeout, not forcing one sourcing route.</dd>
+          </div>
+          <div>
+            <dt data-en="Do you offer hardware rental directly?" data-ja="Thinkers GKが直接レンタル在庫を持っていますか？">Do you offer hardware rental directly?</dt>
+            <dd data-en="This page does not claim a large owned rental pool. Where predictable monthly device cost is important, we can scope a partner-backed Device-as-a-Service route by quotation and manage the surrounding operations." data-ja="このページでは、大規模な自社レンタル在庫を前提にしません。月額での予測しやすさが重要な場合は、パートナー連携のDevice-as-a-Serviceルートを個別見積で整理し、周辺運用を担います。">This page does not claim a large owned rental pool. Where predictable monthly device cost is important, we can scope a partner-backed Device-as-a-Service route by quotation and manage the surrounding operations.</dd>
+          </div>
+          <div>
+            <dt data-en="Can this start as a cleanup project before monthly management?" data-ja="月次契約の前に、まず整理案件から始められますか？">Can this start as a cleanup project before monthly management?</dt>
+            <dd data-en="Yes. Many engagements start with an asset register cleanup or a Windows 11 refresh sprint. Once the baseline is clearer, we can decide whether an ongoing monthly lifecycle lane is justified." data-ja="はい。多くの案件は、資産台帳整理やWindows 11更新スプリントから始まります。基準状態が見えた後で、継続的な月次ライフサイクル支援が必要か判断できます。">Yes. Many engagements start with an asset register cleanup or a Windows 11 refresh sprint. Once the baseline is clearer, we can decide whether an ongoing monthly lifecycle lane is justified.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="service-launch-section service-launch-related fade-target">
+        <div class="service-launch-section__head">
+          <div class="section-label" data-en="Related services" data-ja="関連サービス">Related services</div>
+          <h2 data-en="Useful adjacent lanes when device work touches support, deployment, or disposal." data-ja="デバイス案件が支援・展開・廃棄に広がる時の関連レーン。">Useful adjacent lanes when device work touches support, deployment, or disposal.</h2>
+        </div>
+        <div class="service-launch-related__grid">
+          <a href="itad-japan.html" class="services-entry-card">
+            <span data-en="Related 01" data-ja="関連 01">Related 01</span>
+            <h3 data-en="ITAD Japan" data-ja="ITAD 日本">ITAD Japan</h3>
+            <p data-en="For projects where secure data destruction, waste-law handling, and disposal evidence need deeper focus." data-ja="安全なデータ消去、法令対応、廃棄証跡がより重要な案件向け。">For projects where secure data destruction, waste-law handling, and disposal evidence need deeper focus.</p>
+          </a>
+          <a href="service-field-engineering.html" class="services-entry-card">
+            <span data-en="Related 02" data-ja="関連 02">Related 02</span>
+            <h3 data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</h3>
+            <p data-en="For desk-side swaps, rollout visits, hands-on troubleshooting, and other onsite execution around the device estate." data-ja="端末交換、展開訪問、現地トラブル対応など、資産運用に付随する実地作業向け。">For desk-side swaps, rollout visits, hands-on troubleshooting, and other onsite execution around the device estate.</p>
+          </a>
+          <a href="service-m365-saas.html" class="services-entry-card">
+            <span data-en="Related 03" data-ja="関連 03">Related 03</span>
+            <h3 data-en="Microsoft 365 & SaaS Support" data-ja="Microsoft 365・SaaS サポート">Microsoft 365 & SaaS Support</h3>
+            <p data-en="For identity, Intune coordination, workflow issues, and cloud admin tasks that often surface during lifecycle and refresh work." data-ja="ライフサイクル案件や刷新時に発生しやすい認証、Intune調整、クラウド管理、業務フロー問題向け。">For identity, Intune coordination, workflow issues, and cloud admin tasks that often surface during lifecycle and refresh work.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section service-launch-cta">
+    <div class="container">
+      <div class="cta-box fade-target">
+        <h2 data-en="Need a device lifecycle plan that covers both operations and closeout in Japan?" data-ja="日本で、運用とクローズアウトの両方を見据えたデバイス計画が必要ですか？">Need a device lifecycle plan that covers both operations and closeout in Japan?</h2>
+        <p data-en="Tell us what you already know: approximate device count, office locations, refresh pressure, asset-register quality, and whether retrieval or ITAD is part of the brief. We will help scope the right starting lane and quote structure." data-ja="おおよその端末台数、拠点、刷新圧力、資産台帳の状態、回収やITADが含まれるかを教えてください。適切な開始レーンと見積の組み立て方を一緒に整理します。">Tell us what you already know: approximate device count, office locations, refresh pressure, asset-register quality, and whether retrieval or ITAD is part of the brief. We will help scope the right starting lane and quote structure.</p>
         <div class="hero-actions">
-          <a href="contact.html" class="btn btn-primary" data-en="Get in Touch" data-ja="お問い合わせ">Get in Touch</a>
-          <a href="services.html" class="btn btn-ghost" data-en="All Services &rarr;" data-ja="サービス一覧 &rarr;">All Services &rarr;</a>
+          <a href="contact.html" class="btn btn-primary btn-lg" data-en="Start the conversation" data-ja="相談を始める">Start the conversation</a>
+          <a href="services.html" class="btn btn-ghost btn-lg" data-en="Review all services" data-ja="全サービスを見る">Review all services</a>
         </div>
       </div>
     </div>
@@ -170,7 +419,7 @@
           <h4 data-en="Services" data-ja="サービス">Services</h4>
           <a href="service-it-support.html" data-en="IT Support" data-ja="ITサポート">IT Support</a>
           <a href="service-field-engineering.html" data-en="Field Engineering" data-ja="フィールドエンジニアリング">Field Engineering</a>
-          <a href="service-device-lifecycle.html" data-en="Device Lifecycle" data-ja="デバイスライフサイクル">Device Lifecycle</a>
+          <a href="service-device-lifecycle.html" data-en="Device Lifecycle & Asset Management" data-ja="デバイスライフサイクル・資産管理">Device Lifecycle & Asset Management</a>
           <a href="itad-japan.html" data-en="ITAD Japan" data-ja="ITAD 日本">ITAD Japan</a>
           <a href="service-managed-services.html" data-en="Managed Services" data-ja="マネージドサービス">Managed Services</a>
         </div>
@@ -183,7 +432,18 @@
       <div class="footer-bottom"><p>&copy; 2026 Thinkers GK (合同会社 Thinkers). All rights reserved.</p></div>
     </div>
   </footer>
+
   <script src="js/chat-widget.js?v=3b" defer></script>
-  <script src="scripts/scroll-reveal.js?v=2" defer></script>
+  <a class="line-bubble"
+     href="https://line.me/R/ti/p/@111wnrsc"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with us on LINE">
+    <svg class="line-bubble__icon" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true">
+      <path d="M160 32C75.6 32 8 87.4 8 155.4c0 60.9 53.5 111.9 125.7 121.4 4.9 1 11.5 3.2 13.2 7.4 1.5 3.8 1 9.7.5 13.6 0 0-1.7 10.6-2.1 12.9-.7 3.8-3 14.9 13 8.1 16-6.7 86.4-50.9 117.9-87.1 21.7-23.8 32.1-48 32.1-76.3C312 87.4 244.4 32 160 32zm-58.1 161.8h-30.7c-4.5 0-8-3.6-8-8v-61.5c0-4.5 3.6-8 8-8s8 3.6 8 8v53.5h22.7c4.5 0 8 3.6 8 8s-3.6 8-8 8zm32-8c0 4.5-3.6 8-8 8s-8-3.6-8-8v-61.5c0-4.5 3.6-8 8-8s8 3.6 8 8v61.5zm74.3 0c0 3.4-2.2 6.5-5.5 7.6-.8.3-1.7.4-2.5.4-2.5 0-4.9-1.2-6.4-3.2L154 153.7v32.1c0 4.5-3.6 8-8 8s-8-3.6-8-8v-61.5c0-3.4 2.2-6.5 5.5-7.6 3.4-1.2 7-.1 9 2.7l30.2 41V124.3c0-4.5 3.6-8 8-8s8 3.6 8 8v61.5zm51.9-30.7c4.5 0 8 3.6 8 8s-3.6 8-8 8h-22.7v14.7h22.7c4.5 0 8 3.6 8 8s-3.6 8-8 8h-30.7c-4.5 0-8-3.6-8-8v-30.6 -30.9c0-4.5 3.6-8 8-8h30.7c4.5 0 8 3.6 8 8s-3.6 8-8 8h-22.7v14.7h22.7z"/>
+    </svg>
+    <span class="line-bubble__label-en">Chat on LINE</span>
+    <span class="line-bubble__label-ja">LINEで相談</span>
+  </a>
 </body>
 </html>
