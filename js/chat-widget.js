@@ -37,6 +37,7 @@
   const i18n = {
     en: {
       title: 'Chat with Us',
+      launcher: 'Ask AI',
       subtitle: 'AI-powered assistant',
       placeholder: 'Type your message...',
       send: 'Send',
@@ -56,6 +57,7 @@
     },
     ja: {
       title: 'チャットで相談',
+      launcher: 'AIに相談',
       subtitle: 'AI アシスタント',
       placeholder: 'メッセージを入力...',
       send: '送信',
@@ -149,6 +151,9 @@
     if (title) title.textContent = t('title');
     if (subtitle) subtitle.textContent = t('subtitle');
 
+    const launcher = document.querySelector('.tgk-chat-bubble-label');
+    if (launcher) launcher.textContent = t('launcher');
+
     // Footer
     const engineerBtn = document.querySelector('.tgk-chat-engineer-btn');
     if (engineerBtn) engineerBtn.textContent = t('engineer');
@@ -201,6 +206,7 @@
         <svg class="tgk-chat-icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
+        <span class="tgk-chat-bubble-label">${t('launcher')}</span>
       </button>
 
       <!-- Chat panel -->
@@ -528,38 +534,62 @@
         padding: 0;
       }
 
-      /* ─── Bubble ─── */
+      /* ─── Floating Contact: AI launcher ─── */
       .tgk-chat-bubble {
         position: fixed;
-        bottom: var(--floating-control-bottom, 24px);
-        right: var(--floating-chat-right, 94px);
-        width: var(--floating-control-size, 56px);
+        right: var(--floating-control-right, 24px);
+        bottom: calc(var(--floating-control-bottom, 24px) + var(--floating-control-size, 56px) + var(--floating-control-gap, 14px));
+        min-width: 132px;
         height: var(--floating-control-size, 56px);
-        border-radius: 50%;
-        background: var(--color-accent, #2563eb);
+        padding: 0 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--color-accent, #2563eb), #1d4ed8);
         color: #fff;
-        border: none;
+        border: 1px solid rgba(255,255,255,0.2);
         cursor: pointer;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        gap: 10px;
+        box-shadow: 0 10px 26px rgba(37, 99, 235, 0.34);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         z-index: 9200;
       }
       .tgk-chat-bubble:hover {
-        transform: scale(1.08);
-        box-shadow: 0 6px 24px rgba(37, 99, 235, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px rgba(37, 99, 235, 0.44);
       }
       .tgk-chat-bubble-active {
-        background: var(--color-text-secondary, #6b7280);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        background: linear-gradient(135deg, #475569, #334155);
+        box-shadow: 0 10px 24px rgba(15,23,42,0.28);
+      }
+      .tgk-chat-bubble-label {
+        font-family: var(--font, Inter, sans-serif);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+      .tgk-chat-icon-open,
+      .tgk-chat-icon-close {
+        width: 22px;
+        height: 22px;
+        flex: 0 0 22px;
+      }
+      @media (max-width: 480px) {
+        .tgk-chat-bubble {
+          min-width: 0;
+          width: var(--floating-control-size, 52px);
+          padding: 0;
+          border-radius: 50%;
+        }
+        .tgk-chat-bubble-label { display: none; }
       }
 
       /* ─── Panel ─── */
       .tgk-chat-panel {
         position: fixed;
-        bottom: calc(var(--floating-control-bottom, 24px) + var(--floating-control-size, 56px) + var(--floating-control-gap, 14px));
+        bottom: calc(var(--floating-control-bottom, 24px) + (var(--floating-control-size, 56px) * 2) + (var(--floating-control-gap, 14px) * 2));
         right: var(--floating-control-right, 24px);
         width: 380px;
         max-height: min(560px, calc(100vh - 220px));
@@ -827,13 +857,13 @@
         .tgk-chat-panel {
           width: calc(100vw - 16px);
           right: 8px;
-          bottom: calc(var(--floating-control-bottom, 16px) + var(--floating-control-size, 52px) + var(--floating-control-gap, 10px));
+          bottom: calc(var(--floating-control-bottom, 16px) + (var(--floating-control-size, 52px) * 2) + (var(--floating-control-gap, 10px) * 2));
           max-height: calc(100vh - 110px);
           border-radius: 12px;
         }
         .tgk-chat-bubble {
-          bottom: var(--floating-control-bottom, 16px);
-          right: var(--floating-chat-right, 78px);
+          bottom: calc(var(--floating-control-bottom, 16px) + var(--floating-control-size, 52px) + var(--floating-control-gap, 10px));
+          right: var(--floating-control-right, 16px);
           width: var(--floating-control-size, 52px);
           height: var(--floating-control-size, 52px);
         }

@@ -3717,15 +3717,15 @@ article.blog-card.card img {
 
 /* ── Floating contact controls ─────────────────────────────────────────── */
 #tgk-chat-widget .tgk-chat-bubble {
-  bottom: var(--floating-control-bottom);
-  right: var(--floating-chat-right);
-  width: var(--floating-control-size);
+  bottom: calc(var(--floating-control-bottom) + var(--floating-control-size) + var(--floating-control-gap));
+  right: var(--floating-control-right);
+  width: auto;
   height: var(--floating-control-size);
   z-index: 9200;
 }
 
 #tgk-chat-widget .tgk-chat-panel {
-  bottom: calc(var(--floating-control-bottom) + var(--floating-control-size) + var(--floating-control-gap));
+  bottom: calc(var(--floating-control-bottom) + (var(--floating-control-size) * 2) + (var(--floating-control-gap) * 2));
   right: var(--floating-control-right);
   z-index: 9300;
   max-height: calc(100vh - 220px);
@@ -3734,7 +3734,7 @@ article.blog-card.card img {
 @media (max-width: 480px) {
   #tgk-chat-widget .tgk-chat-panel {
     right: 8px;
-    bottom: calc(var(--floating-control-bottom) + var(--floating-control-size) + var(--floating-control-gap));
+    bottom: calc(var(--floating-control-bottom) + (var(--floating-control-size) * 2) + (var(--floating-control-gap) * 2));
     width: calc(100vw - 16px);
     max-height: calc(100vh - 110px);
   }
