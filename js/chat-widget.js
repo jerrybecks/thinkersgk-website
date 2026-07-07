@@ -6,6 +6,8 @@
   'use strict';
 
   const API_BASE = '/api';
+  const WIDGET_VERSION = '2026-07-07-v8';
+  const VERSION_KEY = 'tgk_chat_widget_version';
   const SESSION_KEY = 'tgk_chat_session';
   const HISTORY_KEY = 'tgk_chat_history';
   const FALLBACK_MARKERS = [
@@ -14,6 +16,8 @@
     'trouble connecting',
     'please try again in a moment'
   ];
+
+  runVersionMigration();
 
   let sessionId = localStorage.getItem(SESSION_KEY) || '';
   let isOpen = false;
@@ -25,6 +29,19 @@
     if (stored) messageHistory = JSON.parse(stored);
   } catch {
     // ignore corrupted localStorage
+  }
+
+  function runVersionMigration() {
+    try {
+      const savedVersion = localStorage.getItem(VERSION_KEY);
+      if (savedVersion !== WIDGET_VERSION) {
+        localStorage.removeItem(SESSION_KEY);
+        localStorage.removeItem(HISTORY_KEY);
+        localStorage.setItem(VERSION_KEY, WIDGET_VERSION);
+      }
+    } catch {
+      // ignore storage errors
+    }
   }
 
   function getLang() {
@@ -57,6 +74,7 @@
       escalateCancel: 'Back to chat',
       poweredBy: 'Thinkers GK assistant',
       thinking: 'Thinking...',
+      newChat: 'New chat',
       fallbackHint: 'If you prefer, use “Talk to an engineer” and we’ll follow up directly.',
       q1: 'IT support for our team',
       q2: 'Device retrieval or ITAD',
@@ -82,6 +100,7 @@
       escalateCancel: 'チャットに戻る',
       poweredBy: 'Thinkers GK アシスタント',
       thinking: '考え中...',
+      newChat: '新しいチャット',
       fallbackHint: '必要であれば「エンジニアに相談」から直接折り返し依頼もできます。',
       q1: '社内ITサポートを相談したい',
       q2: '端末回収やITADを相談したい',
@@ -108,6 +127,11 @@
   }
 
   function createWidget() {
+    document.querySelector('#tgk-chat-widget')?.remove();
+    [...document.querySelectorAll('style')].forEach((node) => {
+      if (node.textContent.includes('#tgk-chat-widget')) node.remove();
+    });
+
     const style = document.createElement('style');
     style.textContent = getCSS();
     document.head.appendChild(style);
@@ -122,6 +146,7 @@
     const sendBtn = container.querySelector('.tgk-chat-send');
     const input = container.querySelector('.tgk-chat-input');
     const engineerBtn = container.querySelector('.tgk-chat-engineer-btn');
+    const resetBtn = container.querySelector('.tgk-chat-reset');
     const escalateSubmit = container.querySelector('.tgk-escalate-submit');
     const escalateCancel = container.querySelector('.tgk-escalate-cancel');
 
@@ -136,6 +161,7 @@
     });
     input.addEventListener('input', autoResizeInput);
     engineerBtn.addEventListener('click', showEscalateForm);
+    resetBtn.addEventListener('click', () => resetConversation(true));
     escalateCancel.addEventListener('click', hideEscalateForm);
     escalateSubmit.addEventListener('click', submitEscalation);
 
@@ -173,6 +199,7 @@
     const launcher = document.querySelector('.tgk-chat-bubble-label');
     const status = document.querySelector('.tgk-chat-status');
     const engineerBtn = document.querySelector('.tgk-chat-engineer-btn');
+    const resetBtn = document.querySelector('.tgk-chat-reset');
     const input = document.querySelector('.tgk-chat-input');
     const powered = document.querySelector('.tgk-chat-powered');
     const escTitle = document.querySelector('.tgk-escalate-title');
@@ -188,6 +215,7 @@
     if (launcher) launcher.textContent = t('launcher');
     if (status) status.textContent = t('status');
     if (engineerBtn) engineerBtn.textContent = t('engineer');
+    if (resetBtn) resetBtn.textContent = t('newChat');
     if (input) input.placeholder = t('placeholder');
     if (powered) powered.textContent = t('poweredBy');
     if (escTitle) escTitle.textContent = t('escalateTitle');
@@ -242,6 +270,7 @@
             </div>
           </div>
           <div class="tgk-chat-header-actions">
+            <button class="tgk-chat-reset" type="button">${t('newChat')}</button>
             <span class="tgk-chat-status">${t('status')}</span>
             <button class="tgk-chat-close" aria-label="Close chat">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -284,14 +313,15 @@
     `;
   }
 
-  function toggleChat() {
-    isOpen = !isOpen;
+  function toggleChat(forceState) {
+    isOpen = typeof forceState === 'boolean' ? forceState : !isOpen;
     const panel = document.querySelector('.tgk-chat-panel');
     const bubble = document.querySelector('.tgk-chat-bubble');
     const iconClose = bubble.querySelector('.tgk-chat-icon-close');
 
     panel.classList.toggle('tgk-chat-open', isOpen);
     bubble.classList.toggle('tgk-chat-bubble-active', isOpen);
+    bubble.classList.toggle('tgk-chat-bubble-hidden', isOpen);
     iconClose.style.display = isOpen ? 'block' : 'none';
 
     if (isOpen) {
@@ -532,6 +562,55 @@
     });
   }
 
+  function resetConversation(keepOpen = false) {
+    if (isStreaming) return;
+
+    sessionId = '';
+    messageHistory = [];
+
+    try {
+      localStorage.removeItem(SESSION_KEY);
+      localStorage.removeItem(HISTORY_KEY);
+      localStorage.setItem(VERSION_KEY, WIDGET_VERSION);
+    } catch {
+      // ignore storage errors
+    }
+
+    clearHumanFallbackState();
+
+    const messages = document.querySelector('.tgk-chat-messages');
+    const input = document.querySelector('.tgk-chat-input');
+    const escForm = document.querySelector('.tgk-escalate-form');
+    const escCompany = document.querySelector('.tgk-escalate-company');
+    const escEmail = document.querySelector('.tgk-escalate-email');
+    const escAddress = document.querySelector('.tgk-escalate-address');
+    const escPhone = document.querySelector('.tgk-escalate-phone');
+    const inputRow = document.querySelector('.tgk-chat-footer .tgk-chat-input-row');
+    const suggestions = document.querySelector('.tgk-chat-suggestions');
+    const engineerBtn = document.querySelector('.tgk-chat-engineer-btn');
+
+    if (messages) messages.innerHTML = '';
+    if (escForm) escForm.style.display = 'none';
+    if (inputRow) inputRow.style.display = 'flex';
+    if (suggestions) suggestions.style.display = 'flex';
+    if (engineerBtn) engineerBtn.style.display = 'block';
+    if (escCompany) escCompany.value = '';
+    if (escEmail) escEmail.value = '';
+    if (escAddress) escAddress.value = '';
+    if (escPhone) escPhone.value = '';
+    if (input) {
+      input.value = '';
+      autoResizeInput();
+    }
+
+    renderMessage('assistant', t('greeting'), false);
+
+    if (keepOpen) {
+      toggleChat(true);
+      if (input) input.focus();
+    }
+  }
+
   function saveHistory() {
     try {
       localStorage.setItem(HISTORY_KEY, JSON.stringify(messageHistory.slice(-30)));
@@ -601,6 +680,11 @@
       }
       .tgk-chat-bubble-active {
         background: linear-gradient(135deg, #1e293b, #334155);
+      }
+      .tgk-chat-bubble-hidden {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+        pointer-events: none;
       }
       .tgk-chat-bubble-mark {
         width: 38px;
@@ -724,6 +808,21 @@
         align-items: center;
         gap: 8px;
         flex-shrink: 0;
+      }
+      .tgk-chat-reset {
+        min-height: 32px;
+        padding: 0 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .tgk-chat-reset:hover {
+        background: rgba(255, 255, 255, 0.18);
       }
       .tgk-chat-status {
         display: inline-flex;
@@ -980,6 +1079,9 @@
         .tgk-chat-bubble-sub,
         .tgk-chat-status {
           display: none;
+        }
+        .tgk-chat-reset {
+          padding: 0 8px;
         }
       }
 
