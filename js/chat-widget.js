@@ -6,7 +6,7 @@
   'use strict';
 
   const API_BASE = '/api';
-  const WIDGET_VERSION = '2026-07-07-v8';
+  const WIDGET_VERSION = '2026-07-07-v9';
   const VERSION_KEY = 'tgk_chat_widget_version';
   const SESSION_KEY = 'tgk_chat_session';
   const HISTORY_KEY = 'tgk_chat_history';
@@ -262,7 +262,7 @@
         <div class="tgk-chat-header">
           <div class="tgk-chat-header-info">
             <div class="tgk-chat-logo-wrap">
-              <img src="/assets/logo-light.png" alt="Thinkers GK" class="tgk-chat-logo">
+              <img src="/assets/logo-thinkers-new-small.png" alt="Thinkers GK" class="tgk-chat-logo">
             </div>
             <div class="tgk-chat-header-copy">
               <div class="tgk-chat-title">${t('title')}</div>
@@ -776,13 +776,14 @@
         width: 44px;
         height: 44px;
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.14);
+        background: #ffffff;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         flex: 0 0 44px;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
+        border: 1px solid rgba(15, 23, 42, 0.08);
       }
       .tgk-chat-logo {
         width: 34px;
