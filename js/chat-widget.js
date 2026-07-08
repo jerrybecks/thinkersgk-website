@@ -55,8 +55,8 @@
 
   const i18n = {
     en: {
-      title: 'Ask Thinker',
-      launcher: 'Ask Thinker',
+      title: 'Ask Thinkers',
+      launcher: 'Ask Thinkers',
       subtitle: 'Bilingual IT help for Japan',
       status: 'English / Japanese support',
       placeholder: 'Tell us what you need in Japan...',

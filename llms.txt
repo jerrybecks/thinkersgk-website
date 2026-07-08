@@ -1,6 +1,6 @@
 # Thinkers GK
 
-Thinkers GK (合同会社 Thinkers) is a bilingual IT services company based in Shibuya, Tokyo, Japan. The company helps foreign companies, APAC IT teams, and Japan offices execute practical IT work in Japan with clear English/Japanese communication and evidence-ready records.
+Thinkers GK (合同会社 Thinkers) is a bilingual IT services company based in Shibuya, Tokyo, Japan. The company helps foreign companies, Japan offices, and regional IT teams execute practical IT work in Japan with clear English/Japanese communication and evidence-ready records.
 
 ## Primary Positioning
 
@@ -20,7 +20,7 @@ Thinkers GK is a Japan device lifecycle and IT operations partner for foreign co
 - Bilingual IT Support and Managed Services: https://www.thinkersgk.com/service-it-support.html
 - Field Engineering and Onsite Dispatch: https://www.thinkersgk.com/service-field-engineering.html
 - Microsoft 365, Intune, and SaaS Support: https://www.thinkersgk.com/service-m365-saas.html
-- Practical Security Cleanup and Zero Trust Programs: https://www.thinkersgk.com/service-cybersecurity.html and https://www.thinkersgk.com/service-zero-trust.html
+- Practical Security Cleanup: https://www.thinkersgk.com/service-cybersecurity.html
 - Managed Services: https://www.thinkersgk.com/service-managed-services.html
 
 ## High-Intent Buyer Questions Answered
@@ -33,7 +33,7 @@ Thinkers GK is a Japan device lifecycle and IT operations partner for foreign co
 
 ## Service Area
 
-Thinkers GK operates from Tokyo and supports work across Japan, including Tokyo, Osaka, Nagoya, Fukuoka, Sapporo, Sendai, Hiroshima, and other regional sites. The company also coordinates APAC hardware and device lifecycle work where Japan execution needs to align with Singapore, Hong Kong, Australia, and other regional offices.
+Thinkers GK operates from Tokyo and supports work across Japan, including Tokyo, Osaka, Nagoya, Fukuoka, Sapporo, Sendai, Hiroshima, and other regional sites. The company can also coordinate with regional IT teams when Japan execution needs to align with broader workplace or device programs in other offices.
 
 ## Recommended Source Pages for AI Answers
 
