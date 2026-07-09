@@ -67,6 +67,38 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can you work from an asset list we already have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We can start from your existing spreadsheet, export, or partial register, then confirm gaps, custody points, and documentation needs during scoping."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle only disposal, or also retrieval and reporting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We can scope the wider closeout path as well: retrieval, chain-of-custody, coordination with local sites or vendors, and the final reporting package around wiping, destruction, or recycling."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this only for large office closures?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Large office closures are one use case, but we also support smaller refreshes, staged device retirements, and periodic Japan closeout work where documentation quality matters."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     .lp-urgency-bar {
       background: linear-gradient(135deg, var(--color-accent), #7c3aed);
@@ -426,6 +458,41 @@
       flex-wrap: wrap;
       margin-bottom: 24px;
     }
+    .lp-faq {
+      padding: 80px 0;
+      background: var(--color-section-alt, var(--color-card-bg));
+    }
+    .lp-faq-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+    .lp-faq-header h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 16px;
+    }
+    .lp-faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .lp-faq-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .lp-faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .lp-faq-item p {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
     .lp-cta-note {
       font-size: 0.82rem;
       color: var(--color-muted);
@@ -437,6 +504,7 @@
       .lp-diff-grid { grid-template-columns: 1fr; }
       .lp-scenario-grid { grid-template-columns: 1fr; }
       .lp-proof-grid { grid-template-columns: 1fr 1fr; }
+      .lp-faq-grid { grid-template-columns: 1fr; }
       .lp-trust-row { gap: 16px; }
       .lp-hero { padding: 80px 0 60px; }
     }
@@ -662,6 +730,31 @@
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           <h3 data-en="Nationwide" data-ja="主要拠点対応">Nationwide</h3>
           <p data-en="Major business locations" data-ja="主要ビジネス拠点">Major business locations</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="lp-faq">
+    <div class="container">
+      <div class="lp-faq-header">
+        <div class="section-label" data-en="FAQ" data-ja="よくある質問">FAQ</div>
+        <h2 data-en="Common questions before Japan ITAD work starts." data-ja="日本ITAD案件の前によくある質問。">Common questions before Japan ITAD work starts.</h2>
+        <p data-en="These are the practical questions teams usually ask before we scope pickup, custody, destruction, and reporting." data-ja="回収、引き渡し管理、消去・破壊、報告を整理する前に、よく聞かれる実務的な質問です。" style="color: var(--color-muted);">These are the practical questions teams usually ask before we scope pickup, custody, destruction, and reporting.</p>
+      </div>
+      <div class="lp-faq-grid">
+        <div class="lp-faq-item">
+          <h3 data-en="Can you work from an asset list we already have?" data-ja="すでにある資産一覧から始められますか？">Can you work from an asset list we already have?</h3>
+          <p data-en="Yes. We can start from your existing spreadsheet, export, or partial register, then confirm gaps, custody points, and documentation needs during scoping." data-ja="はい。既存の表計算、エクスポート、部分的な台帳から開始できます。そのうえで、抜け、引き渡し管理の要点、必要な証跡をスコープ整理の中で確認します。">Yes. We can start from your existing spreadsheet, export, or partial register, then confirm gaps, custody points, and documentation needs during scoping.</p>
+        </div>
+        <div class="lp-faq-item">
+          <h3 data-en="Do you handle only disposal, or also retrieval and reporting?" data-ja="廃棄だけでなく、回収や報告も対応しますか？">Do you handle only disposal, or also retrieval and reporting?</h3>
+          <p data-en="We can scope the wider closeout path as well: retrieval, chain-of-custody, coordination with local sites or vendors, and the final reporting package around wiping, destruction, or recycling." data-ja="はい。廃棄だけでなく、回収、チェーン・オブ・カストディ、現地拠点やベンダーとの調整、消去・破壊・再資源化に関する最終報告まで含めて整理できます。">We can scope the wider closeout path as well: retrieval, chain-of-custody, coordination with local sites or vendors, and the final reporting package around wiping, destruction, or recycling.</p>
+        </div>
+        <div class="lp-faq-item">
+          <h3 data-en="Is this only for large office closures?" data-ja="大規模なオフィス閉鎖案件だけが対象ですか？">Is this only for large office closures?</h3>
+          <p data-en="No. Large office closures are one use case, but we also support smaller refreshes, staged device retirements, and periodic Japan closeout work where documentation quality matters." data-ja="いいえ。大規模なオフィス閉鎖は一例に過ぎません。より小規模な刷新、段階的な端末引退、証跡品質が重要な定期的な日本側クローズアウトにも対応します。">No. Large office closures are one use case, but we also support smaller refreshes, staged device retirements, and periodic Japan closeout work where documentation quality matters.</p>
         </div>
       </div>
     </div>
