@@ -1,0 +1,32 @@
+name = "thinkersgk-api"
+main = "src/index.js"
+compatibility_date = "2026-02-23"
+
+# Route: only /api/* requests hit this Worker
+# Everything else passes through to GitHub Pages
+routes = [
+  { pattern = "www.thinkersgk.com/api/*", zone_name = "thinkersgk.com" }
+]
+
+# KV namespace for storing form submissions and leads
+[[kv_namespaces]]
+binding = "SUBMISSIONS"
+id = "20694b906c0d4b2586c2892f4f5a9509"
+
+# Cloudflare Workers AI (free tier: 10k neurons/day)
+[ai]
+binding = "AI"
+
+# Environment variables (set via `wrangler secret put`)
+# WEB3FORMS_KEY   - Web3Forms access key (backup email delivery)
+# TELEGRAM_BOT_TOKEN - For instant notifications to G
+# TELEGRAM_CHAT_ID   - G's Telegram user ID
+
+# Email Routing is configured in the Cloudflare dashboard:
+#   Email Routing → Email Workers → Catch-all → thinkersgk-api worker
+# The worker's email() handler processes incoming @thinkersgk.com mail
+
+[vars]
+ENVIRONMENT = "production"
+ALLOWED_ORIGIN = "https://www.thinkersgk.com"
+FORWARD_TO = "thinkerstars@gmail.com"

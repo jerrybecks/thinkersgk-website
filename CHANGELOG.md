@@ -257,3 +257,13 @@
 
 ### Fixed
 - SEO: Correcting canonical tags on Japanese pages to point to their respective versions (preventing exclusion from indexing).
+# 2026-07-13 — Unified website intake and Atlas handoff
+
+- Repaired the live `/api/intake` and `/api/contact` Cloudflare routes and made the API implementation part of this repository under `workers/intake-api/`.
+- Removed Cloudflare/free-model qualification and automatic acknowledgement sending from website form ingestion. Cloudflare now validates and durably stores enquiries; Atlas performs reasoning inside Hermes Business OS.
+- Rotated the legacy website-submission administration credential and changed submission retrieval to bearer authentication.
+- Connected both English and Japanese contact forms to the same first-party intake endpoint instead of Formspree.
+- Preserved the Smart Intake form while routing its structured fields into the guarded agent workflow.
+- Standardised new-enquiry response language across the homepage, contact, and Smart Intake flows; existing contracted support-ticket wording remains distinct.
+- Added origin enforcement, honeypot handling, email validation, durable KV storage, and safe success/error states.
+- Added a Hermes website-intake worker that creates an idempotent contact, lead, pipeline record, shared Atlas event, and approval-protected acknowledgement draft. It never sends autonomously.
