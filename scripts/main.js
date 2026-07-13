@@ -1079,7 +1079,7 @@
 
         if (/^mailto:/i.test(href)) return 'contact_email_click';
         if (/line\.me\//i.test(href)) return 'contact_line_click';
-        if (/cal\.com\//i.test(href)) return 'consultation_calendar_click';
+        if (/calendar\.google\.com\/calendar\/.*\/appointments\/schedules\//i.test(href)) return 'consultation_calendar_click';
         if (/contact(?:\.ja)?\.html(?:$|[?#])/i.test(href)) return 'contact_page_click';
         if (/services(?:\.ja)?\.html(?:$|[?#])/i.test(href)) return 'services_page_click';
         if (/how-we-work\.html(?:$|[?#])/i.test(href)) return 'how_we_work_click';
