@@ -257,6 +257,12 @@
 
 ### Fixed
 - SEO: Correcting canonical tags on Japanese pages to point to their respective versions (preventing exclusion from indexing).
+# 2026-07-13 — Google Calendar booking migration
+
+- Replaced the live Cal.com consultation links and embedded scheduler on the English and Japanese contact pages with the ThinkersGK Google Calendar appointment schedule.
+- Updated delegated click classification and conversion-measurement documentation to recognize Google Calendar appointment-schedule URLs.
+- Preserved the existing analytics event names so historical and future booking-intent reporting remains continuous.
+
 # 2026-07-13 — Unified website intake and Atlas handoff
 
 - Repaired the live `/api/intake` and `/api/contact` Cloudflare routes and made the API implementation part of this repository under `workers/intake-api/`.

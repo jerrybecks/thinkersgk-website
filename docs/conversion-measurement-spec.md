@@ -54,7 +54,7 @@ The goal is not broad analytics vanity reporting. The goal is to answer a small 
 | `itad_japan_click` | Visitor clicks into the ITAD lane | Strong lifecycle/disposal interest | High |
 | `blog_article_click` | Visitor clicks a tracked blog article link | Content consumption / problem exploration | Low-Medium |
 | `blog_index_click` | Visitor clicks into the blog index | Early-stage research intent | Low-Medium |
-| `consultation_calendar_click` | Visitor clicks a Cal.com route outside the explicit contact-page CTA | Scheduling intent from shared routing | High |
+| `consultation_calendar_click` | Visitor clicks a Google Calendar appointment-schedule route outside the explicit contact-page CTA | Scheduling intent from shared routing | High |
 | `contact_line_click` | Visitor clicks a LINE route outside the explicit contact-page CTA | Chat-led contact intent from shared routing | High |
 
 ## Event payload shape
