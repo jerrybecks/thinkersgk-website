@@ -1,3 +1,9 @@
+## 2026-07-14 - Phase 2 navigation and contact-path standardization
+- Standardized the rendered corporate navigation to Home, Services, ITAD Japan, Why Thinkers GK, How We Work, Insights, and Contact Us across normal sitemap pages.
+- Added English/Japanese destination parity, active-section `aria-current` semantics, and a visible active navigation state.
+- Kept the 30-minute consultation calendar as a secondary option on the contact page rather than replacing the inclusive Contact Us route.
+- Preserved the standalone Gerald business-card page as an intentional navigation exception.
+
 ## 2026-07-14 - Public business-hours and response-language alignment
 - Standardized published business hours and structured data to Monday-Friday, 09:00-17:00 JST.
 - Removed unsupported public four-hour, four-to-eight-hour, 48-hour, and sub-hour response promises from marketing and confirmation copy.

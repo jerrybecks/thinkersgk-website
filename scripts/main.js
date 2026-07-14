@@ -140,21 +140,63 @@
         setLang(lang);
     }
 
+    function normalizePrimaryNavigation() {
+        var menu = document.getElementById('navMenu');
+        if (!menu) return;
+
+        var homeLink = menu.querySelector('a[href$="index.html"], a[href$="index.ja.html"]');
+        var homeHref = homeLink ? (homeLink.getAttribute('href') || 'index.html') : 'index.html';
+        var prefix = homeHref.replace(/index(?:\.ja)?\.html$/, '');
+        var path = window.location.pathname || '/';
+        var file = path.split('/').pop() || 'index.html';
+        var isJapanesePage = /\.ja\.html$/i.test(file);
+        var localizedSuffix = isJapanesePage ? '.ja' : '';
+
+        var items = [
+            { key: 'home', href: prefix + 'index' + localizedSuffix + '.html', en: 'Home', ja: 'ホーム' },
+            { key: 'services', href: prefix + 'services' + localizedSuffix + '.html', en: 'Services', ja: 'サービス' },
+            { key: 'itad', href: prefix + 'itad-japan.html', en: 'ITAD Japan', ja: 'ITAD 日本' },
+            { key: 'why', href: prefix + 'why-us' + localizedSuffix + '.html', en: 'Why Thinkers GK', ja: '選ばれる理由' },
+            { key: 'process', href: prefix + 'how-we-work' + localizedSuffix + '.html', en: 'How We Work', ja: '進め方' },
+            { key: 'insights', href: prefix + 'blog/index.html', en: 'Insights', ja: 'インサイト' },
+            { key: 'contact', href: prefix + 'contact' + localizedSuffix + '.html', en: 'Contact Us', ja: 'お問い合わせ', cta: true }
+        ];
+
+        menu.innerHTML = items.map(function(item) {
+            return '<a href="' + item.href + '" data-nav-key="' + item.key + '" data-en="' + item.en + '" data-ja="' + item.ja + '"' +
+                (item.cta ? ' class="btn btn-sm nav-cta"' : '') + '>' + (isJapanesePage ? item.ja : item.en) + '</a>';
+        }).join('');
+
+        var currentKey = '';
+        if (/\/blog\//i.test(path)) currentKey = 'insights';
+        else if (/^index(?:\.ja)?\.html$/i.test(file)) currentKey = 'home';
+        else if (/^(?:service-(?!itad)|services)(?:.*)?\.html$/i.test(file)) currentKey = 'services';
+        else if (/^(?:itad-japan|service-itad)(?:\.ja)?\.html$/i.test(file)) currentKey = 'itad';
+        else if (/^(?:why-us|about|case-studies)(?:\.ja)?\.html$/i.test(file)) currentKey = 'why';
+        else if (/^how-we-work(?:\.ja)?\.html$/i.test(file)) currentKey = 'process';
+        else if (/^(?:contact|get-started)(?:\.ja)?\.html$/i.test(file)) currentKey = 'contact';
+
+        var currentLink = currentKey ? menu.querySelector('[data-nav-key="' + currentKey + '"]') : null;
+        if (currentLink) currentLink.setAttribute('aria-current', 'page');
+    }
+
     function initNavDropdowns() {
         var menu = document.getElementById('navMenu');
         if (!menu) return;
 
-        var servicesLink = menu.querySelector('a[href$="services.html"]:not(.nav-dropdown__overview):not(.nav-dropdown__link)');
+        var servicesLink = menu.querySelector('a[data-nav-key="services"]');
         if (!servicesLink) return;
 
         var servicesHref = servicesLink.getAttribute('href') || 'services.html';
-        var prefix = servicesHref.replace(/services\.html$/, '');
+        var prefix = servicesHref.replace(/services(?:\.ja)?\.html$/, '');
+        var localizedSuffix = /\.ja\.html$/i.test(servicesHref) ? '.ja' : '';
+        var servicesCurrent = servicesLink.getAttribute('aria-current') === 'page' ? ' aria-current="page"' : '';
 
         var dropdown = document.createElement('div');
         dropdown.className = 'nav-dropdown';
         dropdown.innerHTML =
             '<div class="nav-dropdown__bar">' +
-                '<a href="' + prefix + 'services.html" class="nav-dropdown__rootlink" data-en="Services" data-ja="サービス">Services</a>' +
+                '<a href="' + servicesHref + '" class="nav-dropdown__rootlink" data-nav-key="services" data-en="Services" data-ja="サービス"' + servicesCurrent + '>Services</a>' +
                 '<button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Open services menu">' +
                     '<span class="nav-dropdown__caret" aria-hidden="true"></span>' +
                 '</button>' +
@@ -162,23 +204,23 @@
             '<div class="nav-dropdown__panel" aria-label="Services menu">' +
                 '<div class="nav-dropdown__intro">' +
                     '<div class="nav-dropdown__eyebrow" data-en="Explore" data-ja="サービス一覧">Explore</div>' +
-                    '<a href="' + prefix + 'services.html" class="nav-dropdown__overview" data-en="View all services" data-ja="すべてのサービスを見る">View all services</a>' +
+                    '<a href="' + servicesHref + '" class="nav-dropdown__overview" data-en="View all services" data-ja="すべてのサービスを見る">View all services</a>' +
                     '<p data-en="Practical IT delivery in Japan, from user support to field execution and lifecycle work." data-ja="ユーザー支援から現地対応、資産ライフサイクルまで、日本国内の実務的なIT支援。">Practical IT delivery in Japan, from user support to field execution and lifecycle work.</p>' +
                 '</div>' +
                 '<div class="nav-dropdown__links">' +
-                    '<a href="' + prefix + 'service-it-support.html" class="nav-dropdown__link">' +
+                    '<a href="' + prefix + 'service-it-support' + localizedSuffix + '.html" class="nav-dropdown__link">' +
                         '<strong data-en="IT Support" data-ja="ITサポート">IT Support</strong>' +
                         '<span data-en="Bilingual user support and day-to-day IT operations." data-ja="バイリンガルのユーザー支援と日常IT運用。">Bilingual user support and day-to-day IT operations.</span>' +
                     '</a>' +
-                    '<a href="' + prefix + 'service-managed-services.html" class="nav-dropdown__link">' +
+                    '<a href="' + prefix + 'service-managed-services' + localizedSuffix + '.html" class="nav-dropdown__link">' +
                         '<strong data-en="Managed Services" data-ja="マネージドサービス">Managed Services</strong>' +
                         '<span data-en="Reporting, vendor coordination, and accountable ongoing support." data-ja="報告、ベンダー調整、継続的な運用支援。">Reporting, vendor coordination, and accountable ongoing support.</span>' +
                     '</a>' +
-                    '<a href="' + prefix + 'service-cybersecurity.html" class="nav-dropdown__link">' +
+                    '<a href="' + prefix + 'service-cybersecurity' + localizedSuffix + '.html" class="nav-dropdown__link">' +
                         '<strong data-en="Cybersecurity" data-ja="サイバーセキュリティ">Cybersecurity</strong>' +
                         '<span data-en="Assessments, risk reduction, and practical security work." data-ja="評価、リスク低減、実務的なセキュリティ支援。">Assessments, risk reduction, and practical security work.</span>' +
                     '</a>' +
-                    '<a href="' + prefix + 'service-asset-lifecycle.html" class="nav-dropdown__link">' +
+                    '<a href="' + prefix + 'service-asset-lifecycle' + localizedSuffix + '.html" class="nav-dropdown__link">' +
                         '<strong data-en="IT Asset Lifecycle" data-ja="IT資産ライフサイクル">IT Asset Lifecycle</strong>' +
                         '<span data-en="Deployment, recovery, and controlled end-of-life handling." data-ja="導入、回収、適切な廃棄・更改対応。">Deployment, recovery, and controlled end-of-life handling.</span>' +
                     '</a>' +
@@ -1125,8 +1167,8 @@
         }
         setTheme(getPreferredTheme());
 
+        normalizePrimaryNavigation();
         initNavDropdowns();
-        initWhyUsNavLink();
         normalizeFooterContent();
 
         // Language toggle button
