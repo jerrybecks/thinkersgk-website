@@ -305,3 +305,9 @@
 - Standardised new-enquiry response language across the homepage, contact, and Smart Intake flows; existing contracted support-ticket wording remains distinct.
 - Added origin enforcement, honeypot handling, email validation, durable KV storage, and safe success/error states.
 - Added a Hermes website-intake worker that creates an idempotent contact, lead, pipeline record, shared Atlas event, and approval-protected acknowledgement draft. It never sends autonomously.
+# 2026-07-14 — Phase 4 accessible navigation
+
+- Added a localized skip link and stable main-content focus target to every shared-layout page.
+- Added synchronized mobile-menu state, localized accessible labels, first-link focus, Escape handling, outside-click closing, and desktop breakpoint cleanup.
+- Connected the Services disclosure button to its panel and added localized open/close labels with focus restoration.
+- Added consistent visible keyboard focus styling without changing the established visual layout.

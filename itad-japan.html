@@ -29,9 +29,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css?v=81">
+  <link rel="stylesheet" href="styles/main.css?v=82">
   <link rel="stylesheet" href="styles/redesign.css?v=32">
-  <script src="scripts/main.js?v=42"></script>
+  <script src="scripts/main.js?v=43"></script>
   
 <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
 <script src="scripts/enhancements.js?v=15" defer></script>
@@ -513,7 +513,8 @@
   <script defer src="/js/analytics.js?v=1"></script>
 </head>
 <body>
-  <nav class="nav" id="nav" data-shared-layout="header-v1">
+<a class="skip-link" href="#main-content" data-en="Skip to main content" data-ja="メインコンテンツへスキップ">Skip to main content</a>
+<nav class="nav" id="nav" data-shared-layout="header-v1">
     <div class="container nav-inner">
       <a href="index.html" class="nav-brand"><img src="assets/logo-thinkers-new-transparent.png?v=20260531c" alt="Thinkers GK" class="nav-logo nav-logo--new"></a>
       <div class="nav-menu" id="navMenu">
@@ -541,7 +542,7 @@
           </svg>
         </button>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -553,7 +554,7 @@
   </div>
 
   <!-- HERO: Problem-aware hook -->
-  <section class="lp-hero">
+  <section class="lp-hero" id="main-content" tabindex="-1">
     <video class="lp-hero__video" autoplay loop muted playsinline preload="auto" poster="assets/hero-asset-lifecycle-1400x600.jpg">
       <source src="assets/videos/data-bg.mp4" type="video/mp4">
     </video>

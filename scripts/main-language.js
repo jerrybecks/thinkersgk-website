@@ -157,11 +157,11 @@
         dropdown.innerHTML =
             '<div class="nav-dropdown__bar">' +
                 '<a href="' + servicesHref + '" class="nav-dropdown__rootlink" data-nav-key="services" data-en="Services" data-ja="サービス"' + servicesCurrent + '>Services</a>' +
-                '<button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-label="Open services menu">' +
+                '<button class="nav-dropdown__trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="servicesMenuPanel" aria-label="Open services menu">' +
                     '<span class="nav-dropdown__caret" aria-hidden="true"></span>' +
                 '</button>' +
             '</div>' +
-            '<div class="nav-dropdown__panel" aria-label="Services menu">' +
+            '<div class="nav-dropdown__panel" id="servicesMenuPanel" aria-label="Services menu">' +
                 '<div class="nav-dropdown__intro">' +
                     '<div class="nav-dropdown__eyebrow" data-en="Explore" data-ja="サービス一覧">Explore</div>' +
                     '<a href="' + servicesHref + '" class="nav-dropdown__overview" data-en="View all services" data-ja="すべてのサービスを見る">View all services</a>' +
@@ -190,31 +190,16 @@
         servicesLink.replaceWith(dropdown);
 
         var trigger = dropdown.querySelector('.nav-dropdown__trigger');
-        var closeTimer = null;
-
-        function clearCloseTimer() {
-            if (!closeTimer) return;
-            clearTimeout(closeTimer);
-            closeTimer = null;
-        }
-
         function closeDropdown() {
-            clearCloseTimer();
             dropdown.classList.remove('open');
             trigger.setAttribute('aria-expanded', 'false');
+            trigger.setAttribute('aria-label', getLang() === 'ja' ? 'サービスメニューを開く' : 'Open services menu');
         }
 
         function openDropdown() {
-            clearCloseTimer();
             dropdown.classList.add('open');
             trigger.setAttribute('aria-expanded', 'true');
-        }
-
-        function scheduleCloseDropdown() {
-            clearCloseTimer();
-            closeTimer = setTimeout(function() {
-                closeDropdown();
-            }, 180);
+            trigger.setAttribute('aria-label', getLang() === 'ja' ? 'サービスメニューを閉じる' : 'Close services menu');
         }
 
         trigger.addEventListener('click', function(event) {
@@ -224,20 +209,19 @@
             else openDropdown();
         });
 
-        dropdown.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 900) openDropdown();
-        });
-        dropdown.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 900) scheduleCloseDropdown();
-        });
-        trigger.addEventListener('focus', function() {
-            if (window.innerWidth > 900) openDropdown();
-        });
         document.addEventListener('click', function(event) {
             if (!dropdown.contains(event.target)) closeDropdown();
         });
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') closeDropdown();
+            if (event.key === 'Escape' && dropdown.classList.contains('open')) {
+                closeDropdown();
+                trigger.focus();
+            }
+        });
+        document.addEventListener('thinkers:lang-changed', function() {
+            trigger.setAttribute('aria-label', getLang() === 'ja'
+                ? (dropdown.classList.contains('open') ? 'サービスメニューを閉じる' : 'サービスメニューを開く')
+                : (dropdown.classList.contains('open') ? 'Close services menu' : 'Open services menu'));
         });
     }
 
@@ -1056,15 +1040,42 @@
         var toggle = document.getElementById('navToggle');
         var menu = document.getElementById('navMenu');
         if (toggle && menu) {
-            toggle.addEventListener('click', function() {
-                menu.classList.toggle('open');
-                toggle.classList.toggle('open');
+            function menuLabel(open) {
+                return getLang() === 'ja'
+                    ? (open ? 'ナビゲーションメニューを閉じる' : 'ナビゲーションメニューを開く')
+                    : (open ? 'Close navigation menu' : 'Open navigation menu');
+            }
+            function setMenuOpen(open, returnFocus) {
+                menu.classList.toggle('open', open);
+                toggle.classList.toggle('open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', menuLabel(open));
+                if (open) {
+                    var firstLink = menu.querySelector('a');
+                    if (firstLink) firstLink.focus();
+                } else if (returnFocus) toggle.focus();
+            }
+            setMenuOpen(false, false);
+            toggle.addEventListener('click', function(event) {
+                event.stopPropagation();
+                setMenuOpen(!menu.classList.contains('open'), false);
             });
             menu.querySelectorAll('a').forEach(function(link) {
                 link.addEventListener('click', function() {
-                    menu.classList.remove('open');
-                    toggle.classList.remove('open');
+                    setMenuOpen(false, false);
                 });
+            });
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && menu.classList.contains('open')) setMenuOpen(false, true);
+            });
+            document.addEventListener('click', function(event) {
+                if (menu.classList.contains('open') && !menu.contains(event.target) && !toggle.contains(event.target)) setMenuOpen(false, false);
+            });
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 1100 && menu.classList.contains('open')) setMenuOpen(false, false);
+            });
+            document.addEventListener('thinkers:lang-changed', function() {
+                toggle.setAttribute('aria-label', menuLabel(menu.classList.contains('open')));
             });
         }
 

@@ -36,9 +36,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/main.css?v=81">
+  <link rel="stylesheet" href="styles/main.css?v=82">
   <link rel="stylesheet" href="styles/redesign.css?v=32">
-  <script src="scripts/main-language.js?v=6"></script>
+  <script src="scripts/main-language.js?v=7"></script>
   
 <button id="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
 <script src="scripts/enhancements.js?v=19" defer></script>
@@ -151,7 +151,8 @@
   <link rel="alternate" type="application/rss+xml" title="Thinkers GK Blog" href="https://www.thinkersgk.com/feed.xml">
 </head>
 <body class="home-page">
-  <nav class="nav" id="nav" data-shared-layout="header-v1">
+<a class="skip-link" href="#main-content" data-en="Skip to main content" data-ja="メインコンテンツへスキップ">Skip to main content</a>
+<nav class="nav" id="nav" data-shared-layout="header-v1">
     <div class="container nav-inner">
       <a href="index.html" class="nav-brand"><img src="assets/logo-thinkers-new-transparent.png?v=20260531c" alt="Thinkers GK" class="nav-logo nav-logo--new"></a>
       <div class="nav-menu" id="navMenu">
@@ -179,13 +180,13 @@
           </svg>
         </button>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <section class="home-cinematic-hero home-cinematic-hero--globe-backdrop">
+  <section class="home-cinematic-hero home-cinematic-hero--globe-backdrop" id="main-content" tabindex="-1">
     <div class="home-cinematic-hero__still" aria-hidden="true"></div>
     <div class="home-cinematic-hero__overlay"></div>
     <div class="home-cinematic-hero__grid"></div>
