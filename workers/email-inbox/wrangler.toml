@@ -30,3 +30,7 @@ id = "40803738d7064210b3a17d8ff2e92c82"
 
 [build]
 command = ""
+
+[observability]
+enabled = true
+head_sampling_rate = 1

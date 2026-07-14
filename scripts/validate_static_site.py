@@ -84,6 +84,32 @@ def check_seo_metadata(errors: list[str]) -> None:
         errors.append(f"paired-page SEO metadata drift detected: {detail}")
 
 
+def check_security_baseline(errors: list[str]) -> None:
+    for rel in ("contact.html", "contact.ja.html"):
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        for marker in (
+            "https://challenges.cloudflare.com/turnstile/v0/api.js",
+            'name="cf-turnstile-response"',
+            "cf-turnstile-response",
+        ):
+            if marker not in text:
+                errors.append(f"{rel}: missing Turnstile integration marker: {marker}")
+
+    worker_files = {
+        "workers/intake-api/src/chat.js": ["function isAllowedOrigin(origin)"],
+        "workers/intake-api/src/email.js": ["function readBearerToken(request)", "token !== env.AGENT_API_KEY"],
+        "workers/intake-api/src/email-worker.js": ["function isAuthorized(request, env)", "private, no-store"],
+        "workers/email-inbox/index.js": ["LIST_CACHE_TTL", "timingSafeEqual", "X-KV-Cache"],
+    }
+    for rel, markers in worker_files.items():
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        for marker in markers:
+            if marker not in text:
+                errors.append(f"{rel}: missing security baseline marker: {marker}")
+        if ".includes('thinkersgk.com')" in text or '.includes("thinkersgk.com")' in text:
+            errors.append(f"{rel}: unsafe substring origin validation detected")
+
+
 def check_core_page(path: Path, errors: list[str]) -> None:
     rel = path.relative_to(ROOT)
     text = path.read_text(encoding="utf-8", errors="ignore")
@@ -131,6 +157,7 @@ def main() -> int:
     check_required_files(errors)
     check_shared_layout(errors)
     check_seo_metadata(errors)
+    check_security_baseline(errors)
 
     for rel in CORE_PAGES:
         path = ROOT / rel

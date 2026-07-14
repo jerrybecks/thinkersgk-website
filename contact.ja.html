@@ -70,6 +70,7 @@
   }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ef930246-c82a-48a7-a8a7-9b8dde1e0a78"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
  <script defer src="/js/analytics.js?v=2"></script>
 </head>
 <body class="contact-page">
@@ -254,6 +255,7 @@
     var emailInput=document.getElementById('email');
     if(emailInput){emailInput.addEventListener('input',function(){emailInput.setCustomValidity('');});}
     var form=document.getElementById('contactForm');
+    if(form){var challenge=document.createElement('div');challenge.className='cf-turnstile';challenge.setAttribute('data-sitekey','0x4AAAAAAD1vmQXGT66x6vQm');challenge.setAttribute('data-theme','auto');form.insertBefore(challenge,form.querySelector('button[type=submit]'));}
     if(form)form.setAttribute('data-track-form','contact_form_submit_attempt');
     if(form){form.addEventListener('submit',function(e){
       e.preventDefault();
@@ -262,7 +264,8 @@
       if(emailInput)emailInput.setCustomValidity('');
       var btn=form.querySelector('button[type=submit]');
       if(btn){btn.disabled=true;btn.textContent=COPY.sending;}
-      var data={name:(document.getElementById('name')||{}).value,email:email,company:(document.getElementById('company')||{}).value,message:(document.getElementById('message')||{}).value,service:(document.getElementById('service')||{}).value,type:(document.getElementById('service')||{}).value};
+      var turnstile=(form.querySelector('[name="cf-turnstile-response"]')||{}).value||'';
+      var data={name:(document.getElementById('name')||{}).value,email:email,company:(document.getElementById('company')||{}).value,message:(document.getElementById('message')||{}).value,service:(document.getElementById('service')||{}).value,type:(document.getElementById('service')||{}).value,'cf-turnstile-response':turnstile};
       submitToPrimary(form,data).then(function(){
         if(typeof window.tgkTrackLead==='function'){window.tgkTrackLead({method:'contact_form',service:data.service||'',language:'ja'});}
         form.style.display='none';

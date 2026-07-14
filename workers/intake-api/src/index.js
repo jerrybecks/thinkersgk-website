@@ -117,12 +117,9 @@ async function handleContact(request, env, ctx) {
     return jsonResponse({ success: false, message: 'Forbidden' }, 403);
   }
 
-  let data;
-  try {
-    data = await request.json();
-  } catch {
-    return jsonResponse({ success: false, message: 'Invalid JSON' }, 400);
-  }
+  const parsed = await parseJsonBody(request, 32_768);
+  if (!parsed.ok) return jsonResponse({ success: false, message: parsed.error }, parsed.status, origin);
+  const data = parsed.data;
 
   const { name, email, message } = data;
   if (!name || !email || !message) {
@@ -133,6 +130,10 @@ async function handleContact(request, env, ctx) {
   }
   if (data.botcheck) {
     return jsonResponse({ success: true, message: 'Message sent successfully' });
+  }
+  const turnstile = await verifyTurnstile(data['cf-turnstile-response'], request, env);
+  if (!turnstile.ok) {
+    return jsonResponse({ success: false, message: 'Security verification failed. Please refresh and try again.' }, 403, origin);
   }
 
   const submission = {
@@ -164,11 +165,13 @@ async function handleIntake(request, env, ctx) {
     return jsonResponse({ success: false, message: 'Forbidden' }, 403);
   }
 
-  let data;
-  try {
-    data = await request.json();
-  } catch {
-    return jsonResponse({ success: false, message: 'Invalid JSON' }, 400);
+  const parsed = await parseJsonBody(request, 65_536);
+  if (!parsed.ok) return jsonResponse({ success: false, message: parsed.error }, parsed.status, origin);
+  const data = parsed.data;
+
+  const turnstile = await verifyTurnstile(data['cf-turnstile-response'], request, env);
+  if (!turnstile.ok) {
+    return jsonResponse({ success: false, message: 'Security verification failed. Please refresh and try again.' }, 403, origin);
   }
 
   const { name, email, message } = data;
@@ -272,8 +275,7 @@ async function handleListSubmissions(request, env) {
 // ─── Admin: Resend Logs ────────────────────────────────────────────
 
 async function handleResendLogs(request, env) {
-  const url = new URL(request.url);
-  const key = url.searchParams.get('key');
+  const key = readBearerToken(request);
   if (!key || key !== env.ADMIN_KEY) {
     return jsonResponse({ error: 'Unauthorized' }, 401);
   }
@@ -289,8 +291,7 @@ async function handleResendLogs(request, env) {
 }
 
 async function handleResendStatus(request, env) {
-  const url = new URL(request.url);
-  const key = url.searchParams.get('key');
+  const key = readBearerToken(request);
   if (!key || key !== env.ADMIN_KEY) {
     return jsonResponse({ error: 'Unauthorized' }, 401);
   }
@@ -696,6 +697,36 @@ function handleCORS(env) {
 
 function sanitize(str) {
   return String(str).trim().slice(0, 2000);
+}
+
+async function parseJsonBody(request, maxBytes) {
+  const declared = Number.parseInt(request.headers.get('Content-Length') || '0', 10);
+  if (declared > maxBytes) return { ok: false, status: 413, error: 'Request too large' };
+  let raw;
+  try { raw = await request.text(); } catch { return { ok: false, status: 400, error: 'Invalid request body' }; }
+  if (new TextEncoder().encode(raw).byteLength > maxBytes) return { ok: false, status: 413, error: 'Request too large' };
+  try { return { ok: true, data: JSON.parse(raw) }; } catch { return { ok: false, status: 400, error: 'Invalid JSON' }; }
+}
+
+async function verifyTurnstile(token, request, env) {
+  if (!env.TURNSTILE_SECRET) {
+    console.error('TURNSTILE_SECRET is not configured');
+    return { ok: false };
+  }
+  if (!token || String(token).length > 2048) return { ok: false };
+  try {
+    const body = new FormData();
+    body.set('secret', env.TURNSTILE_SECRET);
+    body.set('response', String(token));
+    body.set('remoteip', request.headers.get('CF-Connecting-IP') || '');
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body });
+    const result = await response.json();
+    const hostname = String(result.hostname || '').toLowerCase();
+    return { ok: result.success === true && (hostname === 'thinkersgk.com' || hostname === 'www.thinkersgk.com') };
+  } catch (error) {
+    console.error('Turnstile verification failed:', error);
+    return { ok: false };
+  }
 }
 
 function escapeHtml(str) {
