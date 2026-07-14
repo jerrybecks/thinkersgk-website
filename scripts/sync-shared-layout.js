@@ -77,6 +77,11 @@ function headerBrandMarkup(file, html) {
     return `<a href="${prefix + localizedFile('index', japanese)}" class="nav-brand"><img src="${prefix + LOGO_FILE}" alt="Thinkers GK" class="nav-logo nav-logo--new"></a>`;
 }
 
+function skipLinkMarkup(file, html) {
+    const japanese = isJapanesePage(file, html);
+    return `<a class="skip-link" href="#main-content" data-en="Skip to main content" data-ja="メインコンテンツへスキップ">${bilingualText('Skip to main content', 'メインコンテンツへスキップ', japanese)}</a>`;
+}
+
 function footerMarkup(file, html) {
     const prefix = rootPrefix(file);
     const japanese = isJapanesePage(file, html);
@@ -144,11 +149,31 @@ function syncFile(file) {
         const brandPattern = /<a\b[^>]*class=["'][^"']*\bnav-brand\b[^"']*["'][^>]*>[\s\S]*?<\/a>/i;
         if (!brandPattern.test(nav)) throw new Error(`${relative}: navigation exists but nav-brand was not found`);
         nav = nav.replace(brandPattern, headerBrandMarkup(file, original));
+        const togglePattern = /<button\b[^>]*class=["'][^"']*\bnav-toggle\b[^"']*["'][^>]*>/i;
+        const japanese = isJapanesePage(file, original);
+        const toggleLabel = japanese ? 'ナビゲーションメニューを開く' : 'Open navigation menu';
+        const nextToggle = `<button class="nav-toggle" id="navToggle" type="button" aria-label="${toggleLabel}" aria-expanded="false" aria-controls="navMenu">`;
+        if (!togglePattern.test(nav)) throw new Error(`${relative}: navigation exists but nav-toggle was not found`);
+        nav = nav.replace(togglePattern, nextToggle);
         nav = nav.replace('<nav class="nav" id="nav">', '<nav class="nav" id="nav" data-shared-layout="header-v1">');
         if (nav !== navMatch[0]) {
             updated = updated.replace(navPattern, nav);
             reasons.push('header');
         }
+
+        const skipPattern = /<a\b[^>]*class=["'][^"']*\bskip-link\b[^"']*["'][^>]*>[\s\S]*?<\/a>\s*/i;
+        const nextSkipLink = skipLinkMarkup(file, original) + '\n';
+        if (skipPattern.test(updated)) updated = updated.replace(skipPattern, nextSkipLink);
+        else updated = updated.replace(/(<body\b[^>]*>)/i, `$1\n${nextSkipLink}`);
+
+        if (!/\bid=["']main-content["']/i.test(updated)) {
+            const contentStart = updated.search(/<(?:main|section)\b[^>]*>/i);
+            if (contentStart === -1) throw new Error(`${relative}: navigation exists but no main content container was found`);
+            const contentTag = updated.slice(contentStart).match(/^<(?:main|section)\b[^>]*>/i)[0];
+            const enhancedTag = contentTag.replace(/>$/, ' id="main-content" tabindex="-1">');
+            updated = updated.slice(0, contentStart) + updated.slice(contentStart).replace(contentTag, enhancedTag);
+        }
+        if (updated !== original && !reasons.includes('accessibility')) reasons.push('accessibility');
     }
 
     const footerPattern = /<footer\b[^>]*class=["'][^"']*\bfooter\b[^"']*["'][^>]*>[\s\S]*?<\/footer>/i;
