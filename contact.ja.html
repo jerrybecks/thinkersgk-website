@@ -68,6 +68,7 @@
   }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ef930246-c82a-48a7-a8a7-9b8dde1e0a78"></script>
+  <script defer src="/js/analytics.js?v=1"></script>
 </head>
 <body> <!-- Navigation --> <nav class="nav" id="nav">
     <div class="container nav-inner">
@@ -243,10 +244,11 @@
       if(btn){btn.disabled=true;btn.textContent=COPY.sending;}
       var data={name:(document.getElementById('name')||{}).value,email:email,company:(document.getElementById('company')||{}).value,message:(document.getElementById('message')||{}).value,service:(document.getElementById('service')||{}).value,type:(document.getElementById('service')||{}).value};
       submitToPrimary(form,data).then(function(){
+        if(typeof window.tgkTrackLead==='function'){window.tgkTrackLead({method:'contact_form',service:data.service||'',language:'ja'});}
         form.style.display='none';
         showStatus(COPY.success,true);
       }).catch(function(){
-        submitToHub(data).then(function(){form.style.display='none';showStatus(COPY.success,true);})
+        submitToHub(data).then(function(){if(typeof window.tgkTrackLead==='function'){window.tgkTrackLead({method:'contact_form',service:data.service||'',language:'ja'});}form.style.display='none';showStatus(COPY.success,true);})
           .catch(function(){showStatus(COPY.fallbackError,false);if(btn){btn.disabled=false;btn.textContent=COPY.submit;}});
       });
     },true);}

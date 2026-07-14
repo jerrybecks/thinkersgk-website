@@ -13,6 +13,12 @@
 - Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
+## 2026-07-14 — Consent-aware GA4 lead measurement
+
+- Created the Thinkers GK GA4 web stream (`G-LSD1CGSKBS`) and added consent-aware sitewide measurement without enabling advertising storage or personalisation.
+- Added bilingual analytics consent controls plus appointment, email, phone, successful enquiry, and chat-escalation events.
+- Updated the English and Japanese privacy notices to disclose Google Analytics usage, consent behaviour, and excluded enquiry data.
+
 ## [2026-07-06] - Lead Architect (Codex)
 
 ### Updated

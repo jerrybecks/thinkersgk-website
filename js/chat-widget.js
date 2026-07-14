@@ -525,6 +525,9 @@
       }
 
       await res.json();
+      if (typeof window.tgkTrackLead === 'function') {
+        window.tgkTrackLead({ method: 'chat_escalation' });
+      }
       hideEscalateForm();
       renderMessage('assistant', t('escalateSuccess'));
       messageHistory.push({ role: 'assistant', content: t('escalateSuccess') });
