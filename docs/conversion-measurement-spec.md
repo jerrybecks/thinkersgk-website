@@ -39,8 +39,10 @@ The goal is not broad analytics vanity reporting. The goal is to answer a small 
 ### Contact-path events
 | Event name | Trigger | Business meaning | Priority |
 |---|---|---|---|
+| `contact_form_choice_click` | Visitor chooses “Send project details” at the top of the contact journey | Written-enquiry preference before form completion | Medium |
+| `contact_consultation_choice_click` | Visitor chooses the consultation path at the top of the contact journey | Conversation preference before opening the calendar | Medium |
 | `contact_calendar_open_click` | Visitor clicks the calendar CTA | Preference for scheduled conversation over written inquiry | High |
-| `contact_line_inline_click` | Visitor clicks LINE from the contact page | Preference for fast chat-style contact | High |
+| `contact_line_secondary_click` | Visitor clicks the secondary LINE route below the form | Preference for chat-style contact after reviewing the primary paths | High |
 | `contact_email_click` | Visitor clicks a `mailto:` contact path | Preference for direct email contact | Medium |
 | `contact_form_submit_attempt` | Contact form is submitted | User crossed the strongest on-page intent threshold | High |
 | `contact_form_submit_success` | Contact form submission succeeds | Completed written conversion | Critical |
@@ -88,9 +90,11 @@ If blog article views rise but these do not, the blog is acting more like passiv
 
 ### 3. Contact-path preference
 Compare:
+- `contact_form_choice_click`
+- `contact_consultation_choice_click`
 - `contact_form_submit_success`
 - `contact_calendar_open_click`
-- `contact_line_inline_click`
+- `contact_line_secondary_click`
 - `consultation_calendar_click`
 - `contact_line_click`
 

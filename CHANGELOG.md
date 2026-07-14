@@ -311,3 +311,9 @@
 - Added synchronized mobile-menu state, localized accessible labels, first-link focus, Escape handling, outside-click closing, and desktop breakpoint cleanup.
 - Connected the Services disclosure button to its panel and added localized open/close labels with focus restoration.
 - Added consistent visible keyboard focus styling without changing the established visual layout.
+# 2026-07-14 — Phase 5 contact conversion path
+
+- Reorganized the English and Japanese contact journeys around two explicit starting choices: send project details or book a 30-minute consultation.
+- Moved supporting intake guidance below the primary enquiry form and reduced LINE to a clearly available secondary channel.
+- Preserved separate conversion measurement for form intent and success, consultation choice and calendar clicks, and LINE clicks.
+- Standardized the Japanese contact-page hierarchy to match the English conversion path while retaining localized copy.

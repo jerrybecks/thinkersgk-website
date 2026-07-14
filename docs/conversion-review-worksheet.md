@@ -24,7 +24,9 @@ Collect the last 7 days and previous 7 days for these events.
 | `blog_lane_itad_click` |  |  |  |
 | `blog_lane_ai_article_click` |  |  |  |
 | `contact_calendar_open_click` |  |  |  |
-| `contact_line_inline_click` |  |  |  |
+| `contact_form_choice_click` |  |  |  |
+| `contact_consultation_choice_click` |  |  |  |
+| `contact_line_secondary_click` |  |  |  |
 | `contact_email_click` |  |  |  |
 | `contact_form_submit_attempt` |  |  |  |
 | `contact_form_submit_success` |  |  |  |
@@ -68,7 +70,7 @@ Add:
 
 ### LINE preference total
 Add:
-- `contact_line_inline_click`
+- `contact_line_secondary_click`
 - `contact_line_click`
 
 **This week total:** 

@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="日本全国でのバイリンガルITサポート、フィールドエンジニアリング、サイバーセキュリティ、クラウドサービスのご相談はこちらから。">
  <link rel="icon" type="image/png" href="favicon.png">
 
- <link rel="apple-touch-icon" href="apple-touch-icon.png"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="styles/main.css?v=82"> <link rel="stylesheet" href="styles/redesign.css?v=32"> <script src="scripts/main.js?v=43"></script> <script src="scripts/enhancements.js?v=15" defer></script>
+ <link rel="apple-touch-icon" href="apple-touch-icon.png"> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="styles/main.css?v=82"> <link rel="stylesheet" href="styles/redesign.css?v=33"> <script src="scripts/main.js?v=43"></script> <script src="scripts/enhancements.js?v=15" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script type="application/ld+json">
@@ -68,9 +68,9 @@
   }
   </script>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="ef930246-c82a-48a7-a8a7-9b8dde1e0a78"></script>
-  <script defer src="/js/analytics.js?v=1"></script>
+ <script defer src="/js/analytics.js?v=2"></script>
 </head>
-<body>
+<body class="contact-page">
 <a class="skip-link" href="#main-content" data-en="Skip to main content" data-ja="メインコンテンツへスキップ">メインコンテンツへスキップ</a>
 <!-- Navigation --> <nav class="nav" id="nav" data-shared-layout="header-v1">
     <div class="container nav-inner">
@@ -95,7 +95,17 @@
       </button>
     </div>
   </nav> <!-- Page Header with Aurora --> <section class="page-header" id="main-content" tabindex="-1"> <div class="container"> <div class="section-label" data-en="Get in Touch" data-ja="お問い合わせ">お問い合わせ</div> <h1 data-en="Tell us what you need done in Japan." data-ja="日本で必要な対応内容をお聞かせください。">日本で必要な対応内容をお聞かせください。</h1> <p data-en="We can usually help faster when you share the location, timeline, user impact, and the kind of support or project work you need." data-ja="場所、時期、影響範囲、必要な支援やプロジェクト内容をご記載いただくと、より具体的にご案内できます。">場所、時期、影響範囲、必要な支援やプロジェクト内容をご記載いただくと、より具体的にご案内できます。</p> </div> </section> <!-- Contact Section --> <section class="section"> <div class="container"> <div class="contact-layout"> <div class="contact-form-container"> <div class="card p-lg">
-<a class="line-cta-card"
+<section class="contact-paths" aria-labelledby="contact-paths-title">
+  <div class="container">
+    <div class="contact-paths__intro"><div class="section-label">相談方法を選ぶ</div><h2 id="contact-paths-title">詳細を送る、または相談から始める。</h2></div>
+    <div class="contact-paths__grid">
+      <a class="contact-path contact-path--primary" href="#contactForm" data-track-event="contact_form_choice_click"><span class="contact-path__number">01</span><strong>ご依頼内容を送信</strong><span>見積依頼、具体的な案件、サポート、ITAD、パートナー相談に適しています。</span><em>お問い合わせフォームへ →</em></a>
+      <a class="contact-path contact-path--secondary" href="#consultation" data-track-event="contact_consultation_choice_click"><span class="contact-path__number">02</span><strong>30分相談を予約</strong><span>要件がまだ明確でなく、対応可否や次の進め方を先に確認したい場合にご利用ください。</span><em>空き時間を見る →</em></a>
+    </div>
+  </div>
+</section>
+<div class="contact-form-heading"><div class="section-label">案件のお問い合わせ</div><h2>必要な情報をお送りください。</h2><p>概要だけでも構いません。場所、時期、対象となる利用者や端末、必要な対応をご記載ください。</p></div>
+<a class="line-cta-card contact-legacy-priority" hidden
    href="https://line.me/R/ti/p/@111wnrsc"
    target="_blank"
    rel="noopener noreferrer">
@@ -110,7 +120,7 @@
   </span>
   <span class="line-cta-card__arrow" aria-hidden="true">→</span>
 </a>
-<section class="section" style="padding:28px 0 10px">
+<section class="section" hidden style="padding:28px 0 10px">
   <div class="container" style="max-width:1040px">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
       <article style="padding:22px;border-radius:22px;border:1px solid rgba(148,163,184,.2);background:rgba(255,255,255,.84)">
@@ -135,7 +145,14 @@
   </div>
 </section>
 <form id="contactForm" action="/api/contact" method="POST"> <div class="form-grid"> <div class="form-group"> <label for="name" data-en="Full Name" data-ja="お名前">お名前</label> <input type="text" id="name" name="name" required placeholder="John Doe"> </div> <div class="form-group"> <label for="email" data-en="Work Email" data-ja="メールアドレス">メールアドレス</label> <input type="email" id="email" name="email" required placeholder="john@company.com"> </div> <div class="form-group"> <label for="company" data-en="Company Name" data-ja="会社名">会社名</label> <input type="text" id="company" name="company" required placeholder="Company K.K."> </div> <div class="form-group"> <label for="service" data-en="Primary Requirement" data-ja="主なご相談内容">主なご相談内容</label> <select id="service" name="service" required> <option value="" disabled selected data-en="Select a service..." data-ja="サービスを選択してください...">サービスを選択してください...</option> <option value="support" data-en="IT Support & Managed Services" data-ja="ITサポート・マネージドサービス">ITサポート・マネージドサービス</option> <option value="field" data-en="Field Engineering & Site Work" data-ja="現地対応・サイト作業">現地対応・サイト作業</option> <option value="security" data-en="Cybersecurity & Risk" data-ja="サイバーセキュリティ・リスク">サイバーセキュリティ・リスク</option> <option value="itad" data-en="IT Asset Disposal (ITAD)" data-ja="IT資産廃棄 (ITAD)">IT資産廃棄 (ITAD)</option> <option value="transformation" data-en="Planning / Assessment" data-ja="計画・アセスメント">計画・アセスメント</option> <option value="other" data-en="Other / General Inquiry" data-ja="その他・一般">その他・一般</option> </select> </div> </div> <div class="form-group mt-md"> <label for="message" data-en="Requirements / Project Scope" data-ja="ご依頼内容・プロジェクト詳細">ご依頼内容・プロジェクト詳細</label> <textarea id="message" name="message" rows="5" required placeholder="例：東京本社と大阪拠点でPC刷新を予定しています。6週間以内。現地交換、旧端末回収、英語での進捗報告が必要です。"></textarea> </div> <button type="submit" class="btn btn-primary btn-lg btn-block mt-lg" data-en="Send Message" data-ja="メッセージを送信">メッセージを送信</button> </form> <div id="formStatus" class="form-status mt-md" style="display: none;"></div> </div> </div> <aside class="contact-info"> <div class="contact-info-block"> <h3 data-en="Office Presence" data-ja="オフィス所在地">オフィス所在地</h3> <p data-en="Thinkers GK operates centrally from Tokyo, with coordination across all major business hubs in Japan." data-ja="Thinkers GKは東京を拠点とし、日本国内の主要ビジネス都市をカバーしています。">Thinkers GKは東京を拠点とし、日本国内の主要ビジネス都市をカバーしています。</p> <address class="mt-md"> <strong data-en="Tokyo HQ" data-ja="東京本社">東京本社</strong><br> 2F-C, Shibuya Dogenzaka Tokyu Bldg<br> 1-10-8 Dogenzaka, Shibuya-ku, Tokyo<br> 150-0043 </address> </div> <div class="contact-info-block mt-xl"> <h3 data-en="Response Times" data-ja="対応時間">対応時間</h3> <p data-en="New enquiries are reviewed during Japan business hours. Urgent requirements are prioritised based on location, scope, and confirmed availability." data-ja="新規のご相談は日本の営業時間内に確認し、緊急案件は場所、内容、対応可能状況に応じて優先します。">新規のご相談は日本の営業時間内に確認し、緊急案件は場所、内容、対応可能状況に応じて優先します。</p> </div> <div class="contact-info-block mt-xl"> <h3 data-en="Partner Networks" data-ja="パートナーネットワーク">パートナーネットワーク</h3> <p data-en="If you are an international IT provider or MSP looking for a reliable fulfillment partner in Japan, please indicate 'MSP Partnership' in your inquiry." data-ja="日本国内での実行パートナーを探している海外のITプロバイダーやMSPの方は、お問い合わせの際に「MSP Partnership」とご記載ください。">日本国内での実行パートナーを探している海外のITプロバイダーやMSPの方は、お問い合わせの際に「MSP Partnership」とご記載ください。</p> </div> </aside> </div> </div> </section> <!-- Book a Consultation -->
-<section class="section" style="background:linear-gradient(180deg,rgba(248,250,252,.96) 0%,rgba(255,255,255,1) 100%);padding:60px 0">
+<section class="contact-supporting" aria-labelledby="contact-guidance-title">
+  <div class="container contact-supporting__grid">
+    <div><div class="section-label">役立つ情報</div><h2 id="contact-guidance-title">より具体的な回答につながる情報。</h2></div>
+    <ul><li>対象拠点・都市</li><li>希望時期・期限</li><li>影響する利用者・端末・システム</li><li>止まっていること・急ぎの内容</li></ul>
+    <div class="contact-supporting__line"><span>LINEをご希望ですか？</span><a href="https://line.me/R/ti/p/@111wnrsc" target="_blank" rel="noopener noreferrer" data-track-event="contact_line_secondary_click">LINEで問い合わせる</a></div>
+  </div>
+</section>
+<section class="section contact-consultation" id="consultation" style="background:linear-gradient(180deg,rgba(248,250,252,.96) 0%,rgba(255,255,255,1) 100%);padding:60px 0">
   <div class="container" style="max-width:920px">
     <div style="max-width:760px;margin:0 auto 24px;text-align:center">
       <div class="section-label">日程調整</div>
@@ -235,6 +252,7 @@
     var emailInput=document.getElementById('email');
     if(emailInput){emailInput.addEventListener('input',function(){emailInput.setCustomValidity('');});}
     var form=document.getElementById('contactForm');
+    if(form)form.setAttribute('data-track-form','contact_form_submit_attempt');
     if(form){form.addEventListener('submit',function(e){
       e.preventDefault();
       var email=(document.getElementById('email')||{}).value||'';
