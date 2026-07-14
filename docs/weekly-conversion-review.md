@@ -31,8 +31,9 @@ Record only the signals that change decisions.
 | Blog-to-services routing | `blog_lane_review_services_click` |  |  |  |  |
 | Blog-to-contact routing | `blog_lane_contact_click` |  |  |  |  |
 | Blog-to-ITAD routing | `blog_lane_itad_click` |  |  |  |  |
-| Calendar intent | `contact_calendar_open_click` + `consultation_calendar_click` |  |  |  |  |
-| LINE intent | `contact_line_inline_click` + `contact_line_click` |  |  |  |  |
+| Calendar intent | `contact_consultation_choice_click` + `contact_calendar_open_click` + `consultation_calendar_click` |  |  |  |  |
+| LINE intent | `contact_line_secondary_click` + `contact_line_click` |  |  |  |  |
+| Form-path choice | `contact_form_choice_click` |  |  |  |  |
 | Form attempts | `contact_form_submit_attempt` |  |  |  |  |
 | Form successes | `contact_form_submit_success` |  |  |  |  |
 

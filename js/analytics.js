@@ -61,6 +61,10 @@
     var href = link.getAttribute('href') || '';
     if (href.indexOf('calendar.google.com/calendar/appointments') !== -1) {
       window.tgkTrackEvent('book_appointment_click', { link_url: href });
+    } else if (href.indexOf('#consultation') === 0) {
+      window.tgkTrackEvent('contact_consultation_choice_click', { link_url: href });
+    } else if (href.indexOf('line.me/') !== -1 || href.indexOf('lin.ee/') !== -1) {
+      window.tgkTrackEvent('contact_line_click', { link_url: href });
     } else if (href.indexOf('mailto:') === 0) {
       window.tgkTrackEvent('contact_email_click', { link_url: href });
     } else if (href.indexOf('tel:') === 0) {
