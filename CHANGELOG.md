@@ -317,3 +317,11 @@
 - Moved supporting intake guidance below the primary enquiry form and reduced LINE to a clearly available secondary channel.
 - Preserved separate conversion measurement for form intent and success, consultation choice and calendar clicks, and LINE clicks.
 - Standardized the Japanese contact-page hierarchy to match the English conversion path while retaining localized copy.
+# 2026-07-14 — Phase 6 SEO and quality cleanup
+
+- Completed the three flagged blog-title fixes by aligning visible titles, document language, and non-empty BlogPosting headlines.
+- Added Gerald Anyanwu's missing canonical URL.
+- Removed the LLM reference file and verification token from the search-engine sitemap while leaving both files available at their required URLs.
+- Added a canonical EN/JA metadata synchronizer covering every paired page, including reciprocal `hreflang`, `x-default`, and correct document language.
+- Integrated paired-page SEO drift detection into static-site CI validation.
+- Completed desktop, tablet, and mobile browser QA across all published sitemap HTML routes.

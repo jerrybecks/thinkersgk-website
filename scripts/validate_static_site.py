@@ -71,6 +71,19 @@ def check_shared_layout(errors: list[str]) -> None:
         errors.append(f"shared header/footer drift detected: {detail}")
 
 
+def check_seo_metadata(errors: list[str]) -> None:
+    result = subprocess.run(
+        ["node", str(ROOT / "scripts" / "sync-seo-metadata.js"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout).strip()
+        errors.append(f"paired-page SEO metadata drift detected: {detail}")
+
+
 def check_core_page(path: Path, errors: list[str]) -> None:
     rel = path.relative_to(ROOT)
     text = path.read_text(encoding="utf-8", errors="ignore")
@@ -117,6 +130,7 @@ def main() -> int:
     errors: list[str] = []
     check_required_files(errors)
     check_shared_layout(errors)
+    check_seo_metadata(errors)
 
     for rel in CORE_PAGES:
         path = ROOT / rel
