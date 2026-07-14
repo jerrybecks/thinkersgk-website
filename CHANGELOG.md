@@ -1,3 +1,8 @@
+## 2026-07-14 - Public business-hours and response-language alignment
+- Standardized published business hours and structured data to Monday-Friday, 09:00-17:00 JST.
+- Removed unsupported public four-hour, four-to-eight-hour, 48-hour, and sub-hour response promises from marketing and confirmation copy.
+- Clarified that enquiry handling depends on scope, location, urgency, and confirmed availability, while contract-specific service levels are agreed separately.
+
 
 ## 2026-07-06 - SEO and AI Search Sprint
 - Updated robots.txt, llms.txt, sitemap freshness, RSS feed, and IndexNow key file for search and AI crawler discovery.
