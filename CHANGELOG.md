@@ -1,3 +1,10 @@
+## 2026-07-14 - Phase 3 canonical shared header and footer
+- Added `scripts/sync-shared-layout.js` as the single source of truth for corporate navigation, header branding, and footer content across root, service, and blog pages.
+- Generated consistent static EN/JP navigation and footer markup so the information architecture remains correct before JavaScript runs.
+- Standardized the approved transparent Thinkers GK logo and relative asset paths throughout generated headers and footers.
+- Added a CI drift guard that fails when any generated corporate header or footer diverges from the canonical layout.
+- Removed runtime primary-navigation reconstruction while preserving the enhanced Services dropdown and active-section semantics.
+
 ## 2026-07-14 - Phase 2 navigation and contact-path standardization
 - Standardized the rendered corporate navigation to Home, Services, ITAD Japan, Why Thinkers GK, How We Work, Insights, and Contact Us across normal sitemap pages.
 - Added English/Japanese destination parity, active-section `aria-current` semantics, and a visible active navigation state.

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import re
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_URL = "https://www.thinkersgk.com"
@@ -57,6 +58,19 @@ def check_required_files(errors: list[str]) -> None:
             errors.append(f"missing required root file: {rel}")
 
 
+def check_shared_layout(errors: list[str]) -> None:
+    result = subprocess.run(
+        ["node", str(ROOT / "scripts" / "sync-shared-layout.js"), "--check"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        detail = (result.stderr or result.stdout).strip()
+        errors.append(f"shared header/footer drift detected: {detail}")
+
+
 def check_core_page(path: Path, errors: list[str]) -> None:
     rel = path.relative_to(ROOT)
     text = path.read_text(encoding="utf-8", errors="ignore")
@@ -102,6 +116,7 @@ def check_core_page(path: Path, errors: list[str]) -> None:
 def main() -> int:
     errors: list[str] = []
     check_required_files(errors)
+    check_shared_layout(errors)
 
     for rel in CORE_PAGES:
         path = ROOT / rel
