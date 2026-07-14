@@ -2190,12 +2190,20 @@ html {
 .service-motion-panel__media {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    min-width: 0;
     min-height: 430px;
     aspect-ratio: 16 / 10;
     border-radius: 1.25rem;
     border: 1px solid rgba(15, 23, 42, 0.12);
     background: #0f172a;
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+}
+
+@media (max-width: 1024px) {
+    .service-motion-panel__grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 [data-theme="dark"] .service-motion-panel__media {
@@ -2458,7 +2466,11 @@ html {
     .split-image--motion,
     .split-image--motion video,
     .service-motion-panel__media {
-        min-height: 320px;
+        min-height: 0;
+    }
+
+    .service-motion-panel__media {
+        aspect-ratio: 4 / 3;
     }
 
     .service-motion-panel {
