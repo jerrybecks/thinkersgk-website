@@ -1,4 +1,12 @@
 
+## 2026-07-14 - Search Console indexing cleanup
+- Corrected `lang="ja"` to `lang="en"` on 15 English service and blog pages reported as crawled but not indexed.
+- Repaired malformed meta-description tags on affected service and article pages so Google can parse the document head reliably.
+- Fixed two Japanese field-engineering links that pointed to the nonexistent `blog/blog.ja.html` route.
+- Added noindex/canonical redirect aliases for three genuine legacy blog URLs reported as 404s.
+- Removed the Japanese privacy policy from the sitemap and marked it `noindex, follow`, while keeping the legal page publicly accessible.
+- Blocked search crawling of the form API and Cloudflare email-protection utility paths in `robots.txt`.
+
 ## 2026-07-06 - SEO and AI Search Sprint
 - Updated robots.txt, llms.txt, sitemap freshness, RSS feed, and IndexNow key file for search and AI crawler discovery.
 - Added four high-intent authority articles for ITAD Japan, device lifecycle management, Windows 11 refresh, and Intune/device compliance.
