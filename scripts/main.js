@@ -140,46 +140,6 @@
         setLang(lang);
     }
 
-    function normalizePrimaryNavigation() {
-        var menu = document.getElementById('navMenu');
-        if (!menu) return;
-
-        var homeLink = menu.querySelector('a[href$="index.html"], a[href$="index.ja.html"]');
-        var homeHref = homeLink ? (homeLink.getAttribute('href') || 'index.html') : 'index.html';
-        var prefix = homeHref.replace(/index(?:\.ja)?\.html$/, '');
-        var path = window.location.pathname || '/';
-        var file = path.split('/').pop() || 'index.html';
-        var isJapanesePage = /\.ja\.html$/i.test(file);
-        var localizedSuffix = isJapanesePage ? '.ja' : '';
-
-        var items = [
-            { key: 'home', href: prefix + 'index' + localizedSuffix + '.html', en: 'Home', ja: 'ホーム' },
-            { key: 'services', href: prefix + 'services' + localizedSuffix + '.html', en: 'Services', ja: 'サービス' },
-            { key: 'itad', href: prefix + 'itad-japan.html', en: 'ITAD Japan', ja: 'ITAD 日本' },
-            { key: 'why', href: prefix + 'why-us' + localizedSuffix + '.html', en: 'Why Thinkers GK', ja: '選ばれる理由' },
-            { key: 'process', href: prefix + 'how-we-work' + localizedSuffix + '.html', en: 'How We Work', ja: '進め方' },
-            { key: 'insights', href: prefix + 'blog/index.html', en: 'Insights', ja: 'インサイト' },
-            { key: 'contact', href: prefix + 'contact' + localizedSuffix + '.html', en: 'Contact Us', ja: 'お問い合わせ', cta: true }
-        ];
-
-        menu.innerHTML = items.map(function(item) {
-            return '<a href="' + item.href + '" data-nav-key="' + item.key + '" data-en="' + item.en + '" data-ja="' + item.ja + '"' +
-                (item.cta ? ' class="btn btn-sm nav-cta"' : '') + '>' + (isJapanesePage ? item.ja : item.en) + '</a>';
-        }).join('');
-
-        var currentKey = '';
-        if (/\/blog\//i.test(path)) currentKey = 'insights';
-        else if (/^index(?:\.ja)?\.html$/i.test(file)) currentKey = 'home';
-        else if (/^(?:service-(?!itad)|services)(?:.*)?\.html$/i.test(file)) currentKey = 'services';
-        else if (/^(?:itad-japan|service-itad)(?:\.ja)?\.html$/i.test(file)) currentKey = 'itad';
-        else if (/^(?:why-us|about|case-studies)(?:\.ja)?\.html$/i.test(file)) currentKey = 'why';
-        else if (/^how-we-work(?:\.ja)?\.html$/i.test(file)) currentKey = 'process';
-        else if (/^(?:contact|get-started)(?:\.ja)?\.html$/i.test(file)) currentKey = 'contact';
-
-        var currentLink = currentKey ? menu.querySelector('[data-nav-key="' + currentKey + '"]') : null;
-        if (currentLink) currentLink.setAttribute('aria-current', 'page');
-    }
-
     function initNavDropdowns() {
         var menu = document.getElementById('navMenu');
         if (!menu) return;
@@ -281,40 +241,8 @@
         });
     }
 
-    function initWhyUsNavLink() {
-        var menu = document.getElementById('navMenu');
-        if (!menu || menu.querySelector('a[href$="why-us.html"]')) return;
-
-        var anchorRef = menu.querySelector('a[href$="about.html"], a[href$="services.html"]');
-        if (!anchorRef) return;
-
-        var href = anchorRef.getAttribute('href') || '';
-        var prefix = href.replace(/(?:about|services)\.html$/, '');
-        var link = document.createElement('a');
-        link.href = prefix + 'why-us.html';
-        link.setAttribute('data-en', 'Why Us');
-        link.setAttribute('data-ja', '選ばれる理由');
-        link.textContent = 'Why Us';
-
-        var aboutLink = menu.querySelector('a[href$="about.html"]');
-        if (aboutLink) aboutLink.before(link);
-        else menu.appendChild(link);
-    }
-
     function normalizeFooterContent() {
         var currentYear = String(new Date().getFullYear());
-
-        document.querySelectorAll('.footer .footer-col').forEach(function(col) {
-            var heading = col.querySelector('h4');
-            var headingText = heading ? (heading.getAttribute('data-en') || heading.textContent || '').trim().toLowerCase() : '';
-            if (headingText !== 'company') return;
-
-            col.querySelectorAll('a[href$="contact.html"]').forEach(function(link) {
-                link.setAttribute('data-en', 'Get in Touch');
-                link.setAttribute('data-ja', 'お問い合わせ');
-                link.textContent = document.documentElement.lang === 'ja' ? 'お問い合わせ' : 'Get in Touch';
-            });
-        });
 
         document.querySelectorAll('.footer-bottom p').forEach(function(copy) {
             var text = copy.textContent || '';
@@ -1167,7 +1095,6 @@
         }
         setTheme(getPreferredTheme());
 
-        normalizePrimaryNavigation();
         initNavDropdowns();
         normalizeFooterContent();
 
