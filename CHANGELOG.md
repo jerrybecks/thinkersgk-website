@@ -325,3 +325,14 @@
 - Added a canonical EN/JA metadata synchronizer covering every paired page, including reciprocal `hreflang`, `x-default`, and correct document language.
 - Integrated paired-page SEO drift detection into static-site CI validation.
 - Completed desktop, tablet, and mobile browser QA across all published sitemap HTML routes.
+# 2026-07-14 — Phase 7 security hardening
+
+- Added authenticated five-minute edge caching to inbox list responses to keep Workers KV list operations below the free-tier daily limit without delaying individual message reads.
+- Hardened the inbox Worker with fail-closed authentication, constant-time token comparison, strict origin handling, validated account/message keys, private response caching, and baseline API security headers.
+- Enabled Worker observability for ongoing request and error investigation.
+- Activated Cloudflare security response headers across the website: CSP, HSTS, clickjacking protection, MIME-sniff protection, referrer controls, and browser permissions restrictions.
+- Enabled Cloudflare Bot Fight Mode and the free-tier rate-limiting rule for public contact, intake, chat, and escalation endpoints.
+- Added managed Cloudflare Turnstile verification to the English and Japanese contact forms, including server-side hostname validation and request-size limits.
+- Closed direct Worker endpoint bypasses by requiring bearer authentication for email sending, inbox access, email audits, and Resend administration; replaced unsafe substring origin checks with exact HTTPS hostname validation.
+- Enabled GitHub branch protection, required static validation, pull-request-only changes, conversation resolution, Dependabot alerts/security updates, secret scanning, push protection, and automatic merged-branch cleanup.
+- Added CI security-baseline drift checks for Turnstile, Worker authentication, strict origin validation, private email caching, and the KV list cache.

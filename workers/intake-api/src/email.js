@@ -164,6 +164,10 @@ export async function sendEmail(env, { from, to, subject, body, replyTo, cc }) {
  */
 export async function handleSendEmail(request, env) {
   const origin = request.headers.get('Origin') || '';
+  const token = readBearerToken(request);
+  if (!token || (token !== env.AGENT_API_KEY && token !== env.ADMIN_KEY)) {
+    return jsonResp({ success: false, error: 'Unauthorized' }, 401, origin);
+  }
 
   let data;
   try {
@@ -198,8 +202,7 @@ export async function handleSendEmail(request, env) {
  * Handle GET /api/email/audit — List sent emails for audit trail
  */
 export async function handleEmailAudit(request, env) {
-  const url = new URL(request.url);
-  const key = url.searchParams.get('key');
+  const key = readBearerToken(request);
   if (!key || key !== env.ADMIN_KEY) {
     return jsonResp({ error: 'Unauthorized' }, 401);
   }
@@ -225,6 +228,11 @@ function jsonResp(data, status = 200, origin = '') {
       'Access-Control-Allow-Headers': 'Content-Type, Accept',
     },
   });
+}
+
+function readBearerToken(request) {
+  const match = (request.headers.get('authorization') || '').match(/^Bearer\s+(.+)$/i);
+  return match ? match[1].trim() : '';
 }
 
 function escapeHtml(str) {

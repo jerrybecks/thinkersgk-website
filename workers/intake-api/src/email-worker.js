@@ -67,6 +67,9 @@ export async function emailHandler(message, env) {
  * GET /api/inbox?account=alex&limit=20
  */
 export async function handleInboxList(request, env) {
+  if (!isAuthorized(request, env)) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
+  }
   const url = new URL(request.url);
   const account = url.searchParams.get('account') || 'info';
   const limit = Math.min(parseInt(url.searchParams.get('limit') || '20'), 50);
@@ -127,7 +130,7 @@ export async function handleInboxList(request, env) {
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': origin || '*',
-      'Cache-Control': 'public, max-age=60', // Cache for 60s — reduces repeated hits
+      'Cache-Control': 'private, no-store',
     },
   });
 }
@@ -137,6 +140,9 @@ export async function handleInboxList(request, env) {
  * GET /api/inbox/read?key=inbox:alex:2026-03-11:uuid
  */
 export async function handleInboxRead(request, env) {
+  if (!isAuthorized(request, env)) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
+  }
   const url = new URL(request.url);
   const key = url.searchParams.get('key');
   const origin = request.headers.get('Origin') || '';
@@ -168,9 +174,15 @@ export async function handleInboxRead(request, env) {
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': origin || '*',
-      'Cache-Control': 'public, max-age=300', // Cache 5min — email content doesn't change
+      'Cache-Control': 'private, no-store',
     },
   });
+}
+
+function isAuthorized(request, env) {
+  const match = (request.headers.get('authorization') || '').match(/^Bearer\s+(.+)$/i);
+  const token = match ? match[1].trim() : '';
+  return !!token && (token === env.AGENT_API_KEY || token === env.ADMIN_KEY);
 }
 
 // ── Helpers ──────────────────────────────────

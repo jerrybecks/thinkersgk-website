@@ -428,7 +428,7 @@ async function generateWorkersAIText(env, messages) {
  */
 export async function handleChat(request, env) {
   const origin = request.headers.get('Origin') || '';
-  if (env.ENVIRONMENT === 'production' && !origin.includes('thinkersgk.com')) {
+  if (env.ENVIRONMENT === 'production' && !isAllowedOrigin(origin)) {
     return jsonResp({ error: 'Forbidden' }, 403);
   }
 
@@ -601,7 +601,7 @@ export async function handleChat(request, env) {
  */
 export async function handleEscalate(request, env) {
   const origin = request.headers.get('Origin') || '';
-  if (env.ENVIRONMENT === 'production' && !origin.includes('thinkersgk.com')) {
+  if (env.ENVIRONMENT === 'production' && !isAllowedOrigin(origin)) {
     return jsonResp({ error: 'Forbidden' }, 403);
   }
 
@@ -746,4 +746,11 @@ function jsonResp(data, status = 200, origin = '') {
 
 function escapeHtml(str) {
   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function isAllowedOrigin(origin) {
+  try {
+    const url = new URL(origin);
+    return url.protocol === 'https:' && (url.hostname === 'thinkersgk.com' || url.hostname === 'www.thinkersgk.com');
+  } catch { return false; }
 }

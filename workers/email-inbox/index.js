@@ -18,6 +18,12 @@
 
 const RAW_TTL  = 60 * 60 * 24 * 7;  // 7 days  (was 30)
 const ENV_TTL  = 60 * 60 * 24 * 30; // 30 days  (envelopes kept longer for index)
+const LIST_CACHE_TTL = 5 * 60;
+const ALLOWED_ORIGINS = new Set([
+  'https://thinkersgk.com',
+  'https://www.thinkersgk.com',
+  'https://hub.thinkersgk.com',
+]);
 
 export default {
   // ── Incoming email handler ────────────────────────────────────────────────
@@ -76,15 +82,21 @@ export default {
     const url  = new URL(request.url);
     const path = url.pathname;
 
+    const origin = request.headers.get('Origin') || '';
+    const allowedOrigin = ALLOWED_ORIGINS.has(origin) ? origin : '';
     const corsHeaders = {
-      'Access-Control-Allow-Origin':  '*',
+      ...(allowedOrigin ? { 'Access-Control-Allow-Origin': allowedOrigin, 'Vary': 'Origin' } : {}),
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-Inbox-Token',
       'Content-Type': 'application/json',
+      'Cache-Control': 'private, no-store',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'no-referrer',
     };
 
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: corsHeaders });
+      if (origin && !allowedOrigin) return new Response(null, { status: 403, headers: corsHeaders });
+      return new Response(null, { status: 204, headers: corsHeaders });
     }
 
     // ── GET /ping — zero-KV health check ─────────────────────────────────────
@@ -95,9 +107,13 @@ export default {
     // Auth gate for protected routes
     const apiToken = (env.INBOX_API_TOKEN || '').trim();
     const requiresAuth = path === '/api/inbox' || path === '/api/inbox/read' || path === '/api/delivery';
-    if (apiToken && requiresAuth) {
-      const presented = readBearerToken(request) || request.headers.get('x-inbox-token') || '';
-      if (String(presented).trim() !== apiToken) {
+    if (requiresAuth && !apiToken) {
+      return new Response(JSON.stringify({ error: 'Service unavailable' }), { status: 503, headers: corsHeaders });
+    }
+    let presentedToken = '';
+    if (requiresAuth) {
+      presentedToken = readBearerToken(request) || request.headers.get('x-inbox-token') || '';
+      if (!timingSafeEqual(String(presentedToken).trim(), apiToken)) {
         return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: corsHeaders });
       }
     }
@@ -105,11 +121,26 @@ export default {
     // ── GET /api/inbox — list envelopes (1 LIST op, 0 GETs via metadata) ─────
     if (path === '/api/inbox' && request.method === 'GET') {
       try {
-        const limit   = Math.min(parseInt(url.searchParams.get('limit') || '20'), 100);
+        const parsedLimit = Number.parseInt(url.searchParams.get('limit') || '20', 10);
+        const limit = Number.isFinite(parsedLimit) ? Math.max(1, Math.min(parsedLimit, 100)) : 20;
         const account = (url.searchParams.get('account') || '').trim().toLowerCase();
+        if (account && !/^[a-z0-9_-]{1,64}$/.test(account)) {
+          return new Response(JSON.stringify({ error: 'Invalid account' }), { status: 400, headers: corsHeaders });
+        }
+        const cacheKey = await inboxListCacheKey(url, account, limit, presentedToken);
+        const cache = caches.default;
+        const cached = await cache.match(cacheKey);
+        if (cached) {
+          const body = await cached.text();
+          return new Response(body, { headers: { ...corsHeaders, 'X-KV-Cache': 'HIT' } });
+        }
         const prefix  = account ? `env:${account}:` : 'env:';
         const envelopes = await listEnvelopes(env.INBOX_KV, prefix, limit);
-        return new Response(JSON.stringify({ messages: envelopes, total: envelopes.length }), { headers: corsHeaders });
+        const body = JSON.stringify({ messages: envelopes, total: envelopes.length });
+        ctx.waitUntil(cache.put(cacheKey, new Response(body, {
+          headers: { 'Content-Type': 'application/json', 'Cache-Control': `public, max-age=${LIST_CACHE_TTL}` },
+        })));
+        return new Response(body, { headers: { ...corsHeaders, 'X-KV-Cache': 'MISS' } });
       } catch (e) {
         return new Response(JSON.stringify({ error: e.message }), { status: 500, headers: corsHeaders });
       }
@@ -119,6 +150,9 @@ export default {
     if (path === '/api/inbox/read' && request.method === 'GET') {
       const key = url.searchParams.get('key');
       if (!key) return new Response(JSON.stringify({ error: 'key required' }), { status: 400, headers: corsHeaders });
+      if (!/^[a-z0-9_-]{1,64}:[0-9]{13}_[a-z0-9]{6}$/i.test(key)) {
+        return new Response(JSON.stringify({ error: 'Invalid key' }), { status: 400, headers: corsHeaders });
+      }
       try {
         const [raw, envJson] = await Promise.all([
           env.INBOX_KV.get(`raw:${key}`),
@@ -242,6 +276,25 @@ function readBearerToken(request) {
   const h = request.headers.get('authorization') || '';
   const m = h.match(/^\s*Bearer\s+(.+)\s*$/i);
   return m ? m[1].trim() : '';
+}
+
+function timingSafeEqual(left, right) {
+  const a = new TextEncoder().encode(String(left));
+  const b = new TextEncoder().encode(String(right));
+  if (a.byteLength !== b.byteLength) return false;
+  let diff = 0;
+  for (let i = 0; i < a.byteLength; i += 1) diff |= a[i] ^ b[i];
+  return diff === 0;
+}
+
+async function inboxListCacheKey(url, account, limit, token) {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+  const tokenHash = [...new Uint8Array(digest)].slice(0, 12).map((byte) => byte.toString(16).padStart(2, '0')).join('');
+  const keyUrl = new URL('/__cache/inbox-list', url.origin);
+  keyUrl.searchParams.set('account', account || 'all');
+  keyUrl.searchParams.set('limit', String(limit));
+  keyUrl.searchParams.set('auth', tokenHash);
+  return new Request(keyUrl.toString(), { method: 'GET' });
 }
 
 function makeMessageKey() {
