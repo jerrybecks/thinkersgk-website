@@ -1,3 +1,7 @@
+## 2026-07-15 - Shared footer phone placement
+- Moved the public phone number into the canonical Contact footer beside the email, LinkedIn, and LINE links across English and Japanese pages.
+- Kept the number clickable and localized as `+81 90-6366-7901` in English and `090-6366-7901` in Japanese.
+
 ## 2026-07-14 - Phase 3 canonical shared header and footer
 - Added `scripts/sync-shared-layout.js` as the single source of truth for corporate navigation, header branding, and footer content across root, service, and blog pages.
 - Generated consistent static EN/JP navigation and footer markup so the information architecture remains correct before JavaScript runs.
