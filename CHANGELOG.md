@@ -336,3 +336,8 @@
 - Closed direct Worker endpoint bypasses by requiring bearer authentication for email sending, inbox access, email audits, and Resend administration; replaced unsafe substring origin checks with exact HTTPS hostname validation.
 - Enabled GitHub branch protection, required static validation, pull-request-only changes, conversation resolution, Dependabot alerts/security updates, secret scanning, push protection, and automatic merged-branch cleanup.
 - Added CI security-baseline drift checks for Turnstile, Worker authentication, strict origin validation, private email caching, and the KV list cache.
+
+# 2026-07-15 — BIMI readiness asset
+
+- Added a validated SVG Tiny P/S 1.2 Thinkers GK brand mark for future BIMI publication.
+- Added the staged DMARC enforcement, CMC/VMC decision, BIMI DNS, verification, and rollback-safe deployment runbook.
