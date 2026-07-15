@@ -337,6 +337,11 @@
 - Enabled GitHub branch protection, required static validation, pull-request-only changes, conversation resolution, Dependabot alerts/security updates, secret scanning, push protection, and automatic merged-branch cleanup.
 - Added CI security-baseline drift checks for Turnstile, Worker authentication, strict origin validation, private email caching, and the KV list cache.
 
+# 2026-07-15 — Public contact number
+
+- Added the new Thinkers GK phone number to the English and Japanese contact pages.
+- Added the matching international-format telephone value to contact-page structured data.
+
 # 2026-07-15 — BIMI readiness asset
 
 - Added a validated SVG Tiny P/S 1.2 Thinkers GK brand mark for future BIMI publication.
