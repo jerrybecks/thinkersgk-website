@@ -35,6 +35,11 @@
 - Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
+## [2026-07-17] - B2B privacy and contact alignment
+
+### Updated
+- Website: Updated both privacy policies to disclose permitted professional contact sourcing and B2B communications, explain limited automation and suppression controls, provide marketing opt-out rights, and add the corporate phone number `090-6366-7901` to the legal contact blocks.
+
 ## 2026-07-14 — Consent-aware GA4 lead measurement
 
 - Created the Thinkers GK GA4 web stream (`G-LSD1CGSKBS`) and added consent-aware sitewide measurement without enabling advertising storage or personalisation.
