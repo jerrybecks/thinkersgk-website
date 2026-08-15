@@ -355,3 +355,7 @@
 
 - Added a validated SVG Tiny P/S 1.2 Thinkers GK brand mark for future BIMI publication.
 - Added the staged DMARC enforcement, CMC/VMC decision, BIMI DNS, verification, and rollback-safe deployment runbook.
+## 2026-08-15 — Public claim wording review
+- Softened unsupported outcome, certification, compliance, nationwide-coverage, and backup-recovery absolutes across public pages.
+- Preserved the core positioning: bilingual delivery, coordinated regional execution, documented closeout, and scoped services.
+
