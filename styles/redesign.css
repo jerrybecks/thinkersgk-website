@@ -1214,6 +1214,7 @@ html {
     mask-image:
         radial-gradient(circle at 72% 44%, black 0%, black 38%, transparent 72%),
         linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.7) 34%, black 100%);
+    overflow: hidden;
 }
 
 .home-cinematic-hero__network,
@@ -3744,6 +3745,18 @@ article.blog-card.card img {
 }
 
 @media (max-width: 480px) {
+  .home-cinematic-hero__brand-pattern,
+  .home-cinematic-hero__network,
+  .home-cinematic-hero__circuit {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Leave the first CTA row clear of the floating chat launcher. */
+  #tgk-chat-widget .tgk-chat-bubble {
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
   #tgk-chat-widget .tgk-chat-panel {
     right: 8px;
     bottom: calc(var(--floating-control-bottom) + (var(--floating-control-size) * 2) + (var(--floating-control-gap) * 2));

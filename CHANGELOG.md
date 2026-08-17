@@ -35,6 +35,13 @@
 - Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
+## 2026-08-17 — Mobile layout QA follow-up
+
+- Constrained the homepage decorative circuit layer on narrow viewports so its SVG artwork cannot expand the document beyond the phone viewport.
+- Aligned the mobile back-to-top control with the shared floating-control spacing instead of placing it in the same bottom zone as the LINE/chat controls.
+- Clipped narrow-screen horizontal overflow and kept the chat launcher in the lower floating-control slot to avoid covering the first CTA row.
+- Local-only preparation; no publication or deployment performed.
+
 ## [2026-07-17] - B2B privacy and contact alignment
 
 ### Updated
