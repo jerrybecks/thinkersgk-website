@@ -62,7 +62,7 @@
       placeholder: 'Tell us what you need in Japan...',
       send: 'Send',
       engineer: 'Talk to an engineer',
-      greeting: 'Hi, I’m Thinker. Tell me what needs to get done in Japan, and I’ll help route the next step.',
+      greeting: 'Hi, I’m Thinker. What would you like help with in Japan? Choose a starting point below or describe the issue in your own words.',
       escalateSearching: 'Thanks. I’ll collect your details so an engineer can follow up directly.',
       escalateTitle: 'Share your details below and our team will get back to you shortly.',
       escalateCompany: 'Company name',
@@ -70,7 +70,8 @@
       escalateAddress: 'Office or site location',
       escalatePhone: 'Phone number',
       escalateSubmit: 'Request follow-up',
-      escalateSuccess: 'Thanks. Our engineering team has been notified and will follow up shortly.',
+      escalateSuccess: 'Thanks. Your follow-up request was received. Our team will review it during Japan business hours and contact you using the details provided.',
+      escalateFailure: 'I could not confirm that the follow-up request was received. Please email info@thinkersgk.com or contact us on LINE instead.',
       escalateCancel: 'Back to chat',
       poweredBy: 'Thinkers GK assistant',
       thinking: 'Thinking...',
@@ -88,7 +89,7 @@
       placeholder: '日本で必要なことをご入力ください...',
       send: '送信',
       engineer: 'エンジニアに相談',
-      greeting: 'こんにちは。Thinker です。日本で何を進めたいか教えてください。次の一手を整理します。',
+      greeting: 'こんにちは。Thinker です。日本で何を相談したいですか？下の選択肢から選ぶか、内容を自由に入力してください。',
       escalateSearching: 'ありがとうございます。エンジニアが折り返せるよう、連絡先をお願いします。',
       escalateTitle: '以下をご入力ください。担当チームから折り返しご連絡します。',
       escalateCompany: '会社名',
@@ -96,7 +97,8 @@
       escalateAddress: '拠点または現場住所',
       escalatePhone: '電話番号',
       escalateSubmit: '折り返しを依頼',
-      escalateSuccess: 'ありがとうございます。エンジニアチームへ通知しました。追ってご連絡します。',
+      escalateSuccess: 'ありがとうございます。折り返し依頼を受け付けました。日本の営業時間内に内容を確認し、ご入力の連絡先へご連絡します。',
+      escalateFailure: '折り返し依頼の受付を確認できませんでした。info@thinkersgk.com または LINE からご連絡ください。',
       escalateCancel: 'チャットに戻る',
       poweredBy: 'Thinkers GK アシスタント',
       thinking: '考え中...',
@@ -534,6 +536,7 @@
       saveHistory();
     } catch (err) {
       console.error('Escalation error:', err);
+      renderMessage('assistant', t('escalateFailure'));
       renderMessage('assistant', t('fallbackHint'));
     } finally {
       submitBtn.disabled = false;
