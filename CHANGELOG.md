@@ -35,6 +35,26 @@
 - Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
+## 2026-08-17 — Mobile layout QA follow-up
+
+- Constrained the homepage decorative circuit layer on narrow viewports so its SVG artwork cannot expand the document beyond the phone viewport.
+- Aligned the mobile back-to-top control with the shared floating-control spacing instead of placing it in the same bottom zone as the LINE/chat controls.
+- Clipped narrow-screen horizontal overflow and kept the chat launcher in the lower floating-control slot to avoid covering the first CTA row.
+- Local-only preparation; no publication or deployment performed.
+
+## 2026-08-17 — Chat intake clarity
+
+- Made the chat opening prompt action-oriented so visitors understand the three starting routes and can describe their need directly.
+- Confirmed the footer LINE short link resolves to the same LINE destination as the floating badge; no link change was required.
+- Local-only preparation; no publication or deployment performed.
+
+## 2026-08-16 — Scoped legacy service claims
+
+- Replaced legacy “zero downtime” VoIP cutover wording in English and Japanese with controlled-cutover language that references documented continuity and failover options.
+- Replaced “guaranteed response times” on hardware maintenance pages with response timing agreed within scope and availability.
+- Replaced “unlimited onsite” wording in the service hub with open-ended onsite wording and clarified the Japanese equivalent.
+- Local-only preparation; no publication or deployment performed.
+
 ## [2026-07-17] - B2B privacy and contact alignment
 
 ### Updated
