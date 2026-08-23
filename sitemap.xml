@@ -1,118 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main pages (English) -->
   <url><loc>https://www.thinkersgk.com/</loc><lastmod>2026-07-06</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.thinkersgk.com/about.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/services.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thinkersgk.com/contact.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/gerald/</loc><lastmod>2026-06-30</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://www.thinkersgk.com/get-started.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/how-we-work.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/how-we-work.ja.html</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/case-studies.html</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/why-us.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/itad-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/privacy-policy.html</loc><lastmod>2026-05-28</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-
-  <!-- Main pages (Japanese) -->
-  <url><loc>https://www.thinkersgk.com/index.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.thinkersgk.com/about.ja.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/services.ja.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.thinkersgk.com/contact.ja.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-field-engineering.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-it-support.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-device-lifecycle.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-m365-saas.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cybersecurity.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-zero-trust.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-ai-integration.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cloud-migration.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-dx-consulting.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-staff-augmentation.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-
-  <!-- Service pages -->
-  <url><loc>https://www.thinkersgk.com/service-it-support.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-field-engineering.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-device-lifecycle.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-asset-lifecycle.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-itad.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cybersecurity.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cybersecurity-training.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cloud-consulting.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cloud-printing.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-managed-services.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-daas-vdi.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-networking.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-data-backup.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-hardware-maintenance.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-onsite-dispatch.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-service-desk.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-ai-solutions.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-av-solutions.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-access-control.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-voip.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-wireless-survey.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-office-relocation.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-project-management.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-ai-integration.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-m365-saas.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-dx-consulting.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-zero-trust.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-staff-augmentation.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/service-cloud-migration.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-
-  <!-- Blog -->
   <url><loc>https://www.thinkersgk.com/blog/</loc><lastmod>2026-05-28</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/japan-office-it-setup-checklist-foreign-companies.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/offboarding-device-retrieval-japan-checklist.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/asset-register-cleanup-japan-office.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/itad-chain-of-custody-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/microsoft-365-backup-recovery-japan-offices.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/bilingual-it-support-escalation-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/japans-new-proactive-cyber-defense-october-2026.html</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/network-as-a-service-japan-2026.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/disaster-recovery-plan-smb-japan-2026.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/edge-ai-japan-2026-business-guide.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/enterprise-ai-agent-orchestration-2026.html</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/choosing-managed-service-provider-japan-2026.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/japan-proactive-cyber-defense-october-2026.html</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/green-it-sustainable-data-centers-japan.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-backbone-intelligent-apps-2026.html</loc><lastmod>2026-03-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/cybersecurity-for-small-businesses.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/2026-06-09-zoho-mail-in-japan-operational-considerations-after-migratio.html</loc></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/agentic-ai-workplace-security-governance.html</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/understanding-managed-services.html</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/cybersecurity-best-practices.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/data-destruction-essentials.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-practical-applications-cloud-integration.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-maturity-curve-japanese-businesses.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-security-explained.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/evolving-cyber-threats-japanese-smbs.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-revolution-managed-it-services-japan.html</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/the-year-of-truth-for-ai-japanese-smbs.html</loc><lastmod>2026-02-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/ai-security-threats-2026-japan.html</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/asahi-cyberattack-case-study-japan.html</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-best-practices-for-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/japan-it-skills-shortage-2026.html</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-security-for-japanese-enterprises.html</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/ai-as-tradecraft-threat-operations-2026.html</loc><lastmod>2026-02-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/ai-attack-evolution-2026-japan.html</loc><lastmod>2026-02-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-automation-japan-where-operational-pilots-fail-first.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-backbone-intelligent-apps-2026.html</loc><lastmod>2026-03-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-maturity-curve-japanese-businesses.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-practical-applications-cloud-integration.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-revolution-managed-it-services-japan.html</loc><lastmod>2026-02-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/ai-security-threats-2026-japan.html</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/aiops-rise-it-operations-2026.html</loc><lastmod>2026-02-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/asahi-cyberattack-case-study-japan.html</loc><lastmod>2026-02-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/asset-register-cleanup-japan-office.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/bilingual-it-support-escalation-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/byovd-edr-killers-explained.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/choosing-managed-service-provider-japan-2026.html</loc><lastmod>2026-03-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/cybersecurity-best-practices.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/data-destruction-essentials.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/device-lifecycle-management-japan-offices.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/disaster-recovery-plan-smb-japan-2026.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/edge-ai-industrial-transformation-japan-2026.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/edge-ai-japan-2026-business-guide.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/enterprise-ai-agent-orchestration-2026.html</loc><lastmod>2026-03-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/evolving-cyber-threats-japanese-smbs.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/green-it-sustainable-data-centers-japan.html</loc><lastmod>2026-03-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/intune-device-compliance-japan-office-guide.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-2026.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/it-asset-lifecycle-management-best-practices-for-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/itad-chain-of-custody-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/itad-japan-foreign-companies-secure-disposal-guide.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/japan-ai-governance-2026-business-guide.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/japan-appi-data-protection-guide-2026.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/japan-it-skills-shortage-2026.html</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/japan-office-it-setup-checklist-foreign-companies.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/japan-proactive-cyber-defense-october-2026.html</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/japans-new-proactive-cyber-defense-october-2026.html</loc><lastmod>2026-03-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/managed-security-services-smb-guide-2026.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/microsoft-365-backup-recovery-japan-offices.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/microsoft-copilot-deployment-japan-2026.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/navigating-top-ai-automation-trends-in-japan-2026-insights-for-japanese-business.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/network-as-a-service-japan-2026.html</loc><lastmod>2026-03-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/offboarding-device-retrieval-japan-checklist.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/passwordless-authentication-explained.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/post-quantum-cryptography-japan-2026.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/ransomware-trends-2026-japan.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/the-year-of-truth-for-ai-japanese-smbs.html</loc><lastmod>2026-02-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/top-ai-automation-trends-for-japan-2026-what-manufacturing-and-distribution-oper.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/top-ai-automation-trends-in-japan-2026-insights-for-manufacturers-and-logistics.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/understanding-managed-services.html</loc><lastmod>2026-03-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/windows-11-refresh-checklist-japan-offices.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-japan-2026.html</loc><lastmod>2026-02-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-security-explained.html</loc><lastmod>2026-03-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/zero-trust-security-for-japanese-enterprises.html</loc><lastmod>2026-02-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/zoho-email-operations-for-japan-based-teams-what-to-control-after-migration.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/blog/posts/zoho-email-operations-key-considerations-for-japan-based-teams-after-migration.html</loc></url>
   <url><loc>https://www.thinkersgk.com/blog/the-power-of-bilingual-it-support.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/the-power-of-bilingual-it-support.ja.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/cybersecurity-for-small-businesses.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.thinkersgk.com/blog/understanding-cybersecurity-basics.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/itad-japan-foreign-companies-secure-disposal-guide.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/device-lifecycle-management-japan-offices.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/windows-11-refresh-checklist-japan-offices.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.thinkersgk.com/blog/posts/intune-device-compliance-japan-office-guide.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/case-studies.html</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.thinkersgk.com/contact.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/contact.ja.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/get-started.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/get-started.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/how-we-work.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/how-we-work.ja.html</loc><lastmod>2026-07-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/index.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.thinkersgk.com/itad-japan.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/privacy-policy.html</loc><lastmod>2026-05-28</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-access-control.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-access-control.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-ai-integration.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-ai-integration.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-ai-solutions.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-ai-solutions.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-asset-lifecycle.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-asset-lifecycle.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-av-solutions.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-av-solutions.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-consulting.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-consulting.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-migration.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-migration.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cloud-printing.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cybersecurity-training.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cybersecurity-training.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-cybersecurity.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-cybersecurity.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-daas-vdi.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-data-backup.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-data-backup.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-device-lifecycle.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-device-lifecycle.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-dx-consulting.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-dx-consulting.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-field-engineering.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-field-engineering.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-hardware-maintenance.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-hardware-maintenance.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-it-support.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-it-support.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-itad.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-m365-saas.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-m365-saas.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-managed-services.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-managed-services.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-networking.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-networking.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-office-relocation.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-office-relocation.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-onsite-dispatch.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-onsite-dispatch.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-project-management.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-project-management.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-service-desk.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-service-desk.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-staff-augmentation.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-staff-augmentation.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-voip.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-voip.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-wireless-survey.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-wireless-survey.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/service-zero-trust.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/service-zero-trust.ja.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.thinkersgk.com/services.html</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thinkersgk.com/services.ja.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.thinkersgk.com/terms-of-service.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/terms-of-service.ja.html</loc></url>
+  <url><loc>https://www.thinkersgk.com/why-us.html</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.thinkersgk.com/why-us.ja.html</loc></url>
 </urlset>

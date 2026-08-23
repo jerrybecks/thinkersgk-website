@@ -4,39 +4,120 @@ Disallow: /api/
 Disallow: /cdn-cgi/
 Disallow: /blog-template.html
 Disallow: /blog-jp/
+# Keep internal tools and non-public concept pages out of crawls.
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: OAI-AdsBot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: Claude-SearchBot
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
+Disallow: /cdn-cgi/
+Disallow: /blog-template.html
+Disallow: /blog-jp/
+Disallow: /agent-room/
+Disallow: /gerald/
+Disallow: /concept-
 
 Sitemap: https://www.thinkersgk.com/sitemap.xml
 Host: https://www.thinkersgk.com

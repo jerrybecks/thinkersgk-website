@@ -15,6 +15,7 @@ function normalizeImage(value) {
   if (!value) return "";
   return value
     .replace(/^https?:\/\/www\.thinkersgk\.com\//, "")
+    .split(/[?#]/, 1)[0]
     .replace(/^\.\.\/\.\.\//, "")
     .replace(/^\.\.\//, "")
     .replace(/^\.\//, "")
@@ -123,10 +124,19 @@ function main() {
     const indexHtml = fs.readFileSync(indexPath, "utf8");
     const cardImages = new Map();
 
-    for (const match of indexHtml.matchAll(
-      /<a[^>]+href=["'](?:\.\/)?posts\/([^"']+\.html)["'][\s\S]*?<img[^>]+src=["']([^"']+)/gi,
-    )) {
-      const [, postFileName, cardSrc] = match;
+    const cards = indexHtml.matchAll(
+      /<article\b[^>]*class=["'][^"']*\bblog-card\b[^"']*["'][\s\S]*?<\/article>/gi,
+    );
+    for (const cardMatch of cards) {
+      const cardHtml = cardMatch[0];
+      const postFileName = cardHtml.match(
+        /<a[^>]+href=["'](?:\.\/)?posts\/([^"']+\.html)["']/i,
+      )?.[1];
+      const cardSrc = cardHtml.match(/<img[^>]+src=["']([^"']+)/i)?.[1];
+      if (!postFileName || !cardSrc) {
+        failures.push("blog/index.html: blog-card is missing an article href or thumbnail image");
+        continue;
+      }
       const expectedHero = postHeroByFile.get(postFileName);
       const image = normalizeImage(cardSrc);
 
