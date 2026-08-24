@@ -111,6 +111,30 @@ def check_security_baseline(errors: list[str]) -> None:
             errors.append(f"{rel}: unsafe substring origin validation detected")
 
 
+def check_analytics_disclosure(errors: list[str]) -> None:
+    analytics = (ROOT / "js" / "analytics.js").read_text(encoding="utf-8", errors="ignore")
+    for marker in ("G-LSD1CGSKBS", "analytics_storage", "denied", "consent", "googletagmanager.com/gtag/js"):
+        if marker not in analytics:
+            errors.append(f"js/analytics.js: missing expected GA4 consent marker: {marker}")
+
+    umami_count = 0
+    for path in ROOT.rglob("*.html"):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        umami_count += len(re.findall(r'https://cloud\.umami\.is/script\.js', text, flags=re.IGNORECASE))
+    if umami_count == 0:
+        errors.append("HTML pages: existing Umami Cloud script reference is missing")
+
+    disclosures = {
+        "privacy-policy.html": ("Google Analytics 4", "GA4", "Umami Cloud", "denied by default", "Umami's data collection"),
+        "privacy-policy.ja.html": ("Google Analytics 4", "GA4", "Umami Cloud", "初期状態で拒否", "Umamiのデータ収集"),
+    }
+    for rel, markers in disclosures.items():
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        for marker in markers:
+            if marker not in text:
+                errors.append(f"{rel}: missing analytics disclosure marker: {marker}")
+
+
 def check_blog_breadcrumbs(errors: list[str]) -> None:
     breadcrumb_pattern = re.compile(
         r'<script\s+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
@@ -289,6 +313,7 @@ def main() -> int:
     check_shared_layout(errors)
     check_seo_metadata(errors)
     check_security_baseline(errors)
+    check_analytics_disclosure(errors)
     check_blog_breadcrumbs(errors)
     check_blog_image_dimensions(errors)
     check_contact_fallbacks(errors)
