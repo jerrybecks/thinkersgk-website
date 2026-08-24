@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import json
 import re
 import subprocess
 
@@ -110,6 +111,65 @@ def check_security_baseline(errors: list[str]) -> None:
             errors.append(f"{rel}: unsafe substring origin validation detected")
 
 
+def check_blog_breadcrumbs(errors: list[str]) -> None:
+    breadcrumb_pattern = re.compile(
+        r'<script\s+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    for path in sorted((ROOT / "blog" / "posts").glob("*.html")):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        found = None
+        for block in breadcrumb_pattern.findall(text):
+            try:
+                payload = json.loads(block)
+            except json.JSONDecodeError:
+                continue
+            candidates = payload if isinstance(payload, list) else [payload]
+            found = next(
+                (item for item in candidates if isinstance(item, dict) and item.get("@type") == "BreadcrumbList"),
+                None,
+            )
+            if found:
+                break
+        items = found.get("itemListElement") if found else None
+        names = [item.get("name") for item in items] if isinstance(items, list) else []
+        if len(names) != 3 or names[:2] != ["Home", "Insights"] or not names[2]:
+            errors.append(f"{path.relative_to(ROOT)}: missing valid Home → Insights → article BreadcrumbList")
+
+
+def check_html_head_and_landmarks(errors: list[str]) -> None:
+    malformed_description = re.compile(
+        r'<meta\s+name=["\']description["\'][^>]*?content=["\'][^"\']*["\']\s*<meta',
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    for path in sorted(ROOT.rglob("*.html")):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        rel = path.relative_to(ROOT)
+        if malformed_description.search(text):
+            errors.append(f"{rel}: malformed meta description tag")
+        if "main-content" in text.lower() and not re.search(
+            r'<main\b[^>]*\bid=["\']main-content["\']', text, flags=re.IGNORECASE
+        ):
+            errors.append(f"{rel}: #main-content skip target lacks a semantic main landmark")
+
+        canonical = extract_attr(
+            text,
+            r'<link\b(?=[^>]*\brel=["\']canonical["\'])[^>]*\bhref=["\']([^"\']+)',
+        )
+        robots = extract_attr(text, r'<meta\s+name=["\']robots["\']\s+content=["\']([^"\']+)')
+        if not canonical or (robots and "noindex" in robots.lower()):
+            continue
+        required_social = (
+            r'<meta\b[^>]*\bproperty=["\']og:image["\']',
+            r'<meta\b[^>]*\bname=["\']twitter:card["\']',
+            r'<meta\b[^>]*\bname=["\']twitter:site["\']',
+            r'<meta\b[^>]*\bname=["\']twitter:image["\']',
+        )
+        for pattern in required_social:
+            if not re.search(pattern, text, flags=re.IGNORECASE):
+                errors.append(f"{rel}: missing required social metadata ({pattern})")
+
+
 def check_core_page(path: Path, errors: list[str]) -> None:
     rel = path.relative_to(ROOT)
     text = path.read_text(encoding="utf-8", errors="ignore")
@@ -158,6 +218,8 @@ def main() -> int:
     check_shared_layout(errors)
     check_seo_metadata(errors)
     check_security_baseline(errors)
+    check_blog_breadcrumbs(errors)
+    check_html_head_and_landmarks(errors)
 
     for rel in CORE_PAGES:
         path = ROOT / rel
