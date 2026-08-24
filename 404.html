@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page Not Found | Thinkers GK</title>
 <meta name="robots" content="noindex">
+<script>
+  (function () {
+    var redirects = {
+      '/contact.html/': '/contact.html',
+      '/service-managed-services.html/': '/service-managed-services.html',
+      '/service-networking.html/': '/service-networking.html',
+      '/service-cloud-consulting.html/': '/service-cloud-consulting.html',
+      '/service-cybersecurity.html/': '/service-cybersecurity.html'
+    };
+    var target = redirects[window.location.pathname];
+    if (target) window.location.replace(target + window.location.search + window.location.hash);
+  }());
+</script>
 <link rel="stylesheet" href="/styles/main.css?v=82">
 <link rel="stylesheet" href="/styles/redesign.css?v=32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">

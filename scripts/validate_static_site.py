@@ -232,6 +232,62 @@ def check_contact_fallbacks(errors: list[str]) -> None:
                 errors.append(f"{rel}: missing fallback contact marker: {marker}")
 
 
+def check_search_console_cleanup(errors: list[str]) -> None:
+    homepage = (ROOT / "index.html").read_text(encoding="utf-8", errors="ignore")
+    important_pages = (
+        "service-managed-services.html",
+        "service-networking.html",
+        "service-cloud-consulting.html",
+        "service-cybersecurity.html",
+    )
+    for page in important_pages:
+        if f'href="{page}"' not in homepage:
+            errors.append(f"index.html: missing important commercial pathway: {page}")
+
+    services = (ROOT / "services.html").read_text(encoding="utf-8", errors="ignore")
+    focused_pages = (
+        "service-access-control.html",
+        "service-ai-integration.html",
+        "service-ai-solutions.html",
+        "service-cloud-printing.html",
+        "service-cybersecurity-training.html",
+        "service-daas-vdi.html",
+        "service-hardware-maintenance.html",
+        "service-service-desk.html",
+        "service-staff-augmentation.html",
+    )
+    for page in focused_pages:
+        if f'href="{page}"' not in services:
+            errors.append(f"services.html: missing focused commercial pathway: {page}")
+
+    fallback = (ROOT / "404.html").read_text(encoding="utf-8", errors="ignore")
+    trailing_slash_redirects = {
+        "/contact.html/": "/contact.html",
+        "/service-managed-services.html/": "/service-managed-services.html",
+        "/service-networking.html/": "/service-networking.html",
+        "/service-cloud-consulting.html/": "/service-cloud-consulting.html",
+        "/service-cybersecurity.html/": "/service-cybersecurity.html",
+    }
+    for source, target in trailing_slash_redirects.items():
+        if f"'{source}': '{target}'" not in fallback:
+            errors.append(f"404.html: missing static redirect mapping {source} -> {target}")
+
+    aliases = {
+        "blog/blog.ja.html": "https://www.thinkersgk.com/blog/",
+        "blog/managed-services.html": "https://www.thinkersgk.com/blog/posts/understanding-managed-services.html",
+        "blog/ai-threats-2026-japan.html": "https://www.thinkersgk.com/blog/posts/ai-security-threats-2026-japan.html",
+    }
+    for rel, target in aliases.items():
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        target_path = target.removeprefix(SITE_URL)
+        if 'name="robots" content="noindex, follow"' not in text:
+            errors.append(f"{rel}: legacy alias must remain noindex, follow")
+        if f'<link rel="canonical" href="{target}">' not in text:
+            errors.append(f"{rel}: canonical target mismatch ({target})")
+        if f'url={target_path}' not in text and f"replace('{target_path}')" not in text:
+            errors.append(f"{rel}: redirect target missing ({target})")
+
+
 def check_html_head_and_landmarks(errors: list[str]) -> None:
     malformed_description = re.compile(
         r'<meta\s+name=["\']description["\'][^>]*?content=["\'][^"\']*["\']\s*<meta',
@@ -317,6 +373,7 @@ def main() -> int:
     check_blog_breadcrumbs(errors)
     check_blog_image_dimensions(errors)
     check_contact_fallbacks(errors)
+    check_search_console_cleanup(errors)
     check_html_head_and_landmarks(errors)
 
     for rel in CORE_PAGES:
