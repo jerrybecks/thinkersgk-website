@@ -236,7 +236,7 @@
       invalidEmail:'有効なビジネスメールアドレスを入力してください。',
       sending:'送信中...',
       success:'お問い合わせを受け付けました。日本の営業時間内（月〜金 9:00〜17:00）に内容を確認いたします。回答時期は、ご相談内容、場所、緊急度、対応可能状況により異なります。',
-      fallbackError:'オンライン送信に失敗しました。直接 info@thinkersgk.com にメールをお送りください。',
+      fallbackError:'オンライン送信に失敗しました。もう一度お試しください。それでも送信できない場合は、info@thinkersgk.com または +81 90-6366-7901 までご連絡ください。',
       submit:'メッセージを送信'
     };
     function isValidEmail(v){var p=v&&v.split('@');if(!p||p.length!==2)return false;var d=p[1].toLowerCase();return p[0].length>0&&d.indexOf('.')>0&&!BLOCKED.some(function(b){return d===b||d.endsWith('.'+b);});}

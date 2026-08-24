@@ -137,6 +137,77 @@ def check_blog_breadcrumbs(errors: list[str]) -> None:
             errors.append(f"{path.relative_to(ROOT)}: missing valid Home → Insights → article BreadcrumbList")
 
 
+def _tag_attr(tag: str, name: str) -> str | None:
+    return extract_attr(tag, rf'\b{name}=["\']([^"\']*)')
+
+
+def _check_image_tag(tag: str, rel: str, eager: bool, errors: list[str]) -> None:
+    width = _tag_attr(tag, "width")
+    height = _tag_attr(tag, "height")
+    loading = (_tag_attr(tag, "loading") or "").lower()
+    priority = (_tag_attr(tag, "fetchpriority") or "").lower()
+    if not width or not width.isdigit() or int(width) <= 0 or not height or not height.isdigit() or int(height) <= 0:
+        errors.append(f"{rel}: blog image must reserve positive width and height")
+    if eager:
+        if loading != "eager" or priority != "high":
+            errors.append(f"{rel}: first visible blog image must be eager with fetchpriority=high")
+    elif loading != "lazy":
+        errors.append(f"{rel}: below-fold blog image must use loading=lazy")
+
+
+def _content_image_tags(text: str) -> list[str]:
+    tags = []
+    for tag in re.findall(r'<img\b[^>]*>', text, flags=re.IGNORECASE):
+        src = _tag_attr(tag, "src") or ""
+        clean = src.split("?", 1)[0].lower()
+        if not clean or clean.endswith(".svg") or any(marker in clean for marker in ("logo", "favicon", "testimonial")):
+            continue
+        tags.append(tag)
+    return tags
+
+
+def check_blog_image_dimensions(errors: list[str]) -> None:
+    for path in sorted((ROOT / "blog" / "posts").glob("*.html")):
+        tags = _content_image_tags(path.read_text(encoding="utf-8", errors="ignore"))
+        if not tags:
+            errors.append(f"{path.relative_to(ROOT)}: missing content image for performance validation")
+            continue
+        for index, tag in enumerate(tags):
+            _check_image_tag(tag, str(path.relative_to(ROOT)), index == 0, errors)
+
+    listing = ROOT / "blog" / "index.html"
+    listing_text = listing.read_text(encoding="utf-8", errors="ignore")
+    cards = re.findall(r'<article\b[^>]*\bblog-card\b[\s\S]*?</article>', listing_text, flags=re.IGNORECASE)
+    if not cards:
+        errors.append("blog/index.html: no blog cards found for image performance validation")
+    for index, card in enumerate(cards):
+        tags = _content_image_tags(card)
+        if len(tags) != 1:
+            errors.append(f"blog/index.html: card {index + 1} must contain exactly one content image")
+        elif tags:
+            _check_image_tag(tags[0], "blog/index.html", index == 0, errors)
+
+    homepage = ROOT / "index.html"
+    homepage_text = homepage.read_text(encoding="utf-8", errors="ignore")
+    insight_grid = re.search(r'<div\b[^>]*\bhome-insights__grid\b[\s\S]*?</section>', homepage_text, flags=re.IGNORECASE)
+    insight_tags = _content_image_tags(insight_grid.group(0) if insight_grid else "")
+    if len(insight_tags) != 4:
+        errors.append(f"index.html: expected 4 homepage insight images, found {len(insight_tags)}")
+    for index, tag in enumerate(insight_tags):
+        _check_image_tag(tag, "index.html", index == 0, errors)
+
+
+def check_contact_fallbacks(errors: list[str]) -> None:
+    required = ("info@thinkersgk.com", "+81 90-6366-7901")
+    for rel in ("contact.html", "contact.ja.html", "get-started.html", "get-started.ja.html"):
+        text = (ROOT / rel).read_text(encoding="utf-8", errors="ignore")
+        if "もう一度お試しください" not in text and "Please try again" not in text:
+            errors.append(f"{rel}: missing explicit retry guidance in failure fallback")
+        for marker in required:
+            if marker not in text:
+                errors.append(f"{rel}: missing fallback contact marker: {marker}")
+
+
 def check_html_head_and_landmarks(errors: list[str]) -> None:
     malformed_description = re.compile(
         r'<meta\s+name=["\']description["\'][^>]*?content=["\'][^"\']*["\']\s*<meta',
@@ -219,6 +290,8 @@ def main() -> int:
     check_seo_metadata(errors)
     check_security_baseline(errors)
     check_blog_breadcrumbs(errors)
+    check_blog_image_dimensions(errors)
+    check_contact_fallbacks(errors)
     check_html_head_and_landmarks(errors)
 
     for rel in CORE_PAGES:
