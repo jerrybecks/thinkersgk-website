@@ -35,7 +35,19 @@
 - Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
-## 2026-08-17 — Mobile layout QA follow-up
+## 2026-08-31 — Local-only architecture tightening pass
+- Website: tightened `services.html` around coordinated regional delivery language instead of broader nationwide-orchestrator phrasing, and renamed the offer-detail anchors so the three entry cards land on clearer section IDs.
+- Website: updated the homepage service-path chips to emphasize stronger current buyer routes (`ITAD Japan`, `Office Relocation`, `Managed Services`, and scoped discussion) instead of broader lower-priority pathways.
+- Website: aligned `contact.html` and `contact.ja.html` enquiry categories with the current approved service lanes: bilingual IT support / operations, device lifecycle, ITAD, Microsoft 365 / Intune cleanup, office move / opening support, and planning / assessment.
+- Website: removed the duplicate closing CTA block from `how-we-work.html` so the page ends with one clearer next-step section.
+- Website: reframed the `services.html` lower section as supporting pages for narrower situations, reduced the list to a smaller set of secondary pathways, and softened nationwide field-execution wording to regional coordination language.
+- Website: mirrored the services-page regional-coordination and offer-anchor updates into `services.ja.html` so the Japanese core page stays aligned with the revised architecture.
+- Website: softened `itad-japan.html` metadata and buyer-facing copy away from over-strong compliance and founder-proof claims, while preserving the Japan ITAD positioning and bilingual closeout focus.
+- Website: corrected `why-us.html` and `why-us.ja.html` trust-section visible copy so it matches the safer structured-reporting message instead of promising a secure portal view.
+- Website: tightened `service-data-backup.ja.html` away from over-strong recoverability/testing promises and kept the backup page framed around scoped recovery readiness rather than guaranteed outcomes.
+- Website: softened homepage and field-engineering EN/JP coverage language away from broad nationwide claims and aligned the remaining core-page wording around Tokyo coordination plus regional execution where needed.
+- Local-only preparation; no publication or deployment performed.
+
 
 - Constrained the homepage decorative circuit layer on narrow viewports so its SVG artwork cannot expand the document beyond the phone viewport.
 - Aligned the mobile back-to-top control with the shared floating-control spacing instead of placing it in the same bottom zone as the LINE/chat controls.
