@@ -236,9 +236,9 @@ def check_search_console_cleanup(errors: list[str]) -> None:
     homepage = (ROOT / "index.html").read_text(encoding="utf-8", errors="ignore")
     important_pages = (
         "service-managed-services.html",
-        "service-networking.html",
-        "service-cloud-consulting.html",
-        "service-cybersecurity.html",
+        "itad-japan.html",
+        "service-office-relocation.html",
+        "contact.html",
     )
     for page in important_pages:
         if f'href="{page}"' not in homepage:
@@ -246,15 +246,10 @@ def check_search_console_cleanup(errors: list[str]) -> None:
 
     services = (ROOT / "services.html").read_text(encoding="utf-8", errors="ignore")
     focused_pages = (
-        "service-access-control.html",
+        "service-project-management.html",
+        "service-data-backup.html",
+        "service-zero-trust.html",
         "service-ai-integration.html",
-        "service-ai-solutions.html",
-        "service-cloud-printing.html",
-        "service-cybersecurity-training.html",
-        "service-daas-vdi.html",
-        "service-hardware-maintenance.html",
-        "service-service-desk.html",
-        "service-staff-augmentation.html",
     )
     for page in focused_pages:
         if f'href="{page}"' not in services:
