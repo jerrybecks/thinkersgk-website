@@ -35,7 +35,6 @@
 - Updated blog index and homepage structured-data service labels to support SEO/AEO positioning.
 # Changelog
 
-<<<<<<< HEAD
 ## 2026-09-01 — Local-only SEO secondary-page refinement
 - Website: expanded `service-asset-lifecycle.ja.html` with practical fit guidance, expected inputs/outputs, and stronger internal links into the Japanese service path.
 - Website: expanded `service-managed-services.ja.html` with practical preparation guidance, expected outputs, and stronger links to related Japanese support and delivery pages.
@@ -43,8 +42,6 @@
 - Website: expanded `service-hardware-maintenance.html` with buyer-fit guidance, practical scoping inputs/outputs, and stronger links into field, support, onsite, and project-management pathways.
 - Local-only preparation; no publication or deployment performed.
 
-=======
->>>>>>> origin/main
 ## 2026-08-31 — Local-only architecture tightening pass
 - Website: tightened `services.html` around coordinated regional delivery language instead of broader nationwide-orchestrator phrasing, and renamed the offer-detail anchors so the three entry cards land on clearer section IDs.
 - Website: updated the homepage service-path chips to emphasize stronger current buyer routes (`ITAD Japan`, `Office Relocation`, `Managed Services`, and scoped discussion) instead of broader lower-priority pathways.
