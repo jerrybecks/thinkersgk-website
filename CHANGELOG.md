@@ -1,3 +1,11 @@
+## 2026-11-09 - Homepage clarity and bilingual article repairs
+- Shortened the bilingual homepage introduction and enquiry button copy; added responsive sizing, enabled the Japanese homepage's page styles, and corrected the LinkedIn structured-data URL.
+- Repaired APPI article translations and link markup, narrowed overbroad legal claims, removed unsupported compliance promises, and added official PPC references and a general-information disclaimer. Updated its modification date while preserving the existing publication dates.
+- Repaired bilingual HTML in six additional articles while preserving their wording, including the NaaS attribute boundary and AIOps heading language key.
+- Added related links from Field Engineering to Hardware Maintenance and from Japanese Office Relocation to Japanese Access Control.
+- Verified both homepages at phone, tablet and desktop sizes, theme/language/navigation and contact routes, APPI on phone and desktop, all seven article language toggles and both new service cards. No contact forms submitted.
+- Passed source, link, translation-function and full static-site checks.
+
 ## 2026-07-15 - Shared footer phone placement
 - Moved the public phone number into the canonical Contact footer beside the email, LinkedIn, and LINE links across English and Japanese pages.
 - Kept the number clickable and localized as `+81 90-6366-7901` in English and `090-6366-7901` in Japanese.
