@@ -1,0 +1,46 @@
+/* Homepage-only clarity pass. Preserve the existing visual design and service detail. */
+.home-page .home-cinematic-hero__content {
+  align-items: start;
+  padding-top: 6.5rem;
+  padding-bottom: 3.5rem;
+}
+.home-page .home-cinematic-hero__headline-stack {
+  display: block;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.home-page .home-cinematic-hero__copy h1 {
+  max-width: 20ch;
+  margin-bottom: 1.2rem;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+.home-page .home-cinematic-hero__copy .hero-sub {
+  max-width: 58ch;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.home-page .home-cinematic-hero .hero-badge {
+  margin-bottom: 1rem;
+  white-space: normal;
+}
+.home-page .home-cinematic-hero .hero-actions {
+  gap: .75rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 1100px) {
+  .home-page .home-cinematic-hero--globe-backdrop .home-cinematic-hero__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-page .home-cinematic-hero__copy h1 { max-width: 24ch; }
+}
+@media (max-width: 640px) {
+  .home-page .home-cinematic-hero__content { padding-top: 6rem; padding-bottom: 2.5rem; }
+  .home-page .home-cinematic-hero__copy h1 { max-width: 22ch; font-size: clamp(1.9rem, 8vw, 2.65rem); }
+  .home-page .home-cinematic-hero__copy .hero-sub { line-height: 1.6; }
+  .home-page .home-cinematic-hero .hero-actions { width: 100%; }
+  .home-page .home-cinematic-hero .hero-actions .btn { width: 100%; min-height: 48px; }
+}
